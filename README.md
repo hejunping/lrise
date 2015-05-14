@@ -1,2 +1,2 @@
 # lrise
-a simple websit
+a simple website
