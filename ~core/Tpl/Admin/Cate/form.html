@@ -1,0 +1,103 @@
+<include file="Public:head" />
+
+<div class="so_main">
+	<div class="page_tit"><gt name="item.id" value="0">编辑<else/>添加</gt><present name="root">{$root.name|default='结点'} / {$parent.name|default='结点'}<else/>{$parent.name|default='结点'}</present></div>
+	<div class="form2">
+	<form method="post" action="{:U('admin/cate/form')}">
+	  	<dl class="lineD">
+			<dt>所属结点：</dt>
+			<dd class="cRed bold f14">
+                <?php 
+                    if(isset($parent)) : 
+                    if(isset($root)): 
+                ?>
+                {$parent.name}  &nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('admin/cate/sublist?iid='.$parent['id'])}" class="cBlue f14">返回列表</a>
+                <?php else : ?>
+                {$parent.name}  &nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('admin/cate/'.$parent['ename'])}" class="cBlue f14">返回列表</a>
+                <?php endif; ?>
+                <?php else : ?>
+                根结点 &nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('admin/cate/index')}" class="cBlue f14">返回列表</a>
+                <?php endif; ?>
+			</dd>
+	    </dl>
+		{:dp_input('name',$item['name'],'结点名称','结点名称不能为空')}
+        
+        <?php if(!isset($editcol) || in_array('ename',$editcol)) : ?>
+		{:dp_input('ename',$item['ename'],'关键字')}
+        <?php endif; ?>
+        
+		{:dp_input('sort',$item['sort'],'次序')}
+        
+        <?php if(!isset($editcol) || in_array('bak1',$editcol)) : ?>
+		<switch name="bak1[1]">
+		<case value="select">
+		{:dp_select('bak1',$item['bak1'],cate_opt('nav_top'),$bak1[0],'','')}
+		 
+		</case>
+		<case value="select1">
+		{:dp_select('bak1',$item['bak1'],cate_opt('prod'),$bak1[0],'','')}
+		 
+		</case>
+		<case value="text">
+		{:dp_textarea('bak1',$item['bak1'],$bak1[0],'','','text w300 h100')}
+		</case>
+		<default/>
+		{:dp_input('bak1',$item['bak1'],$bak1[0],$bak1[2])}
+		</switch>
+        <?php endif; ?>
+        
+        
+        <?php if(!isset($editcol) || in_array('bak2',$editcol)) : ?>
+		<switch name="bak2[1]">
+		<case value="bool">
+		{:dp_radio('bak2',$item['bak2'],$bak2[0])}
+		</case>
+        <case value="radio">
+        {:dp_radio('bak2',$item['bak2'],$bak2[0],'',$bak2[2])}
+        </case>
+		<default/>
+		{:dp_input('bak2',$item['bak2'],$bak2[0],'请输入一个数值')}
+		</switch>
+        <?php endif; ?>+
+        
+        <?php if(!isset($editcol) || in_array('bak3',$editcol)) : ?>
+		<switch name="bak3[1]">
+		<case value="bool">
+		{:dp_radio('bak3',$item['bak3'],$bak3[0])}
+		</case>
+        <case value="radio">
+        {:dp_radio('bak3',$item['bak3'],$bak3[0],'',$bak3[2])}
+        </case>
+		<default/>
+		{:dp_input('bak3',$item['bak3'],$bak3[0])}
+		</switch>
+        <?php endif; ?>
+        
+    	<div class="page_btm">
+      		<input type="submit" class="btn_b" value="提交" />
+      		<gt name='item.id' value='0'><input name="id" type="hidden" value="{$item.id}"></gt>
+            <input name="pid" type="hidden" value="{$item.pid}">
+    	</div>
+	</form>
+</div>
+<script type="text/javascript">
+	$(function(){
+		form_chg();
+		ajax_submit();
+	});
+	//var transField = $('input[name="name"]');
+</script>
+<!-- 后台附加翻译字典接口单页面初始化 start-->
+<script>
+	$(document).ready(function(){
+		$('#trans_api').css({	//初始化html翻译接口显示和定位
+			'display':'block',
+			'left':400,
+			'top':82,
+		});
+		$('#trans_api .title').html('<span>结点名称：</span>');//初始化翻译字段标题
+	})
+	var transField = $('input[name="name"]');//翻译字段初始化
+</script>
+<!-- 后台附加翻译字典接口单页面初始化 end-->
+<include file="Public:foot" />

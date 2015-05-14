@@ -1,0 +1,148 @@
+<include file='tpl/head_ru.html' />
+     <link href="./web/css/Visitor6.css" rel="stylesheet" type="text/css">
+     <script src="./web/js/json.js"  type="text/javascript"></script>
+     <script src="./web/js/utils.js" type="text/javascript"></script> 
+ <div style="width:980px;margin:0 auto;">
+ <script language="JavaScript">
+     function changeVerify(){
+         var timenow = new Date().getTime();
+             document.getElementById('verifyImg').src="{:U('home/message/verify?time=')}"+timenow;  
+              }
+ </script> 
+<div id="divBranding" style="overflow:hidden;"><img id="ctl00_imgBranding" src="./web/images/home/DBImage.ashx" style="border-width:0px;"></div>
+<div> 
+    <volist  name="mess"  id="vo">
+    <table  height="100px"width="100%" border="0" cellspacing="0" cellpadding="0" style="text-align:left">
+      <tr ><td height="20px"><strong>Message people:</strong>&nbsp;&nbsp;{$vo.account}&nbsp;&nbsp;&nbsp;&nbsp;<strong>Reply title:</strong>&nbsp;&nbsp;{$vo.rtitle}&nbsp;&nbsp;&nbsp;&nbsp;<strong>Response time:</strong>&nbsp;&nbsp;<?php echo date('Y-m-d H:i:s',$vo['utime']);?></td></tr>
+      <tr><td height="40px">{$vo.content}</td></tr> 
+      <tr><td height="40px">{$vo.reply_content}</td></tr> 
+    </table>
+    </volist>
+ </div>
+ <div style="text-align:center;margin:0 auto;">{$page}</div>
+ 
+ 
+<form name="aspnetForm" method="post" action="{:U('home/message/insert')}" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">  
+<script type="text/javascript">
+     var theForm = document.forms['aspnetForm'];
+         if (!theForm) {
+            theForm = document.aspnetForm;
+         }
+function __doPostBack(eventTarget, eventArgument){
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+</script>
+<script src="./web/js/WebResource.axd" type="text/javascript"></script>
+<script src="./web/js/WebResource(1).axd" type="text/javascript"></script>
+   <script type="text/javascript">
+        function WebForm_OnSubmit() {
+             if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+        return true;
+     }   
+</script>    
+  <table width="100%"  cellspacing="0" cellpadding="0">
+	 <tr style="margin-bottom:3px;">
+		<td class="FieldName system_font" style="text-align:right">User name:</td>
+		<td class="FieldValue FieldRequired">
+		<input name="account" type="text" maxlength="64" id="ctl00_ContentPlaceHolder1_field7170" class="FieldControl FieldRequired"></td>
+		<td class="FieldStar"><span>*</span></td>
+		<td class="FieldValidator"><span id="ctl03" style="color:Red;display:none;">Required</span></td>
+	</tr>	
+	<tr style="margin-bottom:3px;">
+		<td class="FieldName system_font" style="text-align:right">Phone:</td>
+		<td class="FieldValue">
+		<input name="phone" type="text" maxlength="32" class="FieldControl"></td>
+	</tr>	
+	<tr style="margin-bottom:3px;">
+		<td class="FieldName system_font" style="text-align:right">Email:</td>
+		<td class="FieldValue FieldRequired">
+		<input name="email" type="text" maxlength="64" id="ctl00_ContentPlaceHolder1_field7173" class="FieldControl FieldRequired"></td>
+		<td class="FieldStar"><span>*</span></td>
+		<td class="FieldValidator"><span id="ctl07" style="color:Red;display:none;">Required</span>
+		<span id="ctl08" style="color:Red;display:none;">Email is invalid.</span></td>
+	</tr>	
+	<tr style="margin-bottom:3px;">
+		<td class="FieldName system_font" style="text-align:right">Item ID/Order number:</td>
+		<td class="FieldValue">
+		<input name="number" type="text" maxlength="128"   class="FieldControl"></td><td></td><td></td>
+	</tr>	
+	<tr style="margin-bottom:10px;">
+		<td class="FieldName system_font" style="text-align:right">Department:</td>
+		<td class="FieldValue FieldRequired"><select name="Department" id="ctl00_ContentPlaceHolder1_field7175"  class="FieldControl">
+			<option selected="selected" value="-1">--Select a department--</option>
+			<option value="0" style="color:green">after-sales (online)</option>
+			<option value="1" style="color:green">orders (online)</option>
+			<option value="2" style="color:green">parcel (online)</option>
+			<option value="3" style="color:green">query (online)</option>
+        </select></td>
+        <td class="FieldStar"><span>*</span></td>
+        <td class="FieldValidator"><span id="ctl12" style="color:Red;display:none;">Required</span></td>
+	</tr>
+	
+	<tr style="margin-bottom:3px;">
+	    <td class="FieldName system_font" style="text-align:right">Title:</td>
+	    <td class="FieldValue"><input name="title" type="text" class="FieldControl"></td>
+	</tr>
+	
+	 <tr style="margin-bottom:3px;">
+        <td class="FieldName system_font" style="text-align:right" width="25%" >Content:</td>
+        <td class="FieldValue"><textarea name="content" class="FieldControl" rows="5" cols="30"></textarea></td>
+     </tr>      
+      <tr style="margin-bottom:3px;">
+         <td class="FieldName system_font" style="text-align:right">code:</td>
+              <td class="FieldValue"><input type="text" id="captcha" name="verify" value="" maxlength="4"  autocomplete="0ff" class="FieldControl"></td>
+              <td class="FieldStar"><img id="verifyImg" src="{:U('home/message/verify')}"  onClick="changeVerify()" title="点击刷新验证码" alt="CAPTCHA"  width="96" height="25" class="captchaimage" /></td>     
+ </table>
+ <div class="form_foot top_border">
+            <input type="submit" name="ctl00$ContentPlaceHolder1$btnSubmit" value="submit" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnSubmit&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_ContentPlaceHolder1_btnSubmit">
+        <input class="Fieldvalue" type="reset" name="button2" value="reset" ></div></div>
+ <script type="text/javascript">
+var Page_Validators =  new Array(document.getElementById("ctl03"), document.getElementById("ctl07"), document.getElementById("ctl08"), document.getElementById("ctl12"));
+</script>
+<script type="text/javascript">
+var ctl03 = document.all ? document.all["ctl03"] : document.getElementById("ctl03");
+ctl03.controltovalidate = "ctl00_ContentPlaceHolder1_field7170";
+ctl03.display = "Dynamic";
+ctl03.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl03.initialvalue = "";
+var ctl07 = document.all ? document.all["ctl07"] : document.getElementById("ctl07");
+ctl07.controltovalidate = "ctl00_ContentPlaceHolder1_field7173";
+ctl07.display = "Dynamic";
+ctl07.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl07.initialvalue = "";
+var ctl08 = document.all ? document.all["ctl08"] : document.getElementById("ctl08");
+ctl08.controltovalidate = "ctl00_ContentPlaceHolder1_field7173";
+ctl08.display = "Dynamic";
+ctl08.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl08.validationexpression = "\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*\\s*";
+var ctl12 = document.all ? document.all["ctl12"] : document.getElementById("ctl12");
+ctl12.controltovalidate = "ctl00_ContentPlaceHolder1_field7175";
+ctl12.display = "Dynamic";
+ctl12.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl12.initialvalue = "-1";
+</script>
+<script type="text/javascript">
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+</script>
+</form>  
+ <include file="./tpl/foot.html"/>
+ 
+   
+ 
+ 
+ 

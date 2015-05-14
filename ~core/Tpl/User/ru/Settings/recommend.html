@@ -1,0 +1,63 @@
+<include file='tpl/head_ru.html' />
+<script type="text/javascript" src="web/js/mod/user/recommend/myshare_ru.js"></script>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">Главная</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">Моё Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>MyShare</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />
+<div class="sidebox yoymbox">
+    <div class="a_rside sbr">
+        <div class="rtit">
+            Рекомендовать друзьей</div>
+        <div class="bdbox">
+            <form action="{:U('user/settings/sends')}" method="post" id="shareform" name="shareform">
+            <div class="recommend_piont">
+                 получить {$syspoint} lrise единой, когда вы пригласить кого-то к  lrise.com. единой получает нет ограничений, вы больше получить  приглашение,единой и больше. 
+            </div>
+            <div class="recommend_a">
+                Наиболее удобный способ Рекомендовать lrise.com на MSN или Skype</div>
+            <div class="recommend_b">
+                <ul>
+                    <li>
+                        <input name="" type="text" class="new_o_input" value="http://www.lrise.com/user.html" readonly="true" />
+                        <a href="javascript:copyValue('http://www.lrise.com/user.html');">
+                            <img src="web/images/user/copy_03.gif" width="73" height="27" border="0"
+                                alt="" /></a></li></ul>
+            </div>
+            <div class="recommend_a">
+                Наиболее эффективный способ: Рекомендовать lrise.com по электронной почте/div>
+            <div class="recommend_c">
+                <ul>
+                    <li><span>Моя электронная почта:</span><input name="email" id="email" type="text" class="r_c_input"
+                        value="{$list.email}"><a class="red" id="EmailValidator"></a></li>
+                    <li><span>Мое имя:</span><input name="name" id="name" type="text" class="r_c_input"
+                            value='{$list.account}' /><a class="red"
+                                id="nameValidator"></a></li>
+                    <li><span>Адрес электронной почты получателя:</span><input name="toEmail" id="toEmail" type="text" keydown="CheckEmail()" class="r_c_input" /><a
+                        class="red" id="toEmailValidator">*</a></li>
+                    <li><span>Сообщение:</span><textarea name="mess" checked="checked" cols="" rows="" dir="ltr"
+                        lang="en" class="r_c_input_b">
+                        
+                         </textarea></li>
+                </ul>
+            </div>
+            <div class="recommend_s">
+                <input type="image" src="web/images/user/send_a_03_ru.gif" value="submitOK"
+                    id="submitOK" name="submitOK" onclick="return shareformsubmit();" />
+            </div>
+            <div class="recommend_faq">
+                <b>рекоменд:</b> <a target="_blank" href="{:U('/home/info/index/id/78')}">
+                    Рекомендовать моих друзей?</a> <a target="_blank" href="{:U('/home/info/index/id/78')}">
+                    Как  получить {$syspoint} lrise баллы?</a> <a target="_blank" href="{:U('/home/info/index/id/78')}">
+                    Как использовать lrise отметки выкуп, использовать E-купон  в мой заказ？</a>
+            </div>
+            <div id="visualsearch_transparency" style="display: none">
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+   <include file="tpl/foot.html"/>

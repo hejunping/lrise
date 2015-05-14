@@ -1,0 +1,124 @@
+<include file="Public:head" />
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+	
+	/**
+	 * 禁用/激活用户
+	 */
+	$('.status').click(function(){
+		var i = $(this);
+		var uid = i.attr('rel');
+		$.ajax({
+			type: "post",
+			dataType: "json",
+			url: "{:U('AdminGroup/status')}",
+			data: {'uid':uid},
+			success: function(opt){
+				i.text(opt.info);
+				if(opt.status) i.css({'color':'green'});
+				else i.css({'color':'red'});
+			}
+		});
+	});
+	
+	/**
+	 * 删除一个用户
+	 */
+	$('.delete').click(function(){
+		if(confirm("确定删除所选管理员吗？")==true)
+	    {
+			var id = $(this).attr('rel');
+			
+			$.ajax({
+				type: "post",
+				dataType: "json",
+				url: "{:U('AdminGroup/del')}",
+				data: {'id':id},
+				success: function(opt){
+					window.location.reload();
+				}
+			});
+	    }
+	});
+	
+	/**
+	 * 删除选择用户
+	 */
+	$('.delete-handler').click(function(){
+		if(confirm("确定删除所选管理员吗？")==true)
+	    {
+			var id = getChecked();
+			$.ajax({
+				type: "post",
+				dataType: "json",
+				url: "{:U('AdminGroup/del')}",
+				data: {'id':id},
+				success: function(opt){
+					window.location.reload();
+				}
+			});
+	    }
+	});
+	
+	/**
+	 * 全选和反选
+	 */
+	$('.checkAll').click(function()
+	{
+		$(":checkbox").attr("checked",$(".checkAll").attr("checked"));
+	});
+});
+
+/**
+ * 获取复选框的值
+ */
+function getChecked()
+{
+	var arr = [];
+	$(":checkbox").not(".checkAll").each(function()
+	{                    
+		if($(this).attr("checked")==true) arr.push($(this).val());
+	});
+	if(arr == "")return false;
+	return arr.toString();
+}
+/**
+ * 提示信息
+ */
+function showMessage(result)
+{
+	$('body').append(result);
+}
+
+//]]>
+</script>
+<div class="so_main">
+	<div class="page_tit">权限组管理 @ 列表</div>
+	<div class="list">
+		<form name="form1" method="post" action="{:U('user/delall')}">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+				<tr>
+				    <th class="line_l">管理组名称</th>
+				    <th class="line_l">备注说明</th>
+				    <th class="line_l">操作</th>
+				</tr>
+			<volist name="list" id="vo" >
+				<tr class="change">
+					 <td>{$vo['groupname']}</td>
+					 <td>{$vo['intro']}</td>
+					 <td>
+				 	<a href="{:U('AdminGroup/edit',array('id'=>$vo['groupid']))}">编辑权限</a>
+					 </td>
+				</tr>
+			</volist>
+				<tr>
+					<td colspan="13" >
+						<p class="f"></p>
+					</td>
+				</tr>
+			</table>     
+		</form>      
+	</div>
+</div>
+<include file="Public:foot" /> 

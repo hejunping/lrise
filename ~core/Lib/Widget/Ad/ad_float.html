@@ -1,0 +1,39 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	var heights=$('#adl').attr('heights');
+	var widths=$('#adl').attr('widths');
+	if(heights<10){heights=10;}
+	if(widths<5){heights=5;}
+	heights=parseInt(heights);
+	widths=parseInt(widths);
+	$("#adl").jFloat({
+	position:"left",
+	top:170,
+	height:heights,
+	width:widths,
+	left:20
+	});
+	//将页面中id为adl的容器中的内容设置为左浮动广告，广告距窗口顶部0px,距左侧20px。
+	
+	$("#adr").jFloat({
+	position:"right",
+	top:170,
+	height:heights,
+	width:widths,
+	right:20
+	});
+	//将页面中id为adr的容器中的内容设置为右浮动广告，广告距窗口顶部0px，距右侧20px。
+});
+</script>
+<notempty name="ad">
+<div id="adl"  widths='{$wh.0}' heights='{$wh.1}' >
+  <a href="{$ad.0.url}" target="_blank"><img src="{$ad.0.path}" height="{$wh.1}" width="{$wh.0}"></a>
+</div>
+<div id="adr" >
+<notempty name="ad.1">
+  <a href="{$ad.1.url}" target="_blank"><img src="{$ad.1.path}" height="{$wh.1}" width="{$wh.0}"></a>
+<else/>
+  <a href="{$ad.0.url}" target="_blank"><img src="{$ad.0.path}" height="{$wh.1}" width="{$wh.0}"></a>
+</notempty>
+</div>
+</notempty>

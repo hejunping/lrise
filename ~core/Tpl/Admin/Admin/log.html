@@ -1,0 +1,127 @@
+<include file="Public:head" />
+<div class="so_main">
+  <div class="page_tit">管理员日志 @ 列表</div>
+  <div class="Toolbar_inbox">
+  	<div class="page right">{$html}</div>
+	<a href="javascript:void(0);" class="btn_a delete-handler" ><span>删除日志</span></a>
+	<a href="{:U('Admin/showLog')}" class="btn_a" ><span>查看全部</span></a>
+	&nbsp;&nbsp;{$page}
+  </div>
+  <div class="list">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th style="width:30px;"><input type="checkbox" id="checkAll" name="checkAll"></th>
+    <th class="line_l">ID</th>
+    <th class="line_l">用户名</th>
+    <th class="line_l">操作</th>
+    <th class="line_l">时间</th>
+    <th class="line_l">IP</th>
+    <th class="line_l">操作</th>
+  </tr>
+  <volist name="logs" id="vo" >
+	  <tr>
+	    <td><input type="checkbox" name="checkbox[]" value="{$vo.id}"></td>
+	    <td>{$vo.id}</td>
+	    <td>{$vo.name}</td>
+		<td>{$vo.content}</td>
+	    <td>{$vo.inst|date="Y-m-d H:i",###}</td>
+	    <td>{$vo.ip}</td>
+	    <td><a href="javascript:void(0);" class="delete" rel="{$vo.id}" >删除</a></td>
+	  </tr>
+  </volist>
+  </table>
+  </div>
+
+  <div class="Toolbar_inbox">
+	<div class="page right">{$html}</div>
+	&nbsp;&nbsp;{$page}
+  </div>
+</div>
+
+   <include file="Public:tips" />
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function()
+{
+	
+	/**
+	 * 删除一个用户
+	 */
+	$('.delete').click(function()
+	{
+		if(confirm("确定删除所选日志吗？")==true)
+	    {
+			var uid = $(this).attr('rel');
+			
+			$.ajax(
+			{
+				type: "post",
+				dataType: "json",
+				url: "{:U('Admin/delAdminLog')}",
+				data: {'uid':uid},
+				success: function(opt)
+				{
+					window.location.reload();
+				}
+			});
+	    }
+	});
+	
+	/**
+	 * 删除选择用户
+	 */
+	$('.delete-handler').click(function()
+	{
+		if(confirm("确定删除所选日志吗？")==true)
+	    {
+			var uid = getChecked();
+			
+			$.ajax(
+			{
+				type: "post",
+				dataType: "json",
+				url: "{:U('Admin/delAdminLog')}",
+				data: {'uid':uid},
+				success: function(opt)
+				{
+					window.location.reload();
+				}
+			});
+	    }
+	});
+	
+	
+	/**
+	 * 全选和反选
+	 */
+	$('#checkAll').click(function()
+	{
+		$(":checkbox").attr("checked",$(this).attr("checked"));
+	});
+});
+
+/**
+ * 获取复选框的值
+ */
+function getChecked()
+{
+	var arr = [];
+	$(":checkbox").not("#checkAll").each(function()
+	{                    
+		if($(this).attr("checked")==true) arr.push($(this).val());
+	});
+	if(arr == "")return false;
+	return arr.toString();
+}
+/**
+ * 提示信息
+ */
+function showMessage(result)
+{
+	$('body').append(result);
+}
+
+//]]>
+</script>
+
+<include file="Public:foot" />

@@ -1,0 +1,23 @@
+	<!-- 发现宝贝头部分类 -->
+	<div class='top mT oF'>
+		<div class='bd th'>
+            <span class='one bold f16 clblack iblock mL w100 txtC fL bdLR bdT'>精品推荐</span>
+            <span class='fR mR'>目前有<span class='se mR mL'><present name='total'>{$total}<else/>0</present></span>件商品供你拍</span>
+        </div>
+        <div class="clear"></div>
+		<div class='catli oF'>
+			<div id='catli' class='oF fL'>
+				<?php $j=0; ?>
+				<volist name='cate' id='cat' offset='0' length='6'><!-- 只显示6条推荐 -->
+				<div class='cat fL <lt name="j" value="3">bdB</lt> <gt name="j" value="2">bdT</gt>'>
+					<div class='title mT h20'><a href="<?php echo seturl('cid1',$cat['id']) ?>"><span class='tit f16 bold mL fL'>{$cat.name}</span></a><span class='fR mR num txtC cWhite'>{$cat.num}件</span></div>
+					<ul class='table li'>
+						<foreach name='cat.subname' item='sub'><!-- 查询子分类 -->
+						<li><a href="<?php echo seturl('cid1',$sub['id']) ?>">{$sub.name}</a></li>
+						</foreach>
+					</ul>
+				</div>
+				<?php $j++; ?>
+				</volist>
+			</div>	
+			{:W('RecommendProd')}<!-- 推荐产品 -->

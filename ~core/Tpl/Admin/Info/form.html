@@ -1,0 +1,77 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit f14">
+		<gt name="item.id" value="0">编辑<else/>添加</gt>资讯 - 
+		<a href="{:U('admin/info/index')}" class="cBlue f14">返回列表</a>
+	</div>
+	<div class="form2">
+	<form method="post" action="{:U('admin/info/form')}" enctype="multipart/form-data">
+		{:dp_select('pid',$item['pid'],cate_opt('info'),'信息分类','','w150')}
+		{:dp_input('name',$item['name'],'标题','标题不能空','text','text h20 w400')}
+                {:dp_input('zh_name',$item['zh_name'],'标题（中文）','','text','text h20 w400')}
+                {:dp_input('ru_name',$item['ru_name'],'标题（俄文）','','text','text h20 w400')}
+		{:dp_input('ename',$item['ename'],'关键字')}
+		{:dp_input('sort',$item['sort'],'次序')}
+		<script type="text/javascript" src="web/js/editor/kindeditor.js"></script>
+		<script type="text/javascript" src="web/js/editor/lang/zh_CN.js"></script>
+		<script language="javascript">
+		var editor;
+                show("#content");
+                show("#zh_content");
+                show("#ru_content");
+                function show($id){
+                    KindEditor.ready(function(K) {
+		    	editor = K.create($id, {
+					resizeType : 1,
+					allowPreviewEmoticons : false,
+					allowImageUpload : false,
+					items : ['fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+				});
+				
+                    });
+                }
+		
+		</script>
+	  	<dl class="lineD">
+			<dt>内容：</dt>
+			<dd><textarea name="text" class="text h200 w500" id="content">{$item.text}</textarea></dd>
+                </dl>
+                <dl class="lineD">
+			<dt>内容（中文）：</dt>
+			<dd><textarea name="zh_text" class="text h200 w500" id="zh_content">{$item.zh_text}</textarea></dd>
+                </dl>
+                <dl class="lineD">
+			<dt>内容（俄文）：</dt>
+			<dd><textarea name="ru_text" class="text h200 w500" id="ru_content">{$item.ru_text}</textarea></dd>
+                </dl>
+    	<div class="page_btm">
+      		<input type="submit" class="btn_b" value="提交" />
+      		<gt name='item.id' value='0'><input name="id" type="hidden" value="{$item.id}"></gt>
+    	</div>
+	</form>
+</div>
+<!-- 后台附加翻译字典接口单页面初始化 start-->
+<script>
+	/*$(document).ready(function(){
+		$('#trans_api').css({	//初始化html翻译接口显示和定位
+			'display':'block',
+			'top':90,
+		});
+		//$('#trans_api .title').html('<span>结点名称：</span>');//初始化翻译字段标题
+	})*/
+	$('#trans_api').css({	//初始化html翻译接口显示和定位
+			'display':'block',
+			'top':90,
+	});
+	var transField = $('input[name="name"]');//翻译字段初始化
+	//是否初始化启动翻译textarea字段标记
+	$('#trans_api .btn_chgmode').css({
+		display:'block',
+	});
+	//获取标题
+	var title_textKey = '{$item.name}';
+</script>
+<!-- 后台附加翻译字典接口单页面初始化 end-->
+<include file="Public:foot" />

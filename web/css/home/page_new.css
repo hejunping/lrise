@@ -1,0 +1,54 @@
+.newfy {
+    float: left;
+    padding: 10px 0;
+    width: 100%;
+}
+.newfy a {
+   border: 1px solid #CCCCCC;
+    cursor: pointer;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    margin: 0 2px;
+   
+    text-align: center;
+    width: 25px;
+
+}
+.preo {
+    width:70px;
+}
+.onclick:hover {
+    color: #FFFFFF;
+}
+.noclick {
+    color: #999999;
+    width: 70px;
+}
+.noclick:hover {
+    color: #999999;
+}
+.onclick {
+    background: none repeat scroll 0 0 #f90;
+    border: medium none #FFFFFF;
+    color: #FFFFFF;
+}
+.page {
+    float: right;
+    width: 140px;
+}
+.page span {
+    float: left;
+    margin-right: 5px;
+    padding: 4px 0;
+}
+.page input {
+    float: left;
+    height: 23px;
+    line-height: 23px;
+    width: 40px;
+}
+.page a {
+    border: 0 none;
+    padding: 0;
+}

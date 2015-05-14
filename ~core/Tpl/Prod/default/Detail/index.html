@@ -1,0 +1,396 @@
+<include file='tpl/head.html' />
+<script type="text/javascript" src="./web/js/mod/addthis_widget.js"></script>
+<script type="text/javascript" src="./web/js/mod/jquery.scrollLoading.js"></script>
+<script type="text/javascript" src="./web/js/mod/jquery.jqzoom1.0.2.js"></script>
+<script type="text/javascript" src="./web/js/mod/prod/show.js"></script>
+<script type="text/javascript" src="./web/js/mod/prod/jquery.jcarousel.js"></script>
+<script src="web/js/jqcookie.js" type="text/javascript"></script>
+<div style="width: 980px; margin: 0 auto;">
+    <div class="newmenub " style="width: 100%;">
+        <div class="leftnm" id="leftmenu">
+            <a href="{:U('prod/cate/index')}" ><span>All categories</span><img alt="" src="web/images/head/Flxsj.png"></a>
+
+            <div name="menulest" style="display: none;" class="leftfl flxl">
+
+                {:W('Areacate',array('tpl'=>'index','num'=>'13'))}<!--商品分类-->
+
+            </div>
+        </div>
+        <div class="rihgtnm daohang">
+            <ul>
+                <span>You are here:&nbsp;</span>
+                <em id="NavigationDiv" style="float: left;"><a href="{:U('home/index/index')}">Home</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                    <b><a href="{:U('prod/cate/index')}">All categories</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+                    <b>{$address_3}</b>
+                </em>
+            </ul>
+        </div>
+    </div>
+    <div class="itembox">
+        <div class="leftitem" style="overflow:visible;">
+            <div class="leftimg">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td style="width: 300px; height: 300px;">
+                                <div id="BigImage" class="jqzoom" style="border: 5px solid #ccc">
+                                    <img id="_middleImage"  src="{$res.pic}"width="300" height="300" longdesc="{$res.pic}" alt="{$res.pic}"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class=" jcarousel-skin-tango">
+                                    <div class="jcarousel-container jcarousel-container-horizontal" style="display: block;">
+                                        <div class="jcarousel-prev jcarousel-prev-horizontal jcarousel-prev-disabled jcarousel-prev-disabled-horizontal"
+                                             style="display: block;" disabled="true">
+                                        </div>
+                                        <div class="jcarousel-clip jcarousel-clip-horizontal">
+                                            <ul id="mycarousel" class="jcarousel-list jcarousel-list-horizontal" style="width: 320px;
+                                                left: 0px;">
+                                                <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="">
+                                                    <a>
+                                                        <img  src="{$res.pic}" name="{$res.pic}" alt="{$res.pic}" class="curr_base cur_on"/></a>
+                                                </li>
+                                                <input type="hidden" value="{$res.pic}" name="photourl" id="photourl"/>
+                                                <gt name="detail.item_imgs|count" value="0">
+                                                <foreach name="detail.item_imgs" item="one" key="k">
+                                                    <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-{$k+1} jcarousel-item-{$k+1}-horizontal"
+                                                        jcarouselindex="{$k+1}" style="">
+
+                                                        <a>
+                                                            <img class="curr_base" src="{$one.url}" name="{$one.url}" alt="{$one.url}" style="width:36px;height:36px;"/></a>
+                                                    </li>
+
+                                                </foreach>
+                                                </gt>
+
+                                                </notempty>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="itmemx" style="overflow:visible;">
+                <input type="hidden" value="{$res.name}" id="GoodsNames" name="GoodsNames"/>
+                <h1 rel="translate"><notempty name="res.ename">{$res.ename}<else/>{$res.name}</notempty></h1>
+                <ul>
+                    <li class="itemprfirst">
+                        <span class="itempr" style="width:auto;min-width: 120px;">Price: <b id="curPrice">{$price[0]|_usaprice} <present name="price.1">~ {$price[1]|_usaprice}</present></b>
+                            <a>
+                                <img height="15" border="0" width="15" src="web/images/prod/wh_07.png"
+                                     alt="The price does not include service fee and international fee" title="The price does not include service fee and international fee" />
+                            </a></span><span class="itempr">Express: <b><span id="usdprice">{$res.freight|_usaprice}</span></b>
+                            <a>
+                                <img height="15" border="0" width="15" src="web/images/prod/wh_07.png"
+                                     alt="This Express is the shipping fee from seller to Lrise."
+                                     title="This Express is the shipping fee from seller to Lrise." />
+                            </a></span></li>
+
+                    <present name="attrs">
+                        <foreach name="attrs" item="attrs">
+                            <li>
+                                <span class="itemcolor"><b rel="translate">{$attrs.name}:</b>
+                                    <select name="color" class="color" data-proper="{$attrs.name}">
+                                        <option value="">- select one -</option>
+                                        <foreach name="attrs.list" item="one" key="k">
+                                            <option value="{$k}" rel="translate">{$one}</option>
+                                        </foreach>
+                                    </select>
+                                </span>
+                            </li>
+                        </foreach>
+                    </present>
+                    <li style="margin-top:10px;">
+                        <span class="itemcolor"><b>Quantity:</b> <a href="javascript:void(0)" onclick="checkReduction()">
+                                -</a>
+                            <input type="text" id="Amount" value="1" name="" onkeyup="checknum()">
+                            <a href="javascript:void(0)" onclick="checknumPlus()">+</a>
+                            <em id="quantityavailable" rel="{$detail.num|default=0}">({$detail.num|default=0} available)</em> </span>
+                    </li>
+
+                </ul>
+                <div class="addmenu" id="AddCar">
+                    <a href="javascript:void(0);" onclick="doAddShoppingCart()">
+                        <img src="web/images/prod/addc.png" width="153" height="45" alt="Add to cart" />
+                    </a>
+                    <a href="javascript:void(0)" onclick="AddFavorite()">
+                        <img src="web/images/prod/addf.png" width="153" height="45" alt="Add to favorite" />
+                    </a>
+                </div>
+            </div>
+            <div class="itemright">
+                <b><a id="shop" shop_click="{$detail.shop_click_url}" href="<present name='detail.shop_click_url'>{$detail.shop_click_url}<else/>javascript:void(0);</present>" target="_blank">{$res.shopname}</a></b>
+            </div>
+            <div class="itmetblj">
+                <img src="web/images/prod/icon_03.jpg" width="16" height="17"
+                     alt="Original URL in Taobao" /><a href="<present name='detail.click_url'>{$detail.click_url}<else/>{$detail.detail_url}</present>" target="_blank"><span>Original URL in Taobao</span><img
+                        src="web/images/prod/tbb.png" width="15" height="15" /></a>
+            </div>
+            <div class="itmefx" style="display:none;">
+                <a href="http://www.addthis.com/bookmark.php?v=250&username=xa-4bfb5cae077d3b8f">
+                    <img src="web/images/prod/icon_f_03.jpg" width="125" height="16" /></a>
+            </div>
+        </div>
+        <div class="itmekzxx">
+            <h4>
+                <a href="javascript:Switching('Item0','pxzb')" class="pxz" id="ItemSwitch0">Product
+                    Details</a> <a href="javascript:Switching('Item1','pxz')" class="pxzb" id="ItemSwitch1">
+                    Description</a> 
+            </h4>
+            <present name="vars">
+                <div class="xxnr" id="Item0">
+                    <ul>
+                        <foreach name="vars" item="vars"><li title="{$vars}" rel="translate" rev="title">{$vars}</li></foreach>
+                    </ul>
+                </div>
+            </present>
+            <div id="Item1" class="xxnr" style="display: none">
+                {$detail.desc}
+            </div>
+            <div class="itesmbimg">
+
+                {$detail.desc}
+
+            </div>
+            <div class="pd" id="productDetails">
+                <img src="web/images/ysj.png" width="11" height="13"
+                     alt="" />Product Details <span><a href="javascript:void(0)" onclick="Description()">
+                        Description>></a></span>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var propertiesList = {$skus|json_encode|default='null'};
+            var huilv = {:currency()};
+            var singlePrice = {$res.price};
+            function selectProper()
+            {
+                if(propertiesList != null) {
+                    var sku = getSku();
+
+                    if (sku.result == true) {
+
+                        if (sku.data.quantity == 0) {
+                            $("#quantityavailable").css("color", "red");
+                        } else {
+                            $("#quantityavailable").css("color", "#999999");
+                        }
+                        $("#quantityavailable").html("(" + sku.data.quantity + " available)");
+                        $("#quantityavailable").attr('rel',sku.data.quantity);
+                        var price = parseFloat(sku.data.price) / huilv;
+                        price = Math.round(price*100)/100;
+                        $('#curPrice').text("$ "+ price);
+                        singlePrice = price;
+                    }
+                }
+            }
+    
+            function getSku() {
+                var ids = new Array();
+        
+                $("[data-proper]").each(function () {
+                    ids.push($(this).val());
+                });
+
+                if(isAllSelected() == true) {
+                    if(propertiesList != null) {
+                        var keys = getKeys();
+                        for (var i = 0; i < propertiesList.length; i++) {
+                            var sku = propertiesList[i];
+                            if(sku.properties == keys) return {result:true,data:sku};
+                        }
+                    }
+                }
+
+                return { result : false, USDPrice : 0};
+            }
+    
+            function getKeys()
+            {
+                var k = [];
+                $("[data-proper]").each(function(){
+                    k.push($(this).val());
+                });
+                return k.join(';');
+            }
+    
+            function isAllSelected() {
+                var s = $("[data-proper]");
+
+                for (var i = 0; i < s.length; i++) {
+                    if(s[i].selectedIndex == 0) {
+                        return false;
+                    }
+                }
+        
+                return true;
+            }
+
+            $("[data-proper]").change(function () {
+                selectProper();
+            });
+
+            var IS_LOGIN = "{$Think.const.IS_LOGIN}";
+            function doAddShoppingCart() {
+//                if(!IS_LOGIN) 
+//                {
+//                    alert("You need to sign in first!");
+//                    location.href = "{:U('home/user/login')}";
+//                    return;
+//                }
+                if(isAllSelected() != true) {
+                    alert("Please select the features of the item!");
+                    return;
+                }
+        
+                if(propertiesList != null) {
+                    var sku = getSku();
+
+                    if (sku.result == true) {
+                        if (sku.data.quantity == 0) {
+                            alert("The seller doesn't have the item of this features! ");
+                            return;
+                        }
+                    }
+                }
+
+                var html = $("#AddCar").html();
+                $("#AddCar").css("text-align", "center");
+        
+                $("#AddCar").html("<img src='web/images/user/loadingb.gif' />");
+
+                var name = $.trim($("#GoodsNames").val()); //获取商品名称
+                var price = singlePrice; //获取价格
+                
+                var Amount = $("#Amount").val(); //获取数量
+                var Freight = {$res.freight}; //运费
+                var SorUrl = "<present name='detail.click_url'>{$detail.click_url}<else/>{$detail.detail_url}</present>"; //该商品原连接
+                var shopurl = "{$detail.shop_click_url|default='javascript:void(0);'}"; //店铺url
+                var PhotoUrl = "{$res.pic}"; //图片URl
+                var shop = "{$res.shopname}";
+                var Remark = "";
+
+                //        for (var i = 0; i < procombo.length; i++) {
+                //            var sku = procombo[i];
+                //
+                //            var v = $("[data-proper='" + sku.ComboName + "'] option:selected").text();
+                //            if (typeof(v) != "undefined" && v != "" && v != '- select one -') {
+                //                if(Remark != "") {
+                //                    Remark += " ";
+                //                }
+                //                    
+                //                Remark = $.trim(Remark) + sku.ComboName +":" + $.trim(v);
+                //            }
+                //        }
+
+       
+                var pid={$res.id};
+                var dhlInvoiceDescription = $("#catenametbk").val();
+                $.post("{:U('home/ajax/doAddShoppingCart')}", { "id": pid ,"Name": name, "Price": price, "Amount": Amount, "Freight": Freight, "SorUrl": SorUrl, "Url": SorUrl, "ShopUrl": shopurl, "Photo": PhotoUrl, "Shop": shop, "Remark": $.trim(Remark), "DHLInvoiceDescription": $.trim(dhlInvoiceDescription) }, function(data) 
+                {
+                    if (data.result == true) 
+                    {
+                         
+                        if(data.nouid == true) addcookie(pid,Amount);
+                        var htmlvalue = "<span class=\"closeadd\"><a href=\"javascript:closeAddShop()\" onclick=\"closeAddShop()\"><img src=\"web/images/prod/shoppingc.png\" width=\"12\" height=\"13\"></a></span>";
+                        htmlvalue += "<span class=\"textadd\">Your item have added to shopping cart successfully!</span>";
+                        htmlvalue += "<span class=\"addscmenu\"><a href=\"{:U('user/order/cart')}\"><img alt=\"\" src=\"web/images/prod/shoppingcara.png\" width=\"135\" height=\"35\"></a> <a href=\"javascript:closeAddShop()\" onclick=\"closeAddShop()\"><img alt=\"\" src=\"web/images/prod/shoppingcarb.png\" width=\"135\" height=\"35\"></a></span>";
+                        $("#AddCar").attr("class", "addscsf");
+                        $("#AddCar").html(htmlvalue);
+                    } 
+                    else 
+                    {
+                        if(data.errcode == 1)                        
+                        {        
+                            alert("For customer protection, we can't handle orders with (well known) \"brand\" items any more. ");
+                            $("#AddCar").html(html);
+                        } 
+                        else if(data.errcode == 3) 
+                        {
+                            alert("You need to sign in first!");
+                            $("#AddCar").html(html);
+                        }
+                        else {
+                            alert("Your item added to shopping cart is failed!");
+                            $("#AddCar").html(html);
+                        }
+                    }
+                }, "json");
+            }
+            function addcookie(pid,Amount){
+                var shopcart =$.cookie('shopcart');
+    	
+                if(shopcart==null){
+                    var shopcart=new Array();
+                }else{
+                    shopcart=shopcart.split(",")
+                }
+                var iss=0;
+                var ilength=shopcart.length;
+                pid= parseInt(pid);
+                Amount= parseInt(Amount);
+                for(var i=0;i<ilength;i++){
+                    var  varval= parseInt(shopcart[i]);
+                    var  varvali= parseInt(shopcart[++i]);
+                    if(varval==pid){
+                        shopcart[i]=varvali+Amount;
+                        iss=1;
+                    }
+            
+                }
+                if(iss==0){
+                    shopcart[ilength++]=pid;
+                    shopcart[ilength++]=Amount;
+                }
+                $.cookie('shopcart',shopcart);
+            }
+
+
+            function closeAddShop(){
+                var htmlvalue="<a href=\"javascript:doAddShoppingCart()\" onclick=\"doAddShoppingCart()\">";
+                htmlvalue+="<img src=\"web/images/prod/addc.png\" alt=\"Add to cart\" width=\"153\" height=\"45\"></a><a href=\"javascript:void(0)\" onclick=\"AddFavorite()\"><img src=\"web/images/prod/addf.png\" alt=\"Add to favorite\" width=\"153\" height=\"45\"></a>";
+                $("#AddCar").attr("class","addmenu");
+                $("#AddCar").html(htmlvalue);
+            }
+    
+            var addFavorite = false;
+            function AddFavorite() {
+                if (addFavorite == true) {
+                    return;
+                }
+                addFavorite = true;
+                var name = $.trim($("#GoodsNames").val()); //获取商品名称
+                var price = $("#curPrice").text(); //获取价格
+                var Amount = $("#Amount").val(); //获取数量
+                var Freight = 12; //获取运费
+                var shopurl = $("#shop").attr('shop_click'); //店铺url
+                var PhotoUrl = $("#photourl").val(); //图片URl
+                var shop = $("#shop").text();
+                var Remark = "";
+                var pid = {$res.id};
+                var dhlInvoiceDescription = $("#catenametbk").val();
+                $.post("{:U('home/ajax/AddFavorite')}", {"pid": pid }, function(data) {
+                    if (data.res == true) {
+                        window.location.href = "{:U('user/order/favorite')}";
+                    } else {
+                        if(data.errcode == 1) {
+                            window.location.href = "{:U('home/user/login')}";
+                        } else if(data.errcode == 2){
+                            alert("For customer protection, we can't handle orders with (well known) \"brand\" items any more. ");
+                            addFavorite = false;
+                        } else {
+                            alert("Your item added to favorite is failed!");
+                            addFavorite = false;
+                        }  
+                    }
+                }, "json");
+            }
+    </script>
+</div>
+<include file='tpl/foot.html' />

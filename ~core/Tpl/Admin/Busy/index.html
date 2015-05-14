@@ -1,0 +1,37 @@
+<include file='Public:head' />
+<!-- 商家审核 todo -->
+<div class="so_main">
+	<div class="page_tit">
+	商家审核-
+<span class="cRed">已审核</span>
+	</div>
+	<div class="Toolbar_inbox">
+		<div class="page right"></div>
+	     <a  class="btn_a"  href="__GROUP__-busy-index-"><span>已审核</span></a> <a class="btn_a" href="__GROUP__-busy-auditing-"><span>未审核</span></a></br>
+	 </div>
+    <div class="list">
+       <table width="100%" cellspacing="0" cellpadding="0" border="0">
+	       <tr>
+	        <th class="line_l">ID</th>
+			<th class="line_l">店铺名称</th>
+			<th class="line_l">店铺简介</th>
+			<th class="line_l">店铺logo</th>
+			<th class="line_l">申请时间</th>
+			<th class="line_l">审核时间</th>
+			<th class="line_l">操作</th>
+	       </tr>
+			<volist name="list" id="vo" >
+			<tr>
+			<td>{$vo.id}</td>
+			<td>{$vo.name}</td>
+			<td>{$vo.introduc}</td>
+			<td>{$vo.logo}</td>
+			<td >{$vo.chetime|date="y-m-d H:i:s",###}</td>
+			<td >{$vo.ctime|date="y-m-d H:i:s",###}</td>
+			<td></td>
+			</tr>
+			</volist>
+		</table>
+	</div>
+</div>
+<include file='Public:foot' />

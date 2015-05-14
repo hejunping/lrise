@@ -1,0 +1,72 @@
+<include file='Public:head' />
+<script type="text/javascript" src="web/js/editor/kindeditor.js"></script>
+<script type="text/javascript" src="web/js/editor/lang/zh_CN.js"></script>
+<script language="javascript">
+var editor;
+KindEditor.ready(function(K) {
+	editor = K.create('#info', {
+		resizeType : 1,
+		allowPreviewEmoticons : false,
+		allowImageUpload : true,
+		uploadJson : '{:U("admin/editor/upload")}',
+		allowFileManager : true,
+		fileManagerJson : '{:U("admin/editor/index")}',
+		items : ['fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+		'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+		'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+	});
+});
+</script>
+<script language="javascript">
+     function alluser(){
+         $.post('{:U("admin/msg/alluser")}',
+                {id:1},
+                function(data){
+                     $('#users').val(data.alluser);
+                    },
+                "json"
+                );
+         }
+</script>
+<div class='so_main'>
+	<div class='page_tit f14'>站内信发送</div>
+	<div class='form2'>
+		<form method='post' action="{:U('admin/msg/sends')}">
+		<dl class="lineD">
+		    <dt>接收用户：</dt>
+		    <dd><input name="uid_get" class="w400" type="text" value="" id="users" > <input type="button" class='btn_b'  value='全站用户' onclick="alluser()"><p>填写信件接收用户ID，多个用逗号","隔开</p></dd>
+		 </dl>
+	
+			{:dp_input('name','','标题','','','name')}
+			{:dp_textarea('info','','内容','','info')}
+			{:dp_select('type','',array('系统信息'=>'系统信息','商家信息'=>'商家信息','普通信息'=>'普通信息','每日推荐'=>'每日推荐'),'信息类型','')}
+			
+			<div class='page_btm'><input type='submit' class='btn_b' value='发送'></div>
+		</form>
+	</div>
+</div>
+<script type='text/javascript'>
+$(function(){
+	form_chg();
+	$('.form2 .name').blur(function(){
+		var val = $(this).val();
+		if(val == ''){
+			alert('标题不能为空');
+			$('.btn_b').attr('disabled','true');
+		}else{
+			$('.btn_b').removeAttr('disabled');
+		}
+	});
+	
+	$('.form2 .info').blur(function(){
+		var val = $(this).val();
+		if(val == ''){
+			alert('内容不能为空');
+			$('.btn_b').attr('disabled','true');
+		}else{
+			$('.btn_b').removeAttr('disabled');
+		}
+	});
+});
+</script>
+<include file='Public:foot' />

@@ -1,0 +1,14 @@
+<div class="rihgtnm">
+    <ul>
+         <?php $i=0;?>
+        <volist  name='ad' id='ad1' offset="0" length='4'>
+        <li>
+            <a href="__ROOT__{$ad1.url}">{$ad1.title}</a>
+        </li>
+        <li>
+            <img width="2" height="36" border="0" alt="" src="{$ad1.path}">
+        </li>
+         <?php $i++;  ?>
+        </volist>
+    </ul>
+</div>

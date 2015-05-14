@@ -1,0 +1,75 @@
+<include file='Public:head' />
+<link rel="stylesheet" type="text/css" href="web/css/rili/jscal2.css" />
+<script type="text/javascript" src="web/js/rili/jscal2.js"></script>
+<script type="text/javascript" src="web/js/rili/cn.js"></script>
+<div class="so_main">
+    <div class="page_tit">销售统计</div>
+    <div class="Toolbar_inbox">
+        <form action="{:U('admin/count/todaypai')}" method="GET">
+            <div class="fL">&nbsp;&nbsp;指定日期：</div><div class="">
+                <div class="fL mT2">
+                    <if condition="$time eq null">
+                        <input type="text" name="stime" id="stime" class="w100 h20 cGray" value=""> 到
+                        <input type="text" name="stime1" id="stime1" class="w100 h20 cGray" value="">
+                        <else/>
+                        <input type="text" name="stime" id="stime" class="w100 h20 cGray" value="{$time|date='Y-m-d',###}"> 到
+                        <input type="text" name="stime1" id="stime1" class="w100 h20 cGray" value="{$time1|date='Y-m-d',###}">
+                    </if>
+                </div>
+                <div class="fL mL5">
+
+                    <script type="text/javascript">
+                        var cal = Calendar.setup({
+                            onSelect: function(cal) { cal.hide() } ,
+                            bottomBar: false
+                        });
+                        cal.manageFields("stime", "stime", "%Y-%m-%d");
+                        cal.manageFields("stime1", "stime1", "%Y-%m-%d");
+                    </script>
+                </div>
+            </div>
+            &nbsp;&nbsp;<input type="submit" value="查询" class="btn_b"/>
+
+        </form>
+    </div>
+    <div class="list">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <th class="line_l" width="20%">商品ID</th>
+                <th class="line_l" width="35%">商品名称</th>
+                <th class="line_l" width="20%">售出数量</th>
+            </tr>
+
+
+            <volist name="rue" id="vo">
+                <tr>
+                    <td>{$vo.pid}</td>
+                    <td><a href="{:U('admin/count/view',array(pid=>$vo['pid'],total=>$vo['total']))}">{$vo.name}</a></td>
+                    <td>{$vo.total}</td>
+            </volist>
+            </tr>
+
+        </table>
+        <notpresent name="rue">
+            <if condition="$vo.id eq null"> 
+                <div class="l40 cRed bold f14">暂无记录</div>
+                <else/>
+            </if>
+        </notpresent>
+
+    </div>
+    <present name='page'>
+        <div class="Toolbar_inbox">
+            <if condition="$vo.id eq null">
+                <else/>
+                <div class="page">{$page}</div>
+            </if>
+        </div>
+    </present>
+</div>
+<script type='text/javascript'>
+    $(function(){
+        ajax_bool();
+    });
+</script>
+<include file='Public:foot' />

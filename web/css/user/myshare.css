@@ -1,0 +1,169 @@
+.yoymbox {
+    float: right;
+    width: 795px;
+}
+.a_rside {
+    background: none repeat scroll 0 0 #FFFFFB;
+    border: 1px solid #DBDBDB;
+    float: right;
+    width: 795px;
+}
+.sbr {
+    margin-bottom: 10px;
+}
+.rtit {
+    background: url("images/home/rtitbg.jpg") repeat-x scroll center center transparent;
+    border: 1px solid #E0E0E0;
+    color: #333333;
+    float: left;
+    font-weight: bold;
+    line-height: 31px;
+    padding: 0 12px;
+    width: 770px;
+}
+.bd {
+    clear: both;
+    margin: 0 auto;
+    width: 982px;
+}
+
+.daoh a {
+    color: #0066CC;
+}
+.daoh {
+    clear: both;
+    color: #0066CC;
+    font-size: 11px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-left: 10px;
+    width: 970px;
+
+}
+.daoh b {
+    color: #333333;
+}
+.bdbox {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #E0E0E0;
+    float: left;
+    padding: 14px 15px;
+    width: 764px;
+}
+.recommend_piont {
+    background: none repeat scroll 0 0 #F9F9F9;
+    border: 1px solid #CCCCCC;
+    color: #333333;
+    float: left;
+    font-family: Verdana,Geneva,sans-serif;
+    line-height: 25px;
+    padding: 10px;
+    width: 743px;
+}
+.recommend_a {
+    color: #FF6600;
+    float: left;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 20px;
+    width: 650px;
+}
+.recommend_b {
+    background: none repeat scroll 0 0 #EFEFEF;
+    float: left;
+    height: 44px;
+    margin-top: 10px;
+    width: 764px;
+}
+.new_o_input {
+    border: 1px solid #999999;
+    color: #999999;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    height: 15px;
+    margin-left: 8px;
+    margin-top: 8px;
+    padding: 5px;
+    width: 500px;
+}
+.recommend_b ul li a {
+    float: left;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+.recommend_c {
+    border: 2px solid #FF9900;
+    float: left;
+    height: auto;
+    margin-top: 10px;
+    padding: 10px;
+    width: 740px;
+}
+.recommend_c ul li {
+    float: left;
+    list-style: none outside none;
+    margin: 5px 0;
+    width: 630px;
+}
+.recommend_c ul li span {
+    float: left;
+    line-height: 20px;
+    margin-right: 10px;
+    text-align: right;
+    width: 100px;
+}
+.r_c_input {
+    border: 1px solid #999999;
+    height: 20px;
+    width: 200px;
+}
+.red {
+    color: #8E6F03;
+    font-size: 12px;
+    height: 25px;
+    line-height: 25px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.r_c_input_b {
+    border: 1px solid #999999;
+    color: #666666;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    height: 50px;
+    padding: 10px;
+    width: 400px;
+}
+.recommend_s {
+    float: left;
+    margin-top: 10px;
+    text-align: right;
+    width: 764px;
+}
+.recommend_faq {
+    border: 1px solid #CCCCCC;
+    color: #666666;
+    float: left;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 11px;
+    line-height: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 743px;
+}
+.recommend_faq b {
+    float: left;
+    margin-right: 5px;
+}
+.recommend_faq a {
+    background: url("images/user/dian_03.gif") no-repeat scroll left center transparent;
+    color: #666666;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    margin-right: 20px;
+    padding-left: 10px;
+    width: 713px;
+}

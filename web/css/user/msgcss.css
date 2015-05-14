@@ -1,0 +1,117 @@
+
+.sendM{
+	width:450px;
+	border: 1px solid #0581D9;
+	padding-bottom: 8px;
+	background: #FFFFFF;
+}
+
+.sendM h2 {
+	font-size: 12px;
+	line-height: 25px;
+	color: #FFFFFF;
+	background: url(../images/blueLine.gif) repeat-x;
+	float: left;
+	width: 436px;
+	padding-left: 10px;
+	display: inline;
+	margin-left: 2px;
+}
+.sendM  h2 span {
+	width: 410px;
+	float: left;
+}
+.sendM h2 a {
+	padding: 3px;
+	float: left;
+	margin-top: 3px;
+}
+.sendM h2 a:hover {
+	background: #70C7FB;
+}
+.sendM   h5 {
+	line-height: 30px;
+	color: #0581D9;
+	float: left;
+	width: 430px;
+	padding-left: 20px;
+	font-size: 12px;
+	text-align: left;
+}
+.sendCon {
+	float: left;
+	width: 450px;
+	height:300px;
+	overflow-y: auto;
+	margin-bottom: 8px;
+}
+
+.detail {
+	display: inline;
+	float: left;
+	width: 408px;
+	background: #F6F6F6;
+	border: 1px solid #CCCCCC;
+	margin: 0px 0px 8px 20px;
+	
+}
+.detail:hover {
+	background: #FBFBFB;
+}
+
+.detailImg {
+	background: #FFFFFF;
+	float: left;
+	height: 40px;
+	width: 40px;
+	border: 1px solid #DDDDDD;
+	margin: 10px;
+}
+.detailImg img {
+	margin-top: 2px;
+}
+
+.detail p {
+	float: left;
+	width: 330px;
+	line-height: 20px;
+	margin-top: 10px;
+	word-wrap:break-word;
+	padding-right: 10px;
+}
+.detail b {
+	font-weight: bold;
+	color: #0480D8;
+	white-space:nowrap;
+	font-size: 12px;
+}
+.detail   p   .msgTime {
+	text-align: right;
+	float: left;
+	width: 340px;
+}
+.sendM form {
+	display: inline;
+	float: left;
+	width: 410px;
+	margin-left: 20px;
+}
+.sendM textarea {
+	float: left;
+	width: 410px;
+	height: 60px;
+}
+.sendM input {
+	line-height: 27px;
+	float: left;
+	width: 92px;
+	margin: 15px 0px 0px 10px;
+	color: #0683DB;
+	background: url(../images/blueButtons.gif) no-repeat left top;
+	height: 27px;
+	cursor:pointer;
+}
+.sendM input:hover {
+	background: url(../images/blueButtons.gif) no-repeat left -27px;
+}
+/*----------------------------------------鍙戦€佺煭娑堟伅椤甸潰CSS鏍峰紡缁撴潫---------------------------------------*/

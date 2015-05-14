@@ -1,0 +1,95 @@
+html
+{
+    font-family: Arial, Helvetica, sans-serif; /*verdana*/
+    font-size: 12px;
+    color: #555;
+    -webkit-text-size-adjust: none;
+    background: url(images/newbj.png) repeat-x 0 0 #f2f2f2;
+    line-height: 18px;
+}
+body
+{
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+a
+{
+    color: #333;
+    text-decoration: none;
+}
+a:hover
+{
+    color: #F60;
+}
+input
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+li
+{
+    list-style: none;
+}
+img
+{
+    border: none;
+}
+.more
+{
+    float: right;
+    width: 40px;
+    height: 10px;
+    background: url(images/more.png) no-repeat top center;
+    text-indent: -99999px;
+    margin-top: 5px;
+}
+h2
+{
+    font-size: 14px;
+    margin: 0;
+}
+h4
+{
+    font-size: 14px;
+    margin: 0;
+}
+select
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+em
+{
+    font-style: normal;
+}
+.daoh {
+    clear: both;
+    color: #0066CC;
+    font-size: 11px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-left: 10px;
+    width: 970px;
+}
+.daoh a {
+    color: #0066CC;
+}
+.daoh b {
+    color: #333333;
+}
+.bd {
+    clear: both;
+    margin: 0 auto;
+    width: 982px;
+}

@@ -1,0 +1,13 @@
+			<!-- head -->
+			<div class="head oF">
+				<div class='tit bold pL f14'>商品分类</div>
+				<!-- 头部分类 -->
+				<div class='cate fL'>
+					<ul>
+						<foreach name='cate' item='item'>
+						<li class='pRel txtL'><a href="<?php echo setUrl('ctype',$item['id'],'ctype','prod/'.$item['nav'].'/index'); ?>" class='bold'><span class='iblock ico_cate mR'></span>{$item.name}</a></li>
+						</foreach>
+					</ul>
+				</div>
+			</div>
+			<div class='clear'></div>

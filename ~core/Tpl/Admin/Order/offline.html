@@ -1,0 +1,36 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit">充值记录</div>
+	<div class="list">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<th class="line_l">用户</th>
+					<th class="line_l">充值金额</th>
+					<th class="line_l">手续费</th>
+					<th class="line_l">充值状态</th>
+					<th class="line_l">充值方式</th>
+					<th class="line_l">充值时间</th>
+					<th class="line_l">操作</th>
+				</tr>
+				<foreach name="list" item="item">
+				<tr>
+					<td>{$item.account}</td>
+					<td>{$item.amount}</td>
+					<td>{$item.fees}</td>
+					<if condition="$item.status eq 0">
+						<td style="color:#f90;">未审核</td>
+	                <else/>
+						<td style="color:green;">已审核</td>
+	                </if>
+					<td>{$item.method}</td>
+					<td>{$item.ctime|date='Y-m-d H:i:s',###}</td>
+					<td><a href="{:U("order/offline_detail",array("id"=>$item['id']))}">【详情】</a></td>
+				</tr>
+				</foreach>
+			</tbody>
+		</table>
+	</div>
+	<div class="Toolbar_inbox alL"> {$page}</div>
+</div>
+<include file="Public:foot" />

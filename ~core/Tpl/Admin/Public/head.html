@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$_web.website_name}管理中心 Power by 东腾网络</title>
+<meta name="copyright" content="东腾网络 http://www.eastsoar.com" />
+<link href="web/css/admin.css?v={:date('ymd')}" rel="stylesheet" type="text/css" />
+<link href="web/css/debug.css?v={:date('ymdhis')}" rel="stylesheet" type="text/css" />
+<link href="web/css/trans/admin_head.css?v={:date('ymdhis')}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="web/js/mod/admin/jquery.js?v=1.7.1"></script>
+<script type="text/javascript" src="web/js/base.js"></script>
+<script type="text/javascript" src="web/js/mod/admin.js"></script>
+<script type="text/javascript" src="web/js/box.js"></script>
+<script type="text/javascript" src="web/js/debug.js"></script>
+<script type="text/javascript" src="web/js/trans/admin_head.js"></script>
+<script type="text/javascript">
+var imageUrl=  'images/admin/color.png';
+$(document).ready(function(){	
+<present name="Think.session.sys_tips_info">
+	sys_tips("{$Think.session.sys_tips_info}","{$Think.session.sys_tips_type}");
+	{:session('sys_tips_info',null)}
+	{:session('sys_tips_type',null)}
+</present>
+});
+</script>
+</head>
+<body>
+	<!-- 后台功能外附加的翻译多国语操作接口 start-->
+        <!--
+	<div id="trans_api">
+		<div class="title"><span>标题：</span></div>
+		<div class="input">
+			<input type="text" name="trans" value="请输入翻译内容" id="trans_input" />
+		</div>
+		<div class="btn_zh">
+			<button id="trans_zh">添加中文翻译</button>
+		</div>
+		<div class="btn_ru">
+			<button id="trans_ru">添加俄文翻译</button>
+		</div>
+		<div class="btn_record">
+			<button id="trans_record">翻译记录</button>
+		</div>
+		<div class="btn_chgmode">
+			<button id="trans_text">点此将进入翻译'内容'模式！请确认原文内容已成功提交后再添加翻译</button>
+		</div>
+		<div class="btn_quitmode">
+			<button id="trans_mode_quit">请在编辑框内输入翻译文本！点此将退出'内容'翻译模式</button>
+		</div>
+		<div class="trans_record_content"></div>
+	</div>
+        -->
+	<!--测试用
+	<div id="transtest" style="height:300px;border:1px solid #ccc"></div>-->
+	<!-- 后台功能外附加的翻译多国语操作接口 end-->

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$_web.website_name}管理中心 Power by 东腾网络</title>
+<meta name="copyright" content="东腾网络 http://www.eastsoar.com" />
+<link href="web/css/admin.css?v={:date('ymd')}" rel="stylesheet" type="text/css" />
+<link href="web/css/debug.css?v={:date('ymdhis')}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="web/js/mod/admin/jquery.js?v=1.7.1"></script>
+<script type="text/javascript" src="web/js/base.js"></script>
+<script type="text/javascript" src="web/js/mod/admin.js"></script>
+<script type="text/javascript" src="web/js/box.js"></script>
+<script type="text/javascript" src="web/js/debug.js"></script>
+<script type="text/javascript">
+var imageUrl=  'images/admin/color.png';
+$(document).ready(function(){	
+<present name="Think.session.sys_tips_info">
+	sys_tips("{$Think.session.sys_tips_info}","{$Think.session.sys_tips_type}");
+	{:session('sys_tips_info',null)}
+	{:session('sys_tips_type',null)}
+</present>
+});
+</script>
+</head>
+<body>

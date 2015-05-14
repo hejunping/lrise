@@ -1,0 +1,11 @@
+
+	<table border="3" style="border-collapse:collapse">
+		<tr>
+			<th>id</th><th>account</th><th>password</th><th>email</th><th>sex</th>
+		</tr>
+		<volist name="userinfo" id="vo">
+			<tr>
+				<th>{$vo.id}</th><th>{$vo.account}</th><th>{$vo.password}</th><th>{$vo.email}</th><th>{$vo.sex}</th>
+			</tr>
+		</volist>
+	</table>

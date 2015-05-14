@@ -1,0 +1,26 @@
+<div class="leftfl">
+    <ul>
+        <volist name="iclass" id="vo">
+            <li class="flname" name="soncate">
+            <if condition="$vo['id'] eq null">
+                <a href="{:U('prod/index/index?cid=146')}" class="" style="width: 165px; "> {$vo.name}</a>
+                <else/>
+                <a href="{:U('prod/index/index?cid='.$vo['id'])}" class="" style="width: 165px; "><img src="web/images/item/{$vo.ename}.png" alt="Taobao {$vo.name}" title="{$vo.name} from Taobao"/> {$vo.name}</a>
+            </if>
+            <span><img src="web/images/head/xy.png" width="12" height="12" alt="" class="hid"></span>
+            <ul class="fltc" style="display: none; ">
+                <volist name="vo['subname']" id="svo">
+                    <li> <a href="{:U('prod/index/index?ecid='.$svo['id'])}"> {$svo.name}</a></li>
+                </volist>
+            </ul>
+            </li>
+        </volist>  
+        <li class="flname">
+            <span>
+                <a href="{:U('prod/index/index')}" style="margin-left: 12px;">
+                    <img style="float: right;" src="web/images/head/<php>$lang = isLang();if($lang == 'zh'){echo 'morec_zh.png';}else if($lang == 'ru'){echo 'morec_ru.png';}else{echo 'morec.png';}</php>" alt="">
+                </a>
+            </span>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,38 @@
+<div class="boxleft"> 
+    <volist name="iclass" id="val" offset="0" length='13'>
+        <volist name="val['subname']" id="vo" offset="0" length='1'>
+            <div class="mxfl">
+                <h1 style="cursor: pointer" title="{$vo.name}">{$vo.name}</h1>
+            </div>
+        </volist>   
+    </volist>
+    <div class="spleftbot">
+        <volist name="res" id="res1">
+            <h2>
+                <if condition="$res1.pos eq 1">
+                    {$res1.name}
+                </if>
+            </h2>
+
+            <p>
+            <if condition="$res1.pos eq 1">
+                {$res1.text}
+            </if>
+            </p>
+
+    </div>
+
+</div>
+<div class="rightmxfl">
+    <div class="spjs">
+        <h3>
+            <if condition="$res1.pos eq 2">
+                {$res1.name}
+            </if>
+        </h3>
+        <p>
+        <if condition="$res1.pos eq 2">
+            {$res1.text}
+        </if></p>
+    </div>
+</volist>

@@ -1,0 +1,84 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit">
+        结点管理
+        <present name="root"> 
+            - <a class="cRed f14" href="{:U('admin/cate/'.$root['ename'])}">{$root.name}</a>
+        </present>
+        <present name="item"> 
+            - <span class="cRed">{$item.name}</span>
+        </present>
+    </div>
+	<present name='add_item'>
+  	<div class="Toolbar_inbox">
+  		<div class="page right">{$page}</div>
+        <present name="root">
+        <a href="{:U('admin/cate/sub?iid='.$pid)}" class="btn_a"><span>添加{$root.name|default='结点'}</span></a>
+        <else/>
+        <a href="{:U('admin/cate/form',array('pid'=>$pid))}" class="btn_a"><span>添加{$item.name|default='结点'}</span></a>
+        </present>
+  		<a href="{:U('admin/cate/order',array('pid'=>$pid))}" class="btn_a"><span>按当前顺序更新排序</span></a>
+  	</div>
+  	</present>
+  	<div class="list">
+	  	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  	<tr>
+		    	<th class="line_l">ID</th>
+		    	<th class="line_l">{$item.name|default='结点'}名称</th>
+		    	<present name="show_ename"><th class="line_l">关键字</th></present>
+		    	<present name="show_bak1"><th class="line_l">{$show_bak1.0}</th></present>
+		    	<present name="show_bak2"><th class="line_l">{$show_bak2.0}</th></present>
+		    	<present name="show_bak3"><th class="line_l">{$show_bak3.0}</th></present>
+		    	<th class="line_l">可用</th>
+		    	<present name="show_sort"><th class="line_l">次序</th></present>
+		    	<th class="line_l">操作</th>
+		  	</tr>
+		  	<foreach name="list" item="item">
+			<tr>
+			    <td>{$item.id}</td>
+			    <td class="f14 bold cGreen">
+			    	<eq name="item.pid" value="0"><a href="{:U('admin/cate/'.$item['ename'])}" class="f14 cGreen">{$item.name}</a>
+			    	<else/>{$item.name}</eq>
+			    </td>
+				<present name="show_ename"><td>{$item.ename}</td></present>
+				<present name="show_bak1"><present name="show_bak1s"><td>{$item.bak1|getItemByid='prod'}</td><else/><td>{$item.bak1}</td></present></present>
+				
+				<present name="show_bak2">
+				<td>
+                    <switch name="show_bak2[1]">
+                    <case value="bool">{$item.bak2|dp_bool=$item['id'],'admin/cate/bool','bak2'}</case>
+                    <case value="radio">{$show_bak2[2][$item['bak2']]}</case>
+                    <default/>
+                    {$item.bak2}
+                    </switch>
+		    	</td>
+		    	</present>
+				<present name="show_bak3"><td>{$item.bak3}</td></present>
+				<td>{$item.status|dp_bool=$item['id'],'admin/cate/bool','status'}</td>
+				<present name="show_sort"><td class="f14">{$item.sort|dp_sort=$item['id'],'admin/cate/sort'}</td></present>
+			    <td>
+					<a href="{:U('admin/cate/form',array('id'=>$item['id']))}">编辑</a>&nbsp;&nbsp;
+					<eq name="item.pid" value="0"><a href="{:U('admin/cate/'.$item['ename'])}">结点管理</a></eq>
+                                        
+					<present name="operate">
+					<?php foreach ($operate as $one) : ?>
+					<a href="{:U($one[0].'?iid='.$item['id'])}">{$one.1}</a>
+					<?php endforeach; ?>
+					</present>
+				</td>
+			</tr>
+		  	</foreach>
+	  	</table>
+		<notpresent name="list">
+		  	<div class="l40 cRed bold f14">暂无数据</div>
+		</notpresent>
+  	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+	tr_hover();
+	ajax_bool();
+	ajax_sort();
+});
+</script>
+<include file="Public:foot" />

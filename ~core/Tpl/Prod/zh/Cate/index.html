@@ -1,0 +1,80 @@
+<include file="./tpl/head_zh.html"/>
+<script type="./web/js/mod/jquery.scrollLoading.js"></script>  
+<script src="web/js/catemenu.js" type="text/javascript"></script>  
+<div style="width: 980px; margin: 0 auto; clear: both;">
+    <div class="newmenub " style="width: 100%;" >
+        <div class="leftnm" id="leftmenu">
+            <a href="{:U('prod/cate/index')}"><span>所有栏目</span><img alt="" src="web/images/head/Flxsj.png"></a>
+
+            <div name="menulest" style="display: none;" class="leftfl flxl">
+
+                {:W('Areacate',array('tpl'=>'index','num'=>'13'))}<!--商品分类-->
+
+            </div>
+        </div>
+        <div class="rihgtnm daohang">
+	        <ul>
+	            <span>您的位置:&nbsp;</span>
+	            <em id="NavigationDiv" style="float: left;"><a href="{:U('home/index/index')}">首页</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>分类列表</b></em>
+	        </ul>
+        </div>
+    </div>
+    <div class="youbuy_box clearfix">
+
+        <div class="categories_box">
+            <volist name="data" id="vo">
+              <if condition="($i % 2) eq 1">
+                    <div class="categories_all">
+                        <div class="top_categories_all">
+
+                            <a href="{:U('prod/index/index?cid='.$vo['id'])}"  title="{$vo.name}">
+                                <h4> {$vo.name}</h4></a>
+
+                        </div>
+                        <div class="center_categories_all">
+                            <ul>
+                                <volist name="vo.bak3" id="v">
+                                    <li>
+                                        <a href="{:U('prod/index/index?ecid='.$v['id'])}" title="{$v.name}">  
+                                            {$v.name}
+                                        </a>
+                                    </li>
+                                </volist>
+                            </ul>
+                        </div>
+                        <div class="bottom_categories_all"></div>
+                    </div>
+              </if>
+            </volist>
+        </div>
+        <div class="categories_box">
+            <volist name="data" id="vo">
+                <if condition="($i % 2) eq 0">
+                    <div class="categories_all">
+                        <div class="top_categories_all">
+
+                            <a href="{:U('prod/index/index?cid='.$vo['id'])}" id="ProductTitleV4_32" title="{$vo.name}">
+                                <h4> {$vo.name}</h4></a>
+
+                        </div>
+                        <div class="center_categories_all">
+                            <ul>
+                                <volist name="vo.bak3" id="v">
+                                    <li>
+                                        <a href="{:U('prod/index/index?ecid='.$v['id'])}" id="ProductTitleV4_12819" title="{$v.name}">  
+                                            {$v.name}
+                                        </a>
+                                    </li>
+                                </volist>
+                            </ul>
+                        </div>
+                        <div class="bottom_categories_all"></div>
+                    </div>
+                </if>
+            </volist>
+        </div>   
+    </div>
+
+
+
+    <include file='tpl/foot.html' />

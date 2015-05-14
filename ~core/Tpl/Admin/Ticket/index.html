@@ -1,0 +1,83 @@
+<include file="Public:head" />
+<link rel="stylesheet" type="text/css" href="web/css/rili/jscal2.css" />
+<script type="text/javascript" src="web/js/rili/jscal2.js"></script>
+<script type="text/javascript" src="web/js/rili/cn.js"></script>
+<div class="so_main">
+	<div class="page_tit">票证管理</div>
+	<div class='Toolbar_inbox'>
+  		<form action="{:U('admin/ticket/index')}" method="GET">
+	  		<a href="{:U('admin/ticket/index')}" class="btn_a"><span>显示全部</span></a>
+	  		&nbsp;&nbsp;类型： {:form_select('status',$_GET['status'],array(1=>'售后 ',2=>'包裹',3=>'查询',4=>'规则'),'',array('-1','--'))}
+            &nbsp;&nbsp;时间： <input type="text" name="stime" id="stime" class="w100 h20 text " value=""> 到
+                              <input type="text" name="stime1" id="stime1" class="w100 h20 text " value="">
+           &nbsp;&nbsp; {:form_input('id',$_GET['id'],'text w140 h20')}
+	        &nbsp;&nbsp;<input type="submit" value="查询" class="btn_b"/>
+  		</form>
+  		<div class="fL mL5">
+            <script type="text/javascript">
+                var cal = Calendar.setup({
+                    onSelect: function(cal) { cal.hide() } ,
+                    bottomBar: false
+                });
+                cal.manageFields("stime", "stime", "%Y-%m-%d");
+                cal.manageFields("stime1", "stime1", "%Y-%m-%d");
+            </script>
+        </div>
+  	</div>
+  	<div class="list">
+		
+	  	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  	<tr>
+		    	<th class="line_l">ID</th>
+		    	
+		    	<th class="line_l" width="50">用户名</th>
+		    	<th class="line_l">邮箱</th>
+		    	<th class="line_l" width="50">图片</th>
+		    	<th class="line_l">类型</th>
+		    	<th class="line_l">订单编号</th>
+		    	<th class='line_l'>标题</th>
+		    	<th class="line_l">内容</th>
+		    	<th class="line_l">时间</th>
+		  	</tr>
+		  	<foreach name="list" item="item">
+			<tr>
+			    <td>{$item.id}</td>
+			    <td class="cGreen">{$item.name}</td>
+			    <td>{$item.email}</td> 
+			    <td><a href="{:U('admin/ticket/datail?id='.$item['id'])}"><img src="{$item.pic}" width="40" /></a> </td>
+			    <td>
+                    <switch name="item.department">
+                       <case value="1">售后 </case>
+                       <case value="2">包裹</case>
+                       <case value="3"> 查询 </case>
+                       <case value="4">规则 </case>
+                    </switch>
+			    </td>
+			    <td>{$item.idacount}</td> 
+			    <td>{$item.title} </td>
+			    <td>{$item.content}</td>
+			    <td>{$item.ctime|sTime}</td>
+			    <td>
+                    
+			    </td>
+			</tr>
+		  	</foreach>
+	  	</table>
+       <empty name="list">
+        <div class="mT l40 cRed bold f14">暂无票证</div>
+	   </empty>
+	</div>
+	<present name='page'>
+  	<div class="Toolbar_inbox">
+  		<div class="page">{$page}</div>
+  	</div>
+  	</present>
+</div>
+<script type="text/javascript">
+$(function(){
+	tr_hover();
+	ajax_bool();
+	input_toggle($('form [name="id"]'),'cGray','用户名/邮箱');
+});
+</script>
+<include file="Public:foot" />

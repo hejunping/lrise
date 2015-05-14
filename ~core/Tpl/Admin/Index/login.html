@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台登录</title>
+<link href="web/css/login.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/mod/admin/jquery.1.7.1.js"></script>
+<script>
+function changeverify(){
+    var date = new Date();
+    var ttime = date.getTime();
+    var url = "{:U('admin/index/verify')}";
+    $('#verifyimg').attr('src',url+'#'+ttime);
+}
+</script>
+</head>
+    <body background="">
+<div class="box">
+	<div class="fL box_top"></div>
+	<div class="la fL">
+		<div class="lb fL"></div>
+		<div class="lc fL">
+            <form action="{:U('admin/index/login')}" name="reg" method="post"  class="nf lf">
+			<ul>
+				<li class="logo"></li>
+				<li class="lf">
+					<span class="fL w50 txtR">帐号：</span>
+					<input class="text ld bd w120 h20 fL" type="text" name="userName" value="">
+				 </li>
+				<li class="lf">
+					<span class="fL w50 txtR">密码：</span>
+				    <input class="text le bd w120 h20 fL" type="password" name="userPwd" value="">
+				 </li>
+				 <li class="lf">
+					<span class="fL w50 txtR">验证码：</span>
+				    <input class="text lg bd w60 h20 fL" name="userCode" value="">
+				    <a onclick="changeverify()" class="fL mL" title="点击换一张" ><img src="{:U('admin/index/verify')}" id="verifyimg"/></a> 
+				 </li>
+				 <li class="h30 w180">
+				 	<input type="reset" value="" class="reset bdN fR"/>
+				 	<input type="submit" value="" class="submit bdN fR"/>
+				 </li>
+			</ul>
+			</form>
+		</div>
+	</div>
+	<div class="lbm fL">
+		Copyright &copy; {:date('Y')} 
+		<a href="http://www.eastsoar.com" target="_blank" style="color:#f6f4f9;text-decoration: none;">eastsoar.com</a>    
+		版权所有
+	</div>
+</div>
+<!-- 页底 END -->
+<div class="clear"></div>
+<present name='Think.session.editTips'>
+<style type="text/css">
+div.editTips{padding:5px 20px;border:1px solid #f0f0f0;width:650px;height:25px;margin:0 auto;}
+div.editTips span{float:left;line-height:25px;}
+div.editTips .head{color:#f7750c;font-weight:bold;}
+div.editTips .close{float:right;font-size:18px;cursor:pointer;}
+</style>
+<div style="clear:both;"></div>
+<div class="editTips">
+	<span class="ico"></span>
+	<span class="head">提示：</span>
+	<eq name="Think.session.editTipsType" value="1">
+		<span class="rightText">{$Think.session.editTips}</span>
+	</eq>
+	<eq name="Think.session.editTipsType" value="0">
+		<span class="errorText">{$Think.session.editTips}</span>
+	</eq>
+	<span class="close" title="关闭">×</span>
+</div>
+<?php session('editTips',null);?>
+<?php session('editTipsType',null);?>		
+<script type="text/javascript">
+var timeOut;
+$(function(){
+	timeOut = setTimeout(function(){
+		$("div.editTips").remove();
+	},3000);
+	$("div.editTips .close").click(function(){
+		$(this).parent().remove();
+		clearTimeout(timeOut);
+	});
+});
+</script>
+</present>
+<include file="Public:foot" />

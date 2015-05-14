@@ -1,0 +1,91 @@
+<!--<div class="splb" id="splb">
+    <volist name="list" id="vo" offset="0" length='20'>
+        <dl>
+            <dt><a href="{:U('prod/detail/index?id='.$vo['id'])}">
+                <img class="photo_hot scrollLoading" border="0" alt="{$vo.name}" src="{$vo.pic}" data-url="{$vo.clickurl}" style="background:url(http://www.yoybuy.com/Content/Images/Product/loading.gif) no-repeat center;">
+            </a>
+            </dt>
+            <dd>
+                <a href="{$vo.clickurl}"><span class="itmename sp">{$vo.name}</span>
+                    <span class="cbut sp" id="Volume17837276072">({$vo.sold} customers bought)</span><span class="money sp">
+                        {$vo.price}</span> <span class="sp">
+                        <img src="./web/images/prod/level_0.gif">
+                    </span>
+                </a>
+            </dd>
+        </dl>           
+    </volist>
+</div>
+<div class="spzx" id="spzx" style="display:none;">
+    <volist name="list" id="vo" offset="0" length='20'>
+        <div class="leftspzx">
+            <dl>
+                <dt><a href="{:U('prod/detail/index?id='.$vo['id'])}">
+                    <img class="photo_hot scrollLoading" border="0" alt="{$vo.name}" src="{$vo.pic}" data-url="{:U('prod/detail/index?id='.$vo['id'])}" style="background:url(http://www.yoybuy.com/Content/Images/Product/loading.gif) no-repeat center;">
+                </a></dt>
+                <dd>
+                    <div class="lbname">
+                        <a href="{:U('prod/detail/index?id='.$vo['id'])}">{$vo.name}
+                        </a>
+                    </div>
+                    <p>
+                        Condition:<if condition="$vo['status'] eq 1">New</if> </p>
+                <span><b>Shop: <a></a></b>
+                    <img src="./web/images/prod/level_0.gif">
+                </span>
+                </dd>
+            </dl>
+            <span id="Volume18123304886" class="sx">({$vo.sold} customers bought)</span><span class="totalfl">
+                {$vo.price}</span>
+        </div>
+    </volist>
+</div>
+
+<div class="spbottom">
+    <link href="./web/css/page_new.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        /*                            .current{
+                                        background: #F60;  
+                                        float: left;
+                                        border: 1px solid #CCCCCC;
+                                        cursor: pointer;
+                                        float: left;
+                                        height: 25px;
+                                        line-height: 25px;
+                                        margin: 0 2px;
+                                        text-align: center;
+                                        width: 25px;
+                                        }*/
+        div.pages{background-color:#F1F1F1;}
+        div.pagesNav{color:#E86724; margin:15px 20px 0px 20px; font-size:14px;padding-bottom:10px;}
+        div.pagesNav a{ padding:6px 6px; border:1px solid #D3D3D3; background-color:white;}
+        div.pagesNav .current{ border:1px solid #D3D3D3;  display:inline-block; padding:6px 9px; font-size:14px; color:red; font-weight:bold;  background: #F90; }
+        .page{color: #333;}
+    </style>
+    
+    <div class="pagesNav" id="fenye">
+        {$page}
+        <div class="page">
+            <span>Pages</span>
+            <input name="newcurpage" type="text" value="1" id="newcurpage" onkeyup="checktest(this)">
+            <img style="cursor: pointer;margin-left: 8px;" alt="" onclick="doGO()" src="./web/images/prod/pagego.png" width="40" height="27">
+        </div>
+    </div>
+    <script language="javascript" type="text/javascript">
+        function doGO() {
+            var pagevalue = window.document.getElementById("newcurpage").value;
+            var surl = "{:U('prod/detail/index?id='.$vo['id']&'p='.$p)}";
+            window.location = surl.replace($p,pagevalue) ;
+        }
+        function checktest (object) {
+            var reg = /^[0-9]*$/;
+            if($(object).val()=="0")
+            {
+                $(object).val("1");
+            }
+            if (!reg.test($(object).val())) {
+                $(object).val("1");
+            }
+        } 
+    </script>                    
+</div>-->

@@ -1,0 +1,49 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit">日志管理</div>
+	<div class="Toolbar_inbox">
+		<form method="get" action="{:U('admin/user/urecord')}">
+			<a href="{:U('admin/user/urecord')}" class="btn_a"><span>显示全部</span></a>
+			&nbsp; &nbsp;日志类型：{:form_select('ename',$_GET['ename'],cate_opt('log_type','ename'),'','不限')}
+			&nbsp;&nbsp;时间：{:form_input('reg_start',$_GET['reg_start'],'text w80 h20 sdate')} - {:form_input('reg_end',$_GET['reg_end'],'text w80 h20 sdate')}
+			&nbsp;&nbsp;{:form_input('key',$_GET['key'],'text w120 h20')}
+			&nbsp;&nbsp;<input type="submit" value="查询" class="btn_b"/>
+		</form>
+	</div>
+	<div class="list">
+		<table border="0" cellspacing='0' cellpadding='0' width="100%">
+			<tr>
+				<th class='line_1'>日志标题</th>
+				<th class='line_1'>日志类型</th>
+				<th class='line_1'>用户编号</th>
+				<th class='line_1'>备注1</th>
+				<th class='line_1'>备注2</th>
+				<th class='line_1'>记录时间</th>
+			</tr>
+			<foreach name='list' item='item'>
+			<tr>
+				<td>{$item.name}</td>
+				<td>{$item.ename|getItemById="log_type"}</td>
+				<td>{$item.uid}</td>
+				<td>{$item.bak1}</td>
+				<td>{$item.bak2}</td>
+				<td>{$item.ctime|sTime}</td>
+			</tr>
+			</foreach>
+		</table>
+	</div>
+	<notpresent name='list'>
+		<div class="l40 cRed bold f14">暂无数据</div>
+	</notpresent>
+	<present name="page"><!-- 分页程序 -->
+		<div class="Toolbar_inbox">
+			<div class="page">{$page}</div>
+		</div>
+	</present>
+</div>
+<script type="text/javascript">
+$(function(){
+	input_toggle($('form [name="key"]'),'cGray','用户ID/日志标题');
+})
+</script>
+<include file="Public:foot" />

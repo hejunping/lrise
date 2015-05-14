@@ -1,0 +1,322 @@
+<include file='tpl/head_zh.html' />
+<script src="web/js/jqcookie.js" type="text/javascript"></script>
+<script src="./web/js/mod/home/user/en_register.js"></script>
+<!-- <script src="./web/js/mod/home/user/register.js"></script> -->
+<script src="./web/js/mod/home/user/languageselect.js"></script>
+<script src="./web/js/jquery-1.8.0.js"></script>
+<script language="JavaScript">
+    function changeVerify(){
+        var timenow = new Date().getTime();
+        document.getElementById('verifyImg').src="{:U('home/user/verify?time=')}"+timenow;  
+    }
+</script>
+<script type="text/javascript">
+
+    var captchaImageSrc = null;
+    var beSubmit = false;
+    var isCheckName = false;
+    var checkPassword = false;
+    var checkRePassword = false;
+    var checkEmail = false;
+    var checkCountry = false;
+    var checkCaptcha = false;
+    $(function () {
+        InitLanguageSelect("en", "/register");
+    });
+
+    function submit() {
+        $("#submit").html(loadImg).addClass("loggingC");
+        if (beSubmit == true) {
+            return;
+        }
+        else {
+            if (!$("#agreeCheckbox").attr("checked")) {
+                $("#agreeCheckboxErrorMessage").html("*Please check this box to accept the Terms of iOder!");
+                $("#submit").html(signupImg).removeClass("loggingC");
+                beSubmit = false;
+            }
+            else {
+                beSubmit = true;
+                var key = $("#captcha-guid").val();
+                var code = $("#captcha").val();
+                if (code == "" || code.length < 4) {
+                    $("#codeErrorMessage").html("*Please enter code!");
+                    $("#submit").html(signupImg).removeClass("loggingC");
+                    beSubmit = false;
+                }
+                else {
+                    $("#codeErrorMessage").html("");
+                    if (isCheckName == false || checkPassword == false || checkRePassword == false ||checkEmail == false || checkCountry == false) {
+                        $("#submit").html(signupImg).removeClass("loggingC");
+                        beSubmit = false;
+                        CheckUserName();
+                        CheckEmail();
+                        CheckPassword();
+                        CheckRePassword();
+                        CheckCountry();
+                        checkCaptcha();
+                    }
+                    else {
+                        var url  = $("#address").attr("url");
+                        var turl = $("#address").attr("turl");
+                        var Lurl = $("#address").attr("Lurl");
+                        var surl = $("#address").attr("surl");
+                        var sign = true;
+                        $.ajax({
+                            url: url,
+                            data: { sign:sign,key: key, code: code, account: $("#userName").val(), password: $("#password").val(), email: $("#email").val(), countryId: $("#country").val(), share: "" },
+                            dataType:"json",
+                            type: "POST",
+                            success: function (data) {
+                                if (data.result == true) {
+                                    alert("Account registration successful,Please find the mail account activation.");
+                                    window.location.href = surl;
+                                }
+                                else {
+                                    alert(data.msg);
+                                    $("#submit").html(signupImg).removeClass("loggingC");
+                                    beSubmit = false;
+                                }
+                            },
+                            error: function () {
+                                alert("Sorry!The system is busy, please try again later.");
+                                $("#submit").html(signupImg).removeClass("loggingC");
+                                beSubmit = false;
+                            }
+                        });
+                    }
+                }
+            }
+
+        }
+    }
+</script>
+<script language="JavaScript">
+    function changeVerify(){
+        var timenow = new Date().getTime();
+        document.getElementById('verifyImg').src="{:U('home/user/verify?time=')}"+timenow;  
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $("#captcha").focus(
+        function () {
+            $("#codeErrorMessage").html("");
+            $("#captcha").val("");
+        }
+    );
+	   
+    });
+   
+    function checkCaptcha() {
+	    
+        var code = $("#captcha").val();
+        if(code.length == "" || code.length == null || code.length < 4){
+            $("#codeErrorMessage").html("*Please enter code!");
+            $("#codeSpan").html("");
+            var checkCaptcha = false;
+        }else{
+            $("#codeErrorMessage").html("");
+            var sign = "false";
+            var url = $("#address").attr("url");
+            $.ajax({
+                url: url,
+                data: { sign:sign, code: code },
+                dataType:"json",
+                type: "POST",
+                success: function (data) {
+                    if (data.result == true) {
+                        $("#codeSpan").html("<img src='web/images/home/DG_07.jpg' />");
+                        $("#codeErrorMessage").html("");
+                        var checkCaptcha = true;
+                    }else{
+                        $("#codeSpan").html("");
+                        $("#codeErrorMessage").html("*The code is incorrect.");
+                        var checkCaptcha = false;
+                    }
+                }
+            });
+        }
+		
+    }
+    
+  
+    
+    function chk(){
+  
+        $("#up").addClass('box');
+        $("#up").removeClass('font');
+        $("#down").removeClass('box');
+        $("#down").addClass('font');
+        $("#login").css('display','none');
+        $("#reg").css('display','block');
+    }
+   
+    function get(){
+        $("#up").addClass('font');
+        $("#up").removeClass('box');
+        $("#down").addClass('box');
+        $("#down").removeClass('font');
+        $("#reg").css('display','none');
+        $("#login").css('display','block');
+    }
+   
+</script>
+<style>
+    ul li {float: left;}
+    #box{width: 980px; height: 50px; text-align: center; margin-left:88px; margin-bottom: -8px}
+    .box  {background-image: url(web/images/home/1.jpg); font-size: 16px; width: 123px; height: 30px; color:white;}
+    .font{color: #FF9900; font-size: 16px;}
+</style>
+
+
+<div class="signMian"  style="margin-left: 100px;" >
+    <div id="box" >
+        <ul>
+            <li>
+                <h4>
+                    <a class="rihgtcta box" style="cursor:pointer;" id="up" onclick="chk()">  Sign up </a> 
+                </h4>         
+            </li>
+            <li>
+                <h4 style="margin-left: 20px;">
+                    <a  class="rihgtcta" style="cursor:pointer;"  id="down" onclick="get()">Sign in now</a>
+                </h4>         
+            </li>
+        </ul>
+    </div>
+    <!--    <div id="big" style="border-top: #FEBA57 solid 2px; border-bottom:#CCCCCC solid 2px  "> -->
+    <div class="left_UpMian" style="text-align: center; border-top: #FEBA57 solid 2px;" id="reg">
+        <div class="Error">
+            <span id="errorMessage" url="{:U('home/user/logins')}"  turl="{:U('user/index/index')}"></span>
+        </div>
+        <ul id="address" url="{:U('home/user/regTodo')}"  turl="{:U('user/index/index')}" surl="{:U('home/index/index')}" Lurl="{:U('home/user/login')}">
+            <li><span>Email:</span>
+                <input id="email" class="UnB" name="email" type="text" onblur="CheckEmail()">
+                <em id="emailSpan"></em></li>
+            <div class="tsUpMian" id="emailErrorMessage">
+            </div>
+            <div class="right_UpMian" style="float: right;">
+                <a href="{:U('home/user/login')}">
+                    <img src="web/images/home/sign_now_03.gif" width="133" height="27">
+                </a>
+            </div>
+            <li><span>User name:</span>
+                <input name="userName" id="userName" class="UnB" type="text" onblur="CheckUserName()">
+                <em id="userNameSpan"></em></li>
+            <div class="tsUpMian" id="userNameErrorMessage">
+            </div>
+            <li><span>Password:</span>
+                <input name="password" id="password" class="UnB" type="password" onblur="CheckPassword()">
+                <em id="passwordSpan"></em></li>
+            <div class="tsUpMian" id="passwordErrorMessage">
+            </div>
+
+            <li><span>Re-type password:</span>
+                <input id="repassword" class="UnB" name="repassword" type="password" onblur="CheckRePassword()">
+                <em id="repasswordSpan"></em></li>
+            <div class="tsUpMian" id="repasswordErrorMessage">
+            </div>
+            <li><span>Country:</span>
+                <select id="country" name="country" onblur="CheckCountry()" onchange="CheckCountry()">
+                    <option value="0">- select one -</option>
+                    <option value="1">China</option>
+                    <option value="2">Afghanistan</option>
+                    <option value="3">Albania</option>
+                    <option value="4">Algeria</option>
+                </select>
+                <em id="countrySpan"></em></li>
+            <div class="tsUpMian" id="countryErrorMessage">
+            </div>
+            <li><span>Code: </span><a>
+                    <input type="text" id="captcha" name="captcha" onblur="checkCaptcha()"  onfocus="codeFocu()" maxlength="4"  class="cd" value="">
+                    <img id="verifyImg" src="{:U('home/user/verify')}"  onClick="changeVerify()" title="点击刷新验证码" alt="CAPTCHA"  width="96" height="20" class="captchaimage" />
+                </a><em id="codeSpan"></em></li>
+            <div class="tsUpMian" id="codeErrorMessage">
+            </div>
+            <div class="tsUpMian">
+                <input id="agreeCheckbox" name="agreeCheckbox" type="checkbox" value="" onkeyup="DoSubmit()" onclick="CheckBox()">
+                <a href="{:U('home/info/index','id=417')}" target="_blank" style="margin-left:0px">I have read
+                    and agreed to The Terms of Iorder Register</a>
+            </div>
+            <div class="tsUpMian" id="agreeCheckboxErrorMessage">
+            </div>
+        </ul>
+        <div class="botnUp" id="submit">
+            <img onclick="submit();" style="cursor: pointer" src="web/images/home/signup_03.jpg">
+        </div>
+    </div>
+
+    <div class="left_UpMian" id="login" style="display:none; border-top: #FEBA57 solid 2px;">
+        <div class="Error">
+            <span id="errorMessage" url="{:U('home/user/logins')}"  turl="{:U('user/index/index')}"></span>
+        </div>
+        <ul id="address" url="{:U('home/user/regTodo')}"  turl="{:U('user/index/index')}" surl="{:U('home/index/index')}" Lurl="{:U('home/user/login')}">
+            <li><span>Email:</span>
+                <input id="email" class="UnB" name="email" type="text" onblur="CheckEmail()">
+                <em id="emailSpan"></em></li>
+            <div class="tsUpMian" id="emailErrorMessage">
+            </div>
+            <div class="right_UpMian" style="float: right;">
+                <a href="{:U('home/user/login')}">
+                    <img src="web/images/home/sign_now_03.gif" width="133" height="27">
+                </a>
+                <!--            <p style="color:#C5C5C5; font-size: 14px; width: 300px">ALREADY GOT IORDER ACCOUNT?</p>-->
+            </div>
+            <li><span>Password:</span>
+                <input name="password" id="password" class="UnB" type="password" onblur="CheckPassword()">
+                <em id="passwordSpan"></em></li>
+            <div class="tsUpMian" id="passwordErrorMessage">
+            </div>
+
+            <li><span>Code: </span><a>
+                    <input type="text" id="captcha" name="captcha" onblur="checkCaptcha()"  onfocus="codeFocu()" maxlength="4"  class="cd" value="">
+                    <img id="verifyImg" src="{:U('home/user/verify')}"  onClick="changeVerify()" title="点击刷新验证码" alt="CAPTCHA"  width="96" height="20" class="captchaimage" />
+                </a><em id="codeSpan"></em></li>
+            <div class="tsUpMian" id="codeErrorMessage">
+            </div>
+        </ul>
+        <style>
+            p a:hover{color: #F60;}
+            p a{COLOR: #2682e0; MARGIN-LEFT: 26px; TEXT-DECORATION: underline;}    
+        </style>
+        <div class="botnUp">
+            <a id="btndiv">
+                <img onclick="submit();" style="cursor: pointer" src="web/images/home/sinin_03.jpg">
+            </a>
+            <span></span>
+            <input name="remember" id="remember" type="checkbox" value="" style="margin-top:-15px;margin-left: 15px;">
+            <span style="color:#FEBA57 ">Sign in automatically</span>
+            <br>
+            <p>Forget <a href="{:U('home/user/getpwd')}" style="margin-left:0px;">Password</a> or <a href="{:U('home/user/getemail')}" style="margin-left:0px;">E-mail</a></p>
+        </div>
+
+    </div>
+
+
+
+</div>
+<!--</div>-->
+
+<div class="footer">
+    <div class="footerBottom">
+        <div class="footfs">
+            <div class="footLogo">
+                <img src="web/images/head/logo.png" width="185" height="46"></div>
+            <div class="bottomfoot">
+                {:W('End',array('tpl'=>'foot','num'=>'6'))}
+                <p>
+                    Address: 108 Di Shang #22 building 1 district west Tiantongyuan Changping Beijing,
+                    China Copyright: Beijing ICP, for the record：88845321
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none">
+    <img border="0" hspace="0" vspace="0" src="web/images/head/pic.gif"></a>
+</div>
+
+</body>
+</html>

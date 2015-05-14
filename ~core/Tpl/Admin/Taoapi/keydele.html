@@ -1,0 +1,38 @@
+<include file="Public:head" />
+<link rel="stylesheet" type="text/css" href="css/rili/jscal2.css" />
+<script type="text/javascript" src="js/rili/jscal2.js"></script>
+<script type="text/javascript" src="js/rili/cn.js"></script>
+<div class="so_main">
+	<div class="page_tit f14">
+		淘宝采集- 
+		<a href="{:U('admin/taoapi/index')}" class="cBlue f14">返回列表</a>
+	</div>
+	<div class="form2">
+	<form method="post" action="{:U('admin/taoapi/keydele')}" enctype="multipart/form-data">
+	   
+		<dl class="lineD">
+			<dt>时间：</dt>
+			<dd>
+			   <input class="text h20 " type="text"  value="" name="stime" id="stime">
+			   <p> 删除所给日期之前的 淘宝采集商品</p>
+			</dd>
+		</dl>
+		 <div class="fL mL5">
+
+                    <script type="text/javascript">
+                        var cal = Calendar.setup({
+                            onSelect: function(cal) { cal.hide() } ,
+                            bottomBar: false
+                        });
+                        cal.manageFields("stime", "stime", "%Y-%m-%d");
+                    </script>
+                </div>
+		
+    	<div class="page_btm">
+      		<input type="submit" class="btn_b" value="提交" />
+      		<gt name='item.id' value='0'><input name="id" type="hidden" value="{$item.id}"></gt>
+    	</div>
+	</form>
+	</div>
+</div>
+<include file="Public:foot" />

@@ -1,0 +1,37 @@
+<include file='Public:head' />
+<div class='so_main'>
+	<div class='page_tit f14'>拍币处理</div>
+	<div class='form2'>
+		<form method='post' action="{:U('admin/user/coin')}">
+			{:dp_input('uid',$item['uid'],'用户编号','','','uid')}
+			{:dp_input('bak2',$item['bak2'],'拍币数量','正数为赠送，负数为扣除','','coin')}
+			{:dp_input('bak1',$item['bak1'],'交易理由')}
+			<div class='page_btm'><input type='submit' class='btn_b' value='提交'></div>
+		</form>
+	</div>
+</div>
+<script type='text/javascript'>
+$(function(){
+	form_chg();
+	$('.form2 .uid').blur(function(){
+		var val = $(this).val();
+		if(val == ''){
+			alert('用户编号必须填写');
+			$('.btn_b').attr('disabled','true');
+		}else{
+			$('.btn_b').removeAttr('disabled');
+		}
+	});
+	
+	$('.form2 .coin').blur(function(){
+		var val = $(this).val();
+		if(val == ''){
+			alert('拍币数量必须填写');
+			$('.btn_b').attr('disabled','true');
+		}else{
+			$('.btn_b').removeAttr('disabled');
+		}
+	});
+});
+</script>
+<include file='Public:foot' />

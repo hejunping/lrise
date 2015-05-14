@@ -1,0 +1,11 @@
+<volist name="hot" id="vo">
+    <dl>
+        <dt><a href="{:U('prod/'.$vo['iid'].'/index')}">
+            <img src="{$vo.pic}" ></a></dt>
+        <dd>
+            <a href="{:U('prod/'.$vo['iid'].'/index')}"><span class="itmename" rel="translate" rev="title">{$vo.name}</span> <span class="cbut" id="68844">({$vo.tao_sold} customers bought)
+               </span> <span class="money">{$vo.price|_usaprice}</span>
+            </a>
+        </dd>
+    </dl>
+</volist>

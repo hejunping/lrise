@@ -1,0 +1,8 @@
+			<!-- 赶圩公告 -->
+			<h3 class='bd h30'><span class="htit tit04"></span></h3>
+			<ul class='bdLR bdB oF pL olist'>
+				<foreach name='list' item='item'>
+				<li class='oF'><a href="{:U('home/info/'.$item['id'])}" title="{$item.name}">{$item.name}</a></li>
+				</foreach>
+			</ul>	
+			

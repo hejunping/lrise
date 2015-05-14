@@ -1,0 +1,102 @@
+<include file='tpl/head_ru.html' />
+<div sytle="clear:both;"></div>
+<script type="./web/js/mod/home/supplier/merchants.js"></script>
+ <script src="web/js/catemenu.js" type="text/javascript"></script>
+ <div style="width: 980px; margin: 0 auto; clear: both;">
+ <div class="newmenub " style="width: 100%;float: left;" >
+     <div class="leftnm" id="leftmenu">
+        <a href="{:U('prod/cate/index')}" ><span>Все категории</span><img alt="" src="http://www.yoybuy.com/Content/Images/Head/Flxsj.png"></a>
+       
+         <div name="menulest" style="display: none;" class="leftfl flxl">
+       
+           {:W('Areacate',array('tpl'=>'index','num'=>'13'))}<!--商品分类-->
+      
+         </div>
+      </div>
+      <div sytle="clear:both;"></div>
+  </div>
+
+<div class="gystop" style="clear:both;">
+    <div class="toptext">
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;北京优贝网络科技有限公司在2008年成立于北京，旗下网站 <a href="http://www.LRISE.com/en/" target="_blank">www.LRISE.com</a> 是目前中国较大代购网站之一。涵盖了包括服装、鞋帽、 玩具、饰品、家居用品、体育用品等13大类。在洞察国际网购市场发展趋势、有效整合强大的海内外商业力量的基础上，给国外客户及海外
+            华人代购中国的大众消费品。</p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;LRISE客户群遍及北美洲、南美洲、欧洲、亚洲、大洋洲、非洲等，包括美国、加拿大、英国、芬兰、意大利、俄罗斯、西班牙、土耳
+            其及香港、新加坡等涵盖全球50多个国家200多个城市和地区。市场占有率处于同行业领先地位。公司从开始的初创2人发展成目前的108人 团队，平均年龄25岁，是充满朝气和发展空间巨大的公司。公司目前处于战略转型期，以打造独特完美的网上购物体验为己任，并迅速发展
+            壮大，将公司打造成专业及技术水平先进的代购公司。在此诚邀更多优秀的境内供应商加入我们的全球供应链！</p>
+    </div>
+    <div class="toptextb">
+        <b>现在，我们邀请您加入 LRISE.com 伙伴供应商,共同开拓全球市场！</b>
+        <ul>
+            <li>
+                联系人：徐先生 &nbsp;&nbsp;&nbsp;&nbsp; 联系电话：010-84819775-8206 &nbsp;&nbsp;&nbsp;&nbsp;
+                邮箱：xuzeng@LRISE.com</li>
+            <li>
+                邮件请注明：公司名称、经营商品类别、地址、电话、联系人</li>
+            <li>
+                如果您的产品符合我们的需求，请与我们联系。</li>
+        </ul>
+    </div>
+</div>
+<div class="gysbottom">
+    <div class="bottotoptext">
+        We purchase thousands of products and accessories... Fill in the following information,being
+        a supplier of LRISE.</div>
+    <div class="gysbiaod">
+        <ul class="leftbd">
+            <li>
+                <span class="bdname"><span class="xinghao">*</span>公司名称：</span><input type="text" name="companyName" id="companyName"></li>
+            <li>
+                <span class="bdname"><span class="xinghao">*</span>联系人姓名：</span><input type="text" name="contact" id="contact"></li>
+            <li>
+                <span class="bdname"><span class="xinghao">*</span>公司电话：</span><input type="text" name="companyPhone" id="companyPhone"></li>
+            <li>
+                <span class="bdname"><span class="xinghao">*</span>Email：</span><input type="text" name="email" id="email"></li>
+            <li>
+                <span class="bdname">MSN/QQ：</span><input type="text" name="msnorqq" id="msnorqq"></li>
+            <li>
+                <span class="bdname"><span class="xinghao">*</span>公司网址：</span><input id="companyUrl" type="text" name="companyUrl"></li>
+        </ul>
+        <ul class="rightbd">
+            <li>
+                <span class="bdnameb"><span class="xinghao">*</span>主营产品类型：</span>
+                <select name="productType" id="productType">
+                    <option selected="selected">请选择</option>
+                    <option value="男装">男装</option>
+                    <option value="女装">女装</option>
+                    <option value="鞋子">鞋子</option>
+                    <option value="包">包</option>
+                    <option value="手表和眼镜">手表和眼镜</option>
+                    <option value="美容和饰品">美容和饰品</option>
+                    <option value="内衣和睡衣">内衣和睡衣</option>
+                    <option value="母婴用品">母婴用品</option>
+                    <option value="家居用品"> 家居用品</option>
+                    <option value="运动户外和汽车用品">运动户外和汽车用品</option>
+                    <option value="手机和电脑">手机和电脑</option>
+                    <option value="数码产品">数码产品</option>
+                    <option value="文化玩乐">文化玩乐</option>
+                    <option value="其他">其他</option>
+                </select></li>
+            <li>
+                <span class="bdnameb"><span class="xinghao">*</span>申请加盟理由：</span><textarea name="joinReason" id="joinReason" cols="" rows=""></textarea></li>
+            <li id="captchaLiTitle">
+                <span class="bdnameb"> <span class="xinghao">*</span>验证码：</span>
+                <input type="text" id="captcha" name="captcha" value="" maxlength="5" autocomplete="off" class="cd">
+                <a title="* Not clear? Change Photo" href="javascript:refreshValidateCode()" style="display: block">
+                    <input type="hidden" id="captcha-guid" name="captcha-guid" value="3264977955a846c2b2e0e763e2e00593">
+                    <img src="./诚招供应商_files/Image" alt="CAPTCHA" id="captchaimage" width="96" height="20" class="captchaimage">
+                </a>
+                <input type="hidden" value="3264977955a846c2b2e0e763e2e00593" id="validateCodeKey" name="validateCodeKey">
+
+            </li>
+        </ul>
+    </div>
+    <div class="tjann">
+        <a href="javascript:onSubmit()">提交</a></div>
+    <div class="qwp">
+        Organizing World products for world customers！</div>
+</div>
+</div>
+
+<include file='tpl/foot.html' />

@@ -1,0 +1,27 @@
+ <?php $k=1; ?>
+ <volist name="iclass" id="vo" offset="0" length="4">
+ 
+  <div class="bottommian">
+        <div class="imgbol">
+            <a href="{:U('prod/index/index?cid='.$vo['id'])}">
+                <img src="web/images/prod/class<?php echo  $k++; ?>.jpg" width="170" height="54" alt="Men‘s clothing"></a>
+        </div>
+        <span><a href="{:U('prod/index/index?cid='.$vo['id'])}">{$vo.name}</a></span>
+        <ul>
+        <volist name="vo['subname']" id="svo"  offset="0" length='5'>
+                <li ><a href="{:U('prod/index/index?ecid='.$svo['id'])}">{$svo.name}</a></li>
+         </volist>       
+        </ul>
+        <div class="moreleft">
+            <a href="{:U('prod/index/index?cid='.$vo['id'])}">
+                <img src="web/images/head/<php>$lang = isLang();
+                    if($lang == 'zh'){
+                        echo 'moreb_zh.png';
+                    }else if($lang == 'ru'){
+                        echo 'moreb_ru.png';
+                    }else{
+                        echo 'moreb.png';
+                    }
+                </php>" width="48" height="17" alt=""></a></div>
+    </div>
+  </volist>  

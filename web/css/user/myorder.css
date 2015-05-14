@@ -1,0 +1,981 @@
+.sbr
+{
+    margin-bottom: 10px;
+}
+.sjjd
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-shadow: 1px 1px 5px 1px #CCCCCC;
+    float: left;
+    height: auto;
+    margin-left: -538px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    width: 520px;
+}
+.sjjdtop
+{
+    background: url("images/user/center_h.jpg") repeat-x scroll left top transparent;
+    border-bottom: 1px solid #CCCCCC;
+    float: left;
+    font-weight: bold;
+    height: 29px;
+    line-height: 29px;
+    width: 520px;
+}
+.sjjdtime
+{
+    color: #FF6600;
+    float: left;
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+    width: 120px;
+}
+.sjjdproc
+{
+    color: #FF6600;
+    float: left;
+    overflow: hidden;
+    text-align: center;
+    width: 309px;
+}
+.sjjdop
+{
+    color: #FF6600;
+    float: left;
+    margin-left: 10px;
+    text-align: center;
+    width: 50px;
+}
+.sjjdtop a
+{
+    float: right;
+    margin-right: 5px;
+    margin-top: 6px;
+}
+.sjjd ul
+{
+    display: block;
+    float: left;
+    height: auto;
+    padding-top: 5px;
+}
+.sjjd ul li
+{
+    color: #333333;
+    float: left;
+    font-size: 11px;
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    width: 100%;
+}
+.sjjdtimeb
+{
+    color: #333333;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    margin-left: 10px;
+    text-align: center;
+    width: 110px;
+}
+.sjjdprocb
+{
+    color: #333333;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    margin-left: 5px;
+    overflow: hidden;
+    text-align: left;
+    width: 311px;
+}
+.sjjdtimec
+{
+    color: #333333;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    margin-left: 5px;
+    text-align: left;
+    width: 75px;
+}
+
+
+
+.a_rside
+{
+    background: rgb(255, 255, 251);
+    border: 1px solid rgb(219, 219, 219);
+    width: 795px;
+    float: right;
+}
+.dearggb {
+    background: none repeat scroll 0 0 #FFF6D9;
+    border: 1px solid #FF9900;
+    clear: both;
+    color: #FF8A02;
+    font-size: 11px;
+    height: auto;
+    line-height: 14px;
+    margin-bottom: 10px;
+    padding: 5px 8px;
+    width: 776px;
+}
+.zttc_box
+{
+    width: 455px;
+    height: auto;
+    overflow: hidden;
+    padding: 2px 10px 10px 10px;
+    border: #CCC solid 2px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #666;
+    margin: 0;
+    background: #FFF;
+}
+.zttc_top
+{
+    width: 452px;
+    height: 30px;
+    border-bottom: #CCC solid 1px;
+}
+.zttc_top a
+{
+    float: right;
+    font-size: 10px;
+    margin-right: -5px;
+    color: #666;
+    text-decoration: none;
+}
+.zttc_top ul
+{
+    margin: 0;
+    padding: 0;
+}
+.zttc_top ul li
+{
+    list-style: none;
+    float: left;
+    line-height: 30px;
+}
+.zttc_date
+{
+    width: 120px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+.zttc_xx
+{
+    width: 300px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+.zttc_bottom
+{
+    width: auto;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+.zttc_bottom ul
+{
+    margin: 0;
+    padding: 0;
+}
+.zttc_bottom ul li
+{
+    list-style: none;
+    line-height: 18px;
+}
+.zttc_bottom_date
+{
+    width: 150px;
+    float: left;
+}
+.zttc_bottom_xx
+{
+    width: 290px;
+    float: left;
+    text-align: left;
+    padding-left: 10px;
+    overflow: hidden;
+    height: auto;
+}
+.rtit
+{
+    background: url("images/home/rtitbg.jpg") repeat-x center;
+    padding: 0px 12px;
+    border: 1px solid rgb(224, 224, 224);
+    width: 770px;
+    color: rgb(51, 51, 51);
+    line-height: 31px;
+    font-weight: bold;
+    float: left;
+}
+.rtit_a
+{
+    background: url("images/home/rtitbg.jpg") repeat-x center;
+    padding: 0px 12px;
+    border: 1px solid rgb(224, 224, 224);
+    width: 716px;
+    color: rgb(51, 51, 51);
+    line-height: 31px;
+    font-weight: bold;
+    float: left;
+}
+.bdbox
+{
+    background: rgb(255, 255, 255);
+    padding: 14px 15px;
+    border: 1px solid rgb(224, 224, 224);
+    width: 764px;
+    float: left;
+}
+.bdbox ul li input.paybutton {
+ 
+    background: url("../images/user/hhbj_03.gif") repeat-x scroll center 0 transparent;
+    color: #FFFFFF;
+    float: right;
+    height: 26px;
+    line-height: 24px;
+    margin-right: 25px;
+    padding: 0 20px;
+     border: 0 none;
+
+}
+.bdbox_c
+{
+    background: rgb(255, 255, 255);
+    padding: 14px 2px;
+    border: 1px solid rgb(224, 224, 224);
+    width: 736px;
+    float: left;
+}
+.mlst
+{
+    margin: 0px 0px 10px;
+    padding: 0px;
+    height: 31px;
+    border-bottom-color: rgb(255, 153, 0);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    zoom: 1;
+}
+.mlst li
+{
+    list-style: none;
+}
+.mlst li
+{
+    background: rgb(240, 240, 240);
+    margin: 0px 1px 0px 0px;
+    padding: 6px 15px 7px;
+    color: rgb(153, 153, 153);
+    float: left;
+    cursor: pointer;
+}
+.mlst li.hover
+{
+    background: rgb(255, 153, 0);
+    color: rgb(255, 255, 255);
+}
+.sort
+{
+    color: rgb(51, 51, 51);
+    line-height: 20px;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 10px;
+    float: right;
+    margin-top: -38px;
+}
+.mlst li.hover, .paylst li.hover
+{
+    background: #f90;
+    color: #fff;
+}
+
+.fy
+{
+    width: 755px;
+    text-align: center;
+    line-height: 20px;
+}
+.fy a
+{
+    margin: 0px 5px;
+}
+.fy_a
+{
+    width: 200px;
+    text-align: left;
+    float: left;
+}
+.fy_b
+{
+    width: 400px;
+    text-align: center;
+    float: left;
+}
+.fy_b a
+{
+    background: #d9d9d9;
+    padding: 1px 5px;
+    color: #999;
+    text-decoration: none;
+    border: #999 solid 1px;
+}
+.fy span
+{
+    background: rgb(102, 102, 102);
+}
+.fy span a
+{
+    color: rgb(255, 255, 255);
+}
+.fy_c
+{
+    width: 755px;
+    margin-top: 10px;
+    float: left;
+}
+.delete_a
+{
+    width: 755px;
+    height: 32px;
+    margin-top: 10px;
+}
+.delete_a a
+{
+    float: left;
+}
+.delete_a span
+{
+    height: 29px;
+    float: right;
+}
+
+.o_b_top
+{
+    background: none repeat scroll 0 0 #F1F1F1;
+    border: 1px solid #FFFFFF;
+    font-size: 12px;
+    height: 32px;
+    width: 763px;
+}
+.o_b_t_a
+{
+    line-height: 32px;
+    width: 45px;
+    float: left;
+    text-align: center;
+}
+.o_b_t_a b
+{
+    margin-left: 5px;
+}
+.o_b_t_b
+{
+    line-height: 32px;
+    width: 64px;
+    float: left;
+    text-align: center;
+}
+.o_b_t_c
+{
+    line-height: 32px;
+    width: 136px;
+    float: left;
+    text-align: center;
+}
+.o_b_t_d
+{
+    line-height: 32px;
+    width: 60px;
+    float: left;
+    text-align: center;
+}
+.o_b_t_e
+{
+    line-height: 32px;
+    width: 35px;
+    float: left;
+    text-align: center;
+}
+.o_b_t_f
+{
+    line-height: 32px;
+    width: 68px;
+    float: left;
+    text-align: center;
+    overflow: hidden;
+}
+.o_b_t_g
+{
+    line-height: 32px;
+    width: 50px;
+    float: left;
+    text-align: center;
+    overflow: hidden;
+}
+.o_b_t_h
+{
+    line-height: 32px;
+    width: 54px;
+    float: left;
+    text-align: center;
+}
+.o_b_t_i
+{
+    line-height: 32px;
+    width: 77px;
+    float: left;
+    text-align: center;
+}
+
+.o_b_t_j
+{
+    line-height: 32px;
+    width: 72px;
+    float: left;
+    text-align: center;
+}
+.o_b_t_k
+{
+    line-height: 32px;
+    width: 79px;
+    float: left;
+    text-align: center;
+}
+.order_box
+{
+    border: 1px solid #D9D9D9;
+    height: auto;
+    width: 765px;
+}
+.o_c_b
+{
+    border-right: 1px solid #D9D9D9;
+    float: left;
+    height: 55px;
+    padding-top: 5px;
+    text-align: center;
+    width: 63px;
+}
+.o_c_b img
+{
+    float: left;
+    margin-left: 13px;
+    border: #eaeaea solid 2px;
+}
+.o_c_b p
+{
+    float: left;
+    line-height: 13px;
+    font-size: 11px;
+    width: 50px;
+    text-align: center;
+    margin-top: 2px;
+    margin-left: 3px;
+}
+.o_c_c
+{
+    border-right: 1px solid #D9D9D9;
+    float: left;
+    font-size: 11px;
+    height: 55px;
+    line-height: 13px;
+    overflow: hidden;
+    padding-left: 5px;
+    padding-top: 5px;
+    width: 130px;
+}
+.o_c_c p a
+{
+    float: left;
+    width: 130px;
+    height: 40px;
+    color: #666;
+    overflow: hidden;
+}
+.o_c_c a
+{
+    float: left;
+    color: #999;
+    text-decoration: none;
+    width: 130px;
+    overflow: hidden;
+}
+.o_c_d
+{
+    width: 59px;
+    border-right: #d9d9d9 solid 1px;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #F30;
+}
+.o_c_e
+{
+    width: 34px;
+    border-right: #d9d9d9 solid 1px;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.o_c_f
+{
+    width: 67px;
+    border-right: #d9d9d9 solid 1px;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.o_c_g
+{
+    width: 49px;
+    border-right: #d9d9d9 solid 1px;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.o_c_h
+{
+    width: 53px;
+    border-right: #d9d9d9 solid 1px;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #F30;
+}
+.o_c_i
+{
+    width: 60px;
+    border-right: #d9d9d9 solid 1px;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.o_c_l
+{
+    width: 60px;
+    border-right: #d9d9d9 solid 1px;
+    float: left;
+    height: 50px;
+    line-height: 25px;
+    color: #F00;
+    text-align: center;
+    padding-top: 10px;
+}
+.o_c_l span
+{
+    width: 76px;
+    float: left;
+}
+.o_c_l a
+{
+    margin-top: 10px;
+}
+.o_c_j
+{
+    width: 60px;
+    border-right: #d9d9d9 solid 1px;
+    float: left;
+    height: 60px;
+    text-align: center;
+}
+.o_c_j_a p
+{
+    float: left;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.o_c_j_a a
+{
+    float: left;
+    margin-top: 20px;
+    height: 19px;
+    margin-bottom: 10px;
+}
+.o_c_j_a a img
+{
+    float: left;
+}
+.o_c_j_a a b
+{
+    line-height: 19px;
+    font-size: 10px;
+}
+
+.o_c_j_b img
+{
+    text-align: center;
+}
+.o_c_j_c a
+{
+    float: left;
+    margin-top: 18px;
+    height: 22px;
+    margin-bottom: 8px;
+    margin-left: 20px;
+}
+.o_c_j_d a
+{
+    float: left;
+    margin-top: 12px;
+    height: 26px;
+    margin-bottom: 8px;
+    margin-left: 8px;
+}
+.o_c_k
+{
+    /*width: 120px;     float: left;     height: 50px;     color: #F90;     line-height: 50px;     text-align: center;     overflow: hidden;*/
+    color: #FF9900;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    width: 125px;
+    overflow: hidden;
+}
+.ockTop
+{
+    width: 100%;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+}
+.ockBottom
+{
+    border-top: 1px solid #D9D9D9;
+    color: #333333;
+    height: 25px;
+    line-height: 25px;
+    margin-left:5px;
+    text-align: center;
+    width: 125px;
+}
+.ockBottom img
+{
+    height: 11px;
+    margin: 7px 2px 0;
+    width: 34px;
+}
+.ysFstc
+{
+    background: url("images/user/bjysfs.png") no-repeat top right;
+    width: 221px;
+    border-left: #d8d8d8 solid 1px;
+    height: 113px;
+    position: relative;
+    z-index: 200;
+    right: 80px;
+    margin-top: -44px;
+    margin-bottom: -100px;
+    float: right;
+}
+.order_bottom
+{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    height: 16px;
+}
+.order_bottom ul li
+{
+    list-style: none;
+    float: left;
+    margin-right: 40px;
+}
+.order_bottom img
+{
+    float: left;
+}
+.order_bottom ul li font
+{
+    font-size: 12px;
+    color: #F00;
+    font-weight: bold;
+}
+.order_center
+{
+    border-top: 1px solid #D9D9D9;
+    clear: both;
+    height: 60px;
+    width: 765px;
+}
+.o_c_a
+{
+    border-right: 1px solid #D9D9D9;
+    float: left;
+    height: 50px;
+    padding-top: 10px;
+    text-align: center;
+    width: 44px;
+}
+.o_c_a p
+{
+    width: 44px;
+    margin-bottom: 10px;
+    float: left;
+    text-align: center;
+}
+.o_c_a a
+{
+    width: 44px;
+    text-align: center;
+}
+.ly_name ul li
+{
+    list-style: none;
+    line-height: 1.8em;
+    margin-left: 50px;
+    font-weight: bold;
+    color: #ff5a00;
+    float: left;
+}
+.ly_name ul li a
+{
+    float: left;
+    text-decoration: none;
+    color: #ff5a00;
+    width: 200px;
+}
+.ly_name ul li a:hover
+{
+    text-decoration: none;
+}
+.ly_name ul li span
+{
+    float: right;
+    margin-right: 10px;
+    font-size: 11px;
+    color: #ffc785;
+    font-weight: normal;
+}
+.ly_center
+{
+    width: 400px;
+    padding-left: 50px;
+    float: left;
+    border-bottom: #ffc785 dotted 1px;
+    padding-bottom: 10px;
+    padding-right: 50px;
+    margin-left: 8px;
+    color: #ffc785;
+    line-height: 1.8em;
+}
+.daoh b
+{
+    color: #333333;
+}
+
+dl, dt, dd, ul, ol, li
+{
+    margin: 0;
+    padding: 0;
+}
+.fy_b span
+{
+    border: 1px solid #333333;
+    color: #FFFFFF;
+    margin: 0 5px;
+    padding: 1px 5px;
+}
+.photoPZ
+{
+    background: url(images/user/zpBJ.png) no-repeat 0;
+    width: 354px;
+    height: 362px;
+    position: absolute;
+    margin-left: -190px;
+    margin-top: -65px;
+    display: none;
+}
+.photoPZtop
+{
+    width: 320px;
+    height: 280px;
+    margin: 5px 11px;
+    overflow: hidden;
+}
+.photoPZtop a
+{
+    display: table-cell;
+    width: 320px;
+    height: 280px;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+}
+.photoPZtop a img
+{
+    height: 280px;
+}
+.photoBpz
+{
+    width: 100%;
+    height: 70px;
+    background: #999;
+    overflow: hidden;
+}
+.photoBpz ul
+{
+    overflow: hidden;
+    width: 565px;
+    height: 100%;
+    float: left;
+}
+.photoBpz ul li
+{
+    width: 55px;
+    height: 55px;
+    float: left;
+    margin: 6px 2px;
+    background: #FFF;
+    overflow: hidden;
+    cursor: pointer;
+}
+.photoBpz ul li a
+{
+    cursor: pointer;
+    display: table-cell;
+    height: 56px;
+    text-align: center;
+    vertical-align: middle;
+    width: 56px;
+}
+.photoBpz ul li a img
+{
+    width: 56px;
+}
+.photoZ
+{
+    background: url(images/user/pzhaoc_03.png) no-repeat;
+    width: 14px;
+    height: 59px;
+    display: block;
+}
+.photoZ:hover
+{
+    background: url(images/user/pzhaocb_05.png) no-repeat;
+}
+.photoY
+{
+    background: url(images/user/pzhaoc_b.png) no-repeat;
+    width: 14px;
+    height: 59px;
+    display: block;
+}
+.photoY:hover
+{
+    background: url(images/user/pzhaoc_05.png) no-repeat;
+}
+.Tcphoto
+{
+    width: 600px;
+    height: 580px;
+    position: fixed;
+    z-index: 2001;
+    top: 70px;
+    left: 350px;
+    background: #FFF;
+    border: #666 solid 2px;
+    overflow: hidden;
+}
+.TcphotoTop
+{
+    width: 600px;
+    height: 580px;
+    overflow: hidden;
+    float: left;
+}
+.Tcphotoimg
+{
+    width: 540px;
+    height: 470px;
+    overflow: hidden;
+    float: left;
+    margin: 20px;
+}
+
+.Tcphotoimg a
+{
+    float: left;
+    width: 540px;
+    height: 470px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+}
+.Tcphotoimg a img
+{
+    height: 470px;
+    width: auto;
+}
+
+.Tcphotob
+{
+    width: 100%;
+    margin-top: 50px;
+    position: absolute;
+    float: left;
+    left: 0;
+}
+.Tcphotob a
+{
+}
+.selectimg
+{
+    border: 1px solid #f30;
+}
+.imgbor
+{
+    border: 1px solid #666;
+}
+.photowidt
+{
+    /*left: -120px;*/
+    position: relative;
+    width: 10000px;
+}
+.o_c_a span
+{
+    float: left;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 44px;
+}
+.centdx
+{
+    margin-top: 15px;
+}
+.Tcphoto
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #666666;
+    box-shadow: 1px 1px 10px 1px #333333;
+    float: left;
+    height: 610px; /*margin-left: -520px;     margin-top: -480px;*/
+    overflow: hidden;
+    position: absolute;
+    width: 600px; /*z-index: 2001;*/
+}
+.centeimg
+{
+    margin-top: 10px;
+}
+

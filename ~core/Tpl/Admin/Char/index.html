@@ -1,0 +1,60 @@
+
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit">字符管理</div>
+  	<div class="Toolbar_inbox">
+        <form action="{:U('admin/char/index')}" method="GET">
+  		<a href="{:U('admin/char/form')}" class="btn_a"><span>添加字符</span></a>
+  		<a href="{:U('admin/char/index')}" class="btn_a"><span>显示全部</span></a>
+  		&nbsp;&nbsp;可用 {:form_select('status',$_GET['status'],'','',array('-1','不限'))}
+  		&nbsp;&nbsp;{:form_input('key',$_GET['key'],'text w120 h20')}
+        &nbsp;&nbsp;<input type="checkbox" name="py" value="1" <?php if($_GET['py'] == 1) echo 'checked';?>/> 空拼音
+        &nbsp;&nbsp;<input type="checkbox" name="used" value="1" <?php if($_GET['used'] == 1) echo 'checked';?>/> 标记
+        &nbsp;&nbsp;<input type="submit" value="查询" class="btn_b"/>
+  		</form>
+    </div>
+  	<div class="list">
+	  	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  	<tr>
+		    	<th class="line_l">ID</th>
+		    	<th class="line_l">字符名称</th>
+		    	<th class="line_l">拼音</th>
+		    	<th class="line_l">笔画顺序</th>
+		    	<th class="line_l">笔画数</th>
+		    	<th class="line_l">状态</th>
+		    	<th class="line_l">标记</th>
+		    	<th class="line_l">添加时间</th>
+		    	<th class="line_l">操作</th>
+		  	</tr>
+		  	<foreach name="list" item="item">
+			<tr>
+			    <td>{$item.id}</td>
+			    <td class="f14 bold cGreen">{$item.name}</td>
+			    <td>{$item.pinyin}</td>
+			    <td>{$item.bh}</td>
+			    <td>{$item.bh_total}</td>
+				<td>{$item.status|dp_bool=$item['id'],'admin/char/bool','status'}</td>
+				<td>{$item.used|dp_bool=$item['id'],'admin/char/bool','used'}</td>
+			    <td>{$item.ctime|date="Y-m-d",###}</td>
+			    <td><a href="{:U('admin/char/form',array('id'=>$item['id']))}">编辑</a></td>
+			</tr>
+		  	</foreach>
+	  	</table>
+		<notpresent name="list">
+		  	<div class="l40 cRed bold f14">暂无字符</div>
+		</notpresent>
+	</div>
+	<present name='page'>
+  	<div class="Toolbar_inbox">
+  		<div class="page">{$page}</a>
+  	</div>
+  	</present>
+</div>
+<script type="text/javascript">
+$(function(){
+	tr_hover();
+	ajax_bool();
+	input_toggle($('form [name="key"]'),'cGray','汉字/拼音/总笔画');
+});
+</script>
+<include file="Public:foot" />

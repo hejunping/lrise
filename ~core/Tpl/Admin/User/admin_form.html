@@ -1,0 +1,24 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit f14">
+		<gt name="item.id" value="0">编辑<else/>添加</gt>管理员 - 
+		<a href="{:U('admin/user/admin')}" class="cBlue f14">返回列表</a>
+	</div>
+	<div class="form2">
+	<form method="post" action="{:U('admin/user/admin_form')}">
+		{:dp_input('name',$item['name'],'管理员帐号','管理员帐号不能空，且唯一')}
+		{:dp_input('pwd','','管理员密码','6-12位字符','password')}
+		{:dp_input('repwd','','确认密码','','password')}
+		{:dp_select('group',$item['group'],cate_opt('admin_group'),'所属分组','','w150')}
+    	<div class="page_btm">
+      		<input type="submit" class="btn_b" value="提交" />
+      		<gt name='item.id' value='0'><input name="id" type="hidden" value="{$item.id}"></gt>
+    	</div>
+	</form>
+</div>
+<script type="text/javascript">
+$(function(){
+	form_chg();
+});
+</script>
+<include file="Public:foot" />

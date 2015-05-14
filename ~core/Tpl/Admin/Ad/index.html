@@ -1,0 +1,58 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit">广告管理</div>
+	<div class="Toolbar_inbox">
+		<form action="{:U('admin/ad/index')}" method="GET">
+  		<a href="{:U('admin/ad/form')}" class="btn_a"><span>添加广告</span></a>
+  		<a href="{:U('admin/ad/index')}" class="btn_a"><span>显示全部</span></a>
+  		{:form_select('pos',$_GET['pos'],cate_opt('ad_pos'),'','全部广告位')}
+        &nbsp;&nbsp;{:form_input('key',$_GET['key'],'text w120 h20')}
+        &nbsp;&nbsp;<input type="submit" value="查询" class="btn_b"/>
+  		</form>
+  	</div>
+  	
+  	<div class="list">
+	  	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  	<tr>
+		    	<th class="line_l">ID</th>
+		    	<th class="line_l" width="300">广告标题</th>
+		    	<th class="line_l">图片</th>
+		    	<th class="line_l">链接地址</th>
+		    	<th class="line_l">广告位</th>
+		    	<th class="line_l">可用</th>
+		    	<th class="line_l">操作</th>
+		  	</tr>
+		  	<foreach name="list" item="item">
+			<tr>
+			    <td>{$item.id}</td>
+			    <td>{$item.title}</td>
+				<td><img src="{$item.path}" width='50' height='50'/></td>
+				<td>{$item.url}</td>
+			    <td>{$item.pos|getItemByid='ad_pos'}</td>
+			    <td>{$item.status|dp_bool=$item['id'],'admin/ad/bool','status'}</td>
+			    <td>
+                    <a href="{:U('admin/ad/form',array('id'=>$item['id']))}">编辑</a> | <a href="{:U('admin/ad/del',array('id'=>$item['id']))}">删除</a>
+                </td>
+			</tr>
+		  	</foreach>	  	</table>
+		<notpresent name="list">
+		  	<div class="l40 cRed bold f14">暂无广告</div>
+		</notpresent>
+	</div>
+	<present name='page'>
+  	<div class="Toolbar_inbox">
+  		<div class="page">{$page}</a>
+  	</div>
+  	</present>
+</div>
+<script type="text/javascript">
+$(function(){
+	tr_hover();
+	ajax_bool();
+	ajax_sort();
+	input_toggle($('form [name="key"]'),'cGray','广告标题');
+});
+</script>
+
+
+<include file="Public:foot" />

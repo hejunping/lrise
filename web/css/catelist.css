@@ -1,0 +1,83 @@
+@charset "utf-8";
+.youbuy_box
+{
+   margin: 0 auto;
+    width: 980px;
+    margin-top: 10px;
+}
+.categories_box
+{
+    width: 478px;
+    float: left;
+    height: auto;
+}
+.categories_all
+{
+    width: 478px;
+    float: left;
+    padding: 0 6px;
+    display: block;
+    text-align: center;
+    height: auto;
+    overflow: hidden;
+}
+.top_categories_all
+{
+    background: url(../../images/CateList/categories_bj_03.jpg) no-repeat 0;
+    width: 478px;
+    height: 28px;
+    float: left;
+}
+.top_categories_all h4
+{
+    width: 461px;
+    height: 20px;
+    background: #f8f8f8;
+    float: left;
+    margin-left: 5px;
+    margin-top: 0;
+    text-align: left;
+    padding-left: 5px;
+    line-height: 20px;
+    font-size: 12px;
+}
+.center_categories_all
+{
+    background: url(../../images/CateList/categories_bj_06.jpg) repeat-y center;
+    width: 478px;
+    float: left;
+    height: auto;
+}
+.center_categories_all ul
+{
+    width: 461px;
+    margin-left: 10px;
+}
+.center_categories_all ul li
+{
+    float: left;
+    margin-right: 15px;
+    line-height: 25px;
+    display: block;
+    width: auto;
+}
+.center_categories_all ul li a
+{
+    color: #666;
+}
+.center_categories_all ul li a:hover
+{
+    color: #666;
+}
+.center_categories_all ul li b a
+{
+    color: #F00;
+}
+.bottom_categories_all
+{
+    background: url( ../../images/CateList/categories_bj_08.jpg) no-repeat 0;
+    width: 478px;
+    height: 20px;
+    float: left;
+}
+

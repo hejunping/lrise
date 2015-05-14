@@ -1,0 +1,17 @@
+<include file='tpl/lhead.html' />  
+<div class="signMian">
+    <div class="left_ChangePb">
+    <eq name="res" value="0">
+        <ul style="margin-top: 70px; border: 0;">
+            <li><b style="color: #333;" id="message">Did not find the corresponding email.</b></li>
+            <li id="message2">Click <a href="{:U('home/user/getemail')}">here</a> to go back for getting your email again.</li>
+        </ul>
+        <else/>
+        <ul style="margin-top: 70px; border: 0;">
+            <li><b style="color: #333;" id="message">Your e-mail address is <span style="color: #F60" id="email">{$res}</span>.</b></li>
+            <li id="message2">Please <a href="{:U('home/user/login')}">sign in</a> with this e-mail address.</li>
+        </ul>
+        </eq>
+    </div>
+</div>
+<include file='tpl/lfoot.html' />

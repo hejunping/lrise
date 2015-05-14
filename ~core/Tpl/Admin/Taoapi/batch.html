@@ -1,0 +1,30 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit f14">
+		淘宝采集- 
+		<a href="{:U('admin/taoapi/index')}" class="cBlue f14">返回列表</a>
+	</div>
+	<div class="form2">
+	<form method="post" action="{:U('admin/taoapi/addss')}" enctype="multipart/form-data">
+		<volist name="list" id="vo">
+		<dl class="lineD">
+			<dt>
+			    {$vo.name}
+			    <input type="hidden" name="ctype" id="ctype" value="{$vo.id}">
+			</dt>
+			<dd> 
+                淘宝分类ID：<input type="text" name="cid{$vo.id}" class="w100 txtC" id="ctype" value="{$vo.bak3}">&nbsp;&nbsp;
+                关键词：<input type="text" name="keyw{$vo.id}" class="w100 txtC" id="ctype" value="<?php echo $keys[$vo['id']];?>">
+			</dd>
+		</dl>
+		</volist>
+		{:dp_input('page_no','3','采集页数','每页20条数据','text')}
+		
+    	<div class="page_btm">
+      		<input type="submit" class="btn_b" value="提交" />
+      		<gt name='item.id' value='0'><input name="id" type="hidden" value="{$item.id}"></gt>
+    	</div>
+	</form>
+	</div>
+</div>
+<include file="Public:foot" />

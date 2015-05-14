@@ -1,0 +1,209 @@
+<include file='tpl/head_zh.html'/>
+<script type="text/javascript" src="web/js/mod/userAddMoney_zh.js"></script>
+ <script type="text/javascript" src="web/js/mod/user/jquery.datePicker-min.js"></script>
+    <script type="text/javascript">
+
+        $(window).ready(function () {
+
+            $('.date-pick').datePicker({
+
+                clickInput: true
+
+            }).dpSetStartDate('01/01/2010');
+
+        });
+
+        function helpout() {
+
+            $("#help").removeClass("menu4");
+
+            $("#help").addClass("menu3");
+
+        }
+
+
+
+        function helpover() {
+
+            $("#help").removeClass("menu3");
+
+            $("#help").addClass("menu4");
+
+        }
+
+    </script>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">首页</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">我的Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>充值</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />        
+<div class="a_rside">
+    <div class="rtit">
+        支付</div>
+    <div class="bdbox">
+        <ul class="mlst">
+            <li id="two1" onclick="setTab('two',1,3)" class="hover">PayPal</li>
+            <li class="" id="two2" onclick="setTab('two',2,3)">Moneybookers</li>
+            <li class="" id="two3" onclick="setTab('two',3,3)">Web money</li>
+        </ul>
+        <div style="display: block;" id="con_two_1">
+            <div class="western_top">
+                <div class="w_t_left">
+                    <img width="178" height="65" border="0" src="web/images/user/paypal_03.gif"></div>
+                <div class="paypal_b">
+                    <ul><li><h2> PayPal 账户</h2> </li></ul>
+                    <ul><li><span>Paypal 金额:</span><a><eq name="res.Paypal.1" value="0">{$res.Paypal.0|_usaprice}<else/>{$res.Paypal.0}%</eq> </a> </li></ul>
+                    <ul> <li><span>到帐金额: </span><a id="AmountReceived">0.00 USD</a></li></ul>
+                </div>
+            </div>
+            <form  onsubmit="return false;" name="formpay" method="post" id="formpay" action="{:U('user/account/payto')}">
+                <div class="paypal_center">
+                    <ul>
+                        <li>
+                            <label><input type="radio" onclick="FunPayPalAccount(this.value);" name="PayPalAccount1" value="10" id="PayPalAccount1_0" class="usd">$:10</label>
+                        </li>
+                        <li>
+                            <label> <input type="radio" name="PayPalAccount1" value="20" id="PayPalAccount1_1" class="usd">$:20</label>
+                        </li>
+                        <li>
+                            <label> <input type="radio" name="PayPalAccount1" value="50" id="PayPalAccount1_2" class="usd">$:50</label>
+                        </li>
+                        <li>
+                            <label> <input type="radio" name="PayPalAccount1" value="100" id="PayPalAccount1_3" class="usd">$:100</label>
+                        </li>
+                        <li>
+                            <label>  <input type="radio" name="PayPalAccount1" value="500" id="PayPalAccount1_4" class="usd">$:500</label>
+                        </li>
+                        <li>
+                            <label><input type="radio" name="PayPalAccount1" value="1000" id="PayPalAccount1_5" class="usd">$:1000</label>
+                        </li>
+                        <li>
+                            <label>
+                                 <input type="radio" name="PayPalAccount1" value="other" id="PayPalAccount1_6" class="usd">
+                                <span>其他 <input type="text" value="" name="OtherPayPalAccount" id="OtherPayPalAccount"  disabled="" class="usd_a">USD</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="n">
+                    * 温馨提示：接受各种外币，所有使用的货币均以美元进行折算。当前人民币-美元汇率为1:6.25 , 汇率按照中国银行的汇率来时常调整.
+                </div>
+                <div class="paypal_c">
+                    <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=xpt/Help/general/TopQuestion2-outside">Paypal注册帮助 &gt;&gt;</a>
+                    <a href="https://cms.paypal.com/c2/cgi-bin/marketingweb?cmd=_render-content&amp;content_ID=pages_c2/what_is_paypal" target="_blank">如何使用Paypal?&gt;&gt;</a>
+                 </div>
+                <div class="tj_an">
+                    <a onclick="return JsReset();" href="JavaScript:void('Reset');" id="Reset" title="Reset">
+                        <img width="81" height="29" border="0" src="web/images/user/an_tj_10_zh.gif"></a>
+                    <a onclick="return JsSubmit();" href="JavaScript:void('Submit');" id="Submit" title="Submit">
+                        <img width="81" height="29" border="0" src="web/images/user/an_tj_05_zh.gif"></a>
+                    <input id="PayPalAccount" name="PayPalAccount" type="hidden" value="0" /> 
+                    <input id="TempAmount" name="TempAmount" type="hidden" value="0" /> 
+                    <input type="hidden" name="Amount" id="Amount" />
+                    <input type="hidden" name="method" id="Paypal"  value="Paypal"/>
+                   
+
+                </div>
+            </form>
+        </div>
+        <!--Lrise Western Union Account star-->
+        <div style="display: none;" id="con_two_2">
+          <div class="western_top">
+                <div class="w_t_left">
+                    <img width="178" height="65" border="0" src="web/images/user/Moneybookers.png "></div>
+                <div class="paypal_b">
+                    <ul><li><h2> Moneybookers账户</h2> </li></ul>
+                    <ul><li><span>Moneybookers金额:</span><a><eq name="res.Moneybookers.1" value="0">{$res.Moneybookers.0|_usaprice}<else/>{$res.Moneybookers.0}%</eq> </a> </li></ul>
+                    <ul> <li><span>到帐金额: </span><a id="AmountReceived">0.00 USD</a></li></ul>
+                </div>
+            </div>
+            <form name="WUform" id="WUform" action="{:U('user/account/payto')}" method="post">
+
+               <div class="western_center_d">
+               <ul>
+                <li><span>总额:</span> <input type="text" name="PayPalAccount" id="WUAmount" class="ipt"  value=""><p>USD</p>
+                      <p id="WUAmountValidation">   *</p>
+                 </li>
+                </ul>  
+                </div>
+                 <div class="n">
+                    * 温馨提示：接受各种外币，所有使用的货币均以美元进行折算。当前人民币-美元汇率为1:6.25 , 汇率按照中国银行的汇率来时常调整.
+                </div>
+               <div class="paypal_c">
+                    <a target="_blank" href="http://cn.rocoforex.com/moneybookers/moneybookers.shtml">Moneybookers &gt;&gt;</a>
+                   
+                 </div>
+                <div class="tj_an">
+                <a href="javascript:WUformReset();" id="WUreset" title="重置">
+                    <img width="81" height="29" border="0" src="web/images/user/an_tj_10_zh.gif"></a>
+                    <input type="reset" style="display: none;" id="WUresetButton">
+                <span id="WUSpanSubmit">
+                    <a onclick="WUsubInfo();" href="javascript:void('submit');" id="WUsubmit" title="提交">
+                      <img width="81" height="29" border="0" src="web/images/user/an_tj_05_zh.gif">
+                    </a>
+               </span>
+            </div>
+                 
+                <input type="hidden" name="method" id="Moneybookers" value="Moneybookers" />
+            </form>
+        </div>
+        <!--Lrise Western Union Account end-->
+        <div style="display: none;" id="con_two_3">
+            <form name="WMform" id="WMform" action="{:U('user/account/offlinePay')}" method="post">
+                <div class="western_top">
+                    <div class="w_t_left">
+                        <img width="178" height="65" border="0" src="web/images/user/webmoney_03.gif"></div>
+                 <div class="paypal_b">
+                    <ul><li><h2>  WebMoney帐户</h2> </li></ul>
+                    <ul><li><span> WebMoney金额:</span><a><eq name="res.Offline.1" value="0">{$res.Offline.0|_usaprice}<else/>{$res.Offline.0}%</eq> </a> </li></ul>
+                    <ul> <li><span>到帐金额: </span><a id="AmountReceived">0.00 USD</a></li></ul>
+                </div>
+                    
+                </div>
+                <div class="n">
+                    (当您完成WebMoney充值以后，请在这尽快提交WebMoney信息.)</div>
+                <div class="western_center_d">
+                    <ul>
+                        <li><span>金额:</span><input type="text" id="WMAmount" name="WMAmount" class="ipt"><input
+                                type="hidden" value="USD" id="WMmoney" name="WMmoney"><p id="WMAmountValidation">
+                                *</p>
+                        </li>
+                        <li><b>请填写美金金额</b></li>
+                        <li><span>付款人钱包号:</span><input type="text" id="WMPayerPurse" name="WMPayerPurse"
+                                                              class="ipt"><p id="WMPayerPurseValidation">
+                                *</p>
+                        </li>
+                        <li><b>只能输入字母和数字</b></li>
+                        <li><span>姓名:</span><input type="text" id="WMPayerName" name="WMPayerName"
+                                                             class="ipt"><p id="WMPayerNameValidation">
+                                *</p>
+                        </li>
+                        <li><b>只能输入字母和数字</b></li>
+                        <li><span>支付日期:</span><input type="text" id="WMDateOfPayment" name="WMDateOfPayment"
+                                                                class="date-pick dp-applied" readonly=""><a href="#" class="dp-choose-date0" title=""></a><p
+                                                                id="WMDateOfPaymentValidation">
+                                *</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="n">
+                    我们将在24小时之内处理您的退款请求，请关注您的账户.</div>
+                <div class="tj_an">
+                    <a href="javascript:WMformReset();" id="WMreset" title="reset">
+                        <img width="81" height="29" border="0" src="web/images/user/an_tj_10_zh.gif"></a><input
+                        type="reset" style="display: none;" id="WMResetButton">
+                    <span id="WMSpanSubmit">
+	                    <a onclick="WMsubInfo();" href="javascript:void('submit');"   id="WMsubmit" title="submit">
+	                            <img width="81" height="29" border="0" src="web/images/user/an_tj_05_zh.gif">
+	                     </a>
+                     </span>
+                </div>
+                <input type="hidden" name="method" id="Offline" value="Offline" />
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<include file="tpl/foot.html"/>

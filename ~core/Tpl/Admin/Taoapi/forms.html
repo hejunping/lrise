@@ -1,0 +1,33 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit f14">
+		淘宝采集- 
+		<a href="{:U('admin/taoapi/index')}" class="cBlue f14">返回列表</a>
+	</div>
+	<div class="form2">
+	<form method="post" action="{:U('admin/taoapi/add')}" enctype="multipart/form-data">
+	    <dl class='lineD'>
+			<dt>产品分类</dt>
+			<dd>
+			{$rue.name}
+			<input type="hidden" name="ctype" id="ctype" value="{$rue.pid}">
+			<input type="hidden" name="ctype2" id="ctype" value="{$rue.id}">
+			</dd>
+		</dl><dl class="lineD">
+			<dt>淘宝分类ID：</dt>
+			<dd><input class="text h20 w400" type="text" rel="" value="{$rue.bak3}" name="cid"></dd>
+		</dl>
+		<dl class="lineD">
+			<dt>关键字：</dt>
+			<dd><input class="text h20 w400" type="text" rel="" value="{$keys}" name="keyword"></dd>
+		</dl>
+		{:dp_input('page_no','3','采集页数','每页20条数据','text')}
+		
+    	<div class="page_btm">
+      		<input type="submit" class="btn_b" value="提交" />
+      		<input name="id" type="hidden" value="{$rue.id}"></gt>
+    	</div>
+	</form>
+	</div>
+</div>
+<include file="Public:foot" />

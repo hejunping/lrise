@@ -1,0 +1,64 @@
+<include file='tpl/head.html'/>
+<script type="text/javascript" src="web/js/mod/user/recommend/myshare.js"></script>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">Home</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">My lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>Recommend</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />
+<div class="sidebox yoymbox">
+    <div class="a_rside sbr">
+        <div class="rtit">
+            Recommend To Friends</div>
+        <div class="bdbox">
+            <form action="{:U('user/settings/sends')}" method="post" id="shareform" name="shareform">
+            <div class="recommend_piont">
+                Get {$syspoint} lrise points when you invite someone to lrise.com. There's no limit on
+                how much you can earn, the more you refer, the more you earn.
+            </div>
+            <div class="recommend_a">
+                The most convenient way: Recommend lrise.com on MSN or Skype</div>
+            <div class="recommend_b">
+                <ul>
+                    <li>
+                        <input name="" type="text" class="new_o_input" value="http://www.lrise.com/user.html" readonly="true" />
+                        <a href="javascript:copyValue('http://www.lrise.com/user.html');">
+                            <img src="web/images/user/copy_03.gif" width="73" height="27" border="0"
+                                alt="" /></a></li></ul>
+            </div>
+            <div class="recommend_a">
+                The most effective way: Recommend lrise.com by E-mail</div>
+            <div class="recommend_c">
+                <ul>
+                    <li><span>My Email:</span><input name="email" id="email" type="text" class="r_c_input"
+                        value="{$list.email}"><a class="red" id="EmailValidator"></a></li>
+                    <li><span>My Name:</span><input name="name" id="name" type="text" class="r_c_input"
+                            value='{$list.account}' /><a class="red"
+                                id="nameValidator"></a></li>
+                    <li><span>Recipient Email:</span><input name="toEmail" id="toEmail" type="text" keydown="CheckEmail()" class="r_c_input" /><a
+                        class="red" id="toEmailValidator">*</a></li>
+                    <li><span>Message:</span><textarea name="mess" checked="checked" cols="" rows="" dir="ltr"
+                        lang="en" class="r_c_input_b">
+                        
+                         </textarea></li>
+                </ul>
+            </div>
+            <div class="recommend_s">
+                <input type="image" src="web/images/user/send_a_03.gif" value="submitOK"
+                    id="submitOK" name="submitOK" onclick="return shareformsubmit();" />
+            </div>
+            <div class="recommend_faq">
+                <b>Q &amp; A:</b> <a target="_blank" href="{:U('/home/info/index/id/78')}">
+                    How to refer my friends?</a> <a target="_blank" href="{:U('/home/info/index/id/78')}">
+                    How to get {$syspoint} lrise points after referring friends?</a> <a target="_blank" href="{:U('/home/info/index/id/78')}">
+                    How to use lrise points to redeem E-coupon and use it in my order？</a>
+            </div>
+            <div id="visualsearch_transparency" style="display: none">
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+   <include file="tpl/foot.html"/>

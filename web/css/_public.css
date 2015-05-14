@@ -1,0 +1,157 @@
+/**
+ * @title 公用样式 
+ * @author birdy
+ * @date  2012-03-10 
+*/
+@charset "utf-8";
+.clear {clear: both;display: block;overflow: hidden;visibility: hidden;width: 0;height: 0;}
+/*-----------------------------------sitemap sitemap-----------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    color: #333333;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+}
+.foottool span {
+    float: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.footer {
+    clear: both;
+    height: auto;
+    width: 100%;
+}
+.footerTop {
+    clear: both;
+    height: auto;
+    width: 100%;
+    background: none repeat scroll 0 0 #FFFFFF;
+    width: 100%;
+    padding-bottom: 10px;
+}
+.foottool {
+    clear: both;
+    margin: 0 auto 10px;
+    padding-top: 20px;
+    width: 980px;
+}
+.foottool ul {
+    float: left;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.foottool ul li {
+    float: left;
+    width: 140px;
+}
+.foottool ul li a {
+    float: left;
+    line-height: 25px;
+    width: 140px;
+}
+.links {
+    border-top: 1px dashed #CCCCCC;
+    clear: both;
+    display: block;
+    margin: 0 auto;
+    padding-top: 10px;
+    width: 980px;
+}
+.links a {
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: 40px;
+    margin: 5px 8px;
+    width: 80px;
+}
+
+.Fcbk span {
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    margin-right: 5px;
+}
+
+h4 {
+    font-size: 12px;
+}
+.Fcbk ul li a img {
+    float: left;
+}
+.Fcbk ul li a {
+    color: #1F8AEA;
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    margin-left: 5px;
+}
+.Fcbk ul li a span {
+    margin-left: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+.Fcbk {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 10px;
+    width: 960px;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+a:hover {
+    color: #FF6600;
+}
+input {
+    font-family: Arial,Helvetica,sans-serif;
+}
+li {
+    list-style: none outside none;
+}
+img {
+    border: medium none;
+}
+
+h2 {
+    font-size: 14px;
+    margin: 0;
+}
+h4 {
+    font-size: 12px;
+    margin: 0;
+}
+select {
+    font-family: Arial,Helvetica,sans-serif;
+}
+.gl {
+    clear: both;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    width: 980px;
+}
+.gl a {
+   height: 46px;
+    margin: 5px 7px;
+    width: 130px;
+}
+.gl a img {
+    height: 30px;
+    width: 82px;
+}

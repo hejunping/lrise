@@ -1,0 +1,44 @@
+<include file='tpl/lhead_zh.html' />
+ <link href="web/css/home/css.css" rel="stylesheet" type="text/css">                
+    <script type="text/javascript">
+        var userEmail = "{$email}";  
+        function Resend() {
+            $.ajax({
+                url: "{:U('home/user/sendemail')}",
+                type: "POST",
+                datatype:"json",
+                data: { userEmail: userEmail },
+                success: function (data){
+                    if (data.result == true) {
+                        alert("The verification letter "+ userEmail +" has resent successfully.");
+                    }
+                    else {
+                        alert("Send mail failed again, please try ");
+                    }
+                },
+                error: function () {
+                    alert("Sorry!The system is busy, please try again later.");
+                }
+            });
+        }
+    </script>         
+<div class="signMian"   >
+    <div class="left_ChangePb">
+        <h4>
+            去您的邮箱激活验证.</h4>
+        <ul>
+            <li><b>一个验证电子邮件已经发送到您的邮箱.</b></li>
+            <li>请点击信中的链接在24小时内创建新密码!</li>
+            <li><a href="{$mailurl}" target="_blank">
+                <img src="web/images/home/sendEmail.jpg" height="39" width="180">
+                </a>
+            </li>
+        </ul>
+        <div class="ChangePb_Bottom">
+            如果您没有收到认证信，请检查您的垃圾邮件或群发 邮件文件夹</div>
+        <div class="ChangePb_Bottom">
+            如果您仍然没有收到认证信，请点击 <a onclick="Resend()" style="cursor: pointer"> 邮件重发</a>.</div>
+    </div>
+</div>
+
+<include file='tpl/lfoot_zh.html' />

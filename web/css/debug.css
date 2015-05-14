@@ -1,0 +1,14 @@
+/**
+ * @title 调试样式 
+ * @author birdy
+ * @date  2012-03-10
+ * @desc 所有调试样式使用 debug_ 开头的 class名称
+*/
+.debug_red{color:red;} 		 /*红色文字*/
+.debug_bg{background:pink;}  /*粉红背景*/
+.debug_h100 {height:100px;}  /*100高度*/
+.debug_h200 {height:200px;}  /*200高度*/
+.debug_h400 {height:400px;}  /*400高度*/
+
+.debug_bd{border:1px solid red;}   /*红色边框*/
+.debug_dbd{border:1px dashed red;} /*红色虚线框*/

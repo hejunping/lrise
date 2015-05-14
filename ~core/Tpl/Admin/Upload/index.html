@@ -1,0 +1,24 @@
+<include file="Public:head" />
+<div class='so_main'>
+	<div class='page_tit'>多文件上传</div>
+	<div class='form2'>
+	<form method='post' action="{:U('admin/upload/upfile')}" enctype='multipart/form-data'>
+		<dl>
+			<dt>文件一：</dt>
+			<dd><input type='file' name='pic[]'></dd>
+		</dl>
+		<dl>
+			<dt>文件二：</dt>
+			<dd><input type='file' name='pic[]'></dd>
+		</dl>
+		<dl>
+			<dt>文件三：</dt>
+			<dd><input type='file' name='pic[]'></dd>
+		</dl>
+		<div class="page_btm">
+      		<input type="submit" class="btn_b" value="提交" />
+    	</div>
+	</form>
+	</div>
+</div>
+<include file="Public:foot" />

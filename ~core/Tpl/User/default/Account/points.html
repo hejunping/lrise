@@ -1,0 +1,173 @@
+<include file='tpl/head.html'/>
+<script type="text/javascript">
+    $(function(){
+    	
+    	exchange();
+    
+    })  
+</script>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">Home</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">My Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>My Lrise Point</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />     
+
+      <input type="hidden" name="faceValue" id="faceValue" value="0" />
+    <div style="margin-bottom: 10px;" class="home_box_jf">
+        <div class="home_top_jf" id="thisutl" urlpoint="{:U('home/ajax/changePoint')}" exchangeDo="{:U('home/ajax/exchangeDo')}">
+            <div class="toux" style="display:none">
+                <a href="{:U('user/settings/profile')}">
+                </a><a href="{:U('user/settings/profile')}">Upload Avatar</a>
+            </div>
+            <div class="toux_right_jf">
+                <div class="t_r_a">
+                    <span>HI,<a>{$user.account}</a></span>Welcome to your Lrise!
+                   <b>
+	                    <span style="font-size: 12px; color: #333; float: left">Dear</span> 
+	                    <span style="float: left;">
+			                    <a style="float: left;background: none; color: #f60; width: auto; margin-left: 0px; padding-left: 0; margin-right: 5px;" href="{:U('/home/info/index/id/65')}">
+			                    Lrise Member
+			                    </a>
+	                            <img border="0" src="web/images/user/pthy.gif" />
+	                    </span>
+                    </b>
+                </div>
+                <div class="t_r_b">
+                    <ul>
+                        <li><span>My points :</span>
+                        <p id="totalpoints">{$credit.point}</p>
+                            <span style="float: right; line-height: 20px; height: 20px; margin-right: 10px; width: 200px">
+                                <b style="float: left; font-weight: bold;">My  coin:</b>
+                                <p style="float: left; font-weight: 100; line-height: 20px;" id="coupons"> {$credit.coin|_usaprice}</p>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="jif_wt">
+            <ul>
+                <li><a href="{:U('/home/info/index/id/78')}" target="_blank">How
+                        to get Lrise points?</a></li>
+                <li><a href="{:U('/home/info/index/id/78')}" target="_blank">How
+                        to use the Lrise points?</a></li>
+                <li><a href="{:U('/home/info/index/id/78')}" target="_blank">What
+                        about the points usage policy?</a></li>
+                <li><a href="{:U('/home/info/index/id/78')}" target="_blank">How
+                        to use E-coupons?</a></li>
+            </ul>
+        </div>
+        <div class="jf_center">
+            <ul class="mlst">
+                <li class="hover" onclick="setTab('two',1,2)" id="two1">Lrise Points</li>
+                <li onclick="setTab('two',2,2)" id="two2" class="">My E-coupons</li>
+            </ul>
+            <!--My Personal profile star-->
+            <div id="con_two_1" style="display: block;">
+                <div style="display: none;" class="jf_time">
+                    <ul>
+                        <li><b>Start time</b><input type="text" class="date-pick" name="it"></li>
+                        <li><b>End Time</b><input type="text" class="date-pick" name="it"></li>
+                    </ul>
+                </div>
+                <div style="display: block;" class="personal_box_jf">
+                    <div class="raddress">
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%" id="integrals" class="moTab">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Time
+                                    </th>
+                                    <th>
+                                        Reason
+                                    </th>
+                                    <th>
+                                        Points
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <volist name="plog" id="vo">
+                                <tr class="even">
+                                    <td class="g">
+                                        {$vo.ctime|date="y/m/d H:i:s",###}
+                                    </td>
+                                    <td style="text-align: left;">
+                                       {$vo.bak1}
+                                    </td>
+                                    <td>
+                                       {$vo.bak2}
+                                    </td>
+                                </tr>
+                              </volist>
+
+                            </tbody>
+                        </table>
+                        <div style="text-align: right; margin-top: 10px;" class="page">
+                            <div class="page_center">
+                                <div class="page_center">
+                                    {$page}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="con_two_2" style="display: none;" >
+                <div id="couponscountdiv">
+                </div>
+                <div class="personal_box_jf">
+                    <h3>
+                        Exchange E-coupons</h3>
+                    <ul class="jf_top">
+                    </ul>
+                    <ul>
+                        <li class="djj_t_reason_b">
+                            <div class="imgDiv">
+                                <img border="0" width="170" src="web/images/user/xdjj_5.jpg" />
+                            </div>
+                            <span>1000</span>
+                            <a href="javascript:void(0);" id="exchange_5" integervalue="5">
+                                <img border="0" width="93" height="24" src="web/images/user/exchange_20.jpg" />
+                            </a>
+                        </li>
+                        <li class="djj_t_reason_b">
+                            <div class="imgDiv">
+                                <img border="0" width="170" src="web/images/user/xdjj_10.jpg" />
+                            </div>
+                            <span>2000</span>
+                            <a href="javascript:void(0);" id="exchange_10" integervalue="10">
+                                <img border="0" width="93" height="24" src="web/images/user/exchange_20.jpg" />
+                            </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="djj_t_reason_b">
+                            <div class="imgDiv">
+                                <img border="0" width="170" src="web/images/user/xdjj_20.jpg" />
+                            </div>
+                            <span>4000</span>
+                            <a href="javascript:void(0);" id="exchange_20" integervalue="20">
+                                <img border="0" width="93" height="24" src="web/images/user/exchange_20.jpg" />
+                            </a>
+                        </li>
+                        <li class="djj_t_reason_b">
+                            <div class="imgDiv">
+                                <img border="0" width="170" src="web/images/user/xdjj_50.jpg" />
+                            </div>
+                            <span>10000</span>
+                            <a href="javascript:void(0);" id="exchange_50" integervalue="50">
+                                <img border="0" width="93" height="24" src="web/images/user/exchange_20.jpg" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<include file="tpl/foot.html"/>

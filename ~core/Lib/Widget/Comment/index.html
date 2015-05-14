@@ -1,0 +1,21 @@
+	<!-- 用户评论列表 -->
+	<div class='comment mT'>
+        <h3 class='bdLR bdT h30'><span class="htit tit10"></span></h3>
+		<div class='coms bd oF'>
+			<div class='mT oF' style="padding-bottom:7px\9;">
+				<?php $i=1; ?>
+				<foreach name='list' item='item'>
+				<ul class='fL bd mB mL com_ul'>
+					<li class='fL' style="padding:4px 0 1px 4px;"><img src='{$item.uid}' style="height:60px;width:60px;"></li>
+					<li class="fR oF" style="width:230px;">
+                        <div class="h25 block">
+                            <span class='cRed fL'>{$item.uname}</span>
+                            <span class='fR mR clblack'>{$item.ctime|date="Y-m-d",###}</span>
+                        </div>
+                        <div class="h40 oF l20"><a href="{:U($item['oid'].'/index/index')}">{$item.content}</a></div>
+					</li>
+				</ul>
+				<?php $i++;  ?>
+				</foreach>
+			</div>
+		</div>

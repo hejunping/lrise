@@ -1,0 +1,44 @@
+
+       <include file='tpl/lhead.html' /> 
+     <script type="text/javascript">
+        var Guid = "f6815723-cfde-4c26-95cb-72b866316a7a";
+        $(document).ready(function () {
+            InitLanguageSelect("en", "/forgotpasswordnewpassword?userid=" + Guid);
+        });
+        var beSubmit = false;               
+    </script>      
+<div class="signMian">
+    <div class="left_ChangeP">
+        <h4>
+            Type your new password and save it in case you forget it.</h4>
+        <ul>
+            <span id="errorMessage" class="Error"></span>
+            <li><span>Type new password</span><input name="password" id="password" class="Np" onblur="CheckPassword()" type="password"><em id="passwordSpan"></em></li>
+            <li><span>Retype new password</span><input name="repassword" id="repassword" class="Np" onblur="CheckRePassword()" onkeyup="DoNext()" type="password"><em id="repasswordSpan"></em></li>
+        </ul>
+        <div class="botnSignP" style="margin-left: 125px;">
+            <a id="img">
+                <img src="web/images/home/signup_03.jpg/Ne_03.jpg" style="cursor: pointer" onclick="Next()"></a>
+        </div>
+    </div>
+    <div class="right_ChangeP">
+        <h4>
+            1.Already have an account?</h4>
+        <div class="botnSign">
+            <a href="{:U('home/user/login')}">
+                <img src="web/images/home/signup_03.jpg/sinin_03.jpg">
+            </a>
+        </div>
+        <h4>
+            2.No yet a member?</h4>
+        <div class="botnSign">
+            <a href="{:U('home/user/reg')}">
+                <img src="web/images/home/signup_03.jpg/signup_03.jpg">
+            </a>
+        </div>
+        <h4>
+            3.Have problems?</h4>
+        <span><a href="{:U('home/info/index')}">Contact Us</a></span>
+    </div>
+</div>
+<include file='tpl/lfoot.html' />

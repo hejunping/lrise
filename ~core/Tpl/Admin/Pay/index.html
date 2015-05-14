@@ -1,0 +1,43 @@
+<include file="Public:head" />
+<div class="so_main">
+  <div class="page_tit">支付接口</div>
+  <div class="list">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="line_l">支付接口名称</th>
+    <th class="line_l">状态</th>
+    <th class="line_l">是否安装</th>
+    <th class="line_l">在线支付</th>
+    <th class="line_l">总收款</th>
+    <th class="line_l">排序</th>
+    <th class="line_l">操作</th>
+  </tr>
+  <foreach name="payment_list" item="payment_item">
+	  <tr overstyle='on' id="link_{$vo['id']}">
+	    <td>{$payment_item.name}
+			<if condition="$payment_item['reg_url'] neq ''">
+				<a href="{$payment_item['reg_url']}" target="_blank">立即注册</a>
+			</if>
+		</td>
+		<td><eq name='payment_item.is_effect' value='0'>无效<else/>有效</eq></td>
+		<td><eq name='payment_item.installed' value='0'>未安装<else/>已安装</eq></td>
+		<td><eq name='payment_item.online_pay' value='0'>否<else/>是</eq></td>
+		<td>{$payment_item.total_amount} 
+		<if condition="$payment_item['installed'] eq 1">
+			<a href="{:U("Pay/notice",array("payment_id"=>$payment_item['id']))}">查看</a>
+		</if>
+		</td>
+		<td>{$payment_item.sort}</td>
+		<td>
+			<if condition="$payment_item['installed'] eq 0">
+			<a href="{:U("Pay/install",array("class_name"=>$payment_item['class_name']))}">安装</a>
+			<else />
+			<a href="{:U("Pay/edit",array("id"=>$payment_item['id']))}">编辑</a>
+			<a href="{:U('pay/uninstall',array('id'=>$payment_item['id']))}" onclick="return confirm('确定要卸载此支付接口？')">卸载</a>
+			</if>
+		</td>
+	  </tr>
+  </foreach>
+  </table>
+  </div>
+<include file="Public:foot" />

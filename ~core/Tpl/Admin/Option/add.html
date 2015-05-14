@@ -1,0 +1,51 @@
+			<include file="Public:head" />
+			<h2 style="height:25px;margin:10px;text-align:left;">「基本设置」</h2>
+			<ul class="list draw">
+				<table class="form" style="margin:10px;width:95%;">
+					<form action="{:U('option/add')}" method="POST">
+						<tr><td>配置键值:</td>
+							<td align="left"><input class="text" type="text" name="key"></td>
+						</tr>
+						<tr><td>配置值:</td>
+							<td align="left"><input class="text w400" type="text" name="value"></td>
+						</tr>
+						<tr><td>配置文本:</td>
+							<td align="left"><input class="text" type="text" name="text"></td>
+						</tr>
+						<tr><td>提示信息:</td>
+							<td align="left"><input class="text w400" type="text" name="tips"></td>
+						</tr>
+						<tr><td>排序:</td>
+							<td align="left"><input class="text" type="text" name="order"></td>
+						</tr>
+						<tr><td>配置类型:</td>
+							<td align="left">
+								<?php  $i=1; foreach ($option_type as $key=>$one) :?>
+								<input name="type" type="radio" value="{$key}" <eq name='key' value='string'>checked</eq>> {$one}
+								<eq name='i++%6' value='0'><br/></eq>
+								<?php endforeach; ?>
+							</td>
+						</tr>
+						<tr><td>所属分块:</td>
+							<td align="left">
+							<?php $i=1; foreach ($setting as $key=>$one) : ?>
+							<input name="block" type="radio" value="{$key}" <eq name='key' value='website'>checked</eq>> {$one}
+							<eq name='i++%6' value='4'><br/></eq>
+							<?php endforeach; ?>
+							</td>
+						</tr>
+						<tr><td>是否允许编辑:</td>
+							<td align="left">
+								<input name="edit" type="radio" value="0" checked> 是
+								<input name="edit" type="radio" value="1"> 否
+							</td>
+						</tr>
+						<tr><td>备注:</td>
+							<td align="left"><textarea class="text" name="bak"></textarea></td>
+						</tr>
+						<if condition="$bool eq	'edit'"><input type="hidden" name="id" value="{$one.id}"></if>
+						<tr><td>&nbsp;</td><td align="left"><input type="submit" value="<if condition="$bool eq 'edit'">编辑<else/>提交</if>"> <input type="reset" value="重置"></td></tr>
+					</form>
+				</table>
+			</ul>
+			<include file="Public:foot" />

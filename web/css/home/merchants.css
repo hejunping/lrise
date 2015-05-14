@@ -1,0 +1,118 @@
+.gystop{
+	background:url("../images/home/gysa.png") no-repeat top left;
+	width:980px;
+	height:466px;}
+.toptext{
+	width:890px;
+	margin-top:155px;
+	float:left;
+	margin-left:50px;}
+.toptext p{
+	font-family:"宋体";
+	font-size:13px;
+	font-weight:600;
+	line-height:1.8em;}	
+	
+.toptextb{
+	width:860px;
+	margin-top:40px;
+	margin-left:56px;
+	float:left;}
+.toptextb b{
+	width:100%;
+	text-align:center;
+	font-size:18px;
+	float:left;}
+.toptextb ul{
+	width:100%;
+	float:left;
+	margin-top:12px;}	
+.toptextb ul li{
+	width:100%;
+	line-height:1.8em;}	
+
+.gysbottom{
+	background:url("../images/home/gysb.png") no-repeat top left;
+	width:980px;
+	height:400px;
+	padding-top:40px;}
+.bottotoptext{
+	width:318px;
+	height:40px;
+	float:left;
+	margin-left:122px;}	
+	
+.gysbiaod{
+	width:750px;
+	height:auto;
+	float:left;
+	overflow:hidden;
+	margin-left:120px;
+	margin-top:30px;}
+.leftbd{
+	float:left;
+	width:320px;}	
+.xinghao{
+	color:#F00;
+}	
+.bdname{
+	color:#333;
+	width:80px;
+	text-align:right;
+	float:left;
+	font-size:12px;}	
+.leftbd li{
+	width:318px;
+	padding:8px 0;
+	}	
+	
+.rightbd{
+	float:left;
+	width:430px;}
+.rightbd li{
+	width:430px;
+	padding:8px 0;
+	}	
+.rightbd li select{ width:224px;}	
+
+.bdnameb{
+	color:#333;
+	width:100px;
+	text-align:right;
+	float:left;}
+.rightbd li textarea{
+	width:313px;
+	height:123px;
+	overflow:hidden;}
+.rightbd li input {
+    float: left;
+}
+.rightbd li a {
+    float: left;
+    margin-left: 10px;
+}
+.tjann{
+	width:100%;
+	text-align:center;
+	margin-top:20px;
+	*margin-top:15px;
+	float:left;
+	height:auto;}
+.tjann a{
+	background:#f90;
+	color:#FFF; 
+	padding:5px 25px;
+	*display:block;
+	width:30px;
+	border:#ce9a4f solid 1px;
+	font-size:14px;}	
+	
+.qwp{
+	width:100%;
+	text-align:center;
+	float:left;
+	margin-top:30px;
+	*margin-top:18px;
+	overflow:hidden;
+	color:#FFF;
+	font-size:11px;}	

@@ -1,0 +1,32 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit"><gt name="item.id" value="0">编辑<else/>添加</gt><present name="root">{$root.name|default='结点'} / {$parent.name|default='结点'}<else/>{$parent.name|default='结点'}</present></div>
+	<div class="form2">
+	<form method="post" action="{:U('admin/prod/teseadd')}">
+	  	<dl class="lineD">
+			<dt>所属地区：</dt>
+			<dd class="cRed bold f14">
+                  {$rue.short} &nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('admin/prod/tese')}" class="cBlue f14">返回列表</a>
+			</dd>
+	    </dl>
+	    <dl class="lineD">
+			<dt>已有特色产品：</dt>
+			<dd class="cRed bold f14">
+              <volist name="arr" id="vo">{$vo}&nbsp; | &nbsp;</volist>
+			</dd>
+	    </dl>
+	      <dl class="lineD">
+			<dt>产品分类：</dt>
+			<dd class="cRed bold f14">
+              {:form_select('pos',$_GET['pos'],cate_opt('prod'),'','')}
+			</dd>
+	    </dl>
+	    
+    	<div class="page_btm">
+      		<input type="submit" class="btn_b" value="提交" />
+            <input name="id" type="hidden" value="{$rue.area_id}">
+    	</div>
+	</form>
+</div>
+
+<include file="Public:foot" />

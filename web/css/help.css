@@ -1,0 +1,2001 @@
+.daoh {
+    clear: both;
+    color: #0066CC;
+    font-size: 11px;
+    height: 25px;
+    line-height: 25px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    padding-left: 10px;
+    width: 970px;
+}
+.daoh a {
+    color: #0066CC;
+}
+.daoh b {
+    color: #333333;
+}
+
+.t_search_help {
+    float: left;
+    height: 46px;
+    margin-bottom: 10px;
+    width: 980px;
+}
+.t_search_hc {
+    background: url("images/t_search_05.jpg") repeat-x scroll left center transparent;
+    float: left;
+    height: 46px;
+    line-height: 46px;
+    width: 325px;
+}
+.t_search_hc span {
+    float: left;
+}
+.t_search_hc h3 {
+    float: right;
+    line-height: 46px;
+    margin-right: 10px;
+}
+.t_search_centerh {
+    background: url("images/t_search_09.jpg") repeat-x scroll left center transparent;
+    float: left;
+    height: 46px;
+    width: 500px;
+}
+.h_search_input {
+    border: 1px solid #FFFFFF;
+    color: #D9D9D9;
+    float: left;
+    margin-top: 14px;
+    padding: 1px 2px;
+    width: 498px;
+}
+a {
+    color: #333333;
+    text-decoration: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.t_search_right a img {
+    float: right;
+    height: 25px;
+    margin-right: 25px;
+    margin-top: 13px;
+    width: 60px;
+}
+
+img {
+    border: 0 none;
+}
+
+* {
+    padding: 0;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+input {
+    font-family: Arial,Helvetica,sans-serif;
+}
+.right_help {
+    float: left;
+    width: 765px;
+}
+.top_center {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    width: 765px;
+}
+.top_center a {
+    color: #FF3300;
+    float: right;
+    font-weight: bold;
+}
+.top_center a:hover {
+    color: #FF9900;
+    text-decoration: underline;
+}
+
+.center_center {
+    border-top: 2px solid #FFA800;
+    float: left;
+    padding: 36px;
+    width: 693px;
+}
+.bottom_center {
+    background: none repeat scroll 0 0 #FFFCF6;
+    border-top: 2px solid #FFA800;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 745px;
+}
+.bottom_center h2 {
+    float: left;
+    line-height: 30px;
+    width: 745px;
+}
+.bottom_center b {
+    float: left;
+    line-height: 25px;
+    width: 745px;
+}
+.bottom_center p {
+    float: left;
+    line-height: 20px;
+    padding: 0 10px;
+    width: 725px;
+}
+.bottom_center span a {
+    color: #FF6600;
+    margin-left: 10px;
+}
+img {
+    border: 0 none;
+    margin: 0;
+}
+element.style {
+    overflow: auto;
+}
+.center_demo {
+    border-color: #FF9900 #CCCCCC #CCCCCC;
+    border-style: solid;
+    border-width: 2px 1px 1px;
+    float: left;
+    height: auto;
+    line-height: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 743px;
+}
+.center_demo b {
+    float: left;
+    margin-top: 10px;
+    width: 733px;
+}
+
+.center_demo strong {
+    clear: both;
+}
+
+.expand_all {
+    border-bottom: 1px dotted #FFC047;
+    float: left;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    width: 745px;
+}
+.t_search {
+    float: left;
+    height: 46px;
+    margin-bottom: 10px;
+    width: 980px;
+}
+.t_search_left {
+    background: url("images/t_search_03.jpg") no-repeat scroll left center transparent;
+    float: left;
+    height: 46px;
+    padding-left: 14px;
+}
+.t_search_h {
+    background: url("images/t_search_05.jpg") repeat-x scroll left center transparent;
+    float: left;
+    height: 46px;
+    width: 425px;
+}
+.t_search_s {
+    background: url("images/t_search_07.jpg") no-repeat scroll left center transparent;
+    float: left;
+    height: 46px;
+    padding-left: 11px;
+}
+.t_search_center {
+    background: url("images/help/t_search_09.jpg") repeat-x scroll left center transparent;
+    float: left;
+    height: 46px;
+    width: 400px;
+}
+.t_search_right {
+    background: url("images/t_search_11.jpg") no-repeat scroll left center transparent;
+    float: left;
+    height: 46px;
+    width: 130px;
+}
+.b_search_input {
+    border: 1px solid #FFFFFF;
+    color: #D9D9D9;
+    float: left;
+    margin-top: 14px;
+    width: 398px;
+}
+.t_search_right a img {
+    float: right;
+    height: 25px;
+    margin-right: 25px;
+    margin-top: 13px;
+    width: 60px;
+}
+.left_use {
+    background: url("images/help_03.jpg") no-repeat scroll 0 50% transparent;
+    float: left;
+    height: 30px;
+    padding-left: 9px;
+}
+.left_h {
+    background: url("images/help_05.jpg") repeat-x scroll 0 50% transparent;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    width: 186px;
+}
+.right_use {
+    background: url("images/help_07.jpg") no-repeat scroll left center transparent;
+    float: left;
+    height: 30px;
+    padding-left: 10px;
+}
+.main_use {
+    border: 1px solid #FFE3C0;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 183px;
+}
+.main_use ul li {
+    border-bottom: 1px dotted #FFE3C0;
+    float: left;
+    line-height: 25px;
+    width: 183px;
+}
+.main_use ul li a span {
+    color: #FF6600;
+    font-weight: bold;
+}
+.help_left {
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 205px;
+}
+.lcx {
+    background: none repeat scroll 0 0 #DCDCDC;
+    border: 1px solid #FF9900;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    width: 960px;
+}
+.lcx ul {
+    margin: 0;
+    padding: 0;
+}
+.lcx ul li {
+    float: left;
+    list-style: none outside none;
+    text-align: center;
+    width: 192px;
+}
+.lcx_xs {
+    background: none repeat scroll 0 0 #FF9900;
+    color: #FFFFFF;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.youbuy_box {
+    float: left;
+    width: 980px;
+}
+.help_lca {
+    background: url("images/lc_1.gif") no-repeat scroll 0 50% transparent;
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    height: 700px;
+    margin-bottom: 10px;
+    width: 960px;
+}
+.help_lca a {
+    display: block;
+    float: left;
+    height: 19px;
+    margin-left: 110px;
+    margin-top: 113px;
+    width: 53px;
+}
+.help_lcb {
+    background: url("images/lc_2.gif") no-repeat scroll 0 50% transparent;
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    height: 700px;
+    margin-bottom: 10px;
+    width: 960px;
+}
+.help_lcb a {
+    display: block;
+    float: left;
+    height: 25px;
+    margin-left: 11px;
+    margin-top: 188px;
+    width: 165px;
+}
+.help_lcc {
+    background: url("images/lc_3.gif") no-repeat scroll 0 50% transparent;
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    height: 700px;
+    margin-bottom: 10px;
+    width: 960px;
+}
+.help_lcc a {
+    display: block;
+    float: right;
+    height: 28px;
+    margin-right: 97px;
+    margin-top: 318px;
+    width: 73px;
+}
+.help_lcd {
+    background: url("images/lc_4.gif") no-repeat scroll 0 50% transparent;
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    height: 705px;
+    margin-bottom: 10px;
+    width: 960px;
+}
+.help_lcd a {
+    display: block;
+    float: left;
+    height: 26px;
+    margin-left: 450px;
+    margin-top: 678px;
+    width: 132px;
+}
+.help_lce {
+    background: url("images/lc_5.gif") no-repeat scroll 0 50% transparent;
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    height: 705px;
+    margin-bottom: 10px;
+    width: 960px;
+}
+.help_lce a {
+    display: block;
+    float: left;
+    height: 26px;
+    margin-left: 417px;
+    margin-top: 466px;
+    width: 146px;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+* {
+    padding: 0;
+}
+.help_lcf {
+    background: url("images/lc_6.gif") no-repeat scroll 0 50% transparent;
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    height: 705px;
+    margin-bottom: 10px;
+    width: 960px;
+}
+.help_lcf a {
+    display: block;
+    float: left;
+    height: 29px;
+    margin-left: 856px;
+    margin-top: 365px;
+    width: 100px;
+}
+.help_lcj {
+    background: url("images/help/lc_7.gif") no-repeat scroll 0 50% transparent;
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    height: 705px;
+    margin-bottom: 10px;
+    width: 960px;
+}
+.help_lcj a {
+    display: block;
+    float: left;
+    height: 30px;
+    margin-left: 850px;
+    margin-top: 354px;
+    width: 120px;
+}
+.help_lch {
+    background: url("images/lc_8.gif") no-repeat scroll 0 50% transparent;
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    height: 705px;
+    margin-bottom: 10px;
+    width: 960px;
+}
+.help_lch a {
+    display: block;
+    float: left;
+    height: 30px;
+    margin-left: 880px;
+    margin-top: 603px;
+    width: 120px;
+}
+.help_lci {
+    background: url("images/lc_13.gif") no-repeat scroll right bottom transparent;
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    height: 705px;
+    margin-bottom: 10px;
+    width: 960px;
+}
+.help_lci a {
+    display: block;
+    float: left;
+    height: 27px;
+    margin-left: 884px;
+    margin-top: 676px;
+    width: 77px;
+}
+.help_lcg {
+    background: url("http://img.yoybuy.com/www/support/help/lc_10.gif") no-repeat scroll 0 50% transparent;
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    height: 705px;
+    margin-bottom: 10px;
+    width: 960px;
+}
+.help_lcg a {
+    display: block;
+    float: left;
+    height: 25px;
+    margin-left: 190px;
+    margin-top: 674px;
+    width: 137px;
+}
+.help_lck {
+    background: url("http://img.yoybuy.com/www/support/help/lc_11.gif") no-repeat scroll 0 50% transparent;
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    height: 705px;
+    margin-bottom: 10px;
+    width: 960px;
+}
+.help_lck a {
+    display: block;
+    float: left;
+    height: 30px;
+    margin-left: 797px;
+    margin-top: 498px;
+    width: 153px;
+}
+.help_lcl {
+    border: 1px solid #D9D9D9;
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+    padding: 20px 100px 50px;
+    width: 778px;
+}
+.help_lcl b {
+    float: left;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    width: 780px;
+}
+.help_lcl a {
+    color: #FF6600;
+    text-decoration: underline;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.helpleft {
+    margin-bottom: 0;
+}
+.righthelp {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 10px;
+    width: 760px;
+}
+.righthelp ul li {
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    width: 100%;
+
+}
+.righthelp ul li h1 {
+    border-bottom: 1px dotted #CCCCCC;
+    color: #FF9900;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 30px;
+    padding-bottom: 15px;
+}
+.righthelp ul li a {
+    color: #FF9900;
+    font-size: 14px;
+    line-height: 30px;
+}
+.helpdate {
+    border-bottom: 1px dotted #CCCCCC;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    width: 100%;
+}
+.helpdate h4 {
+    border-bottom: 1px dotted #CCCCCC;
+    color: #FF9900;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 10px;
+}
+.helpsc {
+    background: url("http://img.yoybuy.com/www/support/help/helpscbj.png") repeat-x scroll left top transparent;
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: 76px;
+    margin-top: 13px;
+    padding: 0 10px;
+    width: 162px;
+}
+.helpsc b {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    font-size: 14px;
+}
+.helpsc span {
+    float: left;
+    width: 100%;
+}
+.helpsc span input {
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    margin-right: 5px;
+    padding: 1px 2px;
+    width: 115px;
+}
+.helpsc span a {
+    float: left;
+}
+.newbox {
+    float: left;
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+}
+.boxleft {
+    float: left;
+    height: auto;
+    margin-right: 5px;
+    width: 190px;
+}
+.leftfl {
+    background: none repeat scroll 0 0 #FFFEEE;
+    border-bottom: 1px solid #FEA302;
+    border-left: 1px solid #FEA302;
+    border-right: 1px solid #FEA302;
+    height: 493px;
+    width: 188px;
+}
+.leftfl ul li {
+    cursor: pointer;
+    float: left;
+    height: 32px;
+    line-height: 32px;
+}
+.flname {
+    border-top: 1px dotted #BEBEBE;
+    cursor: pointer;
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 5px;
+    width: 178px;
+}
+.leftfl ul li a {
+    float: left;
+    overflow: hidden;
+    width: 166px;
+}
+.leftfl ul li span {
+    float: left;
+}
+.leftfl ul li span img {
+    margin-top: 10px;
+}
+.rightbox {
+    float: left;
+    height: 493px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+    width: 785px;
+}
+.banner {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: 325px;
+    margin-right: 5px;
+    overflow: hidden;
+    padding: 5px;
+    width: 550px;
+}
+.qukeright {
+    background: url("http://img.yoybuy.com/www/support/help/quickb.png") no-repeat scroll left top transparent;
+    float: left;
+    height: 325px;
+    overflow: hidden;
+    padding-top: 10px;
+    width: 220px;
+}
+.quick {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: 50px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-align: center;
+    width: 220px;
+}
+.abtyb {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: 120px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    padding: 10px;
+    width: 200px;
+}
+.abtyb h2 {
+    font-size: 14px;
+    height: 25px;
+    width: 100%;
+}
+.neww {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: 105px;
+    padding: 10px;
+    width: 200px;
+}
+.neww h2 {
+    font-size: 14px;
+    height: 25px;
+    width: 100%;
+}
+.neww h2 span {
+    float: left;
+}
+.neww ul li {
+    border-bottom: 1px dotted #DEDEDE;
+    color: #1F8AEA;
+    height: 25px;
+    line-height: 25px;
+    list-style: disc inside none;
+    overflow: hidden;
+    width: 100%;
+}
+.neww ul li a {
+    color: #1F8AEA;
+}
+.neww ul li a:hover {
+    text-decoration: underline;
+}
+.ybjj {
+    background: url("http://img.yoybuy.com/www/support/help/bjbx.png") no-repeat scroll 0 50% transparent;
+    float: left;
+    height: 148px;
+    margin-top: 5px;
+    width: 787px;
+}
+.ybjja {
+    float: left;
+    height: 138px;
+    margin-right: 12px;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 240px;
+}
+.ybjjatop {
+    height: 65px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    width: 100%;
+}
+.ybjjatop span {
+    float: left;
+    margin-right: 5px;
+}
+.ybjjatop h2 {
+    color: #6D8E0D;
+    float: left;
+    margin-top: 20px;
+    width: 160px;
+}
+.ybjja ul li {
+    list-style: disc inside url("http://img.yoybuy.com/www/support/help/xst.png");
+}
+.ybjja ul li a {
+    color: #1F8AEA;
+}
+.ybjja ul li a:hover {
+    text-decoration: underline;
+}
+.recom {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: 252px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    width: 100%;
+}
+.recomtop {
+    background: url("http://img.yoybuy.com/www/support/help/btbja.png") no-repeat scroll left top transparent;
+    height: 36px;
+    overflow: hidden;
+    width: 100%;
+}
+.recomtleft {
+    background: url("http://img.yoybuy.com/www/support/help/btbjb.png") repeat-x scroll left top transparent;
+    float: left;
+    height: 36px;
+    margin-left: 14px;
+    width: 959px;
+}
+.recomtleft h2 {
+    color: #FFFFFF;
+    line-height: 36px;
+}
+.recomtleft a {
+    float: right;
+    margin-right: 5px;
+    margin-top: 10px;
+}
+.recomtop span {
+    background: url("http://img.yoybuy.com/www/support/help/btbjc.png") no-repeat scroll right top transparent;
+    float: left;
+    height: 36px;
+    padding-right: 7px;
+}
+.recomtop h2 a {
+    float: right;
+    margin-right: 5px;
+    margin-top: 13px;
+}
+.recommian {
+    float: left;
+    height: 215px;
+    padding: 10px;
+    width: 960px;
+}
+.recommian dl {
+    cursor: pointer;
+    float: left;
+    margin: 0 10px;
+    padding: 10px;
+    width: 120px;
+}
+.recommian dl:hover {
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 5px 0 #CCCCCC;
+    float: left;
+    padding: 9px;
+}
+.recommian dl:hover a {
+    color: #FF6600;
+}
+.recommian dl dt {
+    float: left;
+    height: 120px;
+    margin-bottom: 10px;
+    text-align: center;
+    vertical-align: middle;
+    width: 120px;
+}
+.recommian dl dt a {
+    display: table-cell;
+    height: 120px;
+    text-align: center;
+    vertical-align: middle;
+    width: 120px;
+}
+.recommian dl dt img {
+    width: 120px;
+}
+.recommian dl dd {
+    float: left;
+    width: 120px;
+}
+.itmename {
+    float: left;
+    height: 30px;
+    line-height: 15px;
+    overflow: hidden;
+    width: 120px;
+}
+.cbut {
+    color: #999999;
+    font-size: 10px;
+    width: 120px;
+}
+.money {
+    color: #FF0000;
+    float: left;
+    line-height: 14px;
+    width: 100%;
+}
+.bottombox {
+    float: left;
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+}
+.bottomleft {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: 900px;
+    margin-right: 5px;
+    width: 190px;
+}
+.moreleft {
+    float: left;
+    margin: 5px 0;
+}
+.recomtop h2 {
+    background: url("http://img.yoybuy.com/www/support/help/btbjb.png") repeat-x scroll left top transparent;
+    color: #FFFFFF;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    margin-left: 14px;
+    width: 169px;
+}
+.bottommian {
+    border-bottom: 1px dotted #CCCCCC;
+    float: left;
+    height: auto;
+    overflow: hidden;
+    padding: 5px;
+    width: 180px;
+}
+.imgbol {
+    background: none repeat scroll 0 0 #F7F7F7;
+    float: left;
+    padding: 5px;
+    width: 170px;
+}
+.bottommian h2 {
+    float: left;
+    line-height: 30px;
+    width: 100%;
+}
+.bottommian ul {
+    float: left;
+    width: 100%;
+}
+.bottommian ul li {
+    color: #1F8AEA;
+    line-height: 20px;
+    list-style: disc inside url("http://img.yoybuy.com/www/support/help/xst.png");
+}
+.bottommian ul li a {
+    color: #1F8AEA;
+}
+.bottommian ul li a:hover {
+    text-decoration: underline;
+}
+.bottomright {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: 900px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    width: 785px;
+}
+.bottomright dl {
+    cursor: pointer;
+    float: left;
+    margin: 5px 8px 0;
+    padding: 10px;
+    width: 120px;
+}
+.bottomright dl:hover {
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 5px 0 #CCCCCC;
+    float: left;
+    padding: 9px;
+}
+.bottomright dl:hover a {
+    color: #FF6600;
+}
+.bottomright dl dt {
+    float: left;
+    height: 120px;
+    margin-bottom: 8px;
+    text-align: center;
+    vertical-align: middle;
+    width: 120px;
+}
+.bottomright dl dt a {
+    display: table-cell;
+    height: 120px;
+    text-align: center;
+    vertical-align: middle;
+    width: 120px;
+}
+.bottomright dl dt img {
+    width: 120px;
+}
+.bottomright dl dd {
+    float: left;
+    width: 120px;
+}
+.sht {
+    background: url("http://img.yoybuy.com/www/support/help/sht.png") no-repeat scroll left top #FFFFFF;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    width: 100%;
+}
+.testim {
+    border-right: 1px dashed #CCCCCC;
+    float: left;
+    height: 300px;
+    margin-right: 5px;
+    margin-top: 2px;
+    padding: 5px;
+    width: 310px;
+}
+.testim h2 {
+    height: 30px;
+    margin-top: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+.testim h2 span {
+    float: left;
+}
+.testim dl {
+    float: left;
+    height: 60px;
+    margin: 14px 0;
+    width: 100%;
+}
+.testim dl dt {
+    float: left;
+    margin-right: 10px;
+    width: 60px;
+}
+.testim dl dt a {
+    display: table-cell;
+    height: 65px;
+    text-align: center;
+    vertical-align: middle;
+    width: 65px;
+}
+.testim dl dt a img {
+    width: 65px;
+}
+.testim dl dd {
+    float: left;
+    width: 236px;
+}
+.testim dl dd h4 {
+    float: left;
+    height: 25px;
+    line-height: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+.testim dl dd p {
+    float: left;
+    height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+.homeblog {
+    float: left;
+    height: 90px;
+    overflow: hidden;
+    width: 100%;
+}
+.homeblog dl {
+    float: left;
+    height: 90px;
+    margin: 0;
+}
+.homeblog dl dt {
+    float: left;
+    height: 90px;
+    width: 100px;
+}
+.homeblog dl dt a img {
+    height: 90px;
+    width: 100px;
+}
+.homeblog dl dd {
+    float: left;
+    height: 90px;
+    width: 200px;
+}
+.homeblog dl dd h2 {
+    float: left;
+    font-size: 12px;
+    height: 50px;
+    line-height: 20px;
+    margin: 0;
+    overflow: hidden;
+    width: 200px;
+}
+.homeblog dl dd h2 a {
+    color: #1F8AEA;
+}
+.homeblog dl dd em {
+    color: #666666;
+    float: left;
+    font-size: 12px;
+    height: 40px;
+    line-height: 20px;
+    margin: 0;
+    overflow: hidden;
+    width: 200px;
+}
+.text {
+    border-bottom: 1px dotted #CCCCCC;
+    float: left;
+    height: 60px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 10px 0;
+    width: 100%;
+}
+.testim ul li {
+    float: left;
+    line-height: 20px;
+    list-style: disc inside url("http://img.yoybuy.com/www/support/help/xst.png");
+    overflow: hidden;
+    width: 100%;
+}
+.testim ul li a {
+    color: #1F8AEA;
+}
+.testim ul li a:hover {
+    text-decoration: underline;
+}
+.ybfu {
+    float: left;
+    margin-top: 5px;
+}
+.ybfu dl {
+    border-bottom: 1px dotted #CCCCCC;
+    float: left;
+    height: 90px;
+    margin: 5px 5px 5px 15px;
+    overflow: hidden;
+    width: 460px;
+}
+.ybfu dl dt {
+    float: left;
+    height: 90px;
+    width: 90px;
+}
+.ybfu dl dd {
+    float: left;
+    height: 90px;
+    width: 360px;
+}
+.ybfu dl dd h2 {
+    float: left;
+    height: 30px;
+    overflow: hidden;
+    width: 100%;
+}
+.ybfu dl dd span {
+    color: #666666;
+    float: left;
+    height: 60px;
+    line-height: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.mxfl {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+    width: 188px;
+}
+.mxfl b {
+    background: url("http://img.yoybuy.com/www/support/help/letimbj.png") repeat scroll left top transparent;
+    float: left;
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 13px;
+    width: 172px;
+}
+.mxfl ul {
+    border-top: 1px solid #CCCCCC;
+    float: left;
+    padding: 5px;
+    width: 178px;
+}
+.mxfl ul li {
+    border-bottom: 1px dotted #CCCCCC;
+    color: #1F8AEA;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    list-style: disc inside none;
+    overflow: hidden;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.mxfl ul li a {
+    color: #1F8AEA;
+}
+.mxfl ul li a:hover {
+    color: #f90;
+}
+.term {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    float: left;
+    margin-bottom: 10px;
+    width: 188px;
+}
+.term h4 {
+    background: url("http://img.yoybuy.com/www/support/help/tjbj.png") repeat scroll left top transparent;
+    cursor: pointer;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 5px;
+    width: 178px;
+}
+.term h4 img {
+    float: right;
+}
+.term h4 span {
+    float: left;
+}
+.tremwzk {
+    border-bottom: medium none;
+    margin-bottom: 0;
+}
+.term ul {
+    border-top: 1px solid #CCCCCC;
+    float: left;
+    padding: 5px;
+    width: 178px;
+}
+.term ul li {
+    border-bottom: 1px dotted #CCCCCC;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+    width: 100%;
+}
+.term ul li label {
+    float: left;
+    margin-top: 6px;
+}
+.term ul li span {
+    float: left;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 11px;
+    margin-left: 5px;
+}
+.rightmxfl {
+    float: left;
+    height: auto;
+    margin-top: 10px;
+    overflow: hidden;
+    width: 785px;
+}
+.spjs {
+    background: url("http://img.yoybuy.com/www/support/help/ppjj.png") no-repeat scroll left top #FFFFFF;
+    float: left;
+    height: auto;
+    padding-top: 7px;
+    width: 785px;
+}
+.spjs h4 {
+    float: left;
+    padding: 0 10px;
+    width: 765px;
+}
+.spjs p {
+    background: url("http://img.yoybuy.com/www/support/help/ppjjb.png") no-repeat scroll left bottom transparent;
+    float: left;
+    height: auto;
+    line-height: 20px;
+    margin-top: 5px;
+    padding: 0 10px 10px;
+    width: 765px;
+}
+.spbox {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+.spbTop {
+    background: url("http://img.yoybuy.com/www/support/help/spboxbj.png") no-repeat scroll left top transparent;
+    height: 80px;
+    padding-left: 6px;
+    width: 779px;
+}
+.spbtcenter {
+    background: url("http://img.yoybuy.com/www/support/help/spboxbjb.png") repeat-x scroll left top transparent;
+    float: left;
+    height: 80px;
+    width: 774px;
+}
+.spbtright {
+    background: url("http://img.yoybuy.com/www/support/help/spboxbjc.png") no-repeat scroll left top transparent;
+    float: left;
+    height: 80px;
+    padding-right: 5px;
+}
+.spbtcentertop {
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    width: 100%;
+}
+.spbtcentertop h4 {
+    float: left;
+    padding-left: 5px;
+    width: 150px;
+}
+.spbtcentertop h4 span {
+    color: #FF6600;
+}
+.rihgtcta {
+    float: left;
+    margin: 14px 5px 0;
+}
+.rihgtct {
+    float: right;
+    height: 100%;
+}
+.rihgtct span {
+    float: left;
+    margin: 12px 5px 0;
+}
+.rihgtctb {
+    float: left;
+    margin: 8px 5px 0;
+}
+.rihgtctc {
+    float: left;
+    margin: 9px 5px 0;
+}
+.spbtcenterbot {
+    float: left;
+    height: 37px;
+    line-height: 30px;
+    margin-top: 2px;
+    overflow: hidden;
+    width: 100%;
+}
+.spbtcenterbot ul li {
+    border-right: 1px dashed #666666;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    width: auto;
+}
+.scba input {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    width: 50px;
+}
+.scbb select {
+    float: left;
+    height: 20px;
+    margin-top: 5px;
+    width: 40px;
+}
+.scbb input {
+    float: left;
+    margin-top: 8px;
+}
+.scbb span {
+    float: left;
+    margin: 0 5px;
+}
+.scbb span img {
+    margin-top: 6px;
+}
+.scbc select {
+    width: 60px;
+}
+.sbsearch {
+    float: right;
+}
+.splb {
+    float: left;
+    height: auto;
+    overflow: hidden;
+    padding-bottom: 5px;
+    padding-left: 7px;
+    width: 778px;
+}
+.splb dl {
+    cursor: pointer;
+    float: left;
+    height: 265px;
+    margin: 5px;
+    overflow: hidden;
+    padding: 6px;
+    width: 171px;
+}
+.splb dl:hover {
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 5px 0 #CCCCCC;
+    padding: 5px;
+}
+.splb dl dt {
+    float: left;
+    height: 170px;
+    margin-bottom: 5px;
+    width: 170px;
+}
+.splb dl dt a {
+    border: 1px solid #E7E7E7;
+    display: table-cell;
+    height: 168px;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    width: 168px;
+}
+.splb dl dt a img {
+    width: 168px;
+}
+.sp {
+    width: 168px;
+}
+.sp {
+    float: left;
+    margin-top: 2px;
+}
+.spbottom {
+    border-top: 1px dotted #CCCCCC;
+    float: left;
+    margin: 0 10px;
+    width: 760px;
+}
+.leftsbt {
+    float: left;
+    height: 35px;
+    margin-top: 10px;
+    width: 570px;
+}
+.newfy {
+    float: left;
+    padding: 10px 0;
+    width: 100%;
+}
+.newfy a {
+    border: 1px solid #CCCCCC;
+    cursor: pointer;
+    float: left;
+    margin: 0 5px;
+    padding: 4px 10px;
+}
+.onclick:hover {
+    color: #FFFFFF;
+}
+.noclick {
+    color: #999999;
+}
+.noclick:hover {
+    color: #999999;
+}
+.onclick {
+    background: none repeat scroll 0 0 #FF6600;
+    border: medium none #FFFFFF;
+    color: #FFFFFF;
+}
+.page {
+    float: right;
+    width: 140px;
+}
+.page span {
+    float: left;
+    margin-right: 5px;
+    padding: 4px 0;
+}
+.page input {
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    width: 40px;
+}
+.page a {
+    border: 0 none;
+    padding: 0;
+}
+.spleftbot {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: auto;
+    margin-bottom: 5px;
+    overflow: hidden;
+    width: 188px;
+}
+.spleftbot h4 {
+    background: url("http://img.yoybuy.com/www/support/help/letimbj.png") repeat scroll left top transparent;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 5px;
+    width: 178px;
+}
+.spleftbot p {
+    border-top: 1px solid #CCCCCC;
+    float: left;
+    height: auto;
+    padding: 10px;
+    width: 168px;
+}
+.spzx {
+    float: left;
+    height: auto;
+    width: 100%;
+}
+.leftspzx {
+    float: left;
+    padding: 10px 0;
+    width: 100%;
+}
+.leftspzx dl {
+    float: left;
+    height: 80px;
+    margin-left: 10px;
+    overflow: hidden;
+    width: 430px;
+}
+.leftspzx dl dt {
+    float: left;
+    height: 80px;
+    margin-right: 10px;
+    width: 80px;
+}
+.leftspzx dl dt a {
+    border: 1px solid #E7E7E7;
+    display: table-cell;
+    height: 78px;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    width: 78px;
+}
+.leftspzx dl dt a img {
+    width: 78px;
+}
+.leftspzx dl dd {
+    float: left;
+    height: 80px;
+    overflow: hidden;
+    width: 340px;
+}
+.leftspzx dl dd h4 {
+    height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+.leftspzx dl dd p {
+    color: #999999;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+.sx {
+    color: #999999;
+    float: left;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 10px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    width: 240px;
+}
+.totalfl {
+    color: #FF0000;
+    float: left;
+    font-size: 16px;
+    height: 80px;
+    line-height: 80px;
+    margin-right: 10px;
+    overflow: hidden;
+    width: 80px;
+}
+.itembox {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 10px;
+    width: 960px;
+}
+.leftitem {
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    overflow: hidden;
+    width: 960px;
+}
+.leftimg {
+    float: left;
+    height: 360px;
+    margin-right: 5px;
+    width: 312px;
+}
+.leftimg span {
+    float: left;
+    height: 312px;
+    width: 312px;
+}
+.leftimg span a {
+    border: 1px solid #CCCCCC;
+    display: table-cell;
+    height: 310px;
+    text-align: center;
+    vertical-align: middle;
+    width: 310px;
+}
+.leftimg ul li {
+    float: left;
+    height: 40px;
+    margin: 0 2px;
+    padding: 5px 2px 2px;
+    width: 40px;
+}
+.leftimg ul li a {
+    border: 1px solid #CCCCCC;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.leftimg ul li a img {
+    width: 38px;
+}
+.leftimg ul li:hover {
+    background: url("http://img.yoybuy.com/www/support/help/imgbk.png") no-repeat scroll left bottom transparent;
+    height: 40px;
+    padding: 5px 2px 2px;
+    width: 40px;
+}
+.leftimg ul li a:hover {
+    border: 0 none;
+    height: 38px;
+    padding: 1px;
+    width: 38px;
+}
+.leftimg ul li a:hover img {
+    width: 38px;
+}
+.xza {
+    background: url("http://img.yoybuy.com/www/support/help/imgbk.png") no-repeat scroll left bottom transparent;
+    height: 40px;
+    padding: 5px 2px 2px;
+    width: 40px;
+}
+.itmemx {
+    float: left;
+    height: 360px;
+    overflow: hidden;
+    width: 430px;
+}
+.itmemx h2 {
+    border-bottom: 1px dotted #CCCCCC;
+    color: #000000;
+    font-weight: 100;
+    height: 50px;
+    line-height: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+.itmemx ul li {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+}
+.itempr {
+    float: left;
+    margin-right: 10px;
+    width: 120px;
+}
+.itempr b {
+    color: #FF0000;
+}
+.itemcolor b {
+    float: left;
+    width: 60px;
+}
+.color {
+    float: left;
+    margin-top: 10px;
+    width: 100px;
+}
+.itemcolor {
+    float: left;
+    width: 250px;
+}
+.itemcolor em {
+    color: #999999;
+    float: left;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 10px;
+    font-style: inherit;
+    margin-left: 5px;
+}
+.size {
+    float: left;
+    margin-top: 10px;
+    width: 50px;
+}
+.itemprfirst {
+    border-bottom: 1px dotted #CCCCCC;
+    margin-bottom: 10px;
+}
+.itemsx {
+    border-bottom: 1px dotted #CCCCCC;
+    border-top: 1px dotted #CCCCCC;
+    margin-top: 10px;
+}
+.itemsx span {
+    float: left;
+    margin-right: 15px;
+}
+.itemsx a {
+    float: left;
+    font-size: 10px;
+}
+.itemsx a img {
+    margin-top: 13px;
+}
+.addmenu {
+    float: left;
+    margin-top: 20px;
+    width: 100%;
+}
+.addmenu a {
+    float: left;
+    margin-right: 20px;
+}
+.itemright {
+    border: 1px solid #CCCCCC;
+    float: right;
+    height: auto;
+    margin-left: 5px;
+    width: 195px;
+}
+.itemright h4 {
+    background: none repeat scroll 0 0 #F9F9F9;
+    float: left;
+    line-height: 30px;
+    padding: 0 5px;
+    width: 185px;
+}
+.itemright ul li {
+    border-top: 1px dotted #CCCCCC;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 5px;
+    width: 180px;
+}
+.itemright ul li span {
+    float: left;
+    margin-right: 5px;
+}
+.itemright ul li em {
+    float: left;
+    font-style: inherit;
+}
+.itemright ul li img {
+    float: left;
+    margin-top: 4px;
+}
+.itmetblj {
+    background: none repeat scroll 0 0 #F9F9F9;
+    border: 1px solid #CCCCCC;
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 10px;
+    padding: 5px;
+    width: 185px;
+}
+.itmetblj img {
+    float: left;
+    margin-top: 2px;
+}
+.itmetblj a {
+    float: left;
+    height: 20px;
+    margin-left: 5px;
+    overflow: hidden;
+    width: 160px;
+}
+.itmetblj a span {
+    float: left;
+}
+.itmetblj a img {
+    float: right;
+}
+.itmefx {
+    background: none repeat scroll 0 0 #F9F9F9;
+    border: 1px solid #CCCCCC;
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 10px;
+    padding: 5px;
+    text-align: center;
+    width: 185px;
+}
+.itmefx a img {
+    margin-top: 2px;
+}
+.itmekzxx {
+    float: left;
+    height: auto;
+    overflow: hidden;
+    width: 960px;
+}
+.itmekzxx h4 {
+    border-bottom: 1px solid #FF8402;
+    float: left;
+    height: 37px;
+    overflow: hidden;
+    width: 960px;
+}
+.pxz {
+    background: url("http://img.yoybuy.com/www/support/help/producta.png") repeat-x scroll left top transparent;
+    border-left: 1px solid #FF8402;
+    border-right: 1px solid #FF8402;
+    border-top: 1px solid #FF8402;
+    color: #FFFFFF;
+    float: left;
+    height: 37px;
+    line-height: 37px;
+    margin-right: 10px;
+    padding: 0 20px;
+}
+.pxz:hover {
+    color: #FFFFFF;
+}
+.pxzb {
+    background: url("http://img.yoybuy.com/www/support/help/productb.png") repeat-x scroll left top transparent;
+    border-left: 1px solid #D9D9D7;
+    border-right: 1px solid #D9D9D7;
+    border-top: 1px solid #D9D9D7;
+    float: left;
+    height: 37px;
+    line-height: 37px;
+    padding: 0 20px;
+}
+.xxnr {
+    background: none repeat scroll 0 0 #F6F6F6;
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: auto;
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 10px;
+    width: 938px;
+}
+.xxnr ul li {
+    float: left;
+    line-height: 25px;
+    overflow: hidden;
+    width: 312px;
+}
+.itesmbimg {
+    float: left;
+    margin-top: 10px;
+    text-align: center;
+    width: 960px;
+}
+.itesmbimg span {
+    display: table-cell;
+    height: auto;
+    overflow: hidden;
+    padding-left: 30px;
+    width: 900px;
+}
+.itesmbimg span img {
+    width: 900px;
+}
+.pd {
+    background: none repeat scroll 0 0 #F9F9F9;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px 4px 4px 4px;
+    float: left;
+    line-height: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 938px;
+}
+.pd a img {
+    float: left;
+    margin-top: 5px;
+}
+.pd span {
+    float: right;
+}
+.pd span a {
+    color: #208AEA;
+}
+.itmebt {
+    float: left;
+}
+html {
+    color: #333333;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+}
+.righthelp {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 10px;
+    width: 760px;
+}
+h2 {
+    font-size: 14px;
+    margin: 0;
+}
+.righthelp h1 {
+    float: left;
+    line-height: 30px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 12px;
+    margin: 0;
+}
+
+.news_left_h {
+    background: url("http://www.yoybuy.com/Content/Images/Home/_buy_bj_05.jpg") repeat-x scroll 0 50% transparent;
+    float: left;
+    height: 40px;
+    margin-bottom: 5px;
+    width: 955px;
+}
+
+
+.news_left_h h1 {
+    font-size: 14px;
+    line-height: 40px;
+    margin-left:10px;
+}
+
+
+.evaluation_left_right {
+    background: url("http://www.yoybuy.com/Content/Images/Home/_buy_bj_07.jpg") no-repeat scroll 0 50% transparent;
+    float: left;
+    height: 40px;
+    margin-bottom: 5px;
+    width: 12px;
+}
+
+.text_news {
+    background-color: #FFFFFF;
+    float: left;
+    padding: 10px 0;
+    width: 980px;
+}
+
+
+ul, li {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.text_news ul li {
+    border-bottom: 1px dotted #CCCCCC;
+    float: left;
+    line-height: 30px;
+    margin: 0 30px;
+    width: 430px;
+    list-style: none outside none;
+}
+
+.text_news ul li img {
+    float: left;
+    margin-top: 8px;
+    border: 0 none;
+}
+
+
+.text_news ul li a {
+    float: left;
+    width: 300px;
+     color: #333333;
+    text-decoration: none;
+}
+
+.text_news ul li span {
+    color: #999999;
+    float: right;
+}
+
+
+.page_center {
+    float: left;
+    line-height: 40px;
+    margin-right: 10px;
+    text-align: center;
+    width: 639px;
+}
+
+.page_right{
+	float:right;
+}

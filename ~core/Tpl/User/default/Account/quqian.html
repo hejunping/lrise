@@ -1,0 +1,67 @@
+<include file='tpl/head.html'/>
+<script type="text/javascript" src="web/js/mod/userWithdrawMoney.js"></script>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">Home</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">My Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>Withdraw Money</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />  
+<div class="a_rside">
+    <div class="rtit">
+        Refund Request</div>
+    <div class="raddress">
+        <br>
+        <br>
+        <ul class="mlst">
+            <li class="hover" onclick="setTab('two',1,4,'PayPal')" id="two1">PayPal</li>
+            <li onclick="setTab('two',2,4,'Moneybookers')" id="two2" class="">Moneybookers</li>
+            <li onclick="setTab('two',3,4,'MoneyGram')" id="two3" class="" style="display: none;">MoneyGram</li>
+            <li onclick="setTab('two',4,4,'Offline')" id="two4" class="">Offline</li>
+        </ul>
+        <div id="con_two_1"  >
+        <form action="{:U('user/account/draw')}" method="post" name="qu">
+            <div class="midInfo">
+                <div class="two_right">
+                    Your Balance:<span title="">{$coin}</span>CNY<br />
+                    ≈<span title="">{$coin|_usaprice}</span>USD
+                </div>
+                <p>
+                    <label>Real name :</label>
+                    <input type="text" name="name" id="name"   class="e"><span id="names" class="red">*</span>
+                </p>
+                 <p>
+                    <label>Withdrawal Account:</label>
+                    <input type="text" name="Account" id="Account"   class="e"><span id="Accounts" class="red">*</span>
+                </p>
+                <p>
+                    <label>Withdrawal Amount:</label>
+                    <input type="text" name="Amount" id="Amount"   class="e">USD<span id="Amounts" class="red">*</span>
+                </p>
+                <p>
+                    <label>  Comments:</label>
+                    <textarea title="" style="width: 250px; height: 80px;" rows="" cols=""  name="Comments" id="Comments" class="e"></textarea>
+               </p>
+            </div>
+            <div class="mfc">
+                <a href="javascript:thissub();" >
+                    <img height="29" border="0" width="83" alt="submit" src="web/images/user/tjxg.jpg">
+                 </a>
+                    <ul>
+                    <li>
+	                    <a target="_blank" href="{:U('user/account/refund')}">My Refund Records&gt;&gt;</a> 
+	                    <a target="_blank"  href="{:U('home/info/index')}">Help</a>
+	                    <span><img height="17"  border="0" width="17" src="web/images/user/help_1.jpg"></span>
+                    </li>
+                    </ul>
+                    <input type="hidden" name="types" value="PayPal" />
+                    <input type="hidden" name="coin" value="{$coin}" />
+                    <input type="hidden" name="huil" value="{$ss|currency}" />
+            </div>
+            </form>
+        </div>
+     
+    </div>
+</div>
+</div>
+<include file="tpl/foot.html"/>

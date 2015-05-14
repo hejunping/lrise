@@ -1,0 +1,377 @@
+
+.sbr
+{
+	margin-bottom: 10px;
+}
+.a_rside
+{
+	float: right;
+	width: 795px;
+	background: #fffffb;
+	border: #dbdbdb 1px solid;
+}
+.rtit
+{
+	background: url("images/home/rtitbg.jpg") repeat-x center;
+	width: 770px;
+	line-height: 31px;
+	font-weight: bold;
+	padding: 0 12px;
+	color: #333;
+	border: #e0e0e0 solid 1px;
+	float: left;
+}
+.bd {
+    clear: both;
+    margin: 0 auto;
+    width: 982px;
+}
+
+.daoh a {
+    color: #0066CC;
+}
+.daoh {
+   clear: both;
+    color: #0066CC;
+    font-size: 11px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-left: 10px;
+    width: 970px;
+
+}
+.daoh b {
+    color: #333333;
+}
+.rtit_a
+{
+	background: url("images/home/rtitbg.jpg") repeat-x center;
+	width: 716px;
+	line-height: 31px;
+	font-weight: bold;
+	padding: 0 12px;
+	color: #333;
+	border: #e0e0e0 solid 1px;
+	float: left;
+}
+.bdbox
+{
+	padding: 14px 15px;
+	background: #fff;
+	border: #e0e0e0 solid 1px;
+	float: left;
+	width: 764px;
+}
+.message_box
+{
+	float: left;
+	width: 762px;
+	border: #d9d9d9 solid 1px;
+	height: auto;
+}
+.m_b_top
+{
+	width: 760px;
+	float: left;
+	height: 30px;
+	border-left: #FFF solid 1px;
+	border-top: #FFF solid 1px;
+}
+.m_b_top ul
+{
+	background: #ededed;
+	width: 760px;
+	height: 29px;
+	float: left;
+	border-bottom: #FFF solid 1px;
+}
+.m_b_top ul li
+{
+	float: left;
+	list-style: none;
+	line-height: 30px;
+}
+.m_t_a
+{
+	width: 51px;
+	text-align: center;
+}
+.m_t_b
+{
+	width: 471px;
+	text-align: center;
+}
+.m_t_c
+{
+	width: 121px;
+	text-align: center;
+}
+.m_t_d
+{
+	width: 117px;
+	text-align: center;
+}
+.m_b_center
+{
+	width: 762px;
+	height: 60px;
+	border-top: #d9d9d9 dotted 1px;
+	float: left;
+}
+.m_c_a
+{
+	width: 50px;
+	border-right: #d9d9d9 solid 1px;
+	height: 60px;
+	text-align: center;
+}
+.m_c_a img
+{
+	margin-top: 22px;
+}
+.m_c_b
+{
+	width: 470px;
+	margin-left: 5px;
+	float: left;
+	border-right: #d9d9d9 solid 1px;
+	height: 60px;
+	overflow: hidden;
+}
+.m_c_c
+{
+	width: 120px;
+	text-align: center;
+	border-right: #d9d9d9 solid 1px;
+	height: 60px;
+}
+.m_c_d
+{
+	width: 73px;
+	text-align: center;
+	border-right: #d9d9d9 solid 1px;
+}
+.m_c_e
+{
+	width: 40px;
+	text-align: center;
+}
+.m_c_e a
+{
+	float: left;
+	margin-top: 15px;
+	text-align: center;
+	width: 40px;
+}
+.m_b_center
+{
+	width: 762px;
+	height: 60px;
+	border-top: #d9d9d9 dotted 1px;
+	float: left;
+}
+.m_b_center ul li
+{
+	list-style: none;
+	float: left;
+	line-height: 60px;
+}
+.fy_b span
+{
+	background: #666;
+	padding: 1px 5px;
+	color: #FFF;
+	border: #333 solid 1px;
+	margin: 0 5px;
+}
+
+.fy span
+{
+	background: #666;
+	padding: 1 3px;
+}
+.fy span a
+{
+	color: #FFF;
+	text-decoration: none;
+}
+.fy span a:hover, visited
+{
+	color: #000;
+	text-decoration: none;
+	background-color: #3e4fef;
+}
+
+.fy_b
+{
+	width: 750px;
+	text-align: center;
+	float: left;
+}
+.fy_b a
+{
+	background: #d9d9d9;
+	padding: 1px 5px;
+	color: #999;
+	text-decoration: none;
+	border: #999 solid 1px;
+}
+.fy_b li
+{
+	text-align: center;
+	float: left;
+}
+.fy_a
+{
+	float: left;
+	width: 200px;
+	text-align: left;
+	display: block;
+}
+.message_text
+{
+	width: 620px;
+	height: auto;
+	float: left;
+	margin-top: 10px;
+}
+.message_text h3
+{
+	width: 610px;
+	border-top: #CCC solid 1px;
+	border-left: #CCC solid 1px;
+	border-right: #CCC solid 1px;
+	height: 30px;
+	float: left;
+	background: #f8f8f8;
+	line-height: 30px;
+	padding-left: 10px;
+	margin-bottom: 1px;
+}
+.message_text a
+{
+	margin-top: 10px;
+	float: left;
+}
+
+.yoymbox_a
+{
+	width: 740px;
+	float: left;
+}
+.mlst
+{
+	zoom: 1;
+	border-bottom: 1px solid #f90;
+	margin: 0 0 10px 0;
+	height: 31px;
+	padding: 0;
+}
+.mlst li
+{
+	list-style: none;
+	float: left;
+	padding: 6px 15px 7px;
+	margin: 0 1px 0 0;
+	cursor: pointer;
+	background: #f0f0f0;
+	color: #999;
+}
+.mlst li.hover
+{
+	background: #f90;
+	color: #fff;
+}
+.message_hf
+{
+	border: 1px solid #CCCCCC;
+	color: #333333;
+	float: left;
+	height: auto;
+	margin-bottom: 10px;
+	padding: 10px;
+	width: 742px;
+}
+.YLogoDiv
+{
+	float: left;
+	height: auto;
+	width: 100%;
+}
+.message_hf img
+{
+	display: block;
+	float: left;
+	height: 64px;
+	margin-right: 10px;
+	padding: 5px;
+	width: 64px;
+}
+.message_hf span
+{
+	float: left;
+	height: 20px;
+	width: 650px;
+}
+.message_hf span b
+{
+	margin-right: 20px;
+}
+.message_hf p
+{
+	color: #333333;
+	float: left;
+	height: auto;
+	line-height: 20px;
+	width: 650px;
+}
+.fy
+{
+	float: left;
+	line-height: 20px;
+	margin-top: 10px;
+	padding-top: 5px;
+	text-align: center;
+	width: 755px;
+}
+.add_address_m
+{
+	font-size: 12px;
+	line-height: 30px;
+	margin-top: 10px;
+	padding: 10px;
+	width: 436px;
+	height: 350px;
+}
+#cboxOverlay
+{
+	height: 100%;
+	position: fixed;
+	width: auto;
+}
+.sy_b
+{
+	float: left;
+	text-align: center;
+	width: 330px;
+}
+.sy_b span
+{
+	background: none repeat scroll 0 0 #666666;
+	border: 1px solid #333333;
+	color: #FFFFFF;
+	margin: 0 5px;
+	padding: 1px 5px;
+}
+.sy_b a
+{
+	background: none repeat scroll 0 0 #D9D9D9;
+	border: 1px solid #999999;
+	color: #999999;
+	padding: 1px 5px;
+	text-decoration: none;
+	margin: 0 5px;
+}
+

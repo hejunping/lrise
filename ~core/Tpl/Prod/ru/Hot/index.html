@@ -1,0 +1,119 @@
+<include file='tpl/head_ru.html' />
+<link rel="stylesheet" type="text/css" href="web/css/hot.css">
+<div style="width: 980px; margin: 0 auto; clear: both;">
+   <div class="newmenub " style="width: 100%;float: left;" >
+     <div class="leftnm" id="leftmenu">
+        <a href="{:U('prod/cate/index')}"><span>Все категории</span><img alt="" src="web/images/head/Flxsj.png"></a>
+       
+         <div name="menulest" style="display: none;" class="leftfl flxl">
+       
+           {:W('Areacate',array('tpl'=>'index','num'=>'13'))}<!--商品分类-->
+      
+         </div>
+      </div>
+      <div class="rihgtnm daohang">
+	        <ul>
+	            <span>Ваше расположение:&nbsp;</span>
+	            <em id="NavigationDiv" style="float: left;"><b>热卖</b></em>
+	        </ul>
+      </div>
+  </div>
+  <div class="youbuy_box">
+    <div class="youbuy_box">
+        <div class="left_hot">
+            <div class="buy_left_left">
+            </div>
+            <div class="buy_left_h">
+                <h1>
+                    Хиты продаж</h1>
+                <div class="nob_cp">
+                        <a href="javascript:void(0)" onclick="pageNum(16)" id="no_1">
+                            16</a>
+                        <a href="javascript:void(0)" onclick="pageNum(32)" id="no_2">32</a>
+                        <a href="javascript:void(0)" onclick="pageNum(64)" id="no_3">64</a> 
+                </div>
+            </div>
+            <div class="buy_left_r">
+            </div>
+            <div class="center_hot">
+                <ul>
+                   <volist name="list" id="vo">
+                     <li>
+                         <div class="image_jz">
+                             <a href="{:U('prod/'.$vo['iid'].'/index')}">
+                                
+                                 <img border="0" style="background:url(web/images/home/loading.gif) no-repeat center;" data-url="http://img04.taobaocdn.com/bao/uploaded/i4/T1eMYxXl4dXXcW8uU__105902.jpg_b.jpg" src="{$vo.pic}" class="photo_hot scrollLoading">
+                             </a>
+                         </div>
+                         <p class="rroo">
+                             <a href="{:U('prod/'.$vo['iid'].'/index')}" rel="translate" rev="title"  ct="title" id="{$vo['id']}">{$vo.name}</a> 
+                             <span style="line-height: 30px;">{$vo.price|_usaprice}</span>
+                         </p>
+                         <b style="float: left; font-weight: 100; font-size: 11px;">({$vo.tao_sold} уже купили)</b>
+                     </li>
+                   </volist>    
+                </ul>
+            </div>
+            <div class="page">
+                <div class="cpzs_left_h">
+<div class="page_center">
+    <div class="pageNav">{$page}</div>
+    <div style="margin-top:15px;float:left;" id="pMax_{$pMax}">
+        &nbsp;&nbsp;&nbsp;&nbsp;页
+        <input type="text" style="width: 30px;" value="1" name="CurPage" id="CurPage">
+        <input type="button" onclick="goTo()" value="GO" style="height: 24px; cursor: pointer;line-height: 24px;">
+    </div>
+</div>
+            
+
+       <div class="nob_cp">
+               <a  href="javascript:void(0)" onclick="pageNum(16)" id="cp_1">
+                   16</a>
+               <a href="javascript:void(0)" onclick="pageNum(32)" id="cp_2">32</a>
+               <a href="javascript:void(0)" onclick="pageNum(64)" id="cp_3">64</a> 
+       </div>
+                </div>
+            </div>
+        </div>
+        <div class="hot_right">
+            <h2>
+                Популярные товары топ 10</h2>
+            <ul>
+               {:W('Top',array('tpl'=>'index'))}   
+            </ul>
+        </div>
+    </div>
+    <div style="height: 10px;">
+        &nbsp;
+    </div>
+</div>
+<script type="text/javascript">
+
+		var searchurl=location.href;
+		searchurl += searchurl.indexOf("?")!=-1?"":"?";
+		
+		function getUrl(name) {   //获取url地址参数的数值
+		    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+		    var r = window.location.search.substr(1).match(reg);
+		    if (r != null) return unescape(r[2]);
+		    return null;
+		}
+
+    function goTo(){
+    	
+    	var surl = searchurl;
+    	var curpage = $("#CurPage").val();
+    	var pMax = $("div[id ^= pMax]").attr("id").split("_")[1];
+    	if(parseInt(curpage) > parseInt(pMax)){
+    		curpage = pMax;
+    	}
+    	
+    	if(getUrl('p') == null){
+    		surl = surl + "&p="+curpage;
+    	}else{
+    		surl = surl.replace('p='+getUrl('p'),'p='+curpage);
+    	}	
+    	window.location.href = surl;
+    }
+</script>
+<include file="tpl/foot.html"/>

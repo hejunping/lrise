@@ -1,0 +1,28 @@
+ <div class="center_hot">
+                <ul>
+                   <volist name="hot" id="vo">
+                     <li>
+                         <div class="image_jz">
+                             <a href="{:U('prod/detail/index','id='.$vo['id'])}">
+                                
+                                 <img border="0" alt="Men‘s  casual jeans" id="_ProductAlt_13501363694" style="background:url(http://www.yoybuy.com/Content/Images/Product/loading.gif) no-repeat center;" data-url="http://img04.taobaocdn.com/bao/uploaded/i4/T1eMYxXl4dXXcW8uU__105902.jpg_b.jpg" src="{$vo.pic}" class="photo_hot scrollLoading">
+                             </a>
+                         </div>
+                         <p class="rroo">
+                             <a title="Men‘s  casual jeans" id="_ProductTitle_13501363694" href="{:U('prod/detail/index','id='.$vo['id'])}">{$vo.name}</a> <span>{$vo.price}</span>
+                         </p>
+                         <b style="float: left; font-weight: 100; font-size: 11px;">({$vo.sold} customers bought)</b>
+                     </li>
+                   </volist>    
+                </ul>
+            </div>
+            <div class="page">
+                <div class="cpzs_left_h">
+<div class="page_center">
+    <div class="pageNav">{$page}</div>
+    <div style="margin-top:15px;">
+        &nbsp;&nbsp;&nbsp;&nbsp;pages
+        <input type="text" style="width: 30px;" value="1" name="CurPage" id="CurPage">
+        <input type="button" onclick="doGO()" value="GO" style="height: 24px; cursor: pointer;line-height: 24px;">
+    </div>
+</div>

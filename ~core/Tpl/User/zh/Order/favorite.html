@@ -1,0 +1,127 @@
+<include file='tpl/head_zh.html'/>
+<script type="text/javascript">
+<!--
+$(function(){
+	//全选 全不选 
+	 $("#selAll").click(function () {
+		 var flag = $("#selAll").attr("checked");//判断全选按钮的状态
+		$('.chkbox').attr('checked',flag);
+    });
+	//全选  
+	 $("#SelectAll").click(function () {
+		$('.chkbox').attr('checked',true);
+    });
+})
+
+//-->
+</script>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">首页</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">我的Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>我的收藏夹</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />
+<div class="sidebox yoymbox">
+    <div class="a_rside sbr">
+        <div class="rtit">
+            我的收藏夹</div>
+        <form action="" method="post"  id="Favorite" name="favorite_form">
+            <div class="bdbox">
+                    <div class="favorite_top" id="thisurl" addurl="{:U('home/ajax/addFavouriteToCar')}" deleurl="{:U('home/ajax/deleFavourite')}" addurlz="{:U('home/ajax/addFavousx')}">
+                        <ul>
+                            <li class="f_t_a" style="width:50px">
+                                <input type="checkbox" class="f_t_input_a" name="selAll" id="selAll" />所有</li>
+                            <li class="f_t_b">标题</li>
+                            <li class="f_t_c">单价</li>
+                            <li class="f_t_f">保存日期</li>
+                            <li class="f_t_g">加入购物车 </li>
+                        </ul>
+                    </div>
+                    <div id="favorite_fen"   >
+                    <volist name="res" id="vo">
+                     <span id="span{$vo.pid}">
+                        <div class="favorite_center">
+                            <ul>
+                                <li class="f_c_a">
+                                    <input type="checkbox" id="CkbFa" name="CkbFa[]" value="{$vo.pid}" class="chkbox">
+                                </li>
+                                <li class="f_c_b">
+                                    <div class="f_c_c_a">
+                                        <img alt="" src="{$vo.pic}">
+                                     </div>
+                                    <div class="f_c_c_b">
+                                        <a id="goodsname1" name="goodsnamein" title="{$vo.name}" class="blue" target="_self" style="overflow: hidden" href="{:U('prod/detail/index?id='.$vo['pid'])} "  rel="translate">
+                                          {$vo.name}
+                                        </a>
+                                        <a title="No comment" id="goodsRemark1773346">   </a>
+                                    </div>
+                                </li>
+                                <li class="f_c_c">  {$vo.price|_usaprice}  </li>
+                                <li class="f_c_f"> {$vo.ctime||date="y/m/d H:i:s",###}  </li>
+                                <li class="f_c_g">
+                                   <a href="javascript:addFavours({$vo.pid});"  class="arrow_selectsubtype">
+                                    <img alt="" src="web/images/user/add_03_zh.gif">
+                                    </a>
+                                </li>
+                            </ul>
+                            <p class="c_c_bottom">
+                                <b>商店:</b>
+                                <a id="itemsshopre1" name="itemsshopre">{$vo.shopname}</a>
+                                <b>网站:</b>
+                                <span id="itemsshopname1" name="itemsshopname"> iroder</span>
+                            </p>
+                        </div>
+                    </span>
+                    </volist>
+                    </div>
+                
+                <div class="fy">
+                    <div class="fy_a" id="All" name="All">
+                        <a href="javascript:void();" id="SelectAll">全选</a></div>
+                    <div id="changpagev3">
+                        <div style="width: 740px; margin-bottom: 20px;" class="sy_b">
+                        </div>
+                    </div>
+                    <div class="fy_a">
+                    </div>
+                </div>
+                <div class="fy_c">
+                    <a class="arrow_selectsubtype" href="javascript:deleteFavourties();">
+                        <img src="web/images/user/subm_09_zh.gif" /></a> <a href="javascript:addFavouriteToCar();"
+                                                                        id="AddFavouritesToCar" name="AddFavouritesToCar" class="arrow_selectsubtype">
+                        <img src="web/images/user/add_03_zh.gif" /></a></div>
+                <div style="display: none;" id="visualsearch_transparency">
+                </div>
+            </div>
+        </form>
+    </div>
+<!--    //-->
+<div id="drag" class="ui-dialog ui-widget ui-widget-content ui-corner-all  ui-draggable ui-resizable"  style="display: none; position: absolute; overflow: hidden; z-index: 1002; outline: 0px none; height: 325.733px; width: 740.733px;   " >
+	<div id="top" class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" unselectable="on" style="-moz-user-select: none;">
+		 <span class="ui-dialog-title" id="ui-dialog-title-ShowLoading" unselectable="on" style="-moz-user-select: none;">Completed</span>
+	     <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" unselectable="on" style="">
+        	<span class="ui-icon ui-icon-closethick" unselectable="on" style="-moz-user-select: none;">close</span>
+         </a>
+    </div>
+	<div  id="ShowLoading" class="ui-dialog-content ui-widget-content" style="text-align: center; height: 218px; min-height: 42.2667px; width: auto;">
+	    <span id="showInfo">
+              <img src="web/images/user/loadingb.gif">
+         </span>
+	</div>
+
+	<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+	    <button id="close" type="button"  class="ui-state-default ui-corner-all">Close</button>
+	</div>
+</div>
+<!--//-->
+</div>
+<div id="ShowLoading" style="display: none; text-align: center" title="Completed">
+    <span id="showInfo">Collection is being submitted to the shopping cart, please wait
+        ... ...
+        <img src="web/images/user/loading2.gif" alt="" /><br />
+    </span>
+</div>
+</div>
+<div id="mask" class="ui-widget-overlay" style="width: 100%; height: 1520px; z-index: 1001; display: none;"></div>
+<include file="tpl/foot.html"/>

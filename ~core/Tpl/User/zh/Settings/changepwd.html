@@ -1,0 +1,55 @@
+<include file='tpl/head_zh.html'/>
+
+<script type="text/javascript" src="web/js/mod/user/profile/ga.js"></script>
+<script type="text/javascript" src="web/js/mod/user/profile/all.js"></script>
+<script type="text/javascript" src="web/js/mod/user/profile/js.js"></script> 
+
+<script type="text/javascript">
+function pwdChangeSubmit(){
+	document.changepwdForm.submit();
+}
+function reset(){
+	document.getElementById("originalPassword").value="";
+	document.getElementById("modifyPassword").value="";
+	document.getElementById("remodifyPassword").value="";
+}
+</script>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">首页</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">我的Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>修改密码</b></div>
+</div>
+ <div style="width: 980px; margin: 0 auto; clear: both;">
+ <include file='Public:left' />
+ <div class="sidebox yoymbox">
+    <div class="a_rside sbr">
+        <div class="rtit">
+            修改密码</div>
+        <div class="bdbox">
+          
+            <div id="con_two_1">
+                <div class="personal_box" >
+                    <form action="{:U('user/settings/newpwd')}" method="post" id="changepwdForm" name="changepwdForm">
+                    <div class="personal_a" >
+                        <ul>
+                            <li><a>当前密码:</a><input class="personal_input" name="originalPassword" id="originalPassword" type="password" ><span id="originalPasswordValidator">*</span></li>
+                            <li><a>新密码:</a><input class="personal_input" name="modifyPassword" id="modifyPassword" type="password"><span id="modifyPasswordValidator">*</span></li>
+                            <li><a>再次输入新密码:</a><input class="personal_input" name="remodifyPassword" id="remodifyPassword" type="password"><span id="remodifyPasswordValidator">*</span></li>
+                        </ul>
+                    </div>
+                    </form>
+                </div>
+                <div class="personal_b">
+                    <a class="arrow_selectsubtype" onclick="javascript:pwdChangeSubmit();" style="cursor: pointer">
+                        <img src="web/images/user/an_tj_05.gif" border="0" height="29" width="83">
+                      </a>
+                    <a href="javascript:void(0);" id="pwdReset" onclick="javascript:reset();" style="cursor: pointer">
+                        <img src="web/images/user/an_tj_10.gif" border="0" height="29" width="83">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+  </div> 
+    <include file="tpl/foot.html"/>  

@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title><present name='_title'>{$_title}_<else/>{$_web.website_title}_</present><present name='_mtitle'>{$_mtitle}_</present>{$_web.website_name|default='Lrise'}</title>
+    <meta name="keywords" content="<present name='_keys'>{$_keys}<else/>{$_web.website_key}</present>"/>
+    <meta name="description" content="<present name='_desc'>{$_desc}<else/>{$_web.website_description}</present>" />
+    <meta name="copyright" content="东腾网络(EastSoar) http://www.eastsoar.com" />
+    <link href="web/css/{$Think.const.GROUP_NAME|strtolower}.css?v={:date('ymd')}" rel="stylesheet" type="text/css" />
+    <link href="web/css/debug.css?v={:date('ymdhis')}" rel="stylesheet" type="text/css" />
+    <link href="web/css/jbox.css?v={:date('ymdhis')}" rel="stylesheet" type="text/css"/>
+    <script src="web/js/jquery.js" type="text/javascript"></script>
+    <script src="web/js/mod/{$Think.const.GROUP_NAME|strtolower}.js?v={:date('ymd')}" type="text/javascript"></script>
+    <script src="web/js/base.js" type="text/javascript"></script>
+   
+    <!--news lb 滚动消息[ js ]-->
+    <script src="web/js/jq-main.js" type="text/javascript"></script>
+    <script src="web/js/all.js" type="text/javascript"></script>
+    <script src="web/js/catemenu.js" type="text/javascript"></script>
+    <script src="web/js/multiple.js" type="text/javascript"></script>
+    <!-- <SCRIPT LANGUAGE="JavaScript" src=http://float2006.tq.cn/floatcard?adminid=9421200&sort=0 ></SCRIPT> -->
+</head>
+<body>
+
+<!-- 获取头部产品分类 -->
+<php>$catelist = catelist();</php>
+<div class="header">
+        <div class="logo">
+            <div class="leftlogo">
+                <a href="{:U('home/index/index')}">
+                    <img src="web/images/head/logo.png" alt="taobao english"></a>
+            
+            </div>
+            <div class="rightlogo">
+                <div class="logotop" id="urls" urls="{:U('home/user/check')}"  userurl="{:U('user/index/index')}" userout="{:U('home/user/logout')}" indexurl="{:U('home/index/index')}">
+                    <ul>
+                        <li id="username" url="{:U('home/user/login')}"><a href="{:U('home/user/login')}">Sign In</a></li><li>
+                                |</li>
+                        <li id="regOrSignOut" url="{:U('home/user/reg')}"><a href="{:U('home/user/reg')}">Register</a></li><li>
+                                |</li>
+                        <li>
+                            <dl name="Tool-menu"  id="Tool-menu">
+                                <dt><a href="javascript:void(0)">Tool<img src="web/images/head/toolr.png" width="11" height="11" alt=""></a> </dt>
+                                <dd class="tophelp" name="head-menulist">
+                                    <span><a href="{:U('home/info/index?id=452')}">Weight estimation</a></span>
+                                    <span><a href="{:U('home/tool/costestimation')}">Cost calculator</a></span>
+                                    <span><a href="{:U('home/info/index?id=447')}">Size conversion</a></span>
+                                    <span><a href="{:U('home/info/index?id=449')}">Searching words</a></span>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li>
+                            |</li>
+                        <li>
+                            <dl name="head-menu" id="head-menu">
+                                <dt><a href="{:U('home/info/index')}">Help<img src="web/images/head/toolr.png" width="11" height="11" alt=""></a> </dt>
+                                <dd class="tophelp" name="head-menulist">
+                                    <span><a href="{:U('home/info/index')}">Help center</a></span> 
+                                    <span><a href="{:U('home/info/index?id=456')}">Contact us</a></span>
+                                    <span><a style="background-color: Transparent;" href="javascript:opens()">
+                                        Submit a ticket</a>
+                                    </span>
+                                </dd>
+                            </dl>
+                        </li>
+                        
+                    </ul>
+                    <script type="text/javascript">
+						function opens(){
+							var urls="{:U('user/service/ticketsubmit')}";
+							 window.open(urls,"","scrollbars=yes,tobar=no,width=650,height=500,top=0,left=0,");  
+						}
+                   </script>
+                </div>
+                <div class="logorb">
+                    <div class="acunt" name="headaccountMenu" id="headaccountMenu">
+                        <dl>
+                            <dt><a href="{:U('user/index/index')}"><b>My Account</b></a><span></span></dt>
+                            <dd class="acctc" name="head-menulist">
+      
+                                <b>
+                                    <img src="web/images/head/a1.jpg" width="16" height="16">My order</b>
+                                <ul>
+                                    <li>
+                                        <a href="{:U('user/order/neworder')}">New Order</a></li>
+                                    <li>
+                                        <a href="{:U('user/order/cart')}">My shopping cart</a></li>
+                                    <li>
+                                        <a href="{:U('user/order/myorder')}">My Order</a></li>
+                                    <li>
+                                        <a href="{:U('user/order/parcels')}">My Parcels</a></li>
+                                    <li>
+                                        <a href="{:U('user/order/favorite')}">My Favorite</a></li>
+                                </ul>
+                                
+                                 <b>
+                                    <img src="web/images/head/a2.jpg" width="16" height="16">My Account</b>
+                                <ul>
+                                    <li>
+                                        <a href="{:U('user/account/addmoney')}">Add Money</a></li>
+                                    <li>
+                                        <a href="{:U('user/account/history')}">My Account History</a></li>
+                                    <li>
+                                        <a href="{:U('user/account/quqian')}">Withdraw Money</a></li>
+                                    <li>
+                                        <a href="{:U('user/account/points')}">My Lrise Points</a></li>
+                                    
+                                </ul>
+                                
+                                 <b>
+                                    <img src="web/images/head/a3.jpg" width="16" height="16">
+Member Settings</b>
+                                <ul>
+                                    <li>
+                                        <a href="{:U('user/settings/address')}">Address Records</a></li>
+                                    <li>
+                                        <a href="{:U('user/settings/profile')}">Personal Profile</a></li>
+                                    <li>
+                                        <a href="{:U('user/settings/recommend')}">Recommend To Friends</a></li>
+                                    
+                                </ul>
+                                
+                                 <b>
+                                    <img src="web/images/head/customerservice.png" width="16" height="16">Customer Service </b>
+                                <ul>
+                                    <li>
+                                        <a href="{:U('user/service/boxmessage')}">Message in box</a></li>
+                                    <li>
+                                        <a href="{:U('user/service/ticket')}">Submit a ticket</a></li>
+                                  
+                                </ul>
+                          
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="acunt cart" name="headCartMenu" id="carts" delecshopcat="{:U('home/ajax/deleshopcart')}" idhref="{:U('prod/detail/index?id='.$vo['id'])}" huil="{$ss|currency}" url="{:U('home/ajax/shopcat')}" loginShopCatMun="{:U('home/ajax/loginShopCatMun')}"  deletes="{:U('home/ajax/deletes')}" emptycar="{:U('user/order/cart')}" >
+                        <dl>
+                            <dt><a href="{:U('user/order/cart')}" id="goodsNum"><b>Cart: </b><font id="newNum">0 </font>item(s)</a><span></span></dt>
+                            <dd name="head-menulist" style="display:none;" >
+                                <div class="cartmove" id="ShopingCart">
+                                
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="acunt" style="margin-left: 15px;width:112px; height:43px; " id="Comm100Div "> 
+                    <a title="Live Chat" href="javascript:void();"  >
+
+                   <IMG src=http://userfiles.tq.cn/userfiles/upload_144/9421200/1347867520.jpg id="tq_kefu_main" version="20100823" style="background:transparent none repeat scroll 0% 0%;cursor:pointer" onclick="TQKF.kefuimg.Distrabute()" />
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="newmenu">
+            <div class="Schmenu">
+                <input type="text" name="search" value="{$k|default='Please enter keywords ＆URL here！'}" id="Keys" onkeyup="keys()" onkeydown="javascript:if(event.keyCode==13) submitSearch();" onfocus="if(this.value==&#39;Please enter keywords ＆URL here！&#39;){this.value=&#39;&#39;}" onblur="if(this.value==&#39;&#39;){this.value=&#39;Please enter keywords ＆URL here！&#39;}">
+                <input type="hidden" id="CateID" value="0">
+                <div class="xlinput" id="catemenudrop">
+                    <dl>
+                        <dt id="cateName">{$cateName|default='All Categories'}</dt>
+                        <dd style="display: none; " id="catelistname" surl="{:U('prod/Search/index')}">
+                            <span><a class="0" href="javascript:void(0);" onclick="GetCateId(0,this)">All Categories</a></span>
+                            <volist name="catelist" id="vo">
+                               <span><a class="{$key}" href="javascript:void(0);" onclick="GetCateId({$key},this)">{$vo}</a></span> 
+                            </volist>
+                        </dd>
+                    </dl>
+                </div>
+                <a href="javascript:void(0)" onclick="submitSearch()" class="Schmenua">
+                    <img src="web/images/head/sebo.png" width="81" height="30" alt=""></a>
+            </div>
+            <div class="hotsch">
+                Hot search&nbsp;:&nbsp;<span id="hotkeys"><a onclick="rightkeys(this)">dress</a>,<a onclick="rightkeys(this)">shoes</a>,<a onclick="rightkeys(this)">pokemon </a>,<a onclick="rightkeys(this)">sunglasses</a>,</span></div>
+        </div>
+        <div id="SelectDiv" class="lxss_box">
+            <!--搜索下拉框-->
+            <b class="lxss_box_h bb"><a style="float: left" id="A1" href="javascript:vod()">Search
+                Suggestions</a><a style="display: block; float: right;" id="HideHref" href="javascript:Hide('SelectDiv')">Hide</a></b>
+            <ul style="display: block;" id="uMess" class="cc">
+            </ul>
+        </div>
+        <div style="clear:both;"></div>
+    </div><div style="clear:both;"></div>
+ 
+<!--header (头部结束)-->  
+
+    

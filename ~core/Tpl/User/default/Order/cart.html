@@ -1,0 +1,313 @@
+<include file="tpl/head.html"/>  
+<script type="text/javascript">
+    <!--
+    $(function(){
+        //全选 全不选 
+        $("#selAll").click(function () {
+            var flag = $("#selAll").attr("checked");//判断全选按钮的状态
+            $('.chkbox').attr('checked',flag);
+            //价格变动
+            if(flag==true){
+                totprices();
+            }else{
+                $("#TotalMoeny").html("$ 0.00");
+            }
+        });
+        //全选  
+        $("#SelectAll").click(function () {
+            $('.chkbox').attr('checked',true);
+            totprices();
+        });
+        //单个选中 
+        $(".chkbox").click(function () {
+            totprices();
+        });
+        //
+    
+    })
+
+    //-->
+</script>
+<form method="post" action="{:U('user/order/doCart')}">
+	<input type="hidden" name="all_amount" value="{$totl|_usaprice}"/>
+    <div style="width: 980px; margin: 0 auto;">
+        <div class="newmenub " style="width: 100%;" >
+            <div class="leftnm" id="leftmenu">
+                <a href="{:U('prod/cate/index')}" ><span>All categories</span><img alt="" src="web/images/head/Flxsj.png"></a>
+
+                <div name="menulest" style="display: none;" class="leftfl flxl">
+
+                    {:W('Areacate',array('tpl'=>'index','num'=>'13'))}<!--商品分类-->
+
+                </div>
+            </div>
+            <div class="rihgtnm daohang">
+	        <ul>
+	            <span>You are here:&nbsp;</span>
+	            <em style="float: left;" id="NavigationDiv"><a href="{:U('home/index/index')}" style="color: #0066CC;"  >Home</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<a href="{:U('prod/cate/index')}"  style="color: #0066CC;">All categories</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b> My shopping cart</b></em>
+	        </ul>
+        </div>
+        </div>
+        <div class="cart_qt"  style="border-top: 0px none;">
+            <div class="add_cart_top" id="huil" huil="{$ss|currency}">
+                <h4> My shopping cart</h4>
+            </div>
+            <div class="cart_qt_center_c">
+                <div style="float: right; margin-right: 25px; margin-bottom: 10px;">
+                    <a href="{:U('user/account/addmoney')}">Balance:<span id="mybalance" tot="{$priceTot}"> ${$priceTot}</span></a>
+                </div>
+                <div style="height: 28px" class="jxtj">
+                    <input id="goodsUrl" type="text" onfocus="clearKeysA()" onblur="clearKeysB()" value="Please enter the original webpage URL of the item." name="goodsUrl" ><a onclick="javascript:getGoods();"><img width="83" height="29" border="0" src="web/images/user/an_tj_05.gif" alt=""></a>
+                </div>
+                <div style="width: 774px; height: 40px; margin-bottom: 10px; text-align: center; float: left; overflow: hidden;display: none;" id="goodsurlajas"> 
+                    <img  border="0" src="web/images/user/loadingb.gif" alt="" id="">
+                </div>
+                <div style="width: 774px; height: auto; float: left; overflow: hidden; display: none;" name="goodmessage" ss="ss"  id="goodsurlajax" goodsurlajax="{:U('home/ajax/newgoogs')}" addurl="{:U('home/ajax/newGoodsAdd')}" >
+
+                    <!-- display:none; -->
+                    <div class="p_left">
+                        <img width="204" height="204" border="0" src="" alt="" id="goodsPhoto">
+                    </div>
+                    <div class="p_rihgt">
+                        <ul>
+                            <li><span>Title：</span>
+                                <input type="text" maxlength="150" id="goodsName" name="goodsName" rel="translate" class="p_r_a" disabled="">
+
+                            </li>
+                            <li><span>Price：</span>
+                                <input type="text" onclick="javascript:this.focus();this.select();" id="goodsPricehide" name="goodsPricehide" onkeyup="value=value.replace(/[^\d\.]/g,'')" value="" class="p_r_b" disabled="">
+                                <p>
+                                    CNY
+                                </p>
+                                <p>
+                                    ≈
+                                </p>
+                                <input type="text" id="goodsPrice" name="goodsPrice" onkeyup="value=value.replace(/[^\d\.]/g,'')" disabled="" value="" class="p_r_b">
+                                <p>
+                                    USD
+                                </p>
+                            </li>
+                            <li><span>Shipping：</span>
+                                <input type="text" onclick="javascript:this.focus();this.select();" id="goodsFreighthide" name="goodsFreighthide" onkeyup="value=value.replace(/[^\d\.]/g,'')" value="" class="p_r_b" disabled="">
+                                <p>
+                                    CNY
+                                </p>
+                                <p>
+                                    ≈
+                                </p>
+                                <input type="text" value="" name="goodsFreight" disabled="" onkeyup="value=value.replace(/[^\d\.]/g,'')" id="goodsFreight" class="p_r_b">
+                                <p>
+                                    USD
+                                </p>
+                            </li>
+                            <li><span>Qty：</span>
+                                <input type="text" onclick="javascript:this.focus();this.select();" id="goodsCounts" name="goodsCounts" onkeyup="value=value.replace(/[^\d]/g,'')" value="" maxlength="4" class="p_r_b"><a href="javascript:countsManager('add');" id="add">＋</a> <a href="javascript:countsManager('minus');" id="minus">
+                                    －</a> </li>
+                            <li><span>Comments：</span>
+                                <textarea id="goodsRemark" cols="40" name="goodsRemark" onclick="clearRemarkA();" onblur="clearRemarkB();" style="resize: none" class="p_r_c">Please enter the purchasing information of this item, such as color, size or other requirements.
+                                </textarea>
+                            </li>
+                        </ul>
+                        <input type="hidden" value="" id="goodsNamehide" name="goodsNamehide">
+                    </div>
+                    <div class="p_bottom">
+                    </div>
+                    <div class="p_mneu">
+                        <a href="javascript:submitGoods()" id="btnSubmit">
+                            <img width="130" height="30" border="0" src="web/images/user/tjdgDaoGWC.jpg" alt="">
+                        </a>
+                        <a href="javascript:cleanEmpty()">
+                            <img width="80" height="30" border="0" src="web/images/user/qx.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="Shopping_top">
+                    <ul>
+                        <li class="s_t_a">
+                            <input type="checkbox"  class="f_t_input_c" checked="checked"  id="selAll" name="selAll">All
+                        </li>
+                        <li class="s_t_b">Items </li>
+                        <li class="s_t_c">Unit price </li>
+                        <li class="s_t_d">Qty </li>
+                        <li class="s_t_c">
+                            <p style="float: left; margin-left: 15px;">
+                                Shipping</p>
+                            <a id="help" onmouseout="helpover()" onmousemove="helpout();" class="menu4">
+                                <img style="float: left; margin-left: 5px;" width="12" height="12" border="0" alt="" src="web/images/user/help_1.jpg"><span><b>Attention:</b> If you choose more than
+                                    one item from the same seller,we only charge you one time shipping fee. For any
+                                    special cases, our purchasers will contact you directly.</span></a>
+                        </li>
+                        <li class="s_t_c">Total </li>
+                        <li class="s_t_g">Delete </li>
+                    </ul>
+                </div>
+                <div id="content">   
+                    <div id="goodsList_inCar" lurl="{:U('home/ajax/getlogin')}" url="{:U('home/ajax/changeNumber')}" huil="{$ss|currency}">
+                        <volist name="res" id="vo">
+                            <span style="display: block;">
+                                <div class="Shopping_center" id="ShoppingCenter_3">
+                                    <ul id="{$vo.sid}">
+                                        <li class="s_c_a">
+                                            <input type="checkbox" class="chkbox" id="totprice{$vo.id}" totprice="{$vo.info.recommend}" value="{$vo.id}" checked="checked" name="selec[]">
+                                        </li>
+                                        <li class="s_c_b">
+                                            <div class="s_c_c_a">
+                                                <img width="32" height="32" border="0" alt="Goods Pictrue" src="{$vo.info.pic}">
+                                                <input type="hidden" name="pic{$vo.id}" value="{$vo.info.pic}">
+                                                <input type="hidden" name="pid{$vo.id}" value="{$vo.pid}">
+                                                <p title="{$vo.sid}">
+                                                    {$vo.sid}</p>
+                                            </div>
+                                            <div class="s_c_c_b">
+                                                <p>
+                                                    <a title="{$vo.name}" name="Itemsname" id="itemsname{$vo.sid}" target="_self" href="{:U('prod/detail/index?id='.$vo['pid'])}">
+                                                    <span rel="translate">   {$vo.info.name}</span> 
+                                                        <input type="hidden" name="name{$vo.id}" value="{$vo.info.name}">
+                                                    </a>
+                                                </p>
+                                                <input type="text" id="{$vo.id}" name="msg{$vo.id}" value="" >
+                                            </div>
+                                        </li>
+                                        <li id="price{$vo.id}" price="{$vo.info.price}" class="s_c_c">
+                                            {$vo.info.price|_usaprice}
+                                            <input type="hidden" name="price{$vo.id}" value="{$vo.info.price}">
+                                        </li>
+                                        <li class="s_c_d">
+                                            <a title="minus" href="javascript:showAmount('{$vo.info.sku}','{$vo.id}','min');">-</a>
+                                            <input type="text"  name="num{$vo.id}" id="Amount{$vo.id}" value="{$vo.number}"  onblur="showAmount('{$vo.info.sku}','{$vo.id}','tet')" style="width: 20px; border: #ced8dd solid 1px;" size="2"  >
+                                            <a title="add" href="javascript:showAmount('{$vo.info.sku}','{$vo.id}','add');">+</a>
+                                        </li>
+                                        <li class="s_c_c" id="freight{$vo.id}" freight="{$vo.info.freight}">
+                                            {$vo.info.freight|_usaprice}  
+                                            <input type="hidden" name="freight{$vo.id}" value="{$vo.info.freight}">                  
+                                        </li>
+                                        <li class="s_c_c">
+                                            <a typeid="1" class="totprice" id="totprices{$vo.id}" >{$vo.info.recommend|_usaprice}</a>      
+                                        </li>
+                                        <li class="s_c_g">
+                                            <a href="javascript:DelGoods({$vo.id});">
+                                                <img width="45" height="14" border="0" src="web/images/user/delete_2_03.gif">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="c_c_bottom">
+                                        <b>Shop:</b><a id="itemsshopre2" name="itemsshopre" name1="ShoppingCenter_3" target="_blank" href="{$vo.info.click}">{$vo.info.shopname} </a>
+                                        <b>WebSite:</b><a id="itemsshopname2" name="itemsshopname">      ioder             </a>
+                                    </div>
+                                </div>
+                            </span>
+                        </volist>     
+                    </div>
+                    <div style="width: 740px; float: left;" id="changpagev3">
+                        <div class="sy_b" style="width:740px;margin-bottom:20px;">
+                            {$page}
+                        </div>
+                    </div>
+                </div>
+                <div class="sy" id="deleGoods" deleGoods="{:U('home/ajax/deleGoods')}" iurl="{:U('user/order/cart')}"  ifs="{:U('home/ajax/addFavorite')}">
+                    <div class="sy_acc">
+                        <a title="" id="SelectAll" href="JavaScript:setalter();">Select All</a>
+                        <empty name="res">
+                            <a href="javascript:void();" id="DelGoods">Delete</a>
+                            <else/>
+                            <a href="javascript:DelGoods(0);" id="DelGoods">Delete</a>
+                        </empty>
+
+                        <empty name="res">
+                            <a href="javascript:void()" id="AddToFavourite">+ Add to favorite &gt;&gt;</a>
+                            <else/>
+                            <a href="javascript:ifavorite()" id="AddToFavourite">+ Add to favorite &gt;&gt;</a>
+                        </empty>
+                    </div>
+                    <div class="sy_tcc" id="getFreight" getFreight="{:U('user/order/jsq')}">
+                        <span><a title="Cost calculator" href="javascript:openst();">
+                                <img width="38" height="26" border="0" src="web/images/user/jsq.gif"></a><b>Total:</b><font id="TotalMoeny" tot="{$totl}"> {$totl|_usaprice}</font>USD </span>
+                    </div>
+                    <script type="text/javascript">
+					function openst(){
+						var urls="{:U('user/order/tool')}";
+						 window.open(urls,"","scrollbars=yes,tobar=no,width=650,height=500,top=0,left=0,");  
+					}
+					
+					</script>
+                </div>
+
+                <div class="syPcc">
+                    <span><a href="{:U('home/index/index')}">Add more items &gt;&gt;</a></span> 
+                    <b><a id="PayNext" <empty name="res">href="javascript:GoToAccount(0);" <else/>href="javascript:GoToAccount(1);" </empty>>Pay</a></b>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="iaddress" class="iaddress ui-dialog ui-widget ui-widget-content ui-corner-all my-dialog ui-draggable ui-resizable"  style=" display: none; position: absolute; overflow: hidden; z-index: 1004; outline: 0px none; height: auto; width: 680px; top: 332.5px; left: 368px;" >
+        <div class=" ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" unselectable="on" style="-moz-user-select: none;">
+            <span class="ui-dialog-title" id="ui-dialog-title-ShowLoading" unselectable="on" style="-moz-user-select: none;">Processing</span>
+            <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" unselectable="on" style="-moz-user-select: none;">
+                <span class="ui-icon ui-icon-closethick" unselectable="on" style="-moz-user-select: none;">close</span>
+            </a>
+        </div>
+        <div style="text-align: center; height: auto; min-height: 42px; width: auto;" id="ShowLoading" class="ui-dialog-content ui-widget-content">
+            <span id="showGoodsInfo"> 
+                <h4>Select a address for order</h4>	
+                <!--	    Other Delivery Address-->
+                <div class=""><empty name="address">You haven't add address please <a class="u" title="address" href="{:U('user/settings/address')}">add address</a><else/><input type="hidden" id="nulladdress" value="null"> </empty></div>	
+                <volist name="address" id="vo">	
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align:left;margin-bottom:5px; border-collapse: collapse;line-height: 28px;" class="address">
+                        <tbody>
+                            <tr><th colspan="3"><input type="radio"  value="{$vo.id}" <eq name="i" value="1">checked="checked"</eq> name="address"><eq name="i" value="1">Frequently Used Delivery Address<else/>Other Delivery Address</eq></th></tr>
+                        <tr>
+                            <td>Recipient's Name: {$vo.name}</td>
+                            <td>Tel: {$vo.phone}</td>
+                            <td>Postcode: {$vo.phone}</td>
+                        </tr>
+                        <tr>
+                            <td>Country: {$vo.prov}</td>
+                            <td>Province / State: {$vo.city}</td>
+                            <td>City: {$vo.area}</td>
+                        </tr>
+                        <tr><td colspan="3">Detailed Address: {$vo.address}</td></tr>
+                        </tbody>
+                    </table>
+                </volist>
+            </span>
+        </div>
+
+        <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+            <button type="button" class="ui-state-default ui-corner-all" onclick="CloseShow('iaddress')">Back</button>
+            <notempty name="address">
+                <button type="submit" class="ui-state-default ui-corner-all" onclick="">Pay</button>
+            </notempty>
+        </div>
+    </div>
+</form>
+<div id="ssssss" style=" display: none; position: absolute; overflow: hidden; z-index: 1004; outline: 0px none; height: auto; width: 680px; top: 351.5px; left: 329px;" class="ui-dialog ui-widget ui-widget-content ui-corner-all my-dialog ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-ShowLoading">
+    <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" unselectable="on" style="-moz-user-select: none;">
+        <span class="ui-dialog-title" id="ui-dialog-title-ShowLoading" unselectable="on" style="-moz-user-select: none;">Processing</span>
+        <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" unselectable="on" style="-moz-user-select: none;">
+            <span class="ui-icon ui-icon-closethick" unselectable="on" style="-moz-user-select: none;">close</span>
+        </a>
+    </div>
+    <div style="text-align: center; height: auto; min-height: 42px; width: auto;" id="ShowLoading" class="ui-dialog-content ui-widget-content">
+        <span id="showGoodsInfo">Operation exception please try again later, or contact administrator</span>
+    </div>
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+        <button type="button" class="ui-state-default ui-corner-all">OK</button>
+    </div>
+</div>
+<div id="advisor" class="advisor" style="display: none;">
+    <div class="mbox_c">
+        <div class="closebox_b">
+            <span onclick="javaScript:CloseShow('advisor');" style="cursor: pointer" id="spanclosenew">Close</span>
+        </div>
+        <div id="msgTip" style="color: #666; border: #ccc solid 1px; float: left; padding: 10px; margin-top: 10px;
+             margin-bottom: 20px; background: #f9f9f9; display: none">
+        </div>
+        <div id="resaultinfo"><div class="tis_b"><h3> Sorry, insufficient balance!&nbsp;&nbsp;<a class="u" title="Account" href="{:U('user/account/addmoney')}">Add money to Account immediately</a><br></h3></div></div>
+        <div class="tis_b_mneu">
+            <a id="buttnPayok" href="{:U('user/account/addmoney')}">OK</a></div>
+    </div>
+</div>
+<include file="tpl/foot.html"/>

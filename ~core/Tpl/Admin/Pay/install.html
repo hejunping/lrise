@@ -1,0 +1,94 @@
+<include file="Public:head" />
+<div class="so_main">
+   	<div class="page_tit">支付设置 - <a href="{:U("Pay/index")}" class="back_list">返回列表</a></div>
+   	<form name="edit" action="{:U('pay/insert')}" method="post" enctype="multipart/form-data">
+	<div class="form2">
+	  	<dl class="lineD">
+	      	<dt>支付接口名称：</dt>
+	      	<dd>{$data.name} <input type="hidden" value="{$data.name}" name="name"  class="text"/></dd>
+	    </dl>
+	  	<dl class="lineD">
+	      	<dt>接口类名称：</dt>
+	      	<dd>{$data.class_name} <input type="hidden" value="{$data.class_name}" name="class_name"  class="text"/></dd>
+	    </dl>
+	  	<dl class="lineD">
+	      	<dt>状态：</dt>
+	      	<dd>
+	      		<lable>有效 <input type="radio" name="is_effect" value="1" checked="checked" /></lable>
+				<lable>无效 <input type="radio" name="is_effect" value="0" /></lable>
+			</dd>
+	    </dl>
+	    
+	    <?php if($data['class_name'] != 'Account' && $data['class_name'] != 'Voucher') : ?>
+	    <dl class="lineD">
+	      	<dt>手续费：</dt>
+	      	<dd>
+		      	<select name="fee_type">
+					<option value="0">定额</option>
+					<option value="1">比率</option>
+				</select>
+				<input type="text" name="fee_amount" value=""  class="text w50"/>
+				<p class="tip_span">选择比率时,请填写可以与付款总价相乘的倍率,如0.06, 收取6%手续费<br/>若不收取手续费，请留空</p>
+			</dd>
+	    </dl>
+	    <?php if($data['class_name'] != 'TenpayBank') : ?>
+	    <dl class="lineD">
+	      	<dt>支付图标：</dt>
+	      	<dd><input type="text" value="{$data.logo}" name="logo" class="text w300"/></dd>
+	    </dl>
+	    <?php endif;?>
+	    <?php endif;?>
+	    
+	    <dl class="lineD">
+	      	<dt>排序：</dt>
+	      	<dd><input type="text" value="{$data.sort}" name="sort" class="w50 text" /></dd>
+	    </dl>
+	    
+	    <?php if($data['class_name'] != 'Account' && $data['class_name'] != 'Voucher' && $data['class_name'] != 'TenpayBank') : ?>
+	    <dl class="lineD">
+	      	<dt>描述：</dt>
+	      	<dd><textarea class="text" name="description" >{$data.description}</textarea></dd>
+	    </dl>
+	    <?php endif; ?>
+    
+	    <?php if($data['config']) : ?>
+	    <dl class="lineD">
+	      	<dt>接口配置：</dt>
+	      	<dd>
+	      		<foreach name="data.config" item="config">
+					<php>$config_name = $key; </php>
+					<span class="left w100 alR l25" style="padding-right:10px;">{:trim($data['lang'][$key])}:</span>
+					<span class="left alL l25">
+					<if condition="$config['INPUT_TYPE'] eq 0">
+					<input type="text" class="text" name="config[{$key}]" value=""  class="text"/>
+					<elseif condition="$config['INPUT_TYPE'] eq 2" />
+					<input type="password" class="text" name="config[{$key}]" value=""  class="text"/>
+					<elseif condition="$config['INPUT_TYPE'] eq 3" />				
+						<foreach name="config.VALUES" item="val">
+							<label><input type="text" name="config[{$config_name}][{$val}]" value="1">{:trim($data['lang'][$config_name."_".$val])}</label>
+							<br />
+						</foreach>
+					<else />
+					<select name="config[{$key}]" >
+						<foreach name="config.VALUES" item="val">
+							<option value="{$val}">{:trim($data['lang'][$config_name."_".$val])}</option>
+						</foreach>
+					</select>
+					</if>
+					</span>
+					<div class="c"></div>
+				</foreach>
+	      	</dd>
+	    </dl>
+		<?php endif; ?>
+		<div class="page_btm">
+			<!--隐藏元素-->
+			<input type="hidden" value="{$data.online_pay}" name="online_pay" />
+			<!--隐藏元素-->
+      		<input type="submit" class="btn_b" value="提交" />&nbsp;&nbsp;
+      		<input type="reset" class="btn_b" value="重置" />
+    	</div>
+	</div>
+	</form>
+</div>
+<include file="Public:foot" />

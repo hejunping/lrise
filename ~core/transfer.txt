@@ -1,0 +1,33 @@
+120.26.40.74 目录结构 (username: root, passwd: Jacky291):
+=================
+前端: /var/www/html/enpbottle
+node: /var/www/html/enpbottle/backend
+admin /var/www/html/enpbottle/admin
+
+切换 TODO
+=================
+1. 将 activity.nutriciaprogram.com.cn 解析到: 120.26.40.74 
+
+2. 让 ENP 的技术将微信代理授权的回调地址改为: http://activity.nutriciaprogram.com.cn:8082/u
+
+3. 数据恢复:  
+   1) 登陆到 221.181.64.227，username: jacky, passwd: fafafa2013
+   2) ssh -p 8888 jacky@221.181.64.227
+   3) cd /home/jacky
+   4) mongodump -h localhost -d bottle_mob -o bottle_data
+   5) tar -cvf data.tar.gz bottle_data
+   6) 登陆到 120.26.40.74 ， username: root, passwd: Jacky291
+   7) 下载数据, 解压 scp -P 8888 jacky@221.181.64.227:/home/jacky/data.tar.gz /home/data.tar.gz 
+   8) cd /home
+   9) tar xvc data.tar.gz 
+   10) cd bottle_data
+   11) mongorestore -h localhost -d bottle_mob -directoryperdb bottle_mob
+
+4: 修改 node 的 settings.wx.appurl 为: 
+   http://activity.nutriciaprogram.com.cn/enpbottle/  (注意: mobile 端的 node 程序在 svn branches/mno 下)
+
+5: 启动服务
+   1) cd /var/www/html/enpbottle/backend
+   2) forever list (注意不要关掉 pc 的 node 服务, PC端口号:8083, mobile 的是8082)
+   3) forever start app.js
+

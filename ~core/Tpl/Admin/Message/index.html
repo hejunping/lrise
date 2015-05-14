@@ -1,0 +1,43 @@
+ <include file="Public:head" />
+ 
+ <div class='so_main'>
+	<div class='page_tit'>管理留言</div>
+	 
+	<div class="list">
+	    <table width="100%" border="000000" cellspacing="0" cellpadding="0">
+		  	<tr>
+		    	<th class="line_l" width="5%">ID</th>
+		    	<th class='line_l' width="5%">用户名</th>
+		    	<th class="line_l" width="6%">邮箱</th>
+		    	<th class="line_1" width="13%">留言内容</th>
+		    	<th class="line_1" width="6%">留言时间</th>
+		    	<th class="line_1" width="10%">操作</th>
+		  	</tr>
+		  	<volist name="list" id="vo">
+			<tr>
+			    <td>{$vo.id}</td>
+			    <td>{$vo.account}</td>
+			    <td>{$vo.email}</td>
+			    <td>{$vo.content}</td>
+			    <td>{$vo.ctime|date='Y-m-d',###}</td>
+			    <td>
+			     
+			      <a href="{:U('admin/message/cupdate',array(id=>$vo['id']))}">回复</a>
+			      <a href="{:U('admin/message/delete',array(id=>$vo['id']))}"> 删除 </a>
+			      
+			    </td>
+			    </tr>
+			    </volist>
+	  	</table>
+		<notpresent name="list">
+		  	<div class="l40 cRed bold f14">暂无留言</div>
+		</notpresent>
+	
+	</div>
+	<present name='page'>
+  	<div class="Toolbar_inbox">
+  		<div class="page">{$page}</div>
+  	</div>
+  	</present>
+</div>
+ <include file="Public:foot" />

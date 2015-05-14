@@ -1,0 +1,27 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit f14">
+        进货信息 - <span class="cBlue">{$item.name}</span>
+		<a href="{:U('admin/prod/index')}" class="cRed f14">返回列表</a>
+	</div>
+	<div class="form2">
+        <form method="post" action="{:U('admin/prod/info')}">
+            {:dp_input('sn',$info['sn'],'商品编号','商品编号不能为空','text')}
+            {:dp_input('price',$info['price'],'进货价格','0 - 1000000之间，单位“元”')}
+            {:dp_input('sku',$info['sku'],'数量','0 - 100000之间')}
+            {:dp_input('contact',$info['sku'],'联系方式')}
+            {:dp_input('url',$info['url'],'商品地址','','text','text h20 w400')}
+            <div class="page_btm">
+                <input type="submit" class="btn_b" value="提交" />
+                <input name="pid" type="hidden" value="{$info.pid}">
+            </div>
+        </form>
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+	form_chg();
+	ajax_submit();
+});
+</script>
+<include file="Public:foot" />

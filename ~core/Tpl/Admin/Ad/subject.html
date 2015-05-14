@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$ad.title} - 专题制作</title>
+<meta name="copyright" content="东腾网络 http://www.eastsoar.com" />
+<link href="css/public.css?v={:date('ymd')}" rel="stylesheet" type="text/css" />
+<link href="css/uploadify.css" rel="stylesheet" type="text/css" />
+<link href="css/debug.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js?v=1.7.1"></script>
+<script type="text/javascript" src="js/base.js?v={:date('ymdh')}"></script>
+<script type="text/javascript" src="js/layer/layer.js"></script>
+<script type="text/javascript" src="js/subject.js?v={:date('ymdhis')}"></script>
+<script type="text/javascript" src="js/jquery.uploadify-3.1.js"></script>
+<link href="js/contextMenu/jquery.contextMenu.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/contextMenu/jquery.contextMenu.js"></script>
+<script type="text/javascript">
+var config = {$config|json_encode};
+var loadingImg = "images/loading.gif";
+$(function(){
+    initUpload('{:U("admin/ad/subject_upload?is_ajax=json&id=".$ad[id])}','{$sessionid}');
+    setBgImage($("#bodyBox"));
+    setBgImage($("#subjectBox"));
+    $("div.itemBox").easydrag().dragOff();
+    divHover('div.itemBox');
+    initToolbar();
+    $("div.itemBox").contextMenu({ menu: 'toolMenu' },function(action, el, menu, pos) {
+        eval("menuEvent."+action+"(el,menu,pos);");
+    });
+});
+</script>
+<style type="text/css">
+#toolBar{position: fixed; width:100%;background:#f0f0f0;border-bottom:1px solid #DDD;height:60px;left:0;top:0;z-index: 9999;}
+#toolBar a.close{right:10px; text-decoration:none;color:#999;}
+#toolBar a.close:hover{color:#000;}
+a.toolBtn {
+    display:inline-block;
+    width:78px;
+    background:no-repeat 10px 5px;
+    padding-left:50px;
+    margin-top:8px;
+    text-decoration:none;color:#999;
+    border:1px solid #DDD;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius:4px;
+    line-height: 40px;
+}
+a.toolBtn:hover{color:#000;background-color:#E7E7E7;}
+#newItem{background-image: url(images/layout_add.png);}
+#configItem{background-image: url(images/config.png);}
+#saveItem{background-image: url(images/save.png);}
+#viewItem{background-image: url(images/view.png);}
+#container {overflow: hidden;position:relative;}
+div.itemBox{position: absolute;}
+</style>
+</head>
+<body style="background:#fff;">
+<div id="container">
+    <foreach name="config.items" item="item" key="k">
+        <div id="itemBox_{$k}" iid="{$k}" class="itemBox" style="width:{$item.width}px;height:{$item.height}px;left:{$item.left}px;top:{$item.top}px;
+             z-index:{$item.z-index};<notempty name='item.bg_color'>background-color:{$item.bg_color};</notempty>
+             <notempty name='item.bg_image_url'>background-image:url({$item.bg_image_url});background-repeat:{$item.bg_image_repeat};</notempty>">
+            {$item.html|stripslashes}
+        </div>
+    </foreach>  
+</div>
+<include file="toolBar" />
+<include file="itemBox" />
+<include file="configBox" />
+<script type="text/javascript">
+var itemIndex = {$k + 1|default=0};
+</script>
+</body>
+</html>

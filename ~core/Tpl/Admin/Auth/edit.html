@@ -1,0 +1,55 @@
+<include file="Public:head" />
+<div class="so_main">
+  <div class="page_tit">
+  	<if condition="$action eq 'add'" value="edit">添加权限<elseif condition="$action eq 'edit'" />编辑权限</if>
+  </div>
+
+  <if condition="$action eq 'add'">
+  <form method="post" action="{:U('Auth/add')}">
+  <elseif condition="$action eq 'edit'" />
+  <form method="post" action="{:U('Auth/edit',array('id'=>$_GET['id']))}">
+  </if>
+
+  <div class="form2">
+  	<dl class="lineD">
+      <dt>权限名称：</dt>
+      <dd>
+        <input name="name" id="name" class="text" type="text" value="{$auth.name}" >
+        <p>请务必填写正确的权限名称</p>
+    </dl>
+    <dl class="lineD">
+      <dt>key：</dt>
+      <dd>
+        <input name="key" id="key" class="text" type="text" value="{$auth.key}" >
+        <p>key必须为数字字母或下划线字符串</p>
+    </dl>
+    <dl class="lineD">
+      <dt>权限分类：</dt>
+      <dd>
+       <select name="pid">
+       		<option value="0" <eq name="auth.pid" value="0">selected</eq>>顶级</option>
+       <volist name="type" id="type">
+       		<option value="{$type.id}" <eq name="auth.pid" value="$type.id">selected</eq>>{$type.name}</option>
+       </volist>
+       </select>
+    </dl>
+    <dl class="lineD">
+      <dt>类名字：</dt>
+      <dd>
+        <input name="class_name" id="class_name" class="text" type="text" value="{$auth.class_name}" >
+        <p>类的名字</p>
+    </dl>
+    <dl class="lineD">
+      <dt>方法名：</dt>
+      <dd>
+        <input name="method_name" id="method_name" class="text" type="text" value="{$auth.method_name}" >
+        <p>方法的名字</p>
+    </dl>
+    <div class="page_btm">
+    	<input type="hidden" name="id" value="{$auth.id}">
+		<input type="submit" class="btn_b" value="提交" />
+    </div>
+  </div>
+  </form>
+</div>
+<include file="Public:foot" />

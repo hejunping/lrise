@@ -1,0 +1,58 @@
+<div class="boxleft">   
+    <div class="mxfl">    
+        <present name="rs">             
+            <h1 style="cursor: pointer" title="{$rs.name}">{$rs.name}</h1>            
+            <else/>
+        </present>
+        <present name="re">
+            <ul>
+                <volist name="re" id="vo">
+                    <li>
+                        <a href="{:U('prod/index/index?ecid='.$vo['id'])}">{$vo.name}
+                        </a>
+                    </li>
+                </volist>  
+            </ul>
+            <else/>
+        </present>
+    </div> 
+    <present name="res">  
+        <div class="spleftbot">  
+
+            <volist name="res" id="res1">
+                <h2>
+                    <if condition="$res1.pos eq 1">
+                        {$res1.name}
+                    </if>
+                </h2>
+
+                <p>
+                <if condition="$res1.pos eq 1">
+                    {$res1.text}
+                </if>
+                </p>
+            </volist>
+        </div>
+
+</div>
+<div class="rightmxfl">
+
+    <div class="spjs">
+        <volist name="res" id="res1">
+            <h3>
+                <if condition="$res1.pos eq 2">
+                    {$res1.name}
+                </if>
+            </h3>
+            <p>
+            <if condition="$res1.pos eq 2">
+                {$res1.text}
+            </if>
+            </p>
+        </volist>
+    </div>
+    <else/>
+</div>
+<div class="rightmxfl">
+
+</present>

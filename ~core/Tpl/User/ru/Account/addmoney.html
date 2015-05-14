@@ -1,0 +1,271 @@
+<include file='tpl/head.html'/>
+<style>
+	.pay-row {
+		height: 36px;
+		line-height: 36px;
+	}
+	input,select {
+		width: 224px;
+ 	 	height: 28px;
+ 	 	padding: 0 8px;
+	}
+	.credit-submit-btn {
+		  margin: 12px 0 0 118px;
+		  width: 124px;
+		  background-color: #f90;
+		  border-radius: 4px;
+		  text-align: center;
+		  padding: 10px;
+		  color: #fff;
+		  cursor: pointer;
+		  border: none;
+  		  padding: 0;
+	}
+	.pay-left {
+		float: left;
+		margin-top: 12px;
+	}
+	.pay-right {
+		margin-left: 32px;
+  		float: left;
+	}
+	.submit-link {
+		padding: 8px 8px;
+		display: block;
+		margin-top: 12px;
+	}
+	.submit-link:hover {
+		color: white;
+	}
+	#webmoney_actual_wrap {
+		display: none;
+		margin-left: 4px;
+	}
+	#webmoney_actual {
+		color: #f90;
+	}
+	.pay-tip {
+		text-align:center;
+		color: #5b97b9;
+		font-size: 0.8em;
+		margin-top: 12px;
+	}
+	.pay-tip a {
+		text-decoration: underline;
+	}
+</style>
+<script type="text/javascript" src="web/js/mod/userAddMoney.js"></script>
+<script type="text/javascript" src="web/js/mod/user/jquery.datePicker-min.js"></script>
+<div class="daoh" id="NaviList_">
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">Home</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">My Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>Add Money</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />        
+<div class="a_rside">
+    <div class="rtit">Add Money</div>
+    <div class="bdbox">
+        <ul class="mlst">
+            <li class="hover" id="two_1" onclick="changeTab(this)">Western Union</li>
+            <li id="two_2" onclick="changeTab(this)">Web Money</li>
+        </ul>
+        
+        <!-- --------------------- Western Union --------------------- -->
+        <div style="display: block;" id="con_two_1">
+        	<div class="pay-left">
+        		<a href="https://www.westernunion.com" target="_blank">
+        			<img src="web/images/user/westernunion.jpg" style="width: 180px;height: auto;"/>
+        		</a>
+        		<div style="width:100%; padding-left: 30px; line-height: 180%;color:red;">	
+        			<div>First name: HONGYU</div>
+        			<div>Last name: ZHAO</div>
+        			<div>CHINA</div>
+        			<div>SHANGHAI</div>
+        		</div>
+        	</div>
+	        <div class="pay-right">
+		        <form  onsubmit="return checkWesterForm();" name="formpay" method="post" id="formpay" action="{:U('user/account/addmoneybywesternunion')}">
+	       			<input type="hidden" name="fee" value="0"/>
+	       			<div style="color:#f90;margin-top: 12px;margin-bottom: 12px;">
+	       				Your current balance: ${$balance}
+	       			</div>
+	                <div class="pay-row">
+	                	Amount :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                	<input type="text" name="amount" onchange="onChangeWebMoneyAmount(this);"/>
+	                </div>
+	                <div class="pay-row">
+	                	Payer's Purse :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                	<input type="text" name="purse"/>
+	                </div>
+	                <div class="pay-row">
+	                	 Payer's name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                	 <input type="text" name="payer_name"/>
+	                </div>
+	                <div class="pay-row">
+	                	<span style="float:left;">Date Of Payment :&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	                	<div style="padding-top: 8px;">
+	                		<input type="text" id="western_date" name="payment_date" class="date-pick dp-applied" readonly style="width: 202px;border:1px solid #DFDFDF;">
+	                        <a href="#" class="dp-choose-date0" title=""></a>
+	                	</div>
+	                </div>
+	                <div style="clear:both;"></div>
+	                <input type="submit" class="credit-submit-btn" value="Submit"/>
+	            </form>
+	        </div>	
+	        <div style="clear:both;"></div>
+	    	<div class="pay-tip">We will check out account within 24 hours. If no problem, the money will be added to your account inmediately. Please pay close attention your balance account and <a href="{:U('user/account/history')}" target="_blank">account history</a>.</div>
+        </div>
+        
+        <!-- ---------------------------- Web Money ------------------------- -->
+        <div style="display: none;" id="con_two_2">
+            <div class="pay-left">
+        		<a href="http://www.wmtransfer.com" target="_blank">
+        			<img src="web/images/user/webmoney.jpg" style="width: 180px;height: auto;"/>
+        		</a>
+        		<div style="width:100%; padding-left: 30px; line-height: 180%;color:red;">	
+        			<div>Merchant:&nbsp;Z271884996875</div>
+        		</div>
+        	</div>
+	        <div class="pay-right">
+		        <form  onsubmit="return checkWebMoneyForm();" name="formpay" method="post" id="formpay" action="{:U('user/account/addmoneybywebmoney')}">
+        			<input type="hidden" name="fee" value="0"/>
+        			<div style="margin-top: 12px;margin-bottom: 12px;">
+	       				Your current balance: <span style="color:#f90;">${$balance}</span>
+	       			</div>
+	       			<div style="margin-top: 12px;margin-bottom: 12px;">
+	       				Webmoney fee:&nbsp;&nbsp;<span style="color:#f90;">2%</span>
+	       			</div>
+	                <div class="pay-row">
+	                	Amount :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                	<input type="text" name="amount" onchange="onChangeWebMoneyAmount(this);"/>
+	                	<span id="webmoney_actual_wrap">Actual value: <span id="webmoney_actual">0</span></span>
+	                </div>
+	                <div class="pay-row">
+	                	Payer's Purse :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                	<input type="text" name="purse"/>
+	                </div>
+	                <div class="pay-row">
+	                	 Payer's name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                	 <input type="text" name="payer_name"/>
+	                </div>
+	                <div class="pay-row">
+	                	<span style="float:left;">Date Of Payment :&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	                	<div style="padding-top: 8px;">
+	                		<input type="text" id="webmoney_date" name="payment_date" class="date-pick dp-applied" readonly style="width: 202px;border:1px solid #DFDFDF;">
+	                        <a href="#" class="dp-choose-date0" title=""></a>
+	                	</div>
+	                </div>
+	                <div style="clear:both;"></div>
+	                <input type="submit" class="credit-submit-btn" value="Submit"/>
+	            </form>
+	    	</div>
+	    	<div style="clear:both;"></div>
+	    	<div class="pay-tip">We will check out account within 24 hours. If no problem, the money will be added to your account inmediately. Please pay close attention your balance account and <a href="{:U('user/account/history')}" target="_blank">account history</a>.</div>
+        </div>
+    </div>
+</div>
+</div>
+<include file="tpl/foot.html"/>
+<script type="text/javascript">
+
+	$(window).ready(function () {
+	    $('.date-pick').datePicker({
+	        clickInput: true
+	    }).dpSetStartDate('01/01/2010');
+	});
+
+	function changeTab(el) {
+		$('#two_1').removeClass('hover');
+		$('#two_2').removeClass('hover');
+		$('#con_two_1').hide();
+		$('#con_two_2').hide();
+		
+		$(el).addClass('hover');
+		$('#con_' + el.id).show();
+	}
+	
+	function onChangeWebMoneyAmount(el) {
+	   if(!isNaN(el.value)){
+			$('#webmoney_actual_wrap').show();
+			$('#webmoney_actual').html((el.value*1*0.98).toFixed(2));
+		}
+   }
+	
+	// 检查western union form
+	function checkWesterForm() {
+		var wrap = $('#con_two_1');
+		var amount = wrap.find('input[name=amount]');
+		var purse = wrap.find('input[name=purse]');
+		var name = wrap.find('input[name=payer_name]');
+		var date = wrap.find('input[name=payment_date]');
+		
+		if($.trim(amount.val()) == '') {
+		   alert('Amount could not be empty');
+		   return false;
+	   	}
+		if(isNaN(amount.val())){
+			alert('Please input the correct amount');
+			return false;
+		}
+		if($.trim(purse.val()) == '') {
+		   alert('Purse could not be empty');
+		   return false;
+	   	}
+		if($.trim(name.val()) == '') {
+		   alert("Payer's name could not be empty");
+		   return false;
+	   	}
+		if($.trim(date.val()) == '') {
+		   alert("Payment date could not be empty");
+		   return false;
+	   	}
+		return true;
+	}
+	
+	// 检查 web money form
+	function checkWebMoneyForm() {
+		var wrap = $('#con_two_2');
+		var amount = wrap.find('input[name=amount]');
+		var purse = wrap.find('input[name=purse]');
+		var name = wrap.find('input[name=payer_name]');
+		var date = wrap.find('input[name=payment_date]');
+		var fee = wrap.find('input[name=fee]');
+		
+		if($.trim(amount.val()) == '') {
+		   alert('Amount could not be empty');
+		   return false;
+	   	}
+		if(isNaN(amount.val())){
+			alert('Please input the correct amount');
+			return false;
+		}
+		if($.trim(purse.val()) == '') {
+		   alert('Purse could not be empty');
+		   return false;
+	   	}
+		if($.trim(name.val()) == '') {
+		   alert("Payer's name could not be empty");
+		   return false;
+	   	}
+		if($.trim(date.val()) == '') {
+		   alert("Payment date could not be empty");
+		   return false;
+	   	}
+		fee.val(amount.val()*0.02);
+		return true;
+	}
+	
+
+        
+
+        function helpout() {
+            $("#help").removeClass("menu4");
+            $("#help").addClass("menu3");
+        }
+
+        function helpover() {
+            $("#help").removeClass("menu3");
+            $("#help").addClass("menu4");
+        }
+
+    </script>

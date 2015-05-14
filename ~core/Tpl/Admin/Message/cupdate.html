@@ -1,0 +1,61 @@
+<include file="Public:head" />
+<script type="text/javascript" src="web/js/editor/kindeditor.js"></script>
+<script type="text/javascript" src="web/js/editor/lang/zh_CN.js"></script>
+<script language="javascript">
+var editor;
+KindEditor.ready(function(K) {
+	editor = K.create('#content', {
+		resizeType : 1,
+		allowPreviewEmoticons : false,
+		allowImageUpload : true,
+		uploadJson : '{:U("admin/editor/upload")}',
+		allowFileManager : true,
+		fileManagerJson : '{:U("admin/editor/index")}',
+		items : ['fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+		'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+		'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+	});
+});
+</script>
+ <div class='so_main'>
+	    <div class="page_tit f14">
+			回复留言-- 
+			<a href="{:U('admin/message/index')}" class="cBlue f14">返回列表</a>
+		</div>
+		<div class="form2">
+			<form name="form1" method="post" action="{:U('admin/message/reply')}" enctype="multipart/form-data">
+<!-- 				    {:dp_input('title','','标题','','','title')} -->
+					{:dp_textarea('content','','内容','','content')}
+				 <input name="id"  type="hidden" value="{$id}">
+		    	 <div class='page_btm'> <input type="submit" class="btn_b" value="回复"/>
+		    	 <input type="reset" class="btn_b" value="重写"/></div>
+		      		
+		     
+			</form>
+	 </div>
+</div>	
+<script type='text/javascript'>
+$(function(){
+	form_chg();
+	$('.form2 .title').blur(function(){
+		var val = $(this).val();
+		if(val == ''){
+			alert('标题不能为空');
+			$('.btn_b').attr('disabled','true');
+		}else{
+			$('.btn_b').removeAttr('disabled');
+		}
+	});
+	
+	$('.form2 .content').blur(function(){
+		var val = $(this).val();
+		if(val == ''){
+			alert('内容不能为空');
+			$('.btn_b').attr('disabled','true');
+		}else{
+			$('.btn_b').removeAttr('disabled');
+		}
+	});
+});
+</script>
+	 <include file="Public:foot"/>

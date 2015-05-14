@@ -1,0 +1,106 @@
+<include file="Public:head" />
+<div class='so_main'>
+	<div class="page_tit f14">
+		订单管理 - 
+		<a href="{:U('admin/prod/order')}" class="cBlue f14">返回列表</a>
+	</div>
+	<div class="list">
+	
+		
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	         <tr>
+	             <th class="line_l"  width="4%">商品ID </th>
+	             <th class="line_l"  width="10%">商品名称  </th>
+			     <th class="line_l"  width="8%">商品图片  </th>
+			     <th class="line_l"  width="5%">单价</th>
+			     <th class="line_l"  width="5%">数量</th>		
+			     <th class="line_l"  width="5%">运费</th>	    
+			     <th class="line_l"  width="6%">买家备注</th>
+			     
+			     <th class="line_l"  width="6%">订单编号 </th>
+			     <th class="line_l"  width="4%">买家ID </th>			    
+			     <th class="line_l"  width="6%">订单状态 </th>
+			     <th class="line_l"  width="6%">买家状态 </th>			    			     
+			     <th class="line_l"  width="6%">商品信息</th>
+			     <th class="line_l"  width="6%">地址信息</th>
+			     <th class="line_l"  width="6%">订单时间</th>		     
+			     <th class="line_l"  width="12%">发货信息</th>			     
+			     </tr>
+			     
+			<volist name="vo" id="v">
+		       <tr>			    
+			    <td>{$v.pid}</td> 
+			    <td>{$v.name}</td>
+			    <td><img src="{$v.pic}" height='40'></td>
+			    <td>{$v.price}</td>
+				<td>{$v.num}</td>
+				<td>{$v.freight}</td>
+				<td>{$v.mark}</td>
+			 </volist>  
+			    <td>{$list.id}</td>
+			    <td>{$list.buyer}</td>			    			    
+			    <td>  
+			    <switch name="list.status">
+					<case value="0">未支付</case>
+					<case value="1">已支付等待购买</case>
+					<case value="2">在过程</case>
+					<case value="3">已发货</case>
+					<case value="4">抵达</case>
+					<case value="5">存储</case>
+					<case value="6">等待付邮费</case>
+					<case value="7">邮费已付</case>
+					<case value="8">包裹寄出</case>
+					<case value="9">确认收货</case>
+					<case value="10">评价</case>
+					<case value="11">完成</case>
+					<case value="12">放弃</case>
+					<case value="13">退还</case>
+					<case value="14">退还成功</case>
+					<case value="15">交易关闭</case>
+					</switch> </td>
+					<td> <switch name="list.status_buyer">
+					<case value="0">正常</case>
+					<case value="1">回收站</case>
+					<case value="2">删除</case>
+					</switch></td>										
+					<td > 				
+				<volist name="info" id="vo">
+			     <span class="cRed">{$i}.</span>{$vo}<br/>	
+			      </volist> 		    
+			     </td>
+			     <td>{$addr.prov},{$addr.city},{$addr.address}</td>
+			     
+			     <td>{$list.ctime|date="Y-m-d H:i:s",###}</td>
+			     			     
+			     <td>物流公司名称:{$list1.Logname},物流编号:{$list1.Lognumber},货物重量:{$list1.weight},邮费价格:{$list1.price},发货地址:{$list1.addr},查询号:{$list1.trackingno},收件人:{$list1.Recipient}</td>
+			    </tr>
+			    
+			     </table>
+			     
+			    <form id="form1" name="form1" method="POST" action="{:U('admin/prod/order')}" enctype="multipart/form-data" >
+			    <eq name="list.status" value="5">
+			     {:dp_input('Logname','','物流公司名称')}
+			     {:dp_input('Lognumber','','物流编号')}	
+			     {:dp_input('weight','','货物重量')}
+			     {:dp_input('price','','邮费价格')}	
+			     {:dp_input('addr','','发货地址')}	
+			     {:dp_input('trackingno','','查询号')}				    
+			     {:dp_input('Recipient','','收件人')}	
+			     <input type="hidden" name="id" id="id" value="{$list.id}" />
+				 <input type="submit" class="btn_b f12" name="sub" id="sub" value="确认发货" /></eq>
+				 </form> 
+           </div>
+           </div>
+<script type='text/javascript'>
+$(function(){
+	$('.paid').click(function(){
+		alert('kk');
+		var url = $(this).attr('url');
+		var oid = $(this).attr('oid');
+		$.get(url,{id:oid},function(data){
+			alert(data);
+		});
+	});
+});
+</script>
+<include file="Public:foot" />

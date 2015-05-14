@@ -1,0 +1,113 @@
+<include file='tpl/head.html'/> 
+<script type="text/javascript"  src="web/js/mod/user/profile/ga.js"></script>
+<script type="text/javascript" src="web/js/mod/user/profile/all.js"></script>
+<script type="text/javascript" src="web/js/mod/user/profile/js.js"></script>
+ <link href="web/css/user/changemail.css" rel="stylesheet" type="text/css">
+ <div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">Home</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">My Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>Chang Email</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<div class="sidebox yoymbox">
+    <div class="a_rside sbr">
+        <div class="rtit">
+            Change E-mail</div>
+        <div class="bdbox">
+            <ul class="mlstEmail">
+                <li class="Xz" id="tab_1">Enter new e-mail</li>
+                <li class="wXz" id="tab_2">Active your new E-mail</li>
+                <li class="wXz" id="tab_3">Change successfully </li>
+            </ul>
+           
+            <div id="con_two_1">
+                <div class="personal_box">
+                    <form name="changeEmailForm" id="changeEmailForm" action="{:U('user/settings/newemail')}" method="post">
+                    <div class="personal_a" id="pass" url="{:U('user/settings/checkpass')}">
+                        <ul>
+                            <li><a>Current E-mail:</a><input type="text" class="personal_input" id="originalEmail" name="originalEmail"><span id="emailValidator">*</span></li>
+                            <li><a>Password:</a><input type="password" class="personal_input" id="originalPassword" name="originalPassword" url="{:U('user/settings/checkpass')}"><span id="originalPasswordValidator">*</span></li>
+                            <li><a>New E-mail:</a><input type="text" class="personal_input" id="modifyEmail" name="modifyEmail"><span id="modifyEmailValidator">*</span></li>
+                            <li><a>Re-type E-mail:</a><input type="text" class="personal_input" id="remodifyEmail" name="remodifyEmail"><span id="remodifyEmailValidator">*</span></li>
+                        </ul>
+                    </div>
+                    </form>
+                </div>
+                <div class="personal_b">
+                    <a class="arrow_selectsubtype" onclick="javascript:void(0);" id="emailChangeSubmit" style="cursor: pointer">
+                        <img width="83" height="29" border="0" src="web/images/user/an_tj_05.gif"></a>
+                    <a href="javascript:reset();" style="cursor: pointer">
+                        <img width="83" height="29" border="0" src="web/images/user/an_tj_10.gif"></a>
+                </div>
+            </div>
+            <div id="con_two_2" style="display: none">
+                <div class="personal_box">
+                    <form method="get" action="">
+                    <div class="left_Emailb">
+                        <ul>
+                            <li><b>A verification E-mail has been sent to your mailbox.</b></li>
+                            <li>Please click the link in the letter within 24 hours to create your new E-mail !</li>
+                        </ul>
+                        <div class="ChangePb_Bottom">
+                            If you haven’t received the verification letter, please check your spam or bulk
+                            mail folders</div>
+                        <div class="ChangePb_Bottom">
+                            If you still cannot find that, please click <a href="javascript:void(0)" id="sendEmailAgain">
+                                Letter Resend</a></div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div id="con_two_3" style="display: none">
+                <div class="personal_box">
+                    <form method="get" action="">
+                    <div class="left_Emailc">
+                        <ul>
+                            <li><b>Congratulations, your e-mail address has been changed successfully !</b></li>
+                        </ul>
+                        <div class="ChangePb_Bottom">
+                            Now you can use your new e-mail to sign in. Wish you a pleasant stay with us!</div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <!--Money Gram Account over -->
+            <!--Bank Account star -->
+        </div>
+    </div>
+</div>
+<input type="hidden" id="originalEmailOld" value="">
+<input type="hidden" id="modifyEmailNew" value="">
+<script type="text/javascript">
+    if (window.location.href.indexOf("index") != -1) {
+        var tabIndex = 1;
+        var para = window.location.href.split('?')[1].split('&');
+        for (var i = 0; i < para.length; i++) {
+            if (para[i].split('=')[0] == "index") {
+                tabIndex = para[i].split('=')[1];
+            }
+        }
+        $("li[id^=tab]").each(function () {
+            var obj = $(this);
+            if (obj.attr("id").split('_')[1] == tabIndex) {
+                obj.removeClass("wXz").addClass("Xz");
+                $("div[id^=con_two_]").each(function () {
+                    var divObj = $(this);
+                    if (divObj.attr("id").split('_')[2] == tabIndex) {
+                        divObj.show();
+                    }
+                    else {
+                        divObj.hide();
+                    }
+                })
+            }
+            else {
+                obj.removeClass("Xz").addClass("wXz");
+            }
+        })
+    }
+</script>
+
+    </div>
+</div>
+<include file="tpl/foot.html"/>   

@@ -1,0 +1,63 @@
+<include file='tpl/head_zh.html'/>
+<script type="text/javascript" src="web/js/mod/user/recommend/myshare_zh.js"></script>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">首页</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">我的lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>推荐</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />
+<div class="sidebox yoymbox">
+    <div class="a_rside sbr">
+        <div class="rtit">
+            推荐给好友</div>
+        <div class="bdbox">
+            <form action="{:U('user/settings/sends')}" method="post" id="shareform" name="shareform">
+            <div class="recommend_piont">
+                获得 {$syspoint} lrise积分当您邀请别人加入lrise.com.积分获取没有限制，您邀请的越多，得到积分越多.
+            </div>
+            <div class="recommend_a">
+                最便捷的方式：在MSN或者Skype 上推荐lrise.com</div>
+            <div class="recommend_b">
+                <ul>
+                    <li>
+                        <input name="" type="text" class="new_o_input" value="http://www.lrise.com/user.html" readonly="true" />
+                        <a href="javascript:copyValue('http://www.lrise.com/user.html');">
+                            <img src="web/images/user/copy_03_zh.gif" width="73" height="27" border="0"
+                                alt="" /></a></li></ul>
+            </div>
+            <div class="recommend_a">
+                最有效的方式：通过电子邮件推广lrise.com/div>
+            <div class="recommend_c">
+                <ul>
+                    <li><span>我的邮件:</span><input name="email" id="email" type="text" class="r_c_input"
+                        value="{$list.email}"><a class="red" id="EmailValidator"></a></li>
+                    <li><span>我的名字:</span><input name="name" id="name" type="text" class="r_c_input"
+                            value='{$list.account}' /><a class="red"
+                                id="nameValidator"></a></li>
+                    <li><span>收件人:</span><input name="toEmail" id="toEmail" type="text" keydown="CheckEmail()" class="r_c_input" /><a
+                        class="red" id="toEmailValidator">*</a></li>
+                    <li><span>消息:</span><textarea name="mess" checked="checked" cols="" rows="" dir="ltr"
+                        lang="en" class="r_c_input_b">
+                        
+                         </textarea></li>
+                </ul>
+            </div>
+            <div class="recommend_s">
+                <input type="image" src="web/images/user/send_a_03_zh.gif" value="submitOK"
+                    id="submitOK" name="submitOK" onclick="return shareformsubmit();" />
+            </div>
+            <div class="recommend_faq">
+                <b>问题与答案:</b> <a target="_blank" href="{:U('/home/info/index/id/78')}">
+                    怎么推荐给好友?</a> <a target="_blank" href="{:U('/home/info/index/id/78')}">
+                    怎么获取 {$syspoint} lrise积分在推荐好友之后?</a> <a target="_blank" href="{:U('/home/info/index/id/78')}">
+                    如何使用lrise积分兑换优惠卷并在订单中使用？</a>
+            </div>
+            <div id="visualsearch_transparency" style="display: none">
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+   <include file="tpl/foot.html"/>

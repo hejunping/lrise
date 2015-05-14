@@ -1,0 +1,82 @@
+<include file="Public:head"/>
+<style type="text/css">
+.cache{ margin-bottom:20px; }
+.form2 div{  margin-bottom:20px; }
+.clearAll{ margin-top:20px; margin-bottom:20px; }
+</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+		$('[name="clear"]').change(function(){
+			if($(this).val() == 'select') $('div.selected').show();
+			else $('div.selected').hide();
+		});
+
+		$(".sAll").click(function(){
+			$(':checkbox').attr('checked',true);
+			$('.mod').removeClass('hide');
+			$('.static').removeClass('hide');
+		});
+		$(".cAll").click(function(){ 
+			$(':checkbox').attr('checked',false);
+			$('.static').addClass('hide');
+		});
+	});
+	
+	//子目录取消
+	function cAll(obj){
+		$(obj).siblings(':checkbox').attr('checked',false);
+		$(obj).parent('div').addClass('hide');
+		var p = $(obj).attr('pa');
+		$('.'+p).attr('checked',false);
+	}
+	//子目录全选
+	function sAll(obj){
+		$(obj).siblings(':checkbox').attr('checked',true);
+		var p = $(obj).attr('pa');
+		$('.'+p).attr('checked',true);
+	}
+</script>
+
+<div class="so_main" />
+	<div class="page_tit">清除缓存</div>
+	<div class="form2">
+	<form action="{:U('Admin/System/clearCache')}" method="post">
+		<input type="radio" value="all" class="clearAll" name="clear" />清除所有缓存&nbsp;&nbsp;
+		<input type="radio" value="select" class="select" name="clear" checked/>选择性删除<br/>
+		<div class="selected">
+			<div class="project f14">
+			    <div class="module">
+				    <font color="red">缓存类型:</font>
+				    <input type="checkbox" name="module[]" value="Cache" checked class='cach' onclick="chk1(this);">模板缓存
+				    <input type="checkbox" name="module[]" value="Temp" checked>数据缓存
+				    <input type="checkbox" name="module[]" value="_option" class='stat'onclick="chk2(this);">静态缓存
+				    <input type="checkbox" name="module[]" value="Logs">项目日志
+				  	<input type="checkbox" name="module[]" value="~app.php" checked>核心文件&nbsp;&nbsp;
+				  	<a href="javascript:void(0);" class="sAll cRed">全选</a>
+				  	<a href="javascript:void(0);" class="cAll cRed">取消</a>
+			   	</div>
+			   	<div class="module mod">
+				   	<font color="red">模板模块:</font>
+				   	<input type="checkbox" name="project[]" value="Home" checked>主页
+				   	<input type="checkbox" name="project[]" value="Admin" checked>管理
+					<input type="checkbox" name="project[]" value="User" checked>用户中心
+					<input type="checkbox" name="project[]" value="Point" checked>用户积分&nbsp;&nbsp;
+					<a href="javascript:void(0);" class="cRed" pa='cach' onclick='sAll(this)'>全选</a>
+				  	<a href="javascript:void(0);" class="cRed" pa='cach' onclick='cAll(this)'>取消</a>
+				</div>
+				<div class="module static hide">
+					<font color="red">静态数据</font>
+					<input type='checkbox' name="static[]" value="_fields" checked>数据字段缓存
+					<input type='checkbox' name="static[]" value="_item" checked>结点缓存
+					<input type='checkbox' name="static[]" value="_option" checked>配置缓存&nbsp;&nbsp;
+					<a href='javascript:void(0);' class='cRed' pa='stat' onclick='sAll(this)'>全选</a>
+					<a href='javascript:void(0);' class='cRed' pa='stat' onclick='cAll(this)'>取消</a>
+				</div>
+		    </div>
+	   </div>
+	   <input type="submit" class="btn_b" value="清理"/>
+   </form>
+</div>
+<include file="Public:foot"/>

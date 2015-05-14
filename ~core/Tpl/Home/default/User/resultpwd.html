@@ -1,0 +1,106 @@
+<include file='tpl/head.html' />
+<style>
+	.signMian {
+		  width: 640px;
+		  margin: 16px auto;
+		  float: none;
+		  height: 160px;
+	}
+	.left_ChangeP {
+		float: left;
+	}
+	.right_ChangeP {
+		float: right;
+	}
+	.left_ChangeP ul {
+		margin-top: 12px;
+	}
+	.left_ChangeP ul li {
+		margin-bottom: 12px;
+	}
+	.botnSign {
+		margin: 12px 0;
+	}
+</style>
+<script type="text/javascript">
+var ispwd=false;
+var isrepwd=false;
+function CheckPassword(){
+	var vals=$("#password").val();
+	if(vals.length==0){
+		$("#password").html("*Please enter your password!");
+		$("#repasswordSpan").html("");
+	}else if(vals.length<0){
+		$("#password").html("*Password should be at least more than 6 characters, please re-enter.");
+		$("#repasswordSpan").html("");
+	}else{
+		$("#password").html("");
+		$("#repasswordSpan").html("<img src=\"web/Images/home/DG_07.jpg\">");
+		ispwd=true;
+	}
+}
+function CheckRePassword(){
+	var vals=$("#password").val();
+	var valsr=$("#repassword").val();
+	if(vals != valsr){
+		$("#password").html("*Passwords don’t match.");
+		$("#repasswordSpan").html("");
+	}else{
+		$("#password").html("");
+		$("#repasswordSpan").html("<img src=\"web/Images/home/DG_07.jpg\">");
+		isrepwd=true;
+	}
+}
+function Next(){
+	if(isrepwd && isrepwd){
+		document.rorms.submit();
+		}
+}
+</script>
+<div class="signMian">
+    <div class="left_ChangeP">
+      <form action="{:U('home/user/pwdsave')}" id="forms" id="forms" method="post"">
+        <h4>
+            Type your new password and save it in case you forget it.</h4>
+        <ul>
+            <span class="Error" id="errorMessage"></span>
+            <li>
+                  <span>Type new password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  <input type="password" onblur="CheckPassword()" class="Np" id="password" name="password">
+                  <em id="passwordSpan"></em>
+            </li>
+            <li>
+                 <span>Retype new password&nbsp;&nbsp;</span>
+                 <input type="password"  onblur="CheckRePassword()" class="Np" id="repassword" name="repassword">
+                 <em id="repasswordSpan"></em>
+            </li>
+        </ul>
+        <div style="margin-left: 125px;" class="botnSignP">
+            <a id="img">
+            <input type="hidden" name="sd" value="{$sd}">
+                <img onclick="Next()" style="cursor: pointer" src="web/images/home/Ne_03.jpg"></a>
+        </div>
+        </form>
+    </div>
+     <div class="right_ChangeP">
+        <h4>
+            1.Already have an account?</h4>
+        <div class="botnSign">
+            <a href="{:U('home/user/login')}">
+                <img src="web/images/home/sinin_03.jpg"></a>
+        </div>
+        <h4>
+            2.No yet a member?</h4>
+        <div class="botnSign">
+            <a href="{:U('home/user/reg')}">
+                <img src="web/images/home/signup_03.jpg">
+            </a>
+        </div>
+        <h4 style="margin-bottom: 8px">3.Have problems?</h4>
+        <span><a href="{:U('/home/info/index/id/456')}" target="_blank">Contact
+            Us</a></span>
+    </div>
+
+</div>
+
+<include file='tpl/foot.html'/>

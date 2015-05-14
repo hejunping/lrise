@@ -1,0 +1,233 @@
+<include file="Public:head" />
+<style>
+<!--
+.child {display: none;}
+.plus {
+background: url(images/tv-expandable.gif) no-repeat left top;
+width: 12px;
+height: 12px;
+border-collapse: collapse;
+cursor: pointer;
+display: block;
+line-height: 12px;
+text-indent: -999px;
+padding-right: 10px;
+}
+.minus {
+background: url(images/tv-collapsable.gif) no-repeat left top;
+width: 12px;
+height: 12px;
+border-collapse: collapse;
+cursor: pointer;
+display: block;
+line-height: 12px;
+text-indent: -999px;
+padding-right: 10px;
+}
+.point {
+background: url(images/tv-item.gif) no-repeat left top;
+width: 12px;
+height: 12px;
+border-collapse: collapse;
+cursor: pointer;
+display: block;
+line-height: 12px;
+text-indent: -999px;
+padding-right: 10px;
+margin-left: 15px;
+}
+-->
+</style>
+<div class="so_main">
+  <div class="page_tit">权限管理 @ 列表</div>
+  <div class="Toolbar_inbox">
+  	<div class="page right">{$html}</div>
+	<a href="{:U('Auth/add')}" class="btn_a"><span>添加权限</span></a>
+	<a href="{:U('Auth/index')}" class="btn_a" ><span>查看全部</span></a>
+	&nbsp;&nbsp;{$page}
+  </div>
+  <div class="list">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="line_l">权限名称/分类</th>
+    <th class="line_l">ID</th>
+    <th class="line_l">权限key</th>
+    <th class="line_l">类名</th>
+    <th class="line_l">方法名</th>
+    <th class="line_l">操作</th>
+  </tr>
+  
+  <volist name="auth" id="vo" >
+	  <tr style="background-color: #e8f2fa;">
+	    <eq name="vo.child" value="">
+		    <td><span class="point fL" style="margin-left:0px;">·</span><span class="block fL">{$vo.name}</span><span class="clear"></span></td>
+	  	<else/>
+		    <td class="father" rel="{$vo.id}" onfocus="this.blur()"><a class="fold plus fL" onfocus="this.blur()" href="javascript:void(0)">+</a><span class="block fL">{$vo.name}</span><span class="clear"></span></td>
+	  	</eq>
+	    <td>{$vo.id}</td>
+	    <td>{$vo.key}</td>
+	    <td>{$vo.class_name}</td>
+	    <td>{$vo.method_name}</td>
+	    <td>
+			<a href="{:U('Auth/edit',array('id'=>$vo['id']))}">编辑</a>
+		</td>
+	  </tr>
+	  <volist name="vo.child" id="list" >
+		  <tr class="child child_{$vo.id}">
+		  	<eq name="list.child" value="">
+			    <td><span class="point fL">·</span><span class="block fL">{$list.name}</span><span class="clear"></span></td>
+		  	<else/>
+			    <td class="father" rel="{$list.id}" onfocus="this.blur()"><a class="fold plus fL" onfocus="this.blur()" href="javascript:void(0)" style="margin-left:15px;">+</a><span class="block fL">{$list.name}</span><span class="clear"></span></td>
+		  	</eq>
+		    <td>{$list.id}</td>
+			<td>{$list.key}</td>
+			<td>{$list.class_name}</td>
+		    <td>{$list.method_name}</td>
+		    <td>
+				<a href="{:U('Auth/edit',array('id'=>$list['id']))}">编辑</a>
+			</td>
+		  </tr>
+		  <volist name="list.child" id="list1" >
+			  <tr class="child child_{$list.id}">
+			    <td><span class="point fL" style="margin-left:30px;">·</span><span class="block fL">{$list.name}</span><span class="clear"></span></td>
+			    <td>{$list1.id}</td>
+				<td>{$list1.key}</td>
+				<td>{$list1.class_name}</td>
+			    <td>{$list1.method_name}</td>
+			    <td>
+					<a href="{:U('Auth/edit',array('id'=>$list['id']))}">编辑</a>
+				</td>
+			  </tr>
+		  </volist>
+	  </volist>
+  </volist>
+  </table>
+  </div>
+
+  <div class="Toolbar_inbox">
+	<div class="page right">{$html}</div>
+	&nbsp;&nbsp;{$page}
+  </div>
+</div>
+
+<include file="Public:tips" />
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function()
+{
+	/**
+	 * 折叠分类
+	 */
+	$('.father').click(function(){
+		var index = $(this).attr('rel');
+		var status = $(this).attr('rev');
+		
+		if(status == 'on')
+		{
+			$(this).attr('rev','off');
+			$('.child_'+index).hide();
+			$(this).find('.minus').addClass('plus');
+			$(this).find('.minus').removeClass('minus');
+			$(this).find('.fold').text('+');
+		}
+		else
+		{
+			$(this).attr('rev','on');
+			$('.child_'+index).show();
+			$(this).find('.plus').addClass('minus');
+			$(this).find('.plus').removeClass('plus');
+			$(this).find('.fold').text('-');
+		}
+		
+	});
+	
+	/**
+	 * 删除一个用户
+	 */
+	$('.delete').click(function(){
+		if(confirm("确定删除所选权限吗？")==true)
+	    {
+			var uid = $(this).attr('rel');
+			
+			$.ajax({
+				type: "post",
+				dataType: "json",
+				url: "{:U('Auth/del')}",
+				data: {'uid':uid},
+				success: function(opt){
+					window.location.reload();
+				}
+			});
+	    }
+	});
+	
+	/**
+	 * 删除选择用户
+	 */
+	$('.delete-handler').click(function(){
+		if(confirm("确定删除所选权限吗？")==true)
+	    {
+			var uid = getChecked();
+			
+			$.ajax({
+				type: "post",
+				dataType: "json",
+				url: "{:U('Auth/del')}",
+				data: {'uid':uid},
+				success: function(opt){
+					window.location.reload();
+				}
+			});
+	    }
+	});
+	
+	
+	/**
+	 * 全选和反选
+	 */
+	$('#checkAll').click(function()
+	{
+		$(":checkbox").attr("checked",$("#checkAll").attr("checked"));
+	});
+});
+//]]>
+
+/**
+ * 获取复选框的值
+ */
+function getChecked()
+{
+	var arr = [];
+	$(":checkbox").not("#checkAll").each(function()
+	{                    
+		if($(this).attr("checked")==true) arr.push($(this).val());
+	});
+	if(arr == "")return false;
+	return arr.toString();
+}
+/**
+ * 提示信息
+ */
+function showMessage(result)
+{
+	$('body').append(result);
+}
+
+/**
+ * 搜索用户
+ */
+var isSearchHidden = <neq name="type" value="searchUser">1<else/>0</neq>;
+function searchUser() {
+	if(isSearchHidden == 1) {
+		$("#searchUser_div").slideDown("fast");
+		$(".searchUser_action").html("搜索完毕");
+		isSearchHidden = 0;
+	}else {
+		$("#searchUser_div").slideUp("fast");
+		$(".searchUser_action").html("搜索用户");
+		isSearchHidden = 1;
+	}
+}
+</script>
+
+<include file="Public:foot" />

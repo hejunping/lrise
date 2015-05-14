@@ -1,0 +1,37 @@
+<style type="text/css">
+.login{width:977px;margin-top: 46px;}
+.login .lio{;margin-top: 0px;}
+.login li{height: 35px;margin-top: 15px;}
+.login li .span0{float:left; width:60px;}
+.login li .span0 span{float:right;  }
+.login li .span0x{float:left; width:75px;}
+.login li .span0x span{float:right; margin-top: 10px;}
+.login li .span1{ margin-left:60px;}
+.login li .span1 a{ margin-left:6px; color:#f00f00;}
+.login li .span1 span{ margin-left:6px; color:#999999;}
+.login li .inputs{border: 1px solid #CCCCCC;height: 30px;width: 230px;line-height:30px;border-radius: 5px;behavior: url(css/ie-css3.htc);}
+</style>
+ <div class="login " >
+	    <form action="{:U('home/user/login')}" method="POST" class="loginForm">
+	    
+	      <ul class="mT50">
+	         <li><span class="span0 f14"><span>用户名：</span></span><span><input class="inputs cGray" type="text" name="account" value="用户名 或 邮箱"></span></li>
+	         <li><span class="span0 f14"><span>密码：</span></span><span><input class="inputs" type="password" name="password" value=""></span></li>
+	         <li><span class="span1"><input type="checkbox" name="" value=""><span>下次自动登录</span></span></li>
+	         <li class="lio"><span class="span1"><input class="logins" type="submit" name="" value=""><a href="{:U('home/user/getpwd')}">忘记密码？</a></span></li>
+	       </ul>
+
+	    </form>
+</div>
+<script type='text/javascript'>
+$(function(){
+    $('[name="account"]').focusin(function(){
+        if($(this).val() == '用户名 或 邮箱') $(this).val('');
+        $(this).removeClass('cGray'); 
+    });
+    $('[name="account"]').focusout(function(){
+        if($(this).val() == '') $(this).val('用户名 或  邮箱');
+        $(this).addClass('cGray'); 
+    });
+});
+</script>

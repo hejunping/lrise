@@ -1,0 +1,38 @@
+<!-- 页底 END -->
+<div class="clear"></div>
+<present name='Think.session.editTips'>
+<style type="text/css">
+div.editTips{padding:5px 20px;border:1px solid #f0f0f0;width:650px;height:25px;margin:0 auto;}
+div.editTips span{float:left;line-height:25px;}
+div.editTips .head{color:#f7750c;font-weight:bold;}
+div.editTips .close{float:right;font-size:18px;cursor:pointer;}
+</style>
+<div style="clear:both;"></div>
+<div class="editTips">
+	<span class="ico"></span>
+	<span class="head">提示：</span>
+	<eq name="Think.session.editTipsType" value="1">
+		<span class="rightText">{$Think.session.editTips}</span>
+	</eq>
+	<eq name="Think.session.editTipsType" value="0">
+		<span class="errorText">{$Think.session.editTips}</span>
+	</eq>
+	<span class="close" title="关闭">×</span>
+</div>
+<?php session('editTips',null);?>
+<?php session('editTipsType',null);?>		
+<script type="text/javascript">
+var timeOut;
+$(function(){
+	timeOut = setTimeout(function(){
+		$("div.editTips").remove();
+	},3000);
+	$("div.editTips .close").click(function(){
+		$(this).parent().remove();
+		clearTimeout(timeOut);
+	});
+});
+</script>
+</present>
+</body>
+</html>

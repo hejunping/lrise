@@ -1,0 +1,20 @@
+ 
+<div class="neww">
+
+    <h2>
+        <span><php>$lang = isLang();if($lang == 'zh'){echo '新闻';}else if($lang == 'ru'){echo 'Новости';}else{echo 'News';}</php></span>
+    </h2>
+    <a href="{:U('home/news/index')}" class="more"><php>$lang = isLang();if($lang == 'zh'){echo '更多&gt;&gt;';}else if($lang == 'ru'){echo 'больше&gt;&gt;';}else{echo 'more&gt;&gt;';}</php></a>
+    <ul>
+        <?php $i=0;?>
+
+        <volist  name='ad' id='ad1' offset="0" length='3'> 
+            <li>
+                <a href="__ROOT__{$ad1.url}">{$ad1.title}</a>
+                <?php $i++;  ?>
+                
+            </li>
+        </volist>
+
+    </ul>
+</div>

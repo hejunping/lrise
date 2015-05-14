@@ -1,0 +1,46 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit">管理员</div>
+  	<div class="Toolbar_inbox">
+  		<a href="{:U('admin/user/admin_form')}" class="btn_a"><span>添加管理员</span></a>
+  	</div>
+  	<div class="list">
+	  	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  	<tr>
+		    	<th class="line_l">ID</th>
+		    	<th class="line_l">帐号</th>
+		    	<th class="line_l">所属分组</th>
+		    	<th class="line_l">帐号可用</th>
+		    	<th class="line_l">上次登录</th>
+		    	<th class="line_l">添加时间</th>
+		    	<th class="line_l">操作</th>
+		  	</tr>
+		  	<foreach name="list" item="item">
+			<tr>
+			    <td>{$item.id}</td>
+			    <td class="f14 bold cGreen">{$item.name }</td>
+			    <td>{$item.group|getItemById='admin_group'}</td>
+				<td>{$item.status|dp_bool=$item['id'],'admin/user/admin_bool','status'}</td>
+			    <td><gt name="item.utime" value="0">{$item.time_vip|date="Y-m-d H:i",###}</gt></td>
+			    <td>{$item.ctime|date="Y-m-d",###}</td>
+			    <td><a href="{:U('admin/user/admin_form',array('id'=>$item['id']))}">编辑</a></td>
+			</tr>
+		  	</foreach>
+	  	</table>
+		<notpresent name="list">
+		  	<div class="l40 cRed bold f14">暂无管理员</div>
+		</notpresent>
+	</div>
+	<present name='page'>
+  	<div class="Toolbar_inbox">
+  		<div class="page">{$page}</a>
+  	</div>
+  	</present>
+</div>
+<script type="text/javascript">
+$(function(){
+	tr_hover();
+	ajax_bool();
+});
+</script>
+<include file="Public:foot" />

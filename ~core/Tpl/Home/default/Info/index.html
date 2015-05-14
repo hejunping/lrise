@@ -1,0 +1,82 @@
+<include file='tpl/head.html' />
+<script type="./web/js/mod/jquery.scrollLoading.js"></script>
+
+<script type="text/javascript">
+
+    function setNavigation(str) {
+    	
+        $("#NavigationDiv").html(str);
+    }
+    
+</script>
+
+<div style="width: 980px; margin: 0 auto; clear: both;">
+    <div class="newmenub " style="width: 100%;float: left;" >
+        <div class="leftnm" id="leftmenu">
+            <a href="{:U('prod/cate/index')}" ><span>All categories</span><img alt="" src="web/images/head/Flxsj.png"></a>
+
+            <div name="menulest" style="display: none;" class="leftfl flxl">
+
+                {:W('Areacate',array('tpl'=>'index','num'=>'13'))}<!--商品分类-->
+
+            </div>
+        </div>
+    <div class="rihgtnm daohang">
+        <ul>
+            <span>You are here:&nbsp;</span>
+            <em style="float: left;" id="NavigationDiv"><a href="{:U('home/index/index')}" style="color:#4985BA;">Home</a> &gt; <b>Help Center</b></em>
+        </ul>
+    </div>
+    </div>
+    <div style="width: 980px; margin: 0 auto; clear: both;">
+
+
+
+        <div class="boxleft">
+            <div class="helpsc">
+                <b>Help Search</b> <span>
+                    <form action="{:U('home/info/index')}" method="post" id="helpForm" name="form1">
+                        <input type="hidden" name="onSubmit" id="onSubmit" value="0">
+                        <input type="text" name="Key" id="Key" value="" style="width:115px; height: 24px">
+                        <input name="submit"  style="width:25px; height: 27px" type="image"  src="./web/images/home/helpscss.png" />
+                    </form>
+                </span>
+            </div>
+            {:W('Left',array('tpl'=>'index','num'=>'40'))}<!--商品分类-->
+        </div>
+        <if condition="$rs neq null" >
+            <div class="righthelp">
+                <ul>
+                    <li>
+                        {$rs.text}
+                    </li>
+                </ul>
+            </div>
+            <else/>
+            <div class="righthelp">
+                <ul>
+                    <li>
+                        {$res.text}
+                    </li>
+                </ul>
+            </div>
+        </if>
+    </div>
+    <script type="text/javascript">  
+        function doSubmit() {
+            if (document.getElementById("Key").value
+                == null || document.getElementById("Key").value == "") {
+                alert("Please input keyWords!");
+            } else {
+                document.getElementById("onSubmit").value = "1"; document.getElementById("helpForm").submit();
+            }
+        } function onsearch() { document.getElementById("Keys").value = " "; } function 
+        ExChangeItem(showID, hiddenId) {
+            if (document.getElementById(showID) != null) {
+                document.getElementById(showID).style.display = "";
+            } if (document.getElementById(hiddenId)
+                != null) { document.getElementById(hiddenId).style.display = "none"; }
+        }
+    </script>
+
+    <include file='tpl/foot.html' />

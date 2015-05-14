@@ -1,0 +1,85 @@
+<include file='tpl/head_ru.html' />
+<style type="text/css">
+.signMian{
+	width:960px;
+	height:auto;
+	margin:10px auto;
+	margin-top:50px;
+    float:none;
+	margin-bottom:100px;}
+
+.Activation{
+    background-color:#fff;
+	width:750px;
+	height:auto;
+	overflow:hidden;
+	margin:0 auto;
+	border:#CCC solid 1px;
+	padding-bottom:20px;
+	background:#FFF url(web/images/emalBg.jpg) no-repeat 100px 25px;
+	}
+.Activation h4{
+	height:40px;
+	line-height:40px;
+	width:742px;
+	background:#f9f9f9;
+	border-bottom:#CCC solid 1px;
+	padding-left:8px;
+	float:left;}
+.Activation ul{
+	width:522px;
+	padding-left:180px;
+	margin-bottom:10px;
+	margin-left:20px;
+	padding-bottom:10px;
+	float:left;
+	margin-top:30px;
+	border-bottom:#CCC solid 1px;}
+.Activation ul li{
+	width:522px;
+	float:left;
+	padding:5px 0;}	
+.Activation ul li b{
+	color:#F00;}	
+	
+.tsUpMianb{
+	color:#F00;
+	float:left;
+	margin-left:40px;
+	font-size:10px;
+	width:450px;
+	height:auto;
+	overflow:hidden;}	
+
+
+.email
+{
+    font-family: 'Arial Unicode MS';
+    font-size: 18px;
+    color: #f60;
+    font-weight: bolder;
+}
+</style>
+<script type="text/javascript">
+function Resend(id)
+{
+    $.get("{:U('home/user/resent')}",{uid:id,is_ajax:1},function(rs){
+        if(rs.status == 'y') alert('email send success,please check your email box');
+        else alert(rs.info);
+    },'jsonp');
+}
+</script>
+<div class="signMian">
+    <div class="Activation">
+        <ul>
+            <li>The verification letter has been sent to your email <a id="emailDiv" class="email">{$email}</a> automatically by system.</li>
+            <li>Please click the inner link of the letter to activate your account.</li>
+            <li><a href="http://www.{$web}" target="_blank"><img src="web/images/sendEmail.jpg" width="180" height="39"></a></li>
+        </ul>
+        <div class="ChangePb_Bottom">If you cannot get iOrder verification letter, please check your Junk box.</div>
+        <div class="ChangePb_Bottom">
+            If you still cannot find that, please click <a onclick="Resend('{$Think.get.id}');" style="cursor: pointer">
+                Letter Resend</a> or <a href="{:U('home/user/reg')}">Back To Register</a>.</div>
+    </div>
+</div>
+<include file="tpl/foot.html"/>

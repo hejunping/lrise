@@ -1,0 +1,45 @@
+<include file='tpl/lhead.html' />
+ <link href="web/css/home/css.css" rel="stylesheet" type="text/css">                
+    <script type="text/javascript">
+        var userEmail = "{$email}";  
+        function Resend() {
+            $.ajax({
+                url: "{:U('home/user/sendemail')}",
+                type: "POST",
+                datatype:"json",
+                data: { userEmail: userEmail },
+                success: function (data){
+                    if (data.result) {
+                        alert("The verification letter "+ userEmail +" has resent successfully.");
+                    }
+                    else {
+                        alert("Send mail failed again, please try ");
+                    }
+                },
+                error: function () {
+                    alert("Sorry!The system is busy, please try again later.");
+                }
+            });
+        }
+    </script>         
+<div class="signMian"   >
+    <div class="left_ChangePb">
+        <h4>
+            Go to your e-mail to get the verification link.</h4>
+        <ul>
+            <li><b>A verification E-mail has been sent to your mailbox.</b></li>
+            <li>Please click the link in the letter within 24 hours to create your new password!</li>
+            <li><a href="{$mailurl}" target="_blank">
+                <img src="web/images/home/sendEmail.jpg" height="39" width="180">
+                </a>
+            </li>
+        </ul>
+        <div class="ChangePb_Bottom">
+            If you haven’t received the verification letter, please check your spam or bulk
+            mail folders</div>
+        <div class="ChangePb_Bottom">
+            If you still cannot found that, please click <a onclick="Resend()" style="cursor: pointer">Letter Resend</a>.</div>
+    </div>
+</div>
+
+<include file='tpl/lfoot.html' />

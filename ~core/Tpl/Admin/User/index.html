@@ -1,0 +1,62 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit">用户管理</div>
+  	<div class="Toolbar_inbox">
+  		<form action="{:U('admin/user/index')}" method="GET">
+  		<a href="{:U('admin/user/form')}" class="btn_a"><span>添加用户</span></a>
+  		<a href="{:U('admin/user/index')}" class="btn_a"><span>显示全部</span></a>
+  		{:form_select('group',$_GET['group'],cate_opt('user_group'),'','全部组')}
+  		&nbsp;&nbsp;{:form_select('login',$_GET['login'],array(3=>'最近三天',7=>'最近七天',30=>'最近30天',180=>'最近半年',0=>'半年以前'),'',array('-1','上次登录'))}
+  		&nbsp;&nbsp;注册时间：{:form_input('reg_start',$_GET['reg_start'],'text w80 h20 sdate')} - {:form_input('reg_end',$_GET['reg_end'],'text w80 h20 sdate')}
+        &nbsp;&nbsp;{:form_input('key',$_GET['key'],'text w140 h20')}
+        &nbsp;&nbsp;<input type="submit" value="查询" class="btn_b"/>
+  		</form>
+  	</div>
+  	<div class="list">
+	  	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  	<tr>
+		    	<th class="line_l">ID</th>
+		    	<th class="line_l">帐号</th>
+		    	<th class="line_l">邮箱</th>
+		    	<th class="line_l">用户组</th>
+		    	<th class="line_l">帐号可用</th>
+		    	<th class="line_l">上次登录</th>
+		    	<th class="line_l">注册时间</th>
+		    	<th class="line_l">操作</th>
+		  	</tr>
+		  	<foreach name="list" item="item">
+			<tr>
+			    <td>{$item.id}</td>
+			    <td class="f14 bold">
+			    	<div class="fL">
+			    		<span class="cGreen">{$item.account}</span><br/>
+			    		<span class="cRed">金币: {$item.coin|default=0}  积分:{$item.point|default=0}</span>
+			    	</div>
+			    </td>
+			    <td>{$item.email}</td>
+			    <td>{$item.group|getItemById='user_group'}</td>
+				<td>{$item.status|dp_bool=$item['id'],'admin/user/bool','status'}</td>
+			    <td><gt name="item.time_login" value="0">{$item.time_login|sTime}</gt></td>
+			    <td>{$item.time_reg|sTime}</td>
+			    <td><a href="{:U('admin/user/form',array('id'=>$item['id']))}">编辑</a></td>
+			</tr>
+		  	</foreach>
+	  	</table>
+		<notpresent name="list">
+		  	<div class="l40 cRed bold f14">暂无用户</div>
+		</notpresent>
+	</div>
+	<present name='page'>
+  	<div class="Toolbar_inbox">
+  		<div class="page">{$page}</div>
+  	</div>
+  	</present>
+</div>
+<script type="text/javascript">
+$(function(){
+	tr_hover();
+	ajax_bool();
+    input_toggle($('form [name="key"]'),'cGray','帐号/邮箱/昵称/ID');
+});
+</script>
+<include file="Public:foot" />

@@ -1,0 +1,60 @@
+<include file="Public:head" />
+<div class="so_main">
+  <div class="page_tit">地区管理</div>
+  <div class="Toolbar_inbox">
+  	<div class="page fR">{$page}</div>
+  	<if condition="isset($_GET['pid'])">
+		<a href="{:U('admin/area/add',array('action'=>'add','pid'=>$_GET['pid']))}" class="btn_a"><span>添加地区</span></a>
+	<else/>
+		<a href="{:U('admin/area/add',array('action'=>'add'))}" class="btn_a"><span>添加地区</span></a>
+	</if>
+  </div>
+  <div class="list">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="line_l">ID</th>
+    <th class="line_l">地区名称</th>
+    <th class="line_l">简写</th>
+    <th class="line_l hide">分站</th>
+    <th class="line_l">排序</th>
+    <th class="line_l">操作</th>
+  </tr>
+  <volist id="vo" name="data">
+	  <tr overstyle='on' id="user_{$vo['area_id']}">
+	    <td>{$vo.area_id}</td>
+		<td><a href="{:U('admin/area/index',array('pid'=>$vo['area_id']))}">{$vo.title}</a></td>
+		<td><a href="{:U('admin/area/index',array('pid'=>$vo['area_id']))}">{$vo.short}</a></td>
+		<td class="hide"><eq name="vo.is_station" value="0"><span class="cRed">否</span><else/><span class="cGreen">是</span></eq></td>
+		<td>{$vo.order}</td>
+	    <td>
+			<a href="{:U('admin/area/edit',array('id'=>$vo['area_id']))}">编辑</a>
+	   		<a href="javascript:void(0);" onclick="forbidden({$vo['area_id']});">删除</a>
+		</td>
+	  </tr>
+  </volist>
+  </table>
+  </div>
+
+  <div class="Toolbar_inbox">
+	<div class="page right">{$html}</div>
+	<if condition="isset($_GET['pid'])">
+		<a href="{:U('admin/area/add',array('action'=>'add','pid'=>$_GET['pid']))}" class="btn_a"><span>添加地区</span></a>
+	<else/>
+		<a href="{:U('admin/area/add',array('action'=>'add'))}" class="btn_a"><span>添加地区</span></a>
+	</if>
+  </div>
+</div>
+
+<script type="text/javascript">
+//禁用用户
+function forbidden(uid) {
+	uid = uid ? uid : getChecked();
+	uid = uid.toString();
+	if(uid == '' || !confirm('确定要删除该地区？')) return false;
+	$.post("{:U('admin/area/del')}", {id:uid}, function(res){
+		if(res == '1') location.href = location.href;
+		else alert('删除地区失败');
+	});
+}
+</script>
+<include file="Public:foot" />

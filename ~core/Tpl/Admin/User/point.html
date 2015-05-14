@@ -1,0 +1,40 @@
+<include file='Public:head' />
+<div class='so_main'>
+	<div class='page_tit f14'>积分处理</div>
+	<div class='form2'>
+		<form method='post' action="{:U('admin/user/point')}">
+			{:dp_input('uid',$item['uid'],'用户编号','','','uid')}
+			{:dp_input('bak2',$item['bak2'],'积分数量','正为赠送，负数为扣除','','point')}
+			{:dp_input('bak1',$item['bak1'],'交易理由')}
+			<div class='page_btm'>
+			<input type='submit' value='提交' class='btn_b'>
+			</div>
+		</form>
+	</div>
+</div>
+<script type='text/javascript'>
+$(function(){
+	form_chg();
+	$('.form2 .uid').blur(function(){
+		var val = $(this).val();
+		if(val == ''){
+			alert('用户编号必须填写');
+			$('.btn_b').attr('disabled','true');
+		}else{
+			$('.btn_b').removeAttr('disabled');
+		}
+	});
+	
+	$('.form2 .point').blur(function(){
+		var val = $(this).val();
+		if(val == ''){
+			alert('积分数量必须填写');
+			$('.btn_b').attr('disabled','true');
+		}else{
+			$('.btn_b').removeAttr('disabled');
+		}
+	});
+});
+
+</script>
+<include file='Public:foot' />

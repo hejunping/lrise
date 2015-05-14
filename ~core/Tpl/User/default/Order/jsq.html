@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="web/js/jquery-1.8.0.js" type="text/javascript"></script>
+    <script src="web/js/support.js" type="text/javascript"></script>
+      <link  href="web/css/CostEstimationSmall.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="sideLeft" style="width: 535px;">
+        <div class="rtit_a">
+            Cost calculator</div>
+        <div class="bdbox_c" style="position: relative;" id="step">
+            <div class="b_b_top_a">
+                <ul>
+                    <li><span>Total items fee:</span>  
+                        <input class="ipt" id="GoodsAmountUSD" maxlength="8" name="GoodsAmountUSD" onblur="if(isNaN(this.value)||this.value.trim()==&#39;&#39;)this.value=&#39;0&#39;;" onclick="javascript:this.form.GoodsAmountUSD.focus();this.form.GoodsAmountUSD.select();" type="text" value="{$tot}" />
+                        <input class="ipt" id="GoodsAmount" maxlength="8" name="GoodsAmount" onblur="if(isNaN(this.value)||this.value.trim()==&#39;&#39;)this.value=&#39;0&#39;;" onclick="javascript:this.form.GoodsAmount.focus();this.form.GoodsAmount.select();" style="display:none;" type="text" value="{$tot}" /> &nbsp;&nbsp;&nbsp;&nbsp;USD </li>
+                    <li style="display: ;">
+                        <input id="HomeFeright" name="HomeFeright" style="display:none;" type="text" value="0" />
+                    </li>
+                    <li><span>Weight:</span>
+                        <input class="ipt" id="GoodsWeight" maxlength="6" name="GoodsWeight" onblur="if(isNaN(this.value)||this.value.trim()==&#39;&#39;)this.value=&#39;0&#39;;" onclick="javascript:this.focus();this.select();" type="text" value="0" />&nbsp;&nbsp;&nbsp;&nbsp;Kg </li>
+                    <li><span>Country:</span>
+                        <select id="CountryList" name="CountryList" width="100px">
+                        <option value="0">- select one -</option>
+						<option value="1">China</option>
+						<option value="2">Afghanistan</option>
+						<option value="3">Albania</option>
+						<option value="4">Algeria</option>
+						<option value="5">American Samoa</option>
+						<option value="6">Andorra</option>
+						<option value="7">Angola</option>
+						<option value="8">Anguilla</option>
+						<option value="9">Antigua</option>
+						<option value="10">Argentina</option>
+						<option value="11">Armenia</option>
+						<option value="12">Aruba</option>
+						<option value="13">Australia</option>
+						<option value="14">Austria</option>
+						<option value="15">Azerbaijan</option>
+						<option value="16">Bahamas</option>
+						<option value="17">Bahrain</option>
+						<option value="18">Bangladesh</option>
+						<option value="19">Barbados</option>
+						<option value="20">Belarus</option>
+						<option value="21">Belgium</option>
+						<option value="22">Belize</option>
+						<option value="23">Benin</option>
+						<option value="24">Bermuda</option>
+						<option value="25">Bhutan</option>
+						<option value="26">Bolivia</option>
+						<option value="27">Bonaire</option>
+						<option value="28">	Bosnia &amp; Herzegovina</option>
+						<option value="29">Botswana</option>
+						<option value="30">Brazil</option>
+						<option value="31">Brunei</option>
+						<option value="32">Bulgaria</option>
+						<option value="33">Burkina Faso</option>
+						<option value="34">Burundi</option>
+						<option value="35">Cambodia (Kampuchea)</option>
+						<option value="36">Cameroon</option>
+						<option value="37">Canada</option>
+						<option value="38">Canary Islands</option>
+						<option value="39">Cape Verde</option>
+						<option value="40">Cayman Islands</option>
+						<option value="41">	Central African Republic</option>
+						<option value="42">Chad</option>
+						<option value="43">Chile</option>
+						<option value="44">Colombia</option>
+						<option value="45">Comoros</option>
+						<option value="46">Congo</option>
+						<option value="47">	Congo, The Democratic Republic</option>
+						<option value="48">Cook Islands</option>
+						<option value="49">Costa Rica</option>
+						<option value="50">Cote D&#39;lvoire</option>
+						<option value="51">Croatia</option>
+						<option value="52">Cuba</option>
+						<option value="53">Curacao</option>
+						<option value="54">Cyprus</option>
+						<option value="55">Czech Republic</option>
+						<option value="56">Demark</option>
+						<option value="57">Djibouti</option>
+						<option value="58">Dominica</option>
+						<option value="60">East Timor</option>
+						<option value="61">Ecuador</option>
+						<option value="62">Egypt</option>
+						<option value="63">El Salvador</option>
+						<option value="64">Equatorial Guinea</option>
+						<option value="65">Eritrea</option>
+						<option value="66">Estonia</option>
+						<option value="67">Ethiopia</option>
+						<option value="68">Falkland Islands</option>
+						<option value="69">Faroe Islands</option>
+						<option value="70">Fiji Islands</option>
+						<option value="71">Finland</option>
+						<option value="72">France</option>
+						<option value="73">French Guiana</option>
+						<option value="74">French Polynesia</option>
+						<option value="75">Gabon</option>
+						<option value="76">Gambia</option>
+						<option value="77">Georgia</option>
+						<option value="78">Germany</option>
+						<option value="79">Ghana</option>
+						<option value="80">Gibraltar</option>
+						<option value="81">Greece</option>
+						<option value="82">Greenland</option>
+						<option value="83">Grenada</option>
+						<option value="84">Guadeloupe</option>
+						<option value="85">Guam</option>
+						<option value="86">Guatemala</option>
+						<option value="87">Guernsey</option>
+						<option value="88">Guinea Republic</option>
+						<option value="89">Guinea-Bissau </option>
+						<option value="90">Guyana(British)</option>
+						<option value="91">Haiti</option>
+						<option value="92">Honduras</option>
+						<option value="93">Hongkong</option>
+						<option value="94">Hungary</option>
+						<option value="95">Iceland</option>
+						<option value="96">India</option>
+						<option value="97">Indonesia</option>
+						<option value="98">Iran, Islamic Republic of</option>
+						<option value="99">Iraq</option>
+						<option value="100">Ireland, Republic of</option>
+						<option value="101">Israel</option>
+						<option value="102">Italy</option>
+						<option value="103">Jamaica</option>
+						<option value="104">Japan</option>
+						<option value="105">Jersey</option>
+						<option value="106">Jordan</option>
+						<option value="107">Kazakhstan</option>
+						<option value="108">Kenya</option>
+						<option value="109">Kiribati</option>
+						<option value="110">Korea, D.P.R.of</option>
+						<option value="111">Korea, Republic of</option>
+						<option value="112">Kuwait</option>
+						<option value="113">Kyrgyzstan</option>
+						<option value="114">Laos</option>
+						<option value="115">Latvia</option>
+						<option value="116">Lebanon</option>
+						<option value="117">Lesotho</option>
+						<option value="118">Liberia</option>
+						<option value="119">Libya</option>
+						<option value="120">Liechtenstein</option>
+						<option value="121">Lithuania</option>
+						<option value="122">Luxembourg</option>
+						<option value="123">Macau</option>
+						<option value="124">Macedonia</option>
+						<option value="125">Madagascar</option>
+						<option value="126">Malawi</option>
+						<option value="127">Malaysia</option>
+						<option value="128">Maldives</option>
+						<option value="129">Mali</option>
+						<option value="130">Malta</option>
+						<option value="131">Marshall Islands</option>
+						<option value="132">Martinique</option>
+						<option value="133">Mauritania</option>
+						<option value="134">Mauritius</option>
+						<option value="135">Mexico</option>
+						<option value="136">Moldova, Republic of</option>
+						<option value="137">Monaco</option>
+						<option value="138">Mongolia</option>
+						<option value="139">Montserrat</option>
+						<option value="140">Morocco</option>
+						<option value="141">Mozambique</option>
+						<option value="142">Myanmar</option>
+						<option value="143">Namibia</option>
+						<option value="144">Nauru, Republic of</option>
+						<option value="145">Nepal</option>
+						<option value="146">Netherlands, The</option>
+						<option value="147">Nevis</option>
+						<option value="148">New Caledonia</option>
+						<option value="149">New Zealand</option>
+						<option value="150">Nicaragua</option>
+						<option value="151">Niger</option>
+						<option value="152">Nigeria</option>
+						<option value="153">Niue</option>
+						<option value="154">Norway</option>
+						<option value="155">Oman</option>
+						<option value="156">Pakistan</option>
+						<option value="157">Panama</option>
+						<option value="158">Papua New Guinea</option>
+						<option value="159">Paraguay</option>
+						<option value="160">Peru</option>
+						<option value="161">Philipines, The</option>
+						<option value="162">Poland</option>
+						<option value="163">Portugal</option>
+						<option value="164">Puerto Rico</option>
+						<option value="165">Qatar</option>
+						<option value="166">Renuion, Island of</option>
+						<option value="167">Romania</option>
+						<option value="168">Russia</option>
+						<option value="169">Rwanda</option>
+						<option value="170">Saipan</option>
+						<option value="171">Samoa</option>
+						<option value="172">Sao Tome and Principe</option>
+						<option value="173">Saudi Arabia</option>
+						<option value="174">Senegal</option>
+						<option value="175">Serbia</option>
+						<option value="176">Seychelles</option>
+						<option value="177">Sierra Leone</option>
+						<option value="178">Singapore</option>
+						<option value="179">Slovakia</option>
+						<option value="180">Slovenia</option>
+						<option value="181">Soloman Islands</option>
+						<option value="182">Somalia</option>
+						<option value="183">Somaliland, Rep of (North Somalia)</option>
+						<option value="184">South Africa</option>
+						<option value="185">Spain</option>
+						<option value="186">Sri Lanka</option>
+						<option value="187">St Barthelemy</option>
+						<option value="188">St Eustatius</option>
+						<option value="189">St Kitts</option>
+						<option value="190">St Lucia</option>
+						<option value="191">St Maarten</option>
+						<option value="192">St Vincent</option>
+						<option value="193">Sudan</option>
+						<option value="194">Suriname</option>
+						<option value="195">Swaziland</option>
+						<option value="196">Sweden</option>
+						<option value="197">Switzerland</option>
+						<option value="198">Syria</option>
+						<option value="199">Tahiti</option>
+						<option value="200">Taiwan</option>
+						<option value="201">Tajikistan</option>
+						<option value="202">Tanzania</option>
+						<option value="203">Thailand</option>
+						<option value="204">Togo</option>
+						<option value="205">Tonga</option>
+						<option value="206">Trinidad and Tobago</option>
+						<option value="207">Tunisia</option>
+						<option value="208">Turkey</option>
+						<option value="209">Turkmeinistan</option>
+						<option value="210">Turks And Caicos Islands</option>
+						<option value="211">Tuvalu</option>
+						<option value="212">Uganda</option>
+						<option value="213">Ukraine</option>
+						<option value="214">United Arad Emirates</option>
+						<option value="215">United Kingdom</option>
+						<option value="216">America</option>
+						<option value="217">Uruguay</option>
+						<option value="218">Uzbekistan</option>
+						<option value="219">Vanuatu</option>
+						<option value="220">Venezuela</option>
+						<option value="221">Vietnam</option>
+						<option value="222">Virgin Islands (British)</option>
+						<option value="223">Virgin Islands (U.S.)</option>
+						<option value="224">Yemen</option>
+						<option value="225">Zambia</option>
+						<option value="226">Zimbabwe</option>
+						<option value="231">The Republic of San Marino</option>
+						<option value="235">Netherlands Antilles</option>
+						<option value="236">Yugoslavia</option>
+						<option value="240">The Vatican City State</option>
+						<option value="242">Saint Pierre and Miquelon</option>
+						<option value="245">Montenegro</option>
+						</select>
+                    </li>
+                </ul>
+                <span id="Msg"></span>
+            </div>
+            <div id="con_two_1">
+                <div class="parcel_box_a" style="width: 528px;" id="loadingInfo">
+                    <div class="p_b_top_a">
+                        <div class="p_b_t_a">
+                            ID</div>
+                        <div class="p_b_t_b">
+                            shipping Options</div>
+                        <div class="p_b_t_c">
+                            ETA(working days)</div>
+                        <div class="p_b_t_d">
+                            Shipping cost (USD)</div>
+                        <div class="p_b_t_m">
+                            Select one</div>
+                    </div>
+                     <div class="p_b_center_b">
+                        <div class="p_b_c_a">
+                            1</div>
+                        <div class="p_b_c_b">
+                            DHL</div>
+                        <div class="p_b_c_c">
+                            2-4</div>
+                        <div class="p_b_c_d">
+                            <span id="DHLAmount"></span>
+                        </div>
+                        <div class="p_b_c_m">
+                            <p>
+                                <label name="DHL">
+                                    <input id="rbtnDhlFreight" name="rbtnFreight" onclick="getDetail()" type="radio" value="" />
+                                </label>
+                                <br />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p_b_center_b">
+                        <div class="p_b_c_a">
+                            1</div>
+                        <div class="p_b_c_b">
+                            <a title="Highly recommend!">
+                                <img src="/Content/Images/Support/Ems.gif" width="62" height="19" border="0" /></a>EMS</div>
+                        <div class="p_b_c_c">
+                            5-7</div>
+                        <div class="p_b_c_d">
+                            <span id="EMSAmount"></span>
+                        </div>
+                        <div class="p_b_c_m">
+                            <p>
+                                <label name="EMS">
+                                    <input id="rbtnEmsFreight" name="rbtnFreight" onclick="getDetail()" type="radio" value="" />
+                                </label>
+                                <br />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p_b_center_o">
+                        <div class="p_b_c_f">
+                            <div class="p_b_c_g">
+                                <ul>
+                                    <li>2</li>
+                                    <li>3</li>
+                                    <li>4</li>
+                                </ul>
+                            </div>
+                            <div class="p_b_c_h">
+                                China<br />
+                                Post</div>
+                        </div>
+                        <div class="p_b_center_c">
+                            <div class="p_b_c_i">
+                                Airmail for Small Packages</div>
+                            <div class="p_b_c_c">
+                                15-35</div>
+                            <div class="p_b_c_d">
+                                <span id="ISPAmount"></span>
+                            </div>
+                            <div class="p_b_c_m">
+                                <p>
+                                    <label name="Airmail for Small Packages">
+                                        <input id="rbtnIspFreight" name="rbtnFreight" onclick="getDetail()" type="radio" value="" />
+                                    </label>
+                                    <br />
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p_b_center_c">
+                            <div class="p_b_c_i">
+                                Air Parcel</div>
+                            <div class="p_b_c_c">
+                                15-35</div>
+                            <div class="p_b_c_d">
+                                <span id="OnAirAmount"></span>
+                            </div>
+                            <div class="p_b_c_m">
+                                <p>
+                                    <label name="Air Parcel">
+                                        <input id="rbtnOnAirFreight" name="rbtnFreight" onclick="getDetail()" type="radio" value="" />
+                                    </label>
+                                    <br />
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p_b_center_c">
+                            <div class="p_b_c_i">
+                                SAL Parcel</div>
+                            <div class="p_b_c_c">
+                                20-45</div>
+                            <div class="p_b_c_d">
+                                <span id="SALAmount"></span>
+                            </div>
+                            <div class="p_b_c_m">
+                                <p>
+                                    <label name="SAL Parcel">
+                                        <input id="rbtnSALFreight" name="rbtnFreight" onclick="getDetail()" type="radio" value="" />
+                                    </label>
+                                    <br />
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p_b_center_n">
+                            <div class="p_b_c_a">
+                                5</div>
+                            <div class="p_b_c_b">
+                                Domestic forwarding (<script type="text/javascript">
+                                                     document.write( FormatNum(CNYtoUSDConstr(15),2));                           
+                                </script>
+                                USD/Kg)</div>
+                            <div class="p_b_c_c">
+                                2-7</div>
+                            <div class="p_b_c_d">
+                                <span id="chinaSend"></span>
+                            </div>
+                            <div class="p_b_c_m">
+                                <p>
+                                    <label name="Domestic forwarding">
+                                        <input id="rbtnChinaFreight" name="rbtnFreight" onclick="getDetail()" type="radio" value="" />
+                                    </label>
+                                    <br />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 5px; float: left;">
+                    &nbsp;</div>
+                <div class="o_Status_a" style="width: 526px;" id="loadingInfo2">
+                    <div class="o_s_p">
+                        <ul>
+                            <li>Shipping Method: <span><strong id="peisong"></strong></span></li>
+                            <li>Weight:<span><strong id="Zhongliang"></strong>Kg<strong id="packInfo"> </strong>
+                            </span></li>
+                        </ul>
+                    </div>
+                    <div class="o_s_p">
+                        <div class="o_s_z_a">
+                            <span>Products Fee</span>
+                        </div>
+                        <div class="o_s_z_b">
+                            $<strong id="Producttxt"></strong>£¨Include domestic shipping fee£©
+                        </div>
+                    </div>
+                    <div class="o_s_p">
+                        <div class="o_s_z_a">
+                            <span>Discounted International Shipping</span>
+                        </div>
+                        <div class="o_s_z_b">
+                            $<strong id="Yunfeitxt"></strong>
+                        </div>
+                    </div>
+                    <div class="o_s_p">
+                        <div class="o_s_z_a">
+                            <span>Service Fee</span>
+                        </div>
+                        <div class="o_s_z_b">
+                            $<strong id="serv" title=""></strong>
+                        </div>
+                    </div>
+                    <div class="o_s_p">
+                        <div class="o_s_z_a">
+                            <span>Customs Charge</span>
+                        </div>
+                        <div class="o_s_z_b">
+                            $ <strong id="baoguanfei"></strong>
+                        </div>
+                    </div>
+                    <div class="o_s_p">
+                        <div class="o_s_z_total">
+                            <span>Total Amount</span>
+                        </div>
+                        <div class="o_s_z_t">
+                            $ <strong id="Dazhehou"></strong>
+                        </div>
+                    </div>
+                    <div class="o_i_a">
+                    </div>
+                </div>
+                <div class="attention_a">
+                    <ul>
+                        <li>Total Amount = items fee + domestic shipping fees + service fee + international
+                            shipping fee Service Fee = (Items Price+ Domestic Shipping)*0.10 .Minimum Service
+                            fee is 35.00CNY. If the subtotal is less than 350.00CNY, you will be charged 35.00CNY.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sm_bd" style="display: none;">
+                <input type="hidden" id="txtBaoxian" />
+                <input type="hidden" id="RealBaoxian" name="IsInsure" />
+                <input type="hidden" id="txtFrieght" />
+                <input type="hidden" id="LastCost" name="LastCost" />
+                <input type="hidden" id="txtAllCost" />
+                <input type="hidden" id="newAddress" />
+                <input type="hidden" id="Tot" />
+                <input type="hidden" id="txtDazhe" />
+                <input type="hidden" id="IsSub" />
+                <input type="hidden" id="txtPeisong" name="Shipments" />
+                <input type="hidden" id="JumpUrl" />
+                <strong id="DiscountGoodsFreight">0</strong> <strong id="GoodsWeight1">0</strong>
+                <strong id="Dazhe"></strong><span id="Jine" class="result"></span>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#GoodsAmount").val(FormatNum($("#GoodsAmountUSD").val()*6.25,2));
+            $("#GoodsAmountUSD").keyup(function() {
+                $("#GoodsAmount").val( FormatNum($(this).val()*6.25,2) );
+            });
+        });
+    </script>
+</body>
+</html>

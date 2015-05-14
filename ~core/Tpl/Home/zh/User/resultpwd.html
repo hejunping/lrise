@@ -1,0 +1,83 @@
+<include file='tpl/head_zh.html' />
+<script type="text/javascript">
+var ispwd=false;
+var isrepwd=false;
+function CheckPassword(){
+	var vals=$("#password").val();
+	if(vals.length==0){
+		$("#password").html("*请输入密码!");
+		$("#repasswordSpan").html("");
+	}else if(vals.length<0){
+		$("#password").html("*密码不能少于6个字符，请重新输入.");
+		$("#repasswordSpan").html("");
+	}else{
+		$("#password").html("");
+		$("#repasswordSpan").html("<img src=\"web/Images/home/DG_07.jpg\">");
+		ispwd=true;
+	}
+}
+function CheckRePassword(){
+	var vals=$("#password").val();
+	var valsr=$("#repassword").val();
+	if(vals != valsr){
+		$("#password").html("*两次密码不一致.");
+		$("#repasswordSpan").html("");
+	}else{
+		$("#password").html("");
+		$("#repasswordSpan").html("<img src=\"web/Images/home/DG_07.jpg\">");
+		isrepwd=true;
+	}
+}
+function Next(){
+	if(isrepwd && isrepwd){
+		document.rorms.submit();
+		}
+}
+</script>
+<div class="signMian">
+    <div class="left_ChangeP">
+      <form action="{:U('home/user/pwdsave')}" id="forms" id="forms" method="post"">
+        <h4>
+            输入您的新密码，别忘了保存一下以防忘记了.</h4>
+        <ul>
+            <span class="Error" id="errorMessage"></span>
+            <li>
+                  <span>输入新密码</span>
+                  <input type="password" onblur="CheckPassword()" class="Np" id="password" name="password">
+                  <em id="passwordSpan"></em>
+            </li>
+            <li>
+                 <span>重新输入新密码</span>
+                 <input type="password"  onblur="CheckRePassword()" class="Np" id="repassword" name="repassword">
+                 <em id="repasswordSpan"></em>
+            </li>
+        </ul>
+        <div style="margin-left: 125px;" class="botnSignP">
+            <a id="img">
+            <input type="hidden" name="sd" value="{$sd}">
+                <img onclick="Next()" style="cursor: pointer" src="web/images/home/Ne_03.jpg"></a>
+        </div>
+        </form>
+    </div>
+     <div class="right_ChangeP">
+        <h4>
+            1.已经有帐号了?</h4>
+        <div class="botnSign">
+            <a href="{:U('home/user/login')}">
+                <img src="web/images/home/sinin_03.jpg"></a>
+        </div>
+        <h4>
+            2.还没有帐号?</h4>
+        <div class="botnSign">
+            <a href="{:U('home/user/reg')}">
+                <img src="web/images/home/signup_03.jpg">
+            </a>
+        </div>
+        <h4>
+            3.需要帮助?</h4>
+        <span><a href="{:U('/home/info/index/id/456')}" target="_blank">联系我们</a></span>
+    </div>
+
+</div>
+
+<include file='tpl/foot.html'/>

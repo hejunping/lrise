@@ -1,0 +1,12 @@
+			<div class='recom oF clblack'>
+				<foreach name='pinfo' item='info'>
+				<div class='fL mT'><h4 class='mB'>今日TOP热荐榜单</h4><a href="{:U('bid/prod/'.$info['id'])}"><img src="{$info.pic}" onerror="this.src='images/nothing.gif'" width='111' height='110'></a></div>
+				<div class='recomr'>
+					<h3 class='tt oF h20'><a href="{:U('bid/prod/'.$info['id'])}" title='{$info.name}'>{$info.name}</a></h3>
+					<p class='oF' style='height:88px;'>{$info.desc}fgsdgsdf</p>
+				</div>
+				</foreach>
+			</div>
+		</div>
+	</div>
+	<div class='clear'></div>

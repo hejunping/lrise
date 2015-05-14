@@ -1,0 +1,45 @@
+/**
+ * @title 基本样式 
+ * @author birdy
+ * @date  2012-03-10 
+*/
+@charset "utf-8";
+@import "public.css";
+
+body{background:#fff; _text-align:center; margin:0 auto;}
+em.pdown{font-weight: bold; color:#00cc00; font-size: 16px; font-family:黑体; font-style: normal;}
+/*页首*/
+.pTop{background-color:#F3F3F3; border:1px solid #ECECEC; height:28px; overflow:hidden;line-height: 28px;}
+.pTop .lt,.rt{ margin-top:-2px;}
+.pTop .lt a.logreg{color:#3595C5;}
+
+ span.card{background:url(images/home/car.jpg) no-repeat 0 0; height:18px; width:17px; margin-top:5px; }
+
+#pH div.top{margin:25px 0px;}
+#pH .logo{background:url(images/home/logo.jpg) no-repeat 0 0; width:323px; height:54px;}
+#pH div.top .search{background:url(images/home/search.jpg) no-repeat 0 0; width:485px; height:45px;}
+#pH div.top .search input.inps{width:391px; height:24px; line-height:24px; top:10px; left:9px; border:1px solid white }
+#pH div.top .search input.sbotn{background:url(images/home/sbotu.jpg) no-repeat 0 0;width:80px; height:40px; cursor:pointer; }
+
+/* head - nav */
+.nav{background:url(images/home/navbg.jpg) repeat-x 0 0; height:34px; margin-top:5px;}
+.nav ul li{line-height:32px; height:32px;}
+.nav ul li{float:left; padding:0 15px;}
+.nav ul li.cate{background:url(images/home/catebg.jpg) repeat-x 0 0; width:153px; _width:183px;}
+.nav ul li.line{padding-left:0px; padding-right:0px;}
+.nav li span.nline{background:url(images/home/line.jpg) no-repeat 0 0; width:1px; height:17px; margin-top:8px;}
+.nav li span.nav_line{background:url(images/home/navline.jpg) no-repeat 0 0; width:2px; height:36px;}
+.nav ul.title li.on{background:#ab1013;}
+
+/*页底*/
+#pF {margin-top:10px;}
+.pF1 .con{margin-top:5px; width:236px;}
+.pF1 ul.fli li{height:25px; line-height:25px;}
+.pF1 ul.fli li.first{height:50px; line-height:50px;}
+
+
+
+
+
+
+

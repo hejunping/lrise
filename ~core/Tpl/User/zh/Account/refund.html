@@ -1,0 +1,93 @@
+<include file='tpl/head_zh.html'/>
+<script type="text/javascript" src="web/js/mod/userWithdrawlist.js"></script>
+<script type="text/javascript">
+    var USDRate =6.25;
+    var USDbalance =0.0;
+    var SGDRate=4.69;
+</script>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">Home</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">My Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>Withdraw Refund</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />  
+<div class="a_rside">
+ <div class="mineCon">
+    <!--提交代购单 -->
+    <div class="purchasing">
+        <!-- 提交代购单标题-->
+        <!--提交代购单文本框 -->
+        <div class="a_rside">
+            <div class="rtit"> My Refund Records</div>
+            <div class="raddress"  id="thisurl" thisurl="{:U('home/ajax/withdrawRefund')}">
+                
+                    <table width="100%" cellspacing="0" cellpadding="0" class="moTab" style="border: 0px;">
+                        <thead>
+                            <tr>
+                                <th width="15%">
+                                    Refund Amount
+                                </th>
+                                <th width="20%">
+                                    After The Amount Of Fee
+                                </th>
+                                <th width="15%">
+                                    Application Time
+                                </th>
+                                <th width="15%">
+                                    Refund Time
+                                </th>
+                                <th width="25%">
+                                    Status
+                                </th>
+                                <th width="10%">
+                                    Remark
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="plog" id="vo">
+                                <tr class="even">
+                                    <td>
+                                        <text>{$vo.money|_usaprice}</text>
+                                    </td>
+                                    <td>
+                                        <text>{$vo.fees|_usaprice}</text>
+                                    </td>
+                                    <td>
+                                        <text>{$vo.ctime|date="Y/m/d H:i:s",###}</text>
+                                    </td>
+                                    <td>
+                                        <neq name="vo.utime" value="0">{$vo.utime|date="Y/m/d H:i:s"}</neq>
+                                    </td>
+                                    <td>
+                                        <text>
+                                        <switch name="vo.status">
+                                        <case value="0"> Waiting process</case>
+                                        <case value="1">Success </case>
+                                        <case value="2">Cancel </case>
+                                        </switch>
+                                           
+                                         </text>
+                                            <br>
+                                            <a class="blue" onclick="CancelRefund({$vo.id});" style="cursor:pointer">Remove refunds</a> 
+                                    </td>
+                                    <td>
+                                        <a class="blue" onclick="RefundsRemark('{$vo.config}');" style="cursor:pointer">Remark</a>
+                                    </td>
+                                </tr>
+                                </volist>
+                        </tbody>
+                    </table>
+                <div class="page" style="text-align: left; margin-top: 10px;">  
+                   {$page}
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+</div>
+<include file="tpl/foot.html"/>

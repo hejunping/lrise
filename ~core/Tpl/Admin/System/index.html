@@ -1,0 +1,27 @@
+<include file="Public:head" />
+<script type="text/javascript">
+function fold(index) {
+	$('#app_'+index).slideToggle('fast');
+}
+</script>
+	<body>
+    <div id="container" class="so_main">
+        <div class="page_tit" style="height:60px;line-height: 60px;">
+            欢迎使用&nbsp;{$title}&nbsp;&nbsp;&nbsp;&nbsp;
+<!--            <a href="{:U('admin/read/bid')}" class="btn_a"><span class="cRed bold">发送竞拍提醒</span></a>-->
+        </div>
+        <div class="form2">
+        <h4>提示：点击标题可以折叠栏目</h4>
+            <php>$id = 0;</php>
+            <volist name="statistics" id="channel">
+	            <php>$index = $id++;</php>
+	            <h3 onclick="fold('{$index}');" class="curP">{$key}</h3>
+	            <div id="app_{$index}">
+		            <volist name="channel" id="vo">
+		              <dl><dt><strong>{$key}：</strong></dt><dd>{$vo}&nbsp;</dd></dl>
+		            </volist>
+	            </div>
+            </volist>
+        </div>
+	</div>
+<include file="Public:foot" />

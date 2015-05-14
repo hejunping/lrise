@@ -1,0 +1,58 @@
+<div class="sideLeft yoyslbox">
+        <div class="module lh">
+            <h5 class="yoytit">
+                <p>
+                    <img src="web/images/user/a1.jpg" alt=""></p>
+                My Order</h5>
+            <ul class="yoylst">
+                <li><a href="{:U('user/order/neworder')}">New Order</a></li>
+                <li><a href="{:U('user/order/cart')}">My Shopping Cart</a>
+                </li>
+                <li><a href="{:U('user/order/myorder')}">My Order</a> </li>
+                <!-- <li><a href="{:U('user/order/parcels')}">My Parcels</a> </li> -->
+                <li><a href="{:U('user/order/favorite')}">My Favorite</a></li>
+            </ul>
+            <h5 class="yoytit">
+                <p>
+                    <img src="web/images/user/a2.jpg" alt=""></p>
+                My Account</h5>
+            <ul class="yoylst">
+                <li><a href="{:U('user/account/addmoney')}">Add money</a> </li>
+                <li><a href="{:U('user/account/history')}">My Account History</a>
+                </li>
+                <!-- li><a href="{:U('user/account/quqian')}">Withdraw money</a> </li -->
+                <!-- <li><a href="{:U('user/account/points')}">My Lrise Points</a></li> -->
+            </ul>
+            <h5 class="yoytit">
+                <p>
+                    <img src="web/images/user/a3.jpg" alt=""></p>
+                Member Settings</h5>
+            <ul class="yoylst bn">
+               
+                <li><a href="{:U('user/settings/address')}">Address Records</a></li>
+                <li><a href="{:U('user/settings/profile')}">Personal Profile
+                
+                </a></li>
+                <li><a href="{:U('user/settings/recommend')}">Recommend To Friends</a></li>
+            </ul>
+            <h5 class="yoytit">
+                <p>
+                    <img src="web/images/user/customerservice.png" alt=""></p>
+                Customer Service
+            </h5>
+            <ul class="yoylst bn">
+                <li><a href="{:U('user/service/boxmessage')}">Message in box</a></li>
+                <li><a href="javascript:opens()">
+                    Submit a ticket</a> </li>
+            </ul>
+        </div>
+    </div>
+   
+    
+<script type="text/javascript">
+function opens(){
+    var urls="{:U('user/service/ticketsubmit')}";
+     window.open(urls,"","scrollbars=yes,tobar=no,width=650,height=500,top=0,left=0,");  
+}
+
+</script>

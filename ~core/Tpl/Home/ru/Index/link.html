@@ -1,0 +1,154 @@
+<include file='tpl/head_ru.html' />
+<style type="text/css">
+    .youbuy_box {
+     margin: 0 auto;
+    width: 980px;
+    float:none;
+}
+.center {
+display: block;
+float: left;
+height: auto;
+margin-bottom: 10px;
+margin-top: 10px;
+width: 980px;
+}
+.center_h a {
+    color: #FF9900;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 36px;
+    margin-left: 20px;
+}
+.center_h a:hover {
+    color: #FF9900;
+    text-decoration: none;
+}
+.center_h {
+    background: url("http://www.yoybuy.com/Content/Images/Home/top_bj_03.jpg") repeat-x scroll 0 0 transparent;
+    border: 1px solid #DFDFDF;
+    height: 36px;
+    width: 980px;
+}
+.center_text {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #DFDFDF;
+    border-left: 1px solid #DFDFDF;
+    border-right: 1px solid #DFDFDF;
+    display: block;
+    float: left;
+    height: auto;
+    padding-bottom: 20px;
+    width: 980px;
+}
+.text_a {
+    float: left;
+    height: auto;
+    width: 978px;
+}
+.text_a ul li {
+    float: left;
+    list-style: none outside none;
+    margin: 0;
+    padding: 30px 0 10px 52px;
+    width: 98px;
+}
+.text_a ul li a {
+     border: #dfdfdf solid 1px;
+    width: 98px;
+    height: 43px;
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+}
+.text_a ul li a  img{
+	width:80px;
+  
+}
+.text_a ul li a:hover {
+    border: 1px solid #EFAEAE;
+}
+.text_a ul {
+    margin: 0 auto;
+    padding: 0;
+}
+.text_a ul span {
+    background: none repeat scroll 0 0 #FFCC00;
+    float: left;
+    height: 20px;
+    margin: 10px 0;
+    width: 980px;
+}
+.text_c ul {
+    margin: 0 auto;
+    padding: 0;
+}
+.text_c ul li {
+    border-bottom: 1px dashed #DFDFDF;
+    float: left;
+    list-style: none outside none;
+    margin: 5px 15px 0 10px;
+    overflow: hidden;
+    padding-bottom: 5px;
+    width: 220px;
+}
+.text_c ul li a {
+    line-height: 25px;
+    padding-bottom: 5px;
+}
+</style>
+<div class="youbuy_box">
+    <div class="center">
+        <div class="center_h">
+            <a>связь</a></div>
+        <div class="center_text">
+            
+            <div class="text_a">
+                <ul>
+                    <foreach name="link" item="link">
+                        <li>
+                            <a href="{$link.url}" target="_blank" title="{$link.title}">
+                                <img alt="{$link.title}" src="{$link.path}" height="40" border="0" />
+                            </a>
+                        </li>
+                    </foreach>
+                </ul>
+                <ul>
+                    <span></span>
+                </ul>
+            </div>
+            <div class="text_c">
+                <ul>
+                        <li>
+                            <a href="http://www.voile-curtain.com/" title="curtain fabric" target="_blank">curtain fabric</a>
+                        </li>
+                        <li>
+                            <a href="http://www.mfgsc.com/" title="China Manufacturing Sourcing" target="_blank">China Manufacturing Sourcing</a>
+                        </li>
+                        <li>
+                            <a href="http://www.translite.cc/" title="Led stage lighting" target="_blank">Led stage lighting</a>
+                        </li>
+                        <li>
+                            <a href="http://www.holidaychinatour.com/" title="China Tour" target="_blank">China Tour</a>
+                        </li>
+                        <li>
+                            <a href="http://www.friendextruder.com/" title="Single screw extruder" target="_blank">Single screw extruder</a>
+                        </li>
+                        <li>
+                            <a href="http://www.wg-views.com/" title="Cctv Monitor" target="_blank">Cctv Monitor</a>
+                        </li>
+                        <li>
+                            <a href="http://www.asiabearings.com/" title="Stainless Steel Ball Bearings" target="_blank">Stainless Steel Ball Bearings</a>
+                        </li>
+                        <li>
+                            <a href="http://www.dvd-creator-converter.com/" title="DVD Software" target="_blank">DVD Software</a>
+                        </li>
+                        <li>
+                            <a href="http://www.amandadollar.com/wholesale-baby-items_c4" title="one dollar baby items" target="_blank">one dollar baby items</a>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<include file='tpl/foot.html' />

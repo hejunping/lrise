@@ -1,0 +1,1794 @@
+/**
+ * @title   
+ * @author birdy
+ * @date  2012-08-22 
+*/
+@charset "utf-8";
+@import "_style.css";
+@import "home/info.css";
+@import "topmenu.css";
+@import "home/merchants.css";
+@import "home/login.css";
+@import "home/register.css";
+@import "home/page_new.css";
+@import "home/news.css";
+@import "home/support.css";
+@import "sitemap.css";
+@import "catemenu.css";
+@import "help.css";
+
+/*-----------------------------------index-----------------------------------*/
+.testim h3
+{
+    height: 30px;
+    margin-top: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+.newbox
+{
+    width: 100%;
+    height: auto;
+    float: left;
+    overflow:visible;
+}
+.newboxss
+{
+    width: 100%;
+    float: left;
+}
+
+/*左栏样式*/
+.flxl
+{
+    float: left;
+    margin-left: -10px;
+    margin-top: 40px;
+    *margin-left:-190px;
+    position: absolute;
+    z-index: 1000;
+}
+.flxl ul li a
+{
+    font-size: 12px;
+    font-weight: 100;
+}
+.boxleft
+{
+    width: 190px;
+    height: auto;
+    float: left;
+    margin-right: 5px;
+}
+.leftfl
+{
+    width: 188px;
+    height: 493px;
+    border-left: #fea302 solid 1px;
+    border-right: #fea302 solid 1px;
+    border-bottom: #fea302 solid 1px;
+    background: #fffeee;
+}
+
+.leftfl ul li
+{
+    height: 34px;
+    line-height: 34px;
+    float: left;
+    cursor: pointer;
+}
+.flname
+{
+    width: 178px;
+    padding: 0 5px;
+    height: 34px;
+    line-height: 34px;
+    border-top: #bebebe dotted 1px;
+    float: left;
+    cursor: pointer;
+}
+.leftfl ul li a
+{
+    width: 166px;
+    overflow: hidden;
+    float: left;
+    height: 34px;
+}
+
+.leftfl ul li span
+{
+    float: left;
+}
+.leftfl ul li span img
+{
+    margin-top: 10px;
+}
+
+/*左栏样式结束*/
+.rightbox
+{
+    width: 785px;
+    height: 493px;
+    float: left;
+    margin-top: 5px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.banner
+{
+    width: 550px;
+    height: 325px;
+    background: #fff;
+    float: left;
+    margin-right: 5px;
+    padding: 5px;
+    overflow: hidden;
+}
+.qukeright
+{
+    width: 220px;
+    height: 325px;
+    padding-top: 10px;
+    background: url(images/home/quickb.png) no-repeat left top;
+    float: left;
+    overflow: hidden;
+}
+.quick
+{
+    width: 220px;
+    height: 50px;
+    background: #FFF;
+    overflow: hidden;
+    text-align: center;
+    float: left;
+    margin-bottom: 5px;
+}
+.abtyb
+{
+    width: 200px;
+    height: 120px;
+    padding: 10px;
+    background: #FFF;
+    float: left;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+.abtyb h1
+{
+    width: 100%;
+    height: 25px;
+    font-size: 14px;
+}
+
+.neww
+{
+    width: 200px;
+    height: 105px;
+    padding: 10px;
+    background: #FFF;
+    float: left;
+}
+.neww h2
+{
+    width: 160;
+    height: 25px;
+    font-size: 14px;
+    float: left;
+}
+.neww h2 span
+{
+    float: left;
+}
+.neww ul li
+{
+    width: 100%;
+    list-style: inside;
+    color: #1f8aea;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+    border-bottom: #dedede dotted 1px;
+    float: right;
+}
+.neww ul li a
+{
+    color: #1f8aea;
+}
+.neww ul li a:hover
+{
+    text-decoration: underline;
+}
+.ybjj
+{
+    background: url(images/home/bjbx.png) no-repeat 0;
+    width: 787px;
+    height: 148px;
+    float: left;
+    margin-top: 5px;
+}
+.ybjja
+{
+    width: 240px;
+    height: 138px;
+    float: left;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-right: 12px;
+}
+.ybjjatop
+{
+    height: 65px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+.ybjjatop span
+{
+    float: left;
+    margin-right: 5px;
+}
+.ybjjatop h3
+{
+    float: left;
+    margin-top: 20px;
+    width: 160px;
+    color: #6d8e0d;
+    font-size: 12px;
+}
+.ybjja ul li
+{
+    list-style: url(images/home/xst.png) inside;
+}
+.ybjja ul li a
+{
+    color: #1f8aea;
+}
+.ybjja ul li a:hover
+{
+    text-decoration: underline;
+}
+
+.recom
+{
+    width: 100%;
+    height: 252px;
+    overflow: hidden;
+    background: #FFF;
+    overflow: hidden;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
+.recomtop
+{
+    width: 100%;
+    height: 36px;
+    background: url(images/home/btbja.png) no-repeat left top;
+    overflow: hidden;
+}
+.recomtopb {
+    width: 169px;
+    height: 36px;
+    background: url(images/home/btbjb.png) repeat-x left top;
+    float: left;
+    margin-left: 14px;
+    line-height: 36px;
+    color: #FFF;
+}
+.recomtleft
+{
+    width: 959px;
+    height: 36px;
+    background: url(images/home/btbjb.png) repeat-x left top;
+    float: left;
+    margin-left: 14px;
+}
+.recomtleft h4
+{
+    line-height: 36px;
+    color: #FFF;
+}
+.recomtop span
+{
+    background: url(images/home/btbjc.png) no-repeat right top;
+    height: 36px;
+    padding-right: 7px;
+    float: left;
+}
+.recomtopb a
+{
+    float: right;
+    margin-top: 13px;
+    margin-right: 5px;
+    *margin-top:-20px;
+}
+.recomtop .recomtleft a
+{
+    float: left;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+.recommian
+{
+    height: 215px;
+    width: 960px;
+    padding: 10px;
+    float: left;
+}
+.recommian dl
+{
+    float: left;
+    width: 120px;
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px 10px;
+}
+.recommian dl:hover
+{
+    border: #CCC solid 1px;
+    padding: 9px;
+    box-shadow: 0px 1px 5px 0px #ccc;
+    float: left;
+}
+.recommian dl:hover a
+{
+    color: #F60;
+}
+.recommian dl dt
+{
+    vertical-align: middle;
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    float: left;
+    margin-bottom: 10px;
+    overflow:hidden;
+}
+.recommian dl dt a
+{
+    width: 120px;
+    height: 120px;
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+}
+.recommian dl dt img
+{
+    width: 120px;
+}
+.recommian dl dd
+{
+    float: left;
+    width: 120px;
+}
+.itmename
+{
+    width: 120px;
+    height: 40px;
+    overflow: hidden;
+    float: left;
+    line-height: 20px;
+}
+.cbut
+{
+    width: 145px;
+    font-size: 10px;
+    color: #999;
+    float: left;
+}
+.money
+{
+    width: 100%;
+    float: left;
+    color: #F90;
+    line-height: 14px;
+}
+.moneyb
+{
+    font-size:14px;
+}
+.bottombox
+{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+}
+.bottomleft
+{
+    width: 190px;
+    height: 950px;
+    background: #FFF;
+    margin-right: 5px;
+    float: left;
+}
+.moreleft
+{
+    float: left;
+    margin: 5px 0;
+    margin-left:10px;
+}
+.recomtop h4
+{
+    width: 169px;
+    height: 36px;
+    float: left;
+    margin-left: 14px;
+    line-height: 36px;
+    color: #FFF;
+    background: url(images/home/btbjb.png) repeat-x left top;
+}
+.bottommian
+{
+    padding: 0px 5px;
+    border-bottom: #CCC dotted 1px;
+    float: left;
+    width: 180px;
+    height: auto;
+    overflow: hidden;
+    margin-top: 5px;
+}
+.imgbol
+{
+    width: 170px;
+    padding: 5px;
+    background: #f7f7f7;
+    float: left;
+}
+.bottommian span
+{
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 30px;
+    width:160px;
+    padding-left:10px;
+}
+.bottommian ul
+{
+    float: left;
+    width: 100%;
+}
+.bottommian ul li
+{
+    list-style: inside;
+    color: #1F8AEA;
+    line-height: 20px;
+    height: 20px;
+    overflow-y:hidden;
+    width:175px;
+    padding-left:10px;
+    float:left;
+}
+.bottommian ul li a
+{
+    color: #1F8AEA;
+}
+.bottommian ul li a:hover
+{
+    text-decoration: underline;
+}
+
+.bottomright
+{
+    width: 785px;
+    float: left;
+    height: 950px;
+    background: #FFF;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.bottomright dl
+{
+    float: left;
+    width: 120px;
+    padding: 10px;
+    cursor: pointer;
+    margin: 0 8px;
+    margin-top: 5px;
+}
+.bottomright dl:hover
+{
+    border: #CCC solid 1px;
+    padding: 9px;
+    float: left;
+    box-shadow: 0px 1px 5px 0px #ccc;
+}
+.bottomright dl:hover a
+{
+    color: #F60;
+}
+.bottomright dl dt
+{
+    vertical-align: middle;
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    float: left;
+    margin-bottom: 8px;
+}
+.bottomright dl dt a
+{
+    width: 120px;
+    height: 120px;
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+}
+.bottomright dl dt img
+{
+    width: 120px;
+}
+.bottomright dl dd
+{
+    float: left;
+    width: 120px;
+}
+
+.sht
+{
+    width: 100%;
+    height: auto;
+    background: url(images/home/sht.png) no-repeat left top #FFF;
+    padding-top: 5px;
+    float: left;
+    margin-bottom: 10px;
+}
+.testim
+{
+    width: 300px;
+    padding: 10px;
+    margin-top: 2px;
+    height: 300px;
+    float: left;
+    margin-right: 5px;
+    border-right: #CCC dashed 1px;
+}
+.testim span
+{
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.testim h2 span
+{
+    float: left;
+}
+.testim dl
+{
+    float: left;
+    width: 100%;
+    height: 60px;
+    margin: 14px 0;
+}
+.testim dl dt
+{
+    float: left;
+    width: 60px;
+    margin-right: 10px;
+}
+.testim dl dt a
+{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 65px;
+    height: 65px;
+}
+.testim dl dt a img
+{
+    width: 65px;
+}
+.testim dl dd
+{
+    width: 226px;
+    float: left;
+}
+.testim dl dd h4
+{
+    height: 25px;
+    line-height: 20px;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    font-size:12px;
+}
+.testim dl dd p
+{
+    height: 40px;
+    line-height: 20px;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+}
+.moreb
+{
+    float: right;
+    width: 107px;
+    height: 10px;
+    background: url() no-repeat top center;
+    text-indent: -99999px;
+    margin-top: 5px;
+}
+.homeblog
+{
+    width: 100%;
+    height: 90px;
+    float: left;
+    overflow: hidden;
+}
+.homeblog dl
+{
+    height: 90px;
+    float: left;
+    margin: 0;
+}
+.homeblog dl dt
+{
+    width: 100px;
+    height: 90px;
+    float: left;
+}
+.homeblog dl dt a img
+{
+    width: 100px;
+    height: 90px;
+}
+.homeblog dl dd
+{
+    width: 190px;
+    height: 90px;
+    float: left;
+}
+.homeblog dl dd b
+{
+    height: 60px;
+    line-height: 20px;
+    margin: 0;
+    font-size: 12px;
+    float: left;
+    width: 190px;
+    overflow: hidden;
+
+}
+
+.homeblog dl dd b a
+{
+    color: #1f8aea;
+}
+.homeblog dl dd em
+{
+    height: 40px;
+    line-height: 20px;
+    margin: 0;
+    font-size: 12px;
+    float: left;
+    width: 200px;
+    overflow: hidden;
+    color: #666;
+}
+.text
+{
+    width: 100%;
+    height: 60px;
+    line-height: 22px;
+    padding: 10px 0;
+    float: left;
+    overflow: hidden;
+    word-break: break-all;
+    border-bottom: #CCC dotted 1px;
+    margin-bottom: 10px;
+}
+
+.testim ul li
+{
+    list-style: url(images/home/xst.png) inside;
+    width: 100%;
+    line-height: 20px;
+    float: left;
+    overflow: hidden;
+    height: 20px;
+}
+.testim ul li a
+{
+    color: #1F8AEA;
+}
+.testim ul li a:hover
+{
+    text-decoration: underline;
+}
+
+.ybfu
+{
+    margin-top: 5px;
+    float: left;
+    padding-top:10px;
+}
+.ybfu dl
+{
+    width: 460px;
+    margin:10px 5px;
+    float: left;
+    overflow: hidden;
+    height: 130px;
+    margin-left: 15px;
+    border-bottom: #CCC dotted 1px;
+    padding-bottom:10px;
+}
+.ybfu dl dt
+{
+    float: left;
+    width: 90px;
+    height: 90px;
+}
+.ybfu dl dd
+{
+    float: left;
+    width: 360px;
+    height: 110px;
+}
+.ybfu dl dd h4
+{
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+    float: left;
+    font-size:14px;
+}
+.ybfu dl dd span
+{
+    width: 100%;
+    line-height: 20px;
+    height: 100px;
+    overflow: hidden;
+    float: left;
+    /*word-break: break-all;*/
+    color: #666;
+}
+
+
+/*首页样式结束*/
+/*商品分类页开始*/
+.mxfl
+{
+    width: 188px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    background: #FFF;
+    margin-top: 10px;
+    border: #CCC solid 1px;
+    margin-bottom: 10px;
+}
+.mxfl h2
+{
+    background: url(images/home/letimbj.png) left top;
+    width: 178px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 5px;
+    float: left;
+}
+.mxfl ul
+{
+    border-top: #CCC solid 1px;
+    width: 178px;
+    padding: 5px;
+    float: left;
+}
+.mxfl ul li
+{
+    line-height: 30px;
+    border-bottom: #CCC dotted 1px;
+    list-style: url(images/home/xst.png) inside;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    height: 30px;
+}
+.term
+{
+    width: 188px;
+    border: #CCC solid 1px;
+    float: left;
+    margin-bottom: 10px;
+    background: #FFF;
+}
+.term h4
+{
+    background: url(images/home/tjbj.png) left top;
+    width: 178px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 5px;
+    float: left;
+    cursor: pointer;
+}
+.term h4 img
+{
+    float: right;
+}
+.term h4 span
+{
+    float: left;
+}
+.tremwzk
+{
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.term ul
+{
+    border-top: #CCC solid 1px;
+    width: 178px;
+    padding: 5px;
+    float: left;
+}
+.term ul li
+{
+    line-height: 25px;
+    border-bottom: #CCC dotted 1px;
+    width: 100%;
+    overflow: hidden;
+    height: 25px;
+    float: left;
+}
+.term ul li label
+{
+    float: left;
+    margin-top: 6px;
+}
+.term ul li span
+{
+    float: left;
+    margin-left: 5px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 11px;
+}
+.rightmxfl
+{
+    width: 785px;
+    height: auto;
+    float: left;
+    margin-top: 10px;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.spjs
+{
+    background: url(images/home/ppjj.png) no-repeat left top #FFF;
+    padding-top: 7px;
+    width: 785px;
+    height: auto;
+    float: left;
+}
+.spjs h4
+{
+    padding: 0 10px;
+    width: 765px;
+    float: left;
+}
+.spjs p
+{
+    width: 765px;
+    padding: 0 10px;
+    background: url(images/home/ppjjb.png) no-repeat left bottom;
+    padding-bottom: 10px;
+    word-break: break-all;
+    height: auto;
+    margin-top: 5px;
+    line-height: 20px;
+    float: left;
+}
+.spbox
+{
+    float: left;
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #FFF;
+    margin-bottom: 10px;
+}
+.spbTop
+{
+    background: url(images/home/spboxbj.png) no-repeat left top;
+    height: 80px;
+    padding-left: 6px;
+    width: 779px;
+}
+.spbtcenter
+{
+    background: url(images/home/spboxbjb.png) repeat-x left top;
+    height: 80px;
+    width: 774px;
+    float: left;
+}
+.spbtright
+{
+    background: url(images/home/spboxbjc.png) no-repeat left top;
+    height: 80px;
+    float: left;
+    padding-right: 5px;
+}
+
+.spbtcentertop
+{
+    width: 100%;
+    height: 45px;
+    float: left;
+    line-height: 45px;
+}
+.spbtcentertop h4
+{
+    width: 150px;
+    float: left;
+    padding-left: 5px;
+}
+.spbtcentertop h4 span
+{
+    color: #F60;
+}
+.rihgtcta
+{
+    float: left;
+    margin: 0 5px;
+    margin-top: 14px;
+}
+.rihgtct
+{
+    float: right;
+    height: 100%;
+}
+.rihgtct span
+{
+    float: left;
+    margin: 0 5px;
+    margin-top: 12px;
+}
+.rihgtctb
+{
+    float: left;
+    margin: 0 5px;
+    margin-top: 8px;
+}
+.rihgtctc
+{
+    float: left;
+    margin: 0 5px;
+    margin-top: 9px;
+}
+
+.spbtcenterbot
+{
+    width: 100%;
+    height: 37px;
+    overflow: hidden;
+    float: left;
+    line-height: 30px;
+    margin-top: 2px;
+}
+.spbtcenterbot ul li
+{
+    float: left;
+    width: auto;
+    border-right: #666 dashed 1px;
+    padding: 0 5px;
+    height: 30px;
+    line-height: 30px;
+}
+.scba input
+{
+    width: 50px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.scbb select
+{
+    width: 40px;
+    margin-top: 5px;
+    height: 20px;
+    float: left;
+}
+.scbb input
+{
+    float: left;
+    margin-top: 8px;
+}
+.scbb span
+{
+    float: left;
+    margin: 0 5px;
+}
+.scbb span img
+{
+    margin-top: 6px;
+}
+.scbc select
+{
+    width: 60px;
+}
+.sbsearch
+{
+    float: right;
+}
+
+
+
+.splb
+{
+    width: 778px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    padding-left: 7px;
+    padding-bottom: 5px;
+}
+.splb dl
+{
+    width: 171px;
+    height: auto;
+    margin: 5px;
+    float: left;
+    padding: 6px;
+    cursor: pointer;
+    height: 265px;
+    overflow: hidden;
+}
+.splb dl:hover
+{
+    border: #CCC solid 1px;
+    padding: 5px;
+    box-shadow: 0px 1px 5px 0px #ccc;
+}
+.splb dl dt
+{
+    width: 170px;
+    height: 170px;
+    float: left;
+    margin-bottom: 5px;
+}
+.splb dl dt a
+{
+    width: 168px;
+    height: 168px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+    border: #e7e7e7 solid 1px;
+}
+.splb dl dt a img
+{
+    width: 168px;
+}
+.sp
+{
+    width: 168px;
+}
+.sp
+{
+    float: left;
+    margin-top: 2px;
+}
+.spbottom
+{
+    width: 760px;
+    float: left;
+    margin: 0 10px;
+    border-top: #CCC dotted 1px;
+}
+.leftsbt
+{
+    width: 570px;
+    float: left;
+    height: 35px;
+    margin-top: 10px;
+}
+
+
+.newfy
+{
+    width: 100%;
+    float: left;
+    padding: 10px 0;
+}
+.newfy a
+{
+    padding: 4px 10px;
+    float: left;
+    border: #CCC solid 1px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.onclick:hover
+{
+    color: #FFF;
+}
+.noclick
+{
+    color: #999;
+}
+.noclick:hover
+{
+    color: #999;
+}
+.onclick
+{
+    background: #F60;
+    color: #FFF;
+    border: #FFF;
+}
+.page
+{
+    float: right;
+    width: 140px;
+}
+.page span
+{
+    float: left;
+    padding: 4px 0;
+    margin-right: 5px;
+}
+.page input
+{
+    width: 40px;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+}
+.page a
+{
+    padding: 0;
+    border: 0;
+}
+
+
+.spleftbot
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: auto;
+    margin-bottom: 5px;
+    overflow: hidden;
+    width: 188px;
+}
+.spleftbot h4
+{
+    background: url("images/home/letimbj.png") repeat scroll left top transparent;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 5px;
+    width: 178px;
+}
+.spleftbot p
+{
+    width: 168px;
+    height: auto;
+    padding: 10px;
+    border-top: #CCC solid 1px;
+    float: left;
+}
+
+.spzx
+{
+    width: 100%;
+    height: auto;
+    float: left;
+}
+.leftspzx
+{
+    width: 100%;
+    padding: 10px 0;
+    float: left;
+}
+.leftspzx dl
+{
+    width: 430px;
+    height: 80px;
+    float: left;
+    overflow: hidden;
+    margin-left: 10px;
+}
+.leftspzx dl dt
+{
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-right: 10px;
+}
+.leftspzx dl dd span
+{
+    float: left;
+    width: 100%;
+}
+.leftspzx dl dd span b
+{
+    float: left;
+    margin-right: 5px;
+}
+.leftspzx dl dd span b a
+{
+    width: 110px;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    color: #1F8AEA;
+    font-weight: 100;
+    margin-left: 5px;
+}
+.leftspzx dl dd span b a:hover
+{
+    text-decoration: underline;
+}
+.leftspzx dl dt a
+{
+    width: 78px;
+    height: 78px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+    border: #e7e7e7 solid 1px;
+}
+.leftspzx dl dt a img
+{
+    width: 78px;
+}
+.leftspzx dl dd
+{
+    width: 340px;
+    float: left;
+    overflow: hidden;
+    height: 80px;
+}
+.leftspzx dl dd h4
+{
+    height: 40px;
+    line-height: 20px;
+    width: 100%;
+    overflow: hidden;
+    word-break: break-all;
+}
+.leftspzx dl dd p
+{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    color: #999;
+}
+.sx
+{
+    width: 240px;
+    height: 80px;
+    line-height: 80px;
+    float: left;
+    text-align: center;
+    color: #999;
+    font-size: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+}
+.totalfl
+{
+    float: left;
+    height: 120px;
+    height: 80px;
+    overflow: hidden;
+    line-height: 80px;
+    font-size: 16px;
+    color: #F00;
+    margin-right: 10px;
+    width: 80px;
+}
+
+
+
+/*产品详细页样式*/
+.itembox
+{
+    width: 960px;
+    padding: 10px;
+    height: auto;
+    float: left;
+    overflow: hidden;
+    background: #FFF;
+    margin-bottom: 10px;
+}
+.leftitem
+{
+    width: 960px;
+    height: auto;
+    float: left;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.leftimg
+{
+    width: 312px;
+    height: 360px;
+    float: left;
+    margin-right: 5px;
+}
+.leftimg span
+{
+    float: left;
+    width: 312px;
+    height: 312px;
+    float: left;
+}
+.leftimg span a
+{
+    width: 310px;
+    height: 310px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border: #CCC solid 1px;
+}
+.leftimg ul li
+{
+    width: 40px;
+    height: 40px;
+    float: left;
+    padding-top: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    margin: 0 2px;
+}
+.leftimg ul li a
+{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px #CCC solid;
+}
+.leftimg ul li a img
+{
+    width: 38px;
+}
+.leftimg ul li:hover
+{
+    background: url(images/home/imgbk.png) no-repeat left bottom;
+    padding-top: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    width: 40px;
+    height: 40px;
+}
+.leftimg ul li a:hover
+{
+    border: 0;
+    padding: 1px;
+    width: 38px;
+    height: 38px;
+}
+.leftimg ul li a:hover img
+{
+    width: 38px;
+}
+.xza
+{
+    background: url(images/home/imgbk.png) no-repeat left bottom;
+    padding-top: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    width: 40px;
+    height: 40px;
+}
+
+.itmemx
+{
+    float: left;
+    width: 430px;
+    height: 360px;
+    overflow: hidden;
+}
+.itmemx h2
+{
+    width: 100%;
+    height: 50px;
+    line-height: 20px;
+    border-bottom: #CCC dotted 1px;
+    font-weight: 100;
+    color: #000;
+    overflow: hidden;
+    word-break: break-all;
+}
+.itmemx ul li
+{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+}
+.itempr
+{
+    margin-right: 10px;
+    width: 120px;
+    float: left;
+}
+.itempr b
+{
+    color: #F00;
+}
+.itemcolor b
+{
+    width: 60px;
+    float: left;
+}
+.color
+{
+    width: 100px;
+    float: left;
+    margin-top: 10px;
+}
+.itemcolor
+{
+    width: 250px;
+    float: left;
+}
+.itemcolor em
+{
+    float: left;
+    color: #999;
+    margin-left: 5px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10px;
+    font-style: inherit;
+}
+.size
+{
+    width: 50px;
+    float: left;
+    margin-top: 10px;
+}
+.itemprfirst
+{
+    border-bottom: #CCC dotted 1px;
+    margin-bottom: 10px;
+}
+
+.itemsx
+{
+    border-top: #CCC dotted 1px;
+    border-bottom: #CCC dotted 1px;
+    margin-top: 10px;
+}
+.itemsx span
+{
+    float: left;
+    margin-right: 15px;
+}
+.itemsx a
+{
+    float: left;
+    font-size: 10px;
+}
+.itemsx a img
+{
+    margin-top: 13px;
+}
+
+.addmenu
+{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+}
+.addmenu a
+{
+    float: left;
+    margin-right: 20px;
+}
+
+.itemright
+{
+    float: right;
+    width: 195px;
+    height: auto;
+    margin-left: 5px;
+    border: #CCC solid 1px;
+}
+.itemright h4
+{
+    width: 185px;
+    line-height: 30px;
+    line-height: 30px;
+    float: left;
+    background: #f9f9f9;
+    padding: 0 5px;
+}
+.itemright ul li
+{
+    width: 180px;
+    padding: 0 5px;
+    border-top: #ccc dotted 1px;
+    height: 25px;
+    line-height: 25px;
+    float: left;
+}
+.itemright ul li span
+{
+    float: left;
+    margin-right: 5px;
+}
+.itemright ul li em
+{
+    float: left;
+    font-style: inherit;
+}
+.itemright ul li img
+{
+    float: left;
+    margin-top: 4px;
+}
+.itmetblj
+{
+    width: 185px;
+    border: #CCC solid 1px;
+    margin-top: 10px;
+    padding: 5px;
+    height: 20px;
+    line-height: 20px;
+    background: #f9f9f9;
+    float: right;
+}
+.itmetblj img
+{
+    float: left;
+    margin-top: 2px;
+}
+.itmetblj a
+{
+    float: left;
+    margin-left: 5px;
+    width: 160px;
+    height: 20px;
+    overflow: hidden;
+}
+.itmetblj a span
+{
+    float: left;
+}
+.itmetblj a img
+{
+    float: right;
+}
+
+.itmefx
+{
+    width: 185px;
+    border: #CCC solid 1px;
+    margin-top: 10px;
+    padding: 5px;
+    height: 20px;
+    line-height: 20px;
+    background: #f9f9f9;
+    float: right;
+    text-align: center;
+}
+.itmefx a img
+{
+    margin-top: 2px;
+}
+
+
+.itmekzxx
+{
+    width: 960px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+}
+
+.itmekzxx h4
+{
+    width: 960px;
+    height: 37px;
+    overflow: hidden;
+    border-bottom: #ff8402 solid 1px;
+    float: left;
+}
+
+.pxz
+{
+    background: url(images/home/producta.png) left top repeat-x;
+    height: 37px;
+    float: left;
+    padding: 0 20px;
+    line-height: 37px;
+    border-top: #ff8402 solid 1px;
+    border-left: #ff8402 solid 1px;
+    border-right: #ff8402 solid 1px;
+    color: #FFF;
+    margin-right: 10px;
+}
+.pxz:hover
+{
+    color: #FFF;
+}
+.pxzb
+{
+    background: url(images/home/productb.png) left top repeat-x;
+    height: 37px;
+    float: left;
+    padding: 0 20px;
+    line-height: 37px;
+    border-top: #d9d9d7 solid 1px;
+    border-left: #d9d9d7 solid 1px;
+    border-right: #d9d9d7 solid 1px;
+}
+.xxnr
+{
+    width: 938px;
+    padding: 10px;
+    border: #CCC solid 1px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-top: 10px;
+    background: #f6f6f6;
+}
+
+.xxnr ul li
+{
+    width: 312px;
+    line-height: 25px;
+    line-height: 25px;
+    float: left;
+    overflow: hidden;
+}
+.itesmbimg
+{
+    width: 960px;
+    text-align: center;
+    float: left;
+    margin-top: 10px;
+}
+.itesmbimg span
+{
+    width: 900px;
+    height: auto;
+    padding-left: 30px;
+    display: table-cell;
+    overflow: hidden;
+}
+.itesmbimg span img
+{
+    width: 900px;
+}
+.pd
+{
+    width: 938px;
+    padding: 10px;
+    border: #CCC solid 1px;
+    line-height: 20px;
+    line-height: 20px;
+    float: left;
+    background: #f9f9f9;
+    margin-top: 10px;
+    border-radius: 4px 4px 4px 4px;
+}
+.pd a img
+{
+    float: left;
+    margin-top: 5px;
+}
+.pd span
+{
+    float: right;
+}
+.pd span a
+{
+    color: #208aea;
+}
+
+.itmebt
+{
+    float: left;
+}
+/*分类栏样式如下*/
+.flmove
+{
+    background: #FFF;
+    border-bottom: 1px solid #FFA304;
+    border-top: 1px solid #FFA304;
+    margin: -1px 0;
+    padding-left: 5px;
+    width: 191px;
+    height: 32px;
+    position: relative;
+    margin-right: -5px;
+}
+.flmove img {
+    float: left;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+.flmove img {
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 8px;
+}
+.subdj
+{
+    position: relative;
+    z-index: 200;
+    width: 192px;
+    background: #FFF;
+    float: left;
+}
+.fltc
+{
+    width: 300px;
+    height: auto;
+    position: relative;
+    background: #FFF;
+    margin-left: 183px;
+    border: #ffa304 solid 1px;
+    border-top: 1px solid #ffa304;
+    box-shadow: 1px 1px 5px 1px #ccc;
+    float: left;
+    display:none;
+    margin-top: -35px;
+}
+.fltc li
+{
+    border-bottom: #CCC dotted 1px;
+    float: left;
+    padding: 0 5px;
+    width: 290px;
+    height: 32px;
+    overflow: hidden;
+}
+.fltc li a
+{
+    color: #1F8AEA;
+}
+.fltc li:hover
+{
+    border-bottom: #ffa304 dotted 1px;
+}
+.fltc li:hover a
+{
+    text-decoration: none;
+    color: #F90;
+}
+.banner span
+{
+    float: right;
+    height: 40px;
+    margin-right: 20px;
+    margin-top: -30px;
+    position: relative;
+    text-align: right;
+    width: 480px;
+    z-index: 1;
+}
+.banner span a
+{
+    color: #FFFFFF;
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.sxa
+{
+    background: none repeat scroll 0 0 #F7B876;
+}
+.sxb
+{
+    background: none repeat scroll 0 0 #FC9831;
+}

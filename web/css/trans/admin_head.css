@@ -1,0 +1,67 @@
+#trans_api{
+    /* overflow: hidden; */ 
+    font-size: 12px;
+    border:1px dashed #567ab4;
+    width:520px;
+    position: absolute;
+     z-index: 9000;  
+    left:610px;
+    top:45px;
+     background: #fff; 
+    padding-left: 10px;
+    display: none;
+}
+#trans_api div{
+    float:left;
+    margin-right: 5px;
+    height: 30px;
+}
+#trans_api .title{
+    padding: 0 5px;
+    line-height: 30px;
+}
+#trans_api .input{
+    line-height: 30px;
+}
+#trans_input{
+    width:150px;
+    margin-top:5px;
+    color:#555;
+    text-indent: 3px;
+    border:1px solid #ccc;
+    border-radius:3px;
+}
+#trans_api .btn_zh,#trans_api .btn_ru{
+
+}
+#trans_zh,#trans_ru,#trans_record,#trans_text,#trans_mode_quit{
+    margin-top:5px;
+    cursor: pointer;
+    background: #567ab4;
+    color:#eee;
+    border:1px solid #ccc;
+    border-radius: 3px;
+}
+#trans_api .btn_chgmode{
+    /* position: absolute;
+    left:-3px;
+    top:30px; */
+    display: none;
+}
+#trans_api .btn_quitmode{
+     display:none; 
+}
+
+#trans_api .trans_record_content{
+    position: absolute;
+    left: 0px;
+    top:60px;
+     z-index: 8000; 
+    border:1px dashed #567ab4;
+    height:300px;
+    width:inherit;
+    background: #fff;
+    padding-left:15px;
+    overflow: scroll;
+    display: none;
+}

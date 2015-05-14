@@ -1,0 +1,58 @@
+<include file="Public:head" />
+  	
+  	<div class="so_main">
+	<div class="page_tit">词条管理</div>
+	<div class="Toolbar_inbox">
+		<form action="{:U('admin/word/index')}" method="GET">
+  		<a href="{:U('admin/word/form')}" class="btn_a"><span>添加词条</span></a>
+  		<a href="{:U('admin/word/index')}" class="btn_a"><span>显示全部</span></a>
+  		{:form_select('ctype',$_GET['ctype'],$ctype,'',array('-1','全部'))}
+  		&nbsp;&nbsp;显示 {:form_select('letter',$_GET['letter'],$letter,'',array('-1','不限'))}
+        &nbsp;&nbsp;{:form_input('key',$_GET['key'],'text w120 h20')}
+        &nbsp;&nbsp;<input type="submit" value="查询" class="btn_b"/>
+  		</form>
+  	</div>
+  	
+  	
+  	
+  	<div class="list">
+	  	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  	<tr>
+		    	<th class="line_l">ID</th>
+		    	<th class="line_l">词条</th>
+		    	<th class="line_l">翻译</th>
+		    	<th class="line_l">类型</th>
+		    	<th class="line_l">备注</th>
+		    	<th class="line_l">操作</th>
+		  	</tr>
+		  	<foreach name="list" item="item">
+			<tr>
+			    <td>{$item.id}</td>
+			    <td class="f14 bold cBlue"><span class="cGreen">[{$item.letter}]</span>&nbsp;{$item.name}</td>
+			    <td class="f14 cRed bold">{$item.ename}</td>
+			    <td>{$ctype[$item['ctype']]}</td>
+                <td>{$item.bak}</td>
+			    <td>
+                    <a href="{:U('admin/word/form',array('id'=>$item['id']))}">编辑</a> &nbsp;&nbsp;
+                    <a href="{:U('admin/word/del',array('id'=>$item['id']))}">删除</a>
+                </td>
+			</tr>
+		  	</foreach>
+	  	</table>
+		<notpresent name="list">
+		  	<div class="l40 cRed bold f14">暂无词条</div>
+		</notpresent>
+	</div>
+	<present name='page'>
+  	<div class="Toolbar_inbox">
+  		<div class="page">{$page}</div>
+  	</div>
+  	</present>
+</div>
+<script type="text/javascript">
+$(function(){
+	tr_hover();
+	input_toggle($('form [name="key"]'),'cGray','词条名称');
+});
+</script>
+<include file="Public:foot" />

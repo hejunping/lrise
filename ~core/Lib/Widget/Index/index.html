@@ -1,0 +1,29 @@
+			<notpresent name='user'>
+			<div class='bd w260 txtC' style="height:74px;">
+                <a class="htit tit01 fL" href="{:U('home/user/reg')}"></a>
+                <a class="htit tit02 fL" href="{:U('home/user/login')}"></a>
+			</div>
+			<else/>
+			<ul class='user'>
+				<li class='fL bd face'><a href="{:U('user/index/index')}"><img src='{$touxiang}' width='60' height='60'></a></li>
+				<li class="fR w180 oF">
+					<ul class='clblack'>
+						<li>
+							<a href="{:U('user/index/index')}" class='clblack f14'>{$user.account}</a>
+                            <eq name="rs" value="0">
+                            <span url="{:U('user/index/ucard')}" class="card cWhite iblock w70 txtC mL curP bgc1" onclick="card();">今日打卡</span>
+                            <else />
+                            <span url="/project/2012/5/paiwu/user-index-ucard.html" class="card cWhite iblock w70 txtC mL curP bgc2">今日已打卡</span>
+                            </eq>
+                        </li>
+						<li>
+						  	余额：<a href="{:U('user/pay/index')}" class='clblack'><span class='cRed'>{$user.credit.coin}&nbsp;</span>拍币</a>
+							<a href="{:U('user/pay/jifen')}" class='mL clblack'><span class='cRed'>{$user.credit.point}&nbsp;</span>积分</a>
+						</li>
+						<li><a href="{:U('user/bid/order')}" class='clblack'>我的订单</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='{:U('user/bid/index')}' class='clblack'>我想拍的</a></li>
+					</ul>
+				</li>
+			</ul>
+			</notpresent>
+			<div class='clear'></div>
+			

@@ -1,0 +1,22 @@
+ 
+<script type='text/javascript'>
+		$(function(){
+			changeImg(0); 
+		});
+		</script>
+		<div class="banner" id="hdparea"> 
+	 
+<foreach name="ad" item="image">
+		<a href="{$image.url}" name="hdpimg" target='_blank'>
+                            <img src="{$image.path}" width="550" height="325" ></a>
+                   </foreach>
+		   <span id="imgbanner">
+                  <foreach name='ad' item='ad'>
+                     <a class='sxb' onclick="changeImg({$ad.id}-1)" target='_blank'>{$ad.id}</a>
+				 
+				  </foreach> 
+				        
+				    </span>
+                        </div>	 
+  
+    

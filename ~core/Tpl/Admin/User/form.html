@@ -1,0 +1,26 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit f14">
+		<gt name="item.id" value="0">编辑<else/>添加</gt>用户 - 
+		<a href="{:U('admin/user/index')}" class="cBlue f14">返回列表</a>
+	</div>
+	<div class="form2">
+	<form method="post" action="{:U('admin/user/form')}" enctype="multipart/form-data">
+		{:dp_input('account',$item['account'],'用户帐号','用户帐号不能空，且唯一')}
+		{:dp_input('password','','用户密码','6-12位字符','password')}
+		{:dp_input('repwd','','确认密码','','password')}
+		{:dp_select('group',$item['group'],cate_opt('user_group'),'所属分组','','w150')}
+		{:dp_input('email',$item['email'],'用户邮箱','邮箱可以为空，但必须唯一')}
+    	<div class="page_btm">
+      		<input type="submit" class="btn_b" value="提交" />
+      		<gt name='item.id' value='0'><input name="id" type="hidden" value="{$item.id}"></gt>
+    	</div>
+	</form>
+</div>
+<script type="text/javascript">
+$(function(){
+	form_chg();
+	//ajax_submit();
+});
+</script>
+<include file="Public:foot" />

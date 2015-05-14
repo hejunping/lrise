@@ -1,0 +1,466 @@
+*
+{
+	margin: 0 auto;
+	padding: 0;
+}
+.sbr
+{
+	margin-bottom: 10px;
+}
+.a_rside
+{
+	background: none repeat scroll 0 0 #FFFFFB;
+	border: 1px solid #DBDBDB;
+	float: right;
+	width: 795px;
+}
+.daoh b {
+    color: #333333;
+}
+.step
+{
+	height: 110px;
+	width: 770px;
+}
+dl, dt, dd, ul, ol, li
+{
+	margin: 0;
+	padding: 0;
+}
+ul, li
+{
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+}
+.step li
+{
+	float: left;
+}
+dl, dt, dd, ul, ol, li
+{
+	margin: 0;
+	padding: 0;
+}
+html
+{
+	color: #333333;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+}
+img
+{
+	border: 0 none;
+	margin: 0;
+}
+.rtit
+{
+	background: url("images/home/rtitbg.jpg") repeat-x scroll center center transparent;
+	border: 1px solid #E0E0E0;
+	color: #333333;
+	float: left;
+	font-weight: bold;
+	line-height: 31px;
+	padding: 0 12px;
+	width: 770px;
+}
+.bdbox_a
+{
+	background: url("images/home/new_order_03.gif") repeat scroll center center transparent;
+	border: 1px solid #D9D9D9;
+	float: left;
+	height: auto;
+	padding: 10px;
+	width: 774px;
+}
+.new_center
+{
+	background: url("images/user/new_order_07.gif") no-repeat scroll center center transparent;
+	height: 50px;
+	margin: 60px 0 0 70px;
+	width: 630px;
+}
+.new_center ul li
+{
+	list-style: none outside none;
+}
+.new_o_input
+{
+	border: 1px solid #999999;
+	color: #999999;
+	float: left;
+	font-family: Arial,Helvetica,sans-serif;
+	height: 15px;
+	margin-left: 8px;
+	margin-top: 8px;
+	padding: 5px;
+	width: 500px;
+}
+.new_center ul li a
+{
+	float: left;
+	margin-left: 5px;
+	margin-top: 8px;
+}
+a
+{
+	color: #333333;
+	text-decoration: none;
+}
+.n_c_text
+{
+	float: left;
+	padding-left: 70px;
+	width: 630px;
+}
+.p_center
+{
+	background: none repeat scroll 0 0 #FFE4CA;
+	border: 1px solid #F8C79A;
+	float: left;
+	height: 50px;
+	margin-top: 10px;
+	width: 770px;
+}
+.p_center ul
+{
+	border: 1px solid #FFFFFF;
+	height: 28px;
+	padding: 10px;
+	width: 748px;
+}
+.p_center ul li
+{
+	color: #FF3300;
+	float: left;
+	height: 28px;
+	line-height: 30px;
+	list-style: none outside none;
+	width: 748px;
+}
+.p_p
+{
+	border: 2px solid #FCD3AF;
+	height: 16px;
+	margin-left: 10px;
+	padding: 2px;
+	width: 550px;
+}
+.p_left
+{
+	border: 2px solid #F8C77E;
+	float: left;
+	height: 204px;
+	margin-top: 20px;
+	padding: 1px;
+	width: 204px;
+}
+.p_rihgt
+{
+	float: left;
+	margin-left: 30px;
+	margin-top: 20px;
+	width: 530px;
+}
+.p_rihgt ul li
+{
+	float: left;
+	line-height: 1.8em;
+	list-style: none outside none;
+	margin-bottom: 10px;
+	width: 530px;
+}
+.p_rihgt ul li span
+{
+	float: left;
+	margin-right: 5px;
+	text-align: right;
+	width: 110px;
+}
+.p_r_a
+{
+	border: 1px solid #CCCCCC;
+	float: left;
+	padding: 2px 5px;
+	width: 330px;
+}
+.p_rihgt ul li p
+{
+	float: left;
+	margin-right: 10px;
+}
+.p_r_b
+{
+	border: 1px solid #CCCCCC;
+	float: left;
+	margin-right: 10px;
+	padding: 2px 5px;
+	width: 80px;
+}
+.p_rihgt ul li a
+{
+	background: none repeat scroll 0 0 #33CCFF;
+	color: white;
+	margin-right: 10px;
+	padding: 2px 3px 2px 5px;
+	text-decoration: none;
+}
+.p_r_c
+{
+	border: 1px solid #CCCCCC;
+	color: #999999;
+	float: left;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	padding: 10px;
+	width: 320px;
+}
+.p_c_top
+{
+	color: #FF9900;
+	font-weight: bold;
+	padding: 10px 0;
+	text-align: center;
+	clear:both;
+}
+.p_bottom
+{
+	background: none repeat scroll 0 0 #FFCC99;
+	display: block;
+	float: left;
+	height: 2px;
+	margin-bottom: 20px;
+	margin-top: 40px;
+	width: 770px;
+}
+.p_mneu
+{
+	float: left;
+	margin-bottom: 20px;
+	text-align: center;
+	width: 760px;
+}
+.p_mneu a
+{
+	margin-right: 20px;
+}
+.stepard
+{
+}
+.raddress
+{
+	float: left;
+	height: auto;
+	padding: 14px 15px;
+	width: 760px;
+}
+element.style
+{
+	border: 2px solid #D9D9D9;
+	float: left;
+	margin-left: 50px;
+	margin-top: 40px;
+}
+.paystatus
+{
+	border-bottom: 1px solid #CCCCCC;
+	margin-bottom: 20px;
+	padding: 25px 0;
+	text-align: center;
+}
+.paystatus
+{
+	text-align: center;
+}
+.mbdl
+{
+	margin: 5px;
+}
+.mbdl dt
+{
+	float: left;
+	margin-right: 10px;
+}
+.mbdl dd
+{
+	line-height: 20px;
+	padding-top: 10px;
+}
+.stutasLink
+{
+	margin: 50px;
+	text-align: center;
+}
+.stutasLink a
+{
+	font-size: 14px;
+	margin: 0 20px;
+}
+.none
+{
+	display: none;
+}
+.pts
+{
+	color: #999999;
+	line-height: 20px;
+	margin: 5px 0 10px;
+}
+.footer_sitemap
+{
+	clear: both;
+	margin-left: auto;
+	margin-right: auto;
+	width: 980px;
+}
+.footer_top
+{
+	background: none repeat scroll 0 0 #F9F9F9;
+	border-top: 2px solid #FFA200;
+	float: left;
+	height: auto;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	width: 980px;
+}
+.footer_top ul
+{
+	float: left;
+	padding-left: 10px;
+	width: 130px;
+}
+.footer_top ul li
+{
+	line-height: 25px;
+	list-style: none outside none;
+	width: 140px;
+}
+.footer_top ul li b
+{
+	float: left;
+	margin-bottom: 10px;
+	width: 130px;
+}
+.daoh
+{
+    clear: both;
+	color: #0066CC;
+	font-size: 11px;
+	height: 25px;
+	line-height: 25px;
+	margin-bottom: 5px;
+	overflow: hidden;
+	padding-left: 10px;
+	width: 970px;
+}
+.daoh a
+{
+	color: #0066CC;
+}
+
+.sideLeft
+{
+	float: left;
+	width: 742px;
+}
+.yoyslbox
+{
+	width: 178px;
+}
+.lh
+{
+	padding: 0 0 100px;
+}
+.module, .modules
+{
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #DADADA;
+	margin-bottom: 10px;
+}
+.yoytit
+{
+	background: url("images/user/tbg_1.jpg") repeat-x scroll 0 0 transparent;
+	color: #FF9801;
+	font: bold 12px Verdana,Geneva,sans-serif;
+	height: 24px;
+	margin: 0 1px;
+	padding: 8px 13px 0;
+}
+.yoytit p
+{
+	display: block;
+	float: left;
+	height: 16px;
+	margin-bottom: 0;
+	margin-right: 5px;
+	margin-top: -1px;
+	width: 16px;
+}
+.yoylst
+{
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+.yoylst li
+{
+	background: none repeat scroll 0 0 transparent;
+	border-bottom: 1px dashed #DBDBDB;
+	line-height: 30px;
+	list-style: none outside none;
+	padding: 0;
+	position: relative;
+}
+.yoylst li a
+{
+	background: url("images/user/alst.jpg") no-repeat scroll 15px 12px #FFFCF0;
+	color: #000000;
+	display: block;
+	line-height: 30px;
+	padding-left: 30px;
+	z-index: 1;
+}
+.yoytit
+{
+	background: url("images/user/tbg_1.jpg") repeat-x scroll 0 0 transparent;
+	color: #FF9801;
+	font: bold 12px Verdana,Geneva,sans-serif;
+	height: 24px;
+	margin: 0 1px;
+	padding: 8px 13px 0;
+}
+.yoytit p
+{
+	display: block;
+	float: left;
+	height: 16px;
+	margin-bottom: 0;
+	margin-right: 5px;
+	margin-top: -1px;
+	width: 16px;
+}
+.bn
+{
+	border-bottom: medium none;
+}
+.sbr
+{
+	margin-bottom: 10px;
+}
+.step
+{
+	height: 110px;
+	width: 770px;
+}
+.step li
+{
+	float: left;
+}
+.bd {
+    clear: both;
+    margin: 0 auto;
+    width: 982px;
+}
+
+

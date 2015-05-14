@@ -1,0 +1,73 @@
+<include file="Public:head" />
+
+<script type="text/javascript" src="web/js/editor/kindeditor.js"></script>
+<script type="text/javascript" src="web/js/editor/lang/zh_CN.js"></script>
+
+<script language="javascript">
+var editor;
+KindEditor.ready(function(K) {
+	editor = K.create('#content', {
+		resizeType : 1,
+		allowPreviewEmoticons : false,
+		allowImageUpload : true,
+		uploadJson : '{:U("admin/editor/upload")}',
+		allowFileManager : true,
+		fileManagerJson : '{:U("admin/editor/index")}',
+		items : ['fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+		'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+		'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+	});
+});
+
+</script>
+
+
+<div class="so_main">
+	<div class="page_tit f14">
+		<gt name="item.id" value="0">编辑<else/>添加</gt>产品 - 
+		<a href="{:U('admin/prod/index')}" class="cBlue f14">返回列表</a>
+	</div>
+	<div class="form2">
+	<form method="post" action="{:U('admin/prod/form')}" enctype="multipart/form-data">
+		<dl class='lineD'>
+			<dt>产品分类</dt>
+			<dd>
+                {$item.ctype|getItemById='prod'} &nbsp;&gt;&gt;&nbsp;
+                <?php
+                $cate = M('Item')->where(array('id'=>$item['ctype2']))->find();
+                echo $cate['name'];
+                ?>
+            </dd>
+		</dl>
+		<input type="hidden" name="ctype2" id="ctype2" value="">
+		
+		{:dp_input('name',$item['name'],'产品名称','产品名称不能空','text','text h20 w400')}
+		{:dp_input('ename',$item['ename'],'英文名称','','text','text h20 w400')}
+                {:dp_input('rname',$item['rname'],'俄文名称','','text','text h20 w400')}
+		{:dp_input('sold',$item['sold'],'站内销量')}
+		<dl class='lineD'>
+			<dt>图片：</dt>
+			<dd><img src="{$item.pic}" height="100"></dd>
+		</dl>
+    	<div class="page_btm">
+      		<input type="submit" class="btn_b" value="提交" />
+      		<gt name='item.id' value='0'><input name="id" type="hidden" value="{$item.id}"></gt>
+    	</div>
+	</form>
+	</div>
+</div>
+<!-- 后台附加翻译字典接口单页面初始化 start-->
+<script>
+	$(document).ready(function(){
+		$('#trans_api').css({	//初始化html翻译接口显示和定位
+			'display':'block',
+			'left':610,
+			'top':82,
+		});
+		$('#trans_api .title').html('<span>产品名称：</span>');//初始化翻译字段标题
+		$('#trans_zh').html('添加英文翻译');
+	})
+	var transField = $('input[name="name"]');//翻译字段初始化
+</script>
+<!-- 后台附加翻译字典接口单页面初始化 end-->
+<include file="Public:foot" />

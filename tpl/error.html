@@ -1,0 +1,20 @@
+<php>$lang_select = isLang();</php>
+<if condition="$lang_select eq 'zh'">
+	<include file="tpl/head_zh.html"/>
+<elseif condition="$lang_select eq 'ru'" />
+	<include file="tpl/head_ru.html"/>
+<else/>
+	<include file="tpl/head.html"/>
+</if>
+	<div class="bd w960 mT mB" style="height:120px;background:white;color:red;">
+		<div class="l40 pL pR pT pB f16 ">
+	        <!--头部结束-->
+	       <div style="padding:15px 0;margin:20px auto;background:url(images/error.gif) no-repeat 20px center;" class="w400 l20">
+            {$error|default="error page"}
+          </div>
+		</div>
+        <div class="clear"></div>
+	</div>
+	
+<include file="tpl/foot.html"/>
+

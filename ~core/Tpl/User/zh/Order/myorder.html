@@ -1,0 +1,264 @@
+<include file='tpl/head_zh.html'/>
+<script type="text/javascript">
+<!--
+
+$(function(){
+	
+	//全选 全不选 
+	 $("#selAll").click(function () {
+		 var flag = $("#selAll").attr("checked");//判断全选按钮的状态
+		$('.chkbox').attr('checked',flag);
+	
+    });
+	//全选  
+	 $("#SelectAll").click(function () {
+		$('.chkbox').attr('checked',true);
+		totprices();
+    });
+
+    
+})
+
+//-->
+</script>
+<script type="text/javascript" src="web/js/mod/usermyorder.js"></script>
+<script type="text/javascript">
+    var _MYURL = "{:U('user/order/myorder')}";
+</script>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">首页</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">我的Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>我的订单</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />
+	<div class="a_rside sbr">
+	    <div class="dearggb">
+	        亲爱的客户，为了您的购物安全，我们将会检查你的订单并且取消假冒的商品;如果正常,我们将为您支付购买,在有效的时间内, 你订单账户会继续保持支付状态.如果您有任何问题,请随时联系我们.
+	    </div>
+	    <div class="rtit">
+	        订单状态</div>
+	    <div class="bdbox">
+	        <form action="{:U('user/order/myorder')}" id="thirdFrom" method="post">            <input type="hidden" value="" id="ckbGoodsList" name="ckbGoodsList" />
+	            <!-- <div id="Thirdtabs">
+	                <ul class="mlst">
+	                    <li id="two1" class="<eq name="type" value="16">hover</eq>"><a id="twoa1" href="#tabs1" onclick="Jump(16);">总览<span
+	                                id="isNew2" style="color: Red"></span></a>
+	                    </li>
+	                    <li id="two2" class="<eq name="type" value="17">hover</eq>""><a id="twoa2" href="#tabs2" onclick="Jump(17);">处理</a><span
+	                            id="isNew4" style="color: Red"></span>
+	                    </li>
+	                    <li id="two3" class="<eq name="type" value="4">hover</eq>""><a id="twoa3" href="#tabs3" onclick="Jump(5);">已送到<span
+	                                id="isNew5" style="color: Red"></span></a>
+	                    </li>
+	                    <li id="two4" class="<in name="type" value="13,14">hover</in>""><a id="twoa4" href="#tabs4" onclick="Jump(13);">已退款</a>
+	                    </li>
+	                </ul>
+	                <div class="sort">
+	                    排序:
+	                    <select name="stateOrder" id="stateOrder" onchange="changeForm(this.value)">
+	                        <option value="16">- - - </option>
+	                         <option value="0">Await Payment</option>
+                             <option value="1">Already pay</option>
+                             <option value="2">In process </option>
+                             <option value="3">Already delivery </option>
+                             <option value="4">Arrived </option>
+                             <option value="5">Storage </option>
+                             <option value="6">Wait pay postage</option>
+                             <option value="7">Await Payment</option>
+                             <option value="8">Package sent </option>
+                             <option value="9">Confirm harvest  </option>
+                             <option value="10">Evaluation  </option>
+                             <option value="11">Complete  </option>
+                             <option value="12">Give up  </option>
+                             <option value="13">Refund</option>
+                             <option value="14">Refund successful </option>
+                             <option value="15">Trading closed </option>
+	                    </select>
+	                    </div>
+	            </div> -->
+	            <!--order status star-->
+	            <div id="content" style="text-align: center;">
+	      <div id="orderloading">
+	
+	          <div class="bdbox" style="width:732px;">
+	            
+	            <div class="favorite_top"  style="width:732px;">
+	                <ul>
+	                    <li class="f_t_a">
+	                        <input type="checkbox" class="f_t_input_a" name="selAll" id="selAll" checked="checked">全选</li>
+	                    <li class="f_t_b" style="width:280px;">商品</li>
+	                    <li class="f_t_c">单价</li>
+	                    <li class="f_t_f">单位运费</li>
+	                    <li class="f_t_g">操作</li>
+	                </ul>
+	            </div>
+	            <div id="favorite_fen">
+	                    <span>
+	                 <volist name="res" id="vo">
+	                  <div class="favorite_centers">
+	                      <p class="c_c_bottoms">
+	                                <b>
+	                                  <input type="checkbox" class="chkbox" value="" checked="checked" name="CkbFa"> 
+	                                  </b>
+	                                <b>订单ID:</b><a href="" >{$vo.id} </a>
+	                                <b>日期:</b><span >{$vo.ctime||date="y/m/d H:i:s",###} </span>
+	                                <b>总价:</b><span  id="total{$vo.id}">{$vo.total|_usaprice} </span>
+	                                <b>状态:</b><span >
+	                                                    <switch name="vo.status">
+	                                                     <case value="0">Await Payment</case>
+	                                                     <case value="1">Already pay</case>
+	                                                     <case value="2">In process </case>
+	                                                     <case value="3">Already delivery </case>
+	                                                     <case value="4">Arrived </case>
+	                                                     <case value="5">Storage </case>
+	                                                     <case value="6">Wait pay postage</case>
+	                                                     <case value="7">Await Payment</case>
+	                                                     <case value="8">Package sent </case>
+	                                                     <case value="9">Confirm harvest  </case>
+	                                                     <case value="10">Evaluation  </case>
+	                                                     <case value="11">Complete  </case>
+	                                                     <case value="12">Give up  </case>
+	                                                     <case value="13">Refunding</case>
+	                                                     <case value="14">Refund successful </case>
+	                                                     <case value="15">Trading closed </case>
+	                                                     <default />State error 
+	                                                     </switch>
+	                                                 </span>
+	                            </p>
+	                           <div name="" style="float:left;width: 590px;" >
+	                            <volist name="vo[utime]" id="vos">
+	                            <ul>
+	                                <li class="f_c_as"> 
+	                                    </li>
+	                                <li class="f_c_bs">
+	                                    <div class="f_c_c_as">
+	                                        <img src="{$vos.pic}">
+	                                   </div>
+	                                    <div class="f_c_c_bs">
+	                                        <a  rel="translate" href="{:U('prod/detail/index?='.$vos['pid'])}" style="overflow: hidden" target="_self" class="blue" title="" name="goodsnamein" id="goodsname1">
+	                                           {$vos.name}
+	                                        </a>
+	                                        <a id="goodsRemark1741098" title="No comment"> </a>
+	                                    </div>
+	                                </li>
+	                                <li class="f_c_cs">{$vos.price|_usaprice}  *   {$vos.num}
+	                                </li>
+	                                <li class="f_c_fs">{$vos.freight|_usaprice}</li>
+	                               
+	                            </ul>
+	                            </volist>
+	                            </div>
+	                           <div class="" style="float:left;width: 150px;">
+	                               <eq name="vo.status" value="0" ><a href="{:U('user/order/choosepay?o='.$vo['id'])}">支付 </a></eq>
+		                            <in name="vo.status" value="1,2,3,4,5">
+		                               <a href="javascript:Refund({$vo.id})"> 退款</a>
+		                            </in>
+	                           </div>
+	               </div>
+	               </volist>
+	                    </span>
+	
+	
+	            </div>
+	            
+	            <div class="fy">
+	                <div class="fy_a" id="SelectAll" name="SelectAll">
+	                    <a href="javascript:void();">选择全部</a></div>
+	                <div id="changpagev3">
+	                    <div style="width: 740px; margin-bottom: 20px;" class="sy_b">
+	                        {$page}
+	                    </div>
+	                </div>
+	                <div class="fy_a">
+	                </div>
+	            </div>
+	      
+	            <div style="display: none;" id="visualsearch_transparency">
+	            </div>
+	        </div>
+	                </div> 
+	            </div>
+	            <div class="delete_a">
+	                <!-- <a href="JavaScript:checkDel();">
+	                    <img alt="Delivery" src="web/images/user/subm_09_zh.gif" 
+	                         border="0" /></a> 
+	                         <span><a href="JavaScript:void(0);" onclick="checksub();">
+	                        <img alt="Delete Selected" src="web/images/user/subm_12_zh.gif" width="111"
+	                             height="29" border="0" />
+	                    </a></span> -->
+	            </div>
+	            <div id="showRefundGoodsInfo" title="Volume up to confirm the information section"
+	                 style="display: none">
+	                <span id="refundInfo"></span>
+	            </div>
+	            <div id="showDelCheck" title="Purchase Cancellation" style="display: none">
+	                <span id="delinfo"></span>
+	            </div>
+	            <div id="showSubCheck" title="Confirm Shipment" style="display: none">
+	                <span id="sendinfo"></span>
+	            </div>
+	            <input type="hidden" id="ListTag" name="ListTag" value="0" />
+	            <div style='display: none'>
+	                <div id='inline_example1' style='background: #fff; width: 516px; float: left;'>
+	                    <div class="add_address_a">
+	                        <div class="talk_box">
+	                            <div class="box_center">
+	                                <div class="b_c_top">
+	                                    <ul>
+	                                        <li>
+	                                            <img id="boximgin" src="web/images/user/cp_xt_03.gif" width="32" height="32"
+	                                                 border="0" /><a id="boxnamein"></a> </li>
+	                                    </ul>
+	                                </div>
+	                                <div class="tk_bj_left">
+	                                    <img alt="" src="web/images/user/tk_bj_03.gif" width="17" height="41" border="0" /></div>
+	                                <div class="tk_bj">
+	                                    <span>Message</span></div>
+	                                <div class="tk_bj_right">
+	                                    <img alt="" src="web/images/user/tk_bj_07.gif" width="10" height="41" border="0" /></div>
+	                                <div class="b_c_center">
+	                                    <div id="infoboxid" class="Shout_text">
+	                                    </div>
+	                                    <span id="Tishi"></span>
+	                                    <div class="shout_box">
+	                                        <textarea id="sendinginfos" name="" cols="" rows="" class="s_b"></textarea>
+	                                    </div>
+	                                    <div class="send">
+	                                        <span id='spannote'></span><a href="javascript:sending()">
+	                                            <img id='sendimg' alt="send" src="web/images/user/send_03.gif" width="70"
+	                                                 height="19" border="0" /></a></div>
+	                                </div>
+	                                <input type="hidden" id="goodsId" /><input type="hidden" id="messageId" />
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <div style="color: White">
+	                 </div>
+	        </form>    </div>
+	</div>
+	<div class="sjjd" id="blk" style="display: none;">
+	    <div style='text-align: center; width: 100%;'>
+	        <img src='/Content/Images/MyOrder/loadingb.gif' /></div>
+	</div>
+</div>
+<div  class="advisors" id="advisors" rfurls="{:U('home/ajax/refund')}" url="{:U('home/ajax/payment')}" iurl="{:U('user/order/myorder')}"  >
+    <div class="mbox_c" style="margin-left: 300px;">
+        <div class="closebox_b">
+            <span id="spanclosenew" style="cursor: pointer" onclick="javaScript:CloseShow('advisors');">Close</span>
+        </div>
+        <div style="color: #666; border: #ccc solid 1px; float: left; padding: 10px; margin-top: 10px;
+            margin-bottom: 20px; background: #f9f9f9; display: none" id="msgTip">
+        </div>
+ 
+        <div id="resaultinfo"><div class="tis_b"><h3 id="meginfo" style="height: 50px;"><img id="" border="0" alt="" src="web/images/user/loadingb.gif"> </h3></div></div>
+        <div class="tis_b_mneu">
+            <a href="javascript:Payments();" id="">PAY</a></div>
+    </div>
+</div>
+
+
+
+<include file="tpl/foot.html"/>

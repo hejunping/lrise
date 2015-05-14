@@ -1,0 +1,227 @@
+<include file="Public:head" />
+<div class="so_main">
+  <div id="searchUser_div" style="display:none;">
+  	<div class="page_tit">搜索用户[ <a href="javascript:void(0);" onclick="searchUser();">隐藏</a> ]</div>
+
+	<div class="form2">
+	<form method="get" action="{:U('admin/index')}">
+    <dl class="lineD">
+      <dt>用户名：</dt>
+      <dd>
+        <input name="account" id="account" class="text" type="text">
+        <p>用户注册时的用户名</p>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>用户组：</dt>
+      <dd>
+       <select name="groupid">
+       		<option value="0">请选择</option>
+       <volist name="groups" id="group">
+       		<option value="{$group.groupid}">{$group.groupname}</option>
+       </volist>
+       </select>
+       <p>所属分组</p>
+    </dl>
+	<dl class="lineD">
+      <dt>是否激活：</dt>
+      <dd>
+        <input name="status" type="radio" value="0">是
+        <input name="status" type="radio" value="1">否
+        <p>不选表示全部</p>
+      </dd>
+    </dl>
+    <div class="page_btm">
+      <input type="submit" name="submit" class="btn_b" value="提交" />
+    </div>
+	</form>
+  </div>
+  </div>
+  <div class="page_tit">管理员 @ 列表</div>
+  <div class="Toolbar_inbox"><a href="{:U('Admin/add')}" class="btn_a"><span>添加管理员</span></a> </div>
+  <div class="list">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th class="line_l">ID</th>
+    <th class="line_l">用户名</th>
+    <th class="line_l">权限组</th>
+    <th class="line_l">最近登陆时间</th>
+    <th class="line_l">状态</th>
+    <th class="line_l">操作</th>
+  </tr>
+  <volist name="list" id="vo" >
+	  <tr overstyle='on' id="user_{$vo['id']}">
+	    <td>{$vo.id}</td>
+	    <td>{$vo.account}</td>
+		<td>{$vo.groupname}</td>
+	    <td>{$vo.login_time|date="Y-m-d H:i",###}</td>
+	    <td>
+	    	<gt name='vo.id' value='1'>
+	    	<eq name="vo['status']" value="1">
+	    	<a class="forbidden" style="color:green" rel="{$vo.id}" href="javascript:void(0);" >正常</a>
+	    	<else/>
+	    	<a class="forbidden" style="color:red" rel="{$vo.id}" href="javascript:void(0);" >禁用</a>
+	    	</eq>
+	    	<else/>- -</gt>
+		</td>
+	    <td>
+			<a href="{:U('admin/admin/edit',array('id'=>$vo['id']))}">编辑</a>
+			<gt name="vo.id" value="1">
+		    	<a href="javascript:void(0);" class="delete" rel="{$vo.id}" >删除</a>
+			</gt>
+		</td>
+	  </tr>
+  </volist>
+
+  </table>
+  </div>
+
+  <div class="Toolbar_inbox">{$page}</div>
+</div>
+
+<include file="Public:tips" />
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+		
+	/**
+	 * 禁用用户
+	 */
+	$('.forbidden').click(function(){
+		var i = $(this);
+		var uid = i.attr('rel');
+		$.ajax({
+			type: "post",
+			dataType: "json",
+			url: "{:U('Admin/forbidden')}",
+			data: {'uid':uid},
+			success: function(opt){
+				i.text(opt.info);
+				if(opt.status) i.css({'color':'green'});
+				else i.css({'color':'red'});
+			}
+		});
+	});
+	
+	/**
+	 * 禁用选择用户
+	 */
+	$('.forbidden-handler').click(function(){
+		if(confirm("确定禁用所选管理员吗？")==true)
+	    {
+			var uid = getChecked();
+			
+			$.ajax({
+				type: "post",
+				dataType: "json",
+				url: "{:U('Admin/forbiddenAll')}",
+				data: {'uid':uid},
+				success: function(opt){
+					$(":checkbox").not("#checkAll").each(function()
+					{                    
+						if($(this).attr("checked")==true)
+						{
+							$(this).parent().parent().find('.forbidden').css({'color':'red'}).text(opt.info);;
+						}
+					});
+					
+				}
+			});
+	    }
+	    else
+	    {
+	       return false;
+	    }
+	});
+	
+	/**
+	 * 删除一个用户
+	 */
+	$('.delete').click(function(){
+		if(confirm("确定删除所选管理员吗？")==true)
+	    {
+			var uid = $(this).attr('rel');
+			
+			$.ajax({
+				type: "post",
+				dataType: "json",
+				url: "{:U('Admin/del')}",
+				data: {'uid':uid},
+				success: function(opt){
+					window.location.reload();
+				}
+			});
+	    }
+	});
+	
+	/**
+	 * 删除选择用户
+	 */
+	$('.delete-handler').click(function(){
+		if(confirm("确定删除所选管理员吗？")==true)
+	    {
+			var uid = getChecked();
+			
+			$.ajax({
+				type: "post",
+				dataType: "json",
+				url: "{:U('Admin/del')}",
+				data: {'uid':uid},
+				success: function(opt){
+					window.location.reload();
+				}
+			});
+	    }
+	});
+	
+	
+	/**
+	 * 全选和反选
+	 */
+	$('#checkAll').click(function()
+	{
+		$(":checkbox").attr("checked",$("#checkAll").attr("checked"));
+	});
+});
+
+
+/**
+ * 获取复选框的值
+ */
+function getChecked()
+{
+	var arr = [];
+	$(":checkbox").not("#checkAll").each(function()
+	{                    
+		if($(this).attr("checked")==true) arr.push($(this).val());
+	});
+	if(arr == "")return false;
+	return arr.toString();
+}
+/**
+ * 提示信息
+ */
+function showMessage(result)
+{
+	$('body').append(result);
+}
+
+/**
+ * 搜索用户
+ */
+var isSearchHidden = <neq name="type" value="searchUser">1<else/>0</neq>;
+function searchUser() {
+	if(isSearchHidden == 1) {
+		$("#searchUser_div").slideDown("fast");
+		$(".searchUser_action").html("搜索完毕");
+		isSearchHidden = 0;
+	}else {
+		$("#searchUser_div").slideUp("fast");
+		$(".searchUser_action").html("搜索用户");
+		isSearchHidden = 1;
+	}
+}
+//]]>
+</script>
+
+<include file="Public:foot" />

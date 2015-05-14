@@ -1,0 +1,10 @@
+			<div class="rule w260 bd mT">
+				<h3 class='bdB h30'><span class="htit tit03"></span></h3>
+				<ul class='olist pL oF'>
+                    <foreach name="list" item="item">
+					<li class='oF'>
+                        <a href="{:U('home/info/'.$item['id'])}" title="{$item.name}">{$item.name}</a>
+                    </li>
+					</foreach>
+				</ul>
+			</div>

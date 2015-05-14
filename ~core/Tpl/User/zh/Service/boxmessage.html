@@ -1,0 +1,233 @@
+<include file='tpl/head_zh.html'/>
+<script type="text/javascript" src="web/js/mod/user/messagee/colorbox.js"></script>
+<script type="text/javascript" src="web/js/mod/user/messagee/QA.js"></script>
+<script type="text/javascript" src="web/js/mod/user/messagee/js.js"></script>
+
+<script >
+
+
+	// 必须放在加载文档中  这样每次才会执行
+$(document).ready(function(){
+      
+    
+    if(getUrl('tab') == 1 || getUrl('tab') == null){
+		$("#two1").addClass('hover');
+		$("#two2").removeClass('hover');
+	}else if(getUrl('tab') == 2){
+		$("#two1").removeClass('hover');
+		$("#two2").addClass('hover');
+	}
+	
+	$("a[id ^= 'DelMessage']").click(function(){
+		var durl = $("#address").attr('durl');
+		$.post(durl,{id:$(this).attr('id').split('_')[1]},function(data){
+			if(data.result){
+				window.location.reload();
+			}
+		},'json');
+	});
+	
+	//关闭弹出层以及隐藏消息内容div
+	$('#close_lm').click(function(){
+		$('#black_div').css({
+			'display':'none'
+		});
+		
+        $("#load").css({
+        	'display':'none',
+        });
+	});
+	
+	//弹出div层  (阅读消息)
+	$("a[id ^= 'Message']").click(function () {
+	
+		$("#LoadMessage").html("Waiting... ...<br /><img src='web/images/user/loading2.gif' />");
+		$('#black_div').css({
+			'opacity':'0.9',
+			'z-index':'9999',
+			'top':'0',
+			'left':'0',
+			'display':'block'
+		});
+		var rurl = $("#address").attr('rurl');
+		  $.post(rurl,{id: $(this).attr("id").split('_')[1] }, function (data) {
+            if (data.result) {
+                var content = data.news == "" ? "No Message!" : data.news;
+                if (data.news == ""){
+                    $("#LoadMessage").html("No Message!");
+                }else{
+                    var html = "<h2 id='contentTitle'>" + data.news.name + "</h2><ul><li id='Contentnews'>" + data.news.info + "</li></ul><h3><a href='" + data.link + "'>View Details &gt;&gt;</a></h3>";
+                      $("#load").css({
+                      	'display':'block',
+                      	'background':'yellow',
+                      	'position':'absolute',
+                      	'top':'150px',
+                      	'left':'500px',
+                      	'z-index':'9999',
+                      	'padding':'5px'
+                      });
+                     $("#LoadMessage").html(html);
+                }
+            }else{
+	            $("#LoadMessage").html("No Message!");
+	        }
+	       }, "json");
+
+    }); 
+});
+</script>
+
+<style>
+.mlst li.hover {
+    background: none repeat scroll 0 0 #FF9900;
+    color: #FFFFFF;
+}
+.mlst li {
+    background: none repeat scroll 0 0 #F0F0F0;
+    color: #999999;
+    cursor: pointer;
+    float: left;
+    list-style: none outside none;
+    margin: 0 1px 0 0;
+    padding: 6px 15px 7px;
+}
+</style>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">首页</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">我的Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>问答</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<div id='black_div' style="position: fixed; width: 100%; height: 100%; background: #666; opacity:1;
+cursor: pointer; display:none;"></div>
+<include file='Public:left'/>
+<div class="yoymbox">
+    <div class="a_rside sbr" id="address" durl="{:U('user/service/delmessage')}" rurl="{:U('user/service/getnew')}" qurl="{:U('user/service/question')}">
+        <div class="rtit">
+            客服</div>
+        <div class="bdbox">
+            <ul class="mlst">
+                <li id="two1" onclick="news()" ><a href="javascript:void(0)">
+                        消息 </a></li>
+                <li class="" id="two2" onclick="message()"><a href="javascript:void(0)">在线留言
+                    </a></li> 
+            </ul>
+            <!--product news star-->
+            <present name="tab1" >
+	            <div style="display: block;" id="con_two_1">
+	                <form action="qa.html" method="post" id="frmQA">
+	                    <input type="hidden" id="IsSubmitNews" name="IsSubmitNews" value="0" />
+	                    <div class="message_box">
+	                        <div class="m_b_top">
+	                            <ul>
+	                                <li class="m_t_a">&nbsp;</li>
+	                                <li class="m_t_b">标题</li>
+	                                <li class="m_t_c">时间</li>
+	                                <li class="m_t_d">状态</li>
+	                            </ul>
+	                        </div>
+	                        <volist name="comment['list']" id="vo">
+	                        <div class="m_b_center">
+	                          
+	                            <ul>
+	                                <li class="m_c_a">
+	                                 <if condition="$vo.status == 0">
+	                                    <img id="Img_{$vo.id}" src='web/images/user/xinf_03.gif' width='19' height='12' border='0' />
+	                                 <else/>
+	                                    <img id="Img_2065" src='web/images/user/xinf_06.gif' width='19' height='12' border='0' />
+	                                 </if>
+	                                    </li>
+	                                <li class="m_c_b"><a id="Message_{$vo.id}" class='example8 cboxElement' title="Refer friends and win 1000CNY" href="javascript:void(0)" target="_self" onclick="ReadLetter({$vo.id})">
+	                                        {$vo.name}
+	                                    </a></li>
+	                                <li class="m_c_c">
+	                                        {$vo.ctime|date='Y/m/d H:i:s',###}
+	                                </li>
+	                                <li class="m_c_d" id="Status_2065">
+	                                    <if condition="$vo.status == 0">
+	                                    Unread
+	                                    <else/>
+	                                    Read
+	                                    </if>
+	                                </li>
+	                                <li class="m_c_e"><a title='Delete' id="DelMessage_{$vo.id}" style='cursor: pointer'>
+	                                        <img border='0' width='20' height='25' src='web/images/user/ljx.gif' >
+	                                    </a></li>
+	                            </ul>
+	                         
+	                         
+	                        </div>
+	                        </volist>
+	                        <notpresent name="comment['list']" >
+	                              没有消息
+	                        </notpresent>
+	                    </div>
+	                    <!--页面分页页码-->
+	
+	                    <div class="sy_b" style="width: 100%; margin-top: 80px;">	                    
+	                          {$comment.page}
+	                    </div>
+	
+	                </form>
+	            </div>
+	        <else/>
+	            <div style="display:block;" id="con_two_2">
+	            <volist name="res" id="vo" >
+		            <div class="message_hf">
+						<div class="YLogoDiv">
+						   <img width="64" height="64" border="0" alt="" src="{$vo.U_img}">
+							<span>
+							<b>Me:</b>
+							 {$vo.ctime|date="Y/m/d H:i:s",###}
+							</span>
+							<p style="word-wrap: break-word; break-word: break-all;">{$vo.content}  </p>
+						</div>
+				   
+						<if condition="$vo.reply_content eq true">
+						  <div class="YBLogoDiv">
+							   <img width="64" height="64" border="0" alt="" src="{$vo.A_img}">
+							   <div class="message_yoybuy"><h4>Lrise:</h4> 
+							      {$vo.reply_content}
+							   </div> 
+		                   </div>
+		                </if>
+					</div>
+	             </volist>       
+	                    <!--页面分页页码-->
+	                    <div class="sy_b" style="width: 100%; margin-top: 10px;">
+	                       {$page}
+	                        
+	                    </div>
+	                    <div class="message_text">
+	                        <form action="{:U('user/service/question')}" id="frmPost" method="post">
+	                        <input type="hidden" value="1" name="IsSubmit" id="IsSubmit">
+	                        <h3>
+	                            我的问题</h3>
+	                        <textarea maxlength="600" id="MyQuestion" name="MyQuestion" style="width: 620px;
+	                            height: 118px; float: left; border: #CCC solid 1px; font-family: Arial, Helvetica, sans-serif;
+	                            color: #666; font-size: 12px;"></textarea>
+	                        <a>
+	                            <img width="83" height="29" border="0" style="cursor: pointer" src="web/images/user/an_tj_05.gif"
+	                                onclick="Submit(1)"/></a>
+	                        </form>
+	                    </div>
+	            </div>
+	       </present>
+        </div>
+    </div>
+</div>
+</div>
+<div style="display: none" id="load">
+    <div id="inline_example1" style="background:white; width: 500px; float: left;">
+        <div class="add_address_m" id="LoadMessage">
+            Waiting... ...<br />
+            <img src="web/images/user/loading2.gif" />
+        </div>
+        <span  id="close_lm" class="close_hover">close</span>
+    </div>
+</div>
+
+<script type="text/javascript">
+   
+</script>
+<include file="tpl/foot.html"/>

@@ -1,0 +1,851 @@
+/**
+ * @title 基本样式 
+ * @author birdy
+ * @date  2012-03-10 
+*/
+@charset "utf-8";
+@import "public.css";
+/*-----------------------------------base-----------------------------------*/
+html
+{
+    font-family: Arial, Helvetica, sans-serif; /*verdana*/
+    font-size: 12px;
+    color: #555;
+    -webkit-text-size-adjust: none;
+    background: url(images/nav.gif) repeat-x 0 -14px #f2f2f2;
+    line-height: 18px;
+}
+body
+{
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+a
+{
+    color: #333;
+    text-decoration: none;
+}
+a:hover
+{
+    color: #F60;
+}
+input
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+li
+{
+    list-style: none;
+}
+img
+{
+    border: none;
+}
+.more
+{
+    float: right;
+    width: 40px;
+    height: 10px;
+    background: url(images/more.png) no-repeat top center;
+    text-indent: -99999px;
+    margin-top: 5px;
+}
+h2
+{
+    font-size: 14px;
+    margin: 0;
+}
+h4
+{
+    font-size: 14px;
+    margin: 0;
+}
+select
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+em
+{
+    font-style: normal;
+}
+
+/*-----------------------------------hear-----------------------------------*/
+.header
+{
+    width: 980px;
+    margin: 0 auto;
+}
+.logo
+{
+    width: 100%;
+    height: 104px;
+}
+.leftlogo
+{
+    width: 240px;
+    float: left;
+    height: 90px;
+    margin-top:0px;
+}
+.leftlogo span
+{
+    color: #FF9900;
+    float: left;
+    line-height: 20px;
+    margin-left: 10px;
+    width: 630px;
+}
+.leftlogo a
+{
+    float: left;
+    margin-top: 15px;
+}
+.centerlogo
+{
+    width: 300px;
+    height: 104px;
+    float: left;
+}
+.rightlogo
+{
+    width: 740px;
+    height: 104px;
+    float: left;
+}
+.logotop
+{
+  
+    width: 100%;
+    padding-left: 31px;
+    height: 35px;
+    float: right;
+}
+.logotop ul
+{
+    background: url(images/signBJb.png) repeat-x left top;
+    height: 35px;
+    width: auto;
+    float: right;
+}
+.logotop ul li
+{
+    float: left;
+    padding: 0 5px;
+    line-height: 20px;
+    margin-top: 5px;
+}
+.logotop ul li a
+{
+    /*float: left;*/
+    width: 100%;
+}
+.logorb
+{
+    width: auto;
+    float: right;
+    height: 45px;
+    margin-top: 10px;
+}
+.logorb dl
+{
+    float: left;
+}
+.acunt
+{
+    float: left;
+}
+.acunt dl dt
+{
+    background: url(images/account.png) no-repeat left top;
+    padding-left: 31px;
+    height: 45px;
+    cursor: pointer;
+}
+.cart dl dt
+{
+    background: url(images/carta.png) no-repeat left top;
+    padding-left: 39px;
+    height: 45px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+.acunt dl dt a
+{   
+    background: url("images/cart.png") repeat-x scroll left top transparent;
+    float: left;
+    font-size: 14px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    width: 121px;
+
+}
+.acunt dl dt span
+{
+    background: url(images/cartb.png) no-repeat right top;
+    height: 45px;
+    float: left;
+    padding-right: 6px;
+}
+.newmenu
+{
+    width: 100%;
+    height: 45px;
+    overflow: hidden;
+    float: left;
+}
+.Schmenu
+{
+    float: left;
+    width: 610px;
+    height: 100%;
+    overflow: hidden;
+}
+.Schmenu input
+{
+    border: 1px solid white;
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 5px;
+    margin-top: 8px;
+    padding-left: 2px;
+    width: 306px;
+}
+.xlinput
+{
+    height: 28px;
+    line-height: 28px;
+    border: white solid 1px;
+    background: url(images/sxl.png) right top no-repeat #FFF;
+    width: 200px;
+    float: left;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+.Schmenua
+{
+    margin-top:8px;
+    float: left;
+    cursor: pointer;
+}
+
+.hotsch
+{
+    width: 340px;
+    height: 100%;
+    line-height: 46px;
+    overflow: hidden;
+    color: #FFF;
+    float: right;
+    font-size: 14px;
+    font-weight: bold;
+}
+.hotsch span
+{
+    font-weight: 100;
+}
+.hotsch span a
+{
+    color: #fff;
+    cursor: pointer;
+}
+.hotsch span a:hover
+{
+    text-decoration: underline;
+}
+.newmenub
+{
+    width: 980px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.leftnm
+{
+    width: 180px;
+    padding-left: 10px;
+    height: 100%;
+    background: url(images/mbbja.png) repeat-x 0;
+    float: left;
+    overflow: hidden;
+}
+.leftnm a
+{
+    font-size: 14px;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+.leftnm a span
+{
+    float: left;
+    cursor: pointer;
+    color:#FFF;
+}
+.leftnm a img
+{
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.rihgtnm
+{
+    width: 777px;
+    height: 100%;
+    background: url(images/mbbjc.png) no-repeat right top;
+    float: left;
+    padding-right: 13px;
+}
+.rihgtnm ul
+{
+    width: 100%;
+    height: 100%;
+    background: url(images/mbbjb.png) repeat-x left top;
+    text-align: right;
+    float: left;
+}
+.rihgtnm ul li
+{
+    float: right;
+    padding: 0 10px;
+}
+ 
+.daohang
+{
+}
+.daohang span
+{
+    float: left;
+    margin-left: 10px;
+    color: #666;
+}
+.daohang em
+{
+    font-style: inherit;
+    float: left;
+    margin-left: 5px;
+    word-break: break-all;
+    width: 685px;
+    color: #4985ba;
+    text-align: left;
+}
+.daohang em b
+{
+    color: #333;
+}
+.helpleft
+{
+    margin-bottom: 0;
+}
+
+.righthelp
+{
+    width: 760px;
+    float: left;
+    height: auto;
+    background: #FFF;
+    margin-left: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.righthelp ul li
+{
+    width: auto;
+    height: auto;
+    float: left;
+    border-bottom: #CCC dotted 1px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+}
+.righthelp ul li a
+{
+    font-size: 14px;
+    color: #ff9900;
+    line-height: 30px;
+}
+.helpdate
+{
+    width: 100%;
+    float: left;
+    height: auto;
+    overflow: hidden;
+    border-bottom: #CCC dotted 1px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.helpdate h4
+{
+    color: #ff9900;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: #CCC dotted 1px;
+    margin-bottom: 10px;
+}
+.helpsc
+{
+    width: 168px;
+    padding: 0 10px;
+    background: url(images/helpscbj.png) left top repeat-x;
+    height: 76px;
+    float: left;
+    margin-top: 10px;
+    border: #CCC solid 1px;
+}
+.helpsc h2
+{
+    line-height: 40px;
+    width: 100%;
+    height: 40px;
+    float: left;
+}
+.helpsc span
+{
+    width: 100%;
+    float: left;
+}
+.helpsc span input
+{
+    width: 125px;
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    margin-right: 5px;
+    padding: 1px 2px;
+}
+.helpsc span a
+{
+    float: left;
+}
+.helpmenu dt
+{
+    background: #FFF;
+    border-top: #CCC solid 1px;
+    border-left: #CCC solid 1px;
+    border-right: #CCC solid 1px;
+    height: 20px;
+    position: relative;
+    margin: 0 -12px;
+    width: 59px;
+    z-index: 103;
+    display: block;
+    text-align: center;
+    border-radius: 4px 4px 0px 0px;
+    display: block;
+}
+.toolmenu dt
+{
+    background: #FFF;
+    border-top: #CCC solid 1px;
+    border-left: #CCC solid 1px;
+    border-right: #CCC solid 1px;
+    height: 20px;
+    position: relative;
+    margin: 0 -12px;
+    width: 56px;
+    z-index: 103;
+    display: block;
+    text-align: center;
+    border-radius: 4px 4px 0px 0px;
+    display: block;
+}
+.tophelp
+{
+    position: absolute;
+    display: block;
+    top: 25px;
+    background: #FFF;
+    width: 142px;
+    height: auto;
+    border: #CCC solid 1px;
+    z-index: 0;
+    box-shadow: 0px 1px 5px 0px #ccc;
+    float: left;
+    top: 25px;
+    margin-left: -95px;
+    display: none;
+}
+.tophelp span
+{
+    width: 120px;
+    padding: 0 10px;
+    border-bottom: #CCC dotted 1px;
+    line-height: 30px;
+    float: left;
+}
+.tophelp span a
+{
+    color: #1f8ae8;
+    float: left;
+    text-align: left;
+}
+.tophelp span a:hover
+{
+    text-decoration: underline;
+}
+.acctc
+{
+    width: 180px;
+    height: auto;
+    padding: 10px;
+    background: #FFF;
+    overflow: hidden;
+    border: #CCC solid 1px;
+    position: absolute;
+    margin-left: -162px;
+    float: left;
+    margin-bottom: -100px;
+    margin-top: -1px;
+    box-shadow: 0px 1px 5px 0px #999;
+    z-index: 2;
+    display: none;
+}
+.acctc b
+{
+    width: 100%;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: #CCC dotted 1px;
+    font-size:14px;
+}
+.acctc b img
+{
+    margin-right: 5px;
+    float: left;
+    margin-top: 7px;
+}
+.acctc b a
+{
+    float: left;
+}
+.acctc ul
+{
+    float: left;
+    margin-bottom: 5px;
+}
+.acctc ul li
+{
+    list-style: url(images/xst.png) inside;
+    line-height: 24px;
+    width: 107%;
+}
+.acctc ul li a
+{
+    color: #1F8AEA;
+}
+.acctc ul li a:hover
+{
+    text-decoration: underline;
+}
+.acuntmove dl dt
+{
+    background: url(images/accountb.png) no-repeat 2px 1px #FFF;
+    position: relative;
+    z-index: 200;
+    border-top: #CCC solid 1px;
+    border-left: #CCC solid 1px;
+    border-right: #CCC solid 1px;
+    border-radius: 4px 4px 0px 0px;
+    height: 40px;
+    margin-left: -120px;
+    margin-top: -1px;
+    margin-right: -1px;
+}
+.acuntmove dl dt a
+{
+    background: #FFF;
+}
+.acuntmove dl dt span
+{
+    background: #FFF;
+}
+.cartmove
+{
+    width: 380px;
+    padding: 0 10px;
+    background: #FFF;
+    position: absolute;
+    margin-bottom: -100px;
+    margin-left: -214px;
+    margin-top: -1px;
+    border: #CCC solid 1px;
+    float: left;
+    box-shadow: 0px 1px 5px 0px #999;
+}
+.dgxx
+{
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    padding: 10px 0;
+    float: left;
+    border-bottom: #CCC dotted 1px;
+}
+.dgxx dl
+{
+    float: left;
+}
+.cart .dgxx dl dt
+{
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin-right: 10px;
+    background: none;
+    overflow:hidden;
+}
+.dgxx dl dt a
+{
+    width: 58px;
+    height: 58px;
+    border: #CCC solid 1px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.dgxx dl dt a img
+{
+    width: 58px;
+}
+.dgxx dl dd
+{
+    width: 222px;
+    height: 60px;
+    float: left;
+    margin-right: 10px;
+}
+.dgxx dl dd h4
+{
+    height: 40px;
+    line-height: 18px;
+    font-weight: 100;
+    word-break: break-all;
+    font-size:12px;
+    overflow:hidden;
+}
+.dgxx dl dd span
+{
+    height: 20px;
+    margin-right: 10px;
+    font-size: 12px;
+}
+.dgxx dl dd span em
+{
+    color: #F60;
+}
+.deleat
+{
+    float: right;
+    cursor: pointer;
+    width: 70px;
+    height: 28px;
+    margin-top: 15px;
+}
+.movecart {
+    margin-left: -1px;
+}
+
+.movecart dl dt
+{
+    background: url(images/cartab.png) 2px 3px #FFF;
+    border:#CCC solid 1px;
+	border-bottom:none;
+	position:relative;
+	z-index:200;
+	display:block;
+	height:46px;
+	border-radius: 4px 4px 0px 0px;
+	padding:0 -1px;
+    margin-top: -1px;
+    margin-right: -1px;
+}
+.movecart dl dt a
+{
+    background: #FFF;
+    padding-left: -1px;
+}
+.movecart dl dt span
+{
+    background: #FFF;
+}
+.carttol
+{
+    width: 100%;
+    line-height: 37px;
+    height: 37px;
+    overflow: hidden;
+    float: left;
+}
+.carttol span
+{
+    float: left;
+    font-size: 16px;
+    color: #F00;
+    font-weight:bold;
+}
+.carttol a
+{
+    float: right;
+    color: #1F8AEA;
+    font-size: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+}
+.carttol a:hover
+{
+    text-decoration: underline;
+}
+.lxss_box
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #999999;
+    float: left;
+    height: auto;
+    width: 400px;
+    z-index: 1100;
+    position: absolute;
+    left: 140.5px;
+    top: 125px;
+    display: none;
+}
+.lxss_box b
+{
+    background: url("images/lxssbj_03.jpg") repeat-x scroll 0 50% transparent;
+    border-bottom: 1px solid #CCCCCC;
+    float: left;
+    font-size: 11px;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 10px;
+    width: 380px;
+}
+.xlinput dl
+{
+    float: left;
+}
+.xlinput dl dt
+{
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    overflow: hidden;
+    padding: 0 10px;
+    width: 162px;
+}
+.xlinput dl dd
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    height: 200px;
+    margin-top: 28px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0 5px 0px;
+    position: absolute;
+    width: 188px;
+    z-index: 100;
+    *margin-left:-172px;
+}
+.xlinput dl dd span
+{
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    width: 160px;
+    margin-left:5px;
+}
+.xlinput dl dd span:hover
+{
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    width: 160px;
+    margin-left:5px;
+    background:#F9F9F9;
+}
+.lxss_box ul li {
+    float: left;
+    line-height: 25px;
+    width: 400px;
+}
+.lxss_box ul li a {
+    float: left;
+    height: 25px;
+    padding: 0 10px;
+    width: 380px;
+}
+.lxss_box ul li a:hover{
+    background:#F1F1F1;
+}
+/*-----------------------------------footer-----------------------------------*/
+
+.footerBottom {
+   width:100%;
+	height:130px;
+	background:#484848;
+	overflow:hidden;
+}
+.footfs {
+    clear: both;
+    margin: 0 auto;
+    width: 980px;
+}
+.footLogo {
+    float: left;
+    height: 100px;
+    width: 200px;
+    margin-top: 20px;
+}
+.footer {
+    clear: both;
+    height: auto;
+    width: 100%;
+}
+.footLogo img {
+    margin-top: 20px;
+}
+.bottomfoot {
+    float: left;
+    margin-top: 35px;
+    width: 700px;
+}
+.bottomfoot span {
+    color: #FFFFFF;
+    float: left;
+    height: 25px;
+    overflow: hidden;
+    width: 100%;
+}
+.bottomfoot span a {
+    color: #FFFFFF;
+    float: left;
+    padding: 0 5px;
+}
+.bottomfoot p {
+    color: #FFFFFF;
+    float: left;
+    margin-top:4px;
+    width: 600px;
+}
+
+#share a span{
+	font-size:12px;
+}
+

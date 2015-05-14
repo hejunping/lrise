@@ -1,0 +1,147 @@
+<include file="Public:head" />
+<style type="text/css">
+    .user_box_li {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+        float: left;
+        width: 120px;
+        height: 26px;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        setbg();
+        $("li.user_box_li :checkbox").change(function()
+        {
+            checkParent($(this).parent().parent().parent());
+            $(this).attr("hook",1);
+            setbg();
+        });
+	
+        $("#selectAll").click(function()
+        {	
+            $("form :checkbox").attr("checked",true);
+            setbg();
+        });
+        $("#uncheckAll").click(function()
+        {	
+            $("form :checkbox").attr("checked",false);
+            setbg();
+        });
+        $("#opposite").click(function()
+        {	
+            $("form :checkbox").each(function()
+            {
+                $(this).attr("checked")?$(this).attr("checked",false):$(this).attr("checked",true);
+            });
+            setbg();
+        });	
+    
+        $(".checkAll").click(function(){
+            if($(this).attr("checked"))
+            {
+                $(this).parent().nextAll().find(':checkbox').attr({checked:true,hook:1});
+                setbg();	
+            } else {
+                $(this).parent().nextAll().find(':checkbox').attr({checked:false,hook:0});
+                setbg();
+            }
+        });
+        
+        $('ul.ulli').each(function(){
+           $(this).find('li.user_box_li').eq(0).find(':checkbox').change(); 
+        });
+    });
+    
+    function checkParent(o)
+    {
+        var len = $(o).find('li.user_box_li :checkbox').length;
+        var len2 = $(o).find('li.user_box_li :checkbox:checked').length;
+        if(len == len2) $(o).find('.checkAll').attr('checked',true);
+        else $(o).find('.checkAll').removeAttr('checked');
+    }
+</script>
+<style type="text/css">
+    .user_box_li label{color:#666666;}
+</style>
+<div class="so_main">
+    <div class="page_tit">
+        <eq name="action" value="add">添加权限组<else/>编辑权限组</eq>
+    </div>
+    <div class="Toolbar_inbox">
+        <a href="javascript:void(0);" class="btn_a"  id="selectAll" ><span>全选</span></a>
+        <a href="javascript:void(0);" class="btn_a"  id="uncheckAll" ><span>全不选</span></a>
+        <a href="javascript:void(0);" class="btn_a"  id="opposite" ><span>反选</span></a>
+        <a href="{:U('AdminGroup/index')}" class="btn_a"  id="back"><span>返回</span></a>
+    </div>
+    <div class="list">
+        <eq name="action" value="add">
+        <form id="form1" name="form1" method="post" action="{:U('AdminGroup/add')}" >
+            <else/>
+            <form id="form1" name="form1" method="post" action="{:U('AdminGroup/edit',array('id'=>$_GET['id']))}" >
+                </eq>
+
+                <input type="hidden" value="{$list['groupid']}" name="groupid"/>
+                <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF">
+                    <tr>
+                        <td width="10%">分组名：<span class='red'>*</span></td>
+                        <td width="90%"><input type="text" name="groupname" id="groupname" value="{$group.groupname}"/></td>
+                    </tr>
+                    <tr>
+                        <td>排序：</td>
+                        <td>
+                            <input type="text" name="orders" id="orders" value="{$group.orders}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>备注说明： </td>
+                        <td>
+                            <textarea name="intro" id='intro' style='width:60%;height:65px;overflow:auto;color:#444444;'>{$group.intro}</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>状态设置：</td>
+                        <td>
+                            <input type="radio" name="status" value="1" <eq name="group.status" value="1">checked="checked"</eq> >正常
+                            <input type="radio" name="status" value="1" <eq name="group.status" value="0">checked="checked"</eq> >禁用
+                        </td>
+                    </tr>
+                </table>
+
+                <volist name="auths" id="vo">
+
+                    <table width="100%" border="0" cellpadding="4" cellspacing="0" bgcolor="#FFFFFF"  >
+                        <tr>
+                            <td height="25" bgcolor="#FFFFFF" style="border-bottom:1px #CCCCCC dashed;padding-left:20px;"><strong>{$vo.name}：</strong></td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#FFFFFF" style="padding-left:14px;">
+                                <ul style="margin:0px; padding:3px; list-style:none" class="ulli">
+                                    <li>
+                                        <input type="checkbox" class="checkAll" /> 全选/取消
+                                    </li>	
+                                    <volist name="vo.child" id="child">  
+                                        <li class="user_box_li">
+                                            <label><input name="purview[]" type="checkbox" value="{$child.id}" <if condition="in_array($child['id'],$group['purview'])">checked="checked"</if> />{$child.name}</label>
+                                        </li>
+                                    </volist>
+                                    <li class="clear" style="list-style:none; display:none"></li>
+                                </ul>	
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </volist>
+                <div class="page_btm">
+                    <input type="submit" class="btn_b" value="提交" />
+                    <input type="reset" class="btn_b" value="重填" click="setbg()"/>
+                    <input type="button" class="btn_b" value="返回" onclick="back()"/>
+                </div>
+            </form>
+    </div>
+</div>
+<include file="Public:tips" />
+<include file="Public:foot" /> 

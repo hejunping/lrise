@@ -1,0 +1,208 @@
+<include file='tpl/head.html'/>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">Home</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">My Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>My Parcels</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />
+<div class="a_rside sbr">
+    <div class="rtit">
+        My Delivery Cart</div>
+    <div class="delivery"   >
+        <div class="history_T">
+            Search by Date:
+        </div>
+<!--        <div class="search">-->
+<!--          <form action="/en/myparcels" id="crForm" name="crForm"-->
+<!--                method="get">-->
+<!--            <div class="search_a">-->
+<!--                <span>Start</span> -->
+<!--                <input type="text" class="s_a" name="crStartDateTimeT" id="crStartDateTimeT" value="" />-->
+<!--            </div>-->
+<!--            <div class="search_a">-->
+<!--                <span>End</span> -->
+<!--                <input type="text" class="s_a" name="crEndDateTimeT" id="crEndDateTimeT" value="" />-->
+<!--            </div>-->
+<!--          -->
+<!--            <input type="hidden" name="tab" id="tab" value="cr" />-->
+<!--            <div class="s_d">-->
+<!--               -->
+<!--                <a href="javascript:void('submit');" onclick="crsobmit();">-->
+<!--                    <img height="22" border="0" width="53" src="web/images/user/h_search_03.gif"></a>-->
+<!--            </div>-->
+<!--            </form>-->
+<!--        </div>-->
+        <div class="delivery_b">
+            <div class="delivery_b_a">
+                <div class="delivery_b_a_a">
+                    <ul>
+                        <li>
+                            Parcel No.</li>
+                    </ul>
+                </div>
+                <div class="delivery_b_a_b">
+                    <ul>
+                        <li>
+                            Time
+                        </li>
+                    </ul>
+                </div>
+                <div class="delivery_b_a_f">
+                    <ul>
+                        <li>
+                            Tracking No.</li>
+                    </ul>
+                </div>
+                <div class="delivery_b_a_c">
+                    <ul>
+                        <li>
+                            Recipient</li>
+                    </ul>
+                </div>
+                <div class="delivery_b_a_d">
+                    <ul>
+                        <li>
+                            WT(Kg)</li>
+                    </ul>
+                </div>
+                <div class="delivery_b_a_e">
+                    <ul>
+                        <li>
+                            Status</li>
+                    </ul>
+                </div>
+                <div class="delivery_b_a_g">
+                    <ul>
+                        <li>
+                            Options</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+     
+  <volist name="res" id="vo">   
+       <div class="delivery_d">
+            <div class="delivery_b_a">
+                <div class="delivery_b_a_a">
+                    <ul><li> {$vo.id}</li></ul>
+                </div>
+                <div class="delivery_b_a_b">
+                    <ul><li>{$vo.utime||date="y/m/d H:i:s",###}</li> </ul>
+                </div>
+                <div class="delivery_b_a_f">
+                    <ul><li> {$vo.wl.trackingno}</li></ul>
+                </div>
+                <div class="delivery_b_a_c">
+                    <ul><li>{$vo.wl.Recipient}</li></ul>
+                </div>
+                <div class="delivery_b_a_d">
+                    <ul><li> {$vo.wl.weight}</li></ul>
+                </div>
+                <div class="delivery_b_a_e">
+                    <ul>  <li id="status{$vo.id}"> 
+                         <switch name="vo.status">
+                          <case value="0">Await Payment</case>
+                          <case value="1">Already pay</case>
+                          <case value="2">In process </case>
+                          <case value="3">Already delivery </case>
+                          <case value="4">Arrived </case>
+                          <case value="5">Storage </case>
+                          <case value="6">Wait pay postage</case>
+                          <case value="7">Await Payment</case>
+                          <case value="8">Package sent </case>
+                          <case value="9">Confirm harvest  </case>
+                          <case value="10">Evaluation  </case>
+                          <case value="11">Complete  </case>
+                          <case value="12">Give up  </case>
+                          <case value="13">Refund</case>
+                          <case value="14">Refund successful </case>
+                          <case value="15">Trading closed </case>
+                          <default />State error 
+                          </switch>
+
+                    </li> </ul>
+                </div>
+                <div class="delivery_b_a_g">
+                    <ul>  <li> <span id="statuepay{$vo.id}">
+                         <switch name="vo.status">
+                          <case value="6"><a href="javascript:payPostage({$vo.id});">Pay postage</a>|</case>
+                          <case value="8"><a href="javascript:isReceipt({$vo.id});">Confirmation of receipt </a>|</case>
+                          <case value="9"><a href="javascript:evaluation({$vo.id});">Evaluation </a> |</case>
+                         
+                          </switch>
+                          </span> 
+                         
+                          <a href="javascript:Refund({$vo.id})">Refund </a>
+                          
+                   </li> </ul>
+                   <input type="hidden" id="wkf{$vo.id}" name="wk" value="{$vo.wl.price|_usaprice}" />
+                   <input type="hidden" id="wkfs{$vo.id}" name="wk" value="{$vo.wl.price}" />
+                </div>
+            </div>
+        </div>
+     </volist>  
+        
+        <div class="fy">
+            <div class="fy_b_a">
+                  {$page}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div  class="advisors" id="advisors" rfurls="{:U('home/ajax/refund')}"   iurl="{:U('user/order/parcels')}"  payPosurl="{:U('home/ajax/payPostages')}" isReceipt="{:U('home/ajax/isReceipt')}" evalu="{:U('home/ajax/evalu')}">
+    <div class="mbox_c" style="margin-left: 300px;">
+        <div class="closebox_b">
+            <span id="spanclosenew" style="cursor: pointer" onclick="javaScript:CloseShow('advisors');">Close</span>
+        </div>
+        <div style="color: #666; border: #ccc solid 1px; float: left; padding: 10px; margin-top: 10px; margin-bottom: 20px; background: #f9f9f9; display: none" id="msgTip">
+        </div>
+        <div id="resaultinfo">
+           <div class="tis_b">
+              <h3 id="meginfo" style="height: 70px;">
+              <img id="" border="0" alt="" src="web/images/user/loadingb.gif"> 
+              </h3>
+            </div>
+        </div>
+        <div class="tis_b_mneu">
+             <a href="javascript:payPostages();" id="istrue">Pay postage</a> 
+        </div>
+    </div>
+</div>
+<div style="height: 60px; color: White">
+    ioder</div>
+<div style="display: none"  >
+    <span>Waiting... ...<br />
+        <img alt="" src=' loading2.gif' /></span>
+</div>
+<div class="sendM" id="MsgDiv" title="Message" style="display: none">
+    <span id="messageBody"></span><span id="Tishi2"></span><span id="inputinfo"></span>
+    <input type="hidden" id="orderIdhidden" /><input type="hidden" id="messageId" />
+    <div style="clear: both;">
+    </div>
+</div>
+<div style="display: none">
+    <div style="background: #fff; width: 500px; float: left; height: 500px;" id="inline_example1">
+        <div class="view">
+            <h4>
+                Feedback Details</h4>
+            <img src="/Content/Images/MyOrder/loading2.gif" />
+        </div>
+    </div>
+</div>
+
+<div class="receivingCon" id="Confure" title="Congratulations">
+    Congratulations, you receive the goods For this shop, you get points for the: <span
+        id="integal"></span>Immediately re-evaluation can also receive bonus points
+    ~ Please help us get better
+</div>
+ 
+<div class="sjjd" id="blk" style="display: none;">
+    <div style='text-align: center; width: 100%;'>
+        <img src=' /loadingb.gif' />
+     </div>
+</div>
+
+
+<include file="tpl/foot.html"/>

@@ -1,0 +1,9 @@
+<span>
+    <volist name="res" id="vo" key="k">
+    <if condition="count($res) eq $k">
+    <a href="{:U('home/info/index?id='.$vo['id'])}">{$vo.name}</a> 
+    <else/>
+    <a href="{:U('home/info/index?id='.$vo['id'])}">{$vo.name}</a> <a>|</a> 
+    </if>
+    </volist>
+</span>

@@ -1,0 +1,41 @@
+.footer {
+    clear: both;
+    height: auto;
+    width: 100%;
+}
+.footerBottom {
+    clear: both;
+    background: none repeat scroll 0 0 #484848;
+    height: 120px;
+    overflow: hidden;
+    width: 100%;
+}
+.footfs {
+    clear: both;
+    margin: 0 auto;
+    width: 980px;
+}
+.footLogo {
+    float: left;
+    height: 100px;
+    width: 200px;
+}
+.footLogo img {
+    margin-top: 0px;
+}
+.bottomfoot {
+    float: left;
+    margin-top: 30px;
+    width: 600px;
+}
+.bottomfoot span a {
+    color: #FFFFFF;
+    float: left;
+    padding: 0 5px;
+}
+.bottomfoot p {
+    color: #FFFFFF;
+    float: left;
+    margin-top: 10px;
+    width: 600px;
+}

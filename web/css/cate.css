@@ -1,0 +1,144 @@
+.leftfl
+{
+    background: none repeat scroll 0 0 #FFFEEE;
+    border-bottom: 1px solid #FEA302;
+    border-left: 1px solid #FEA302;
+    border-right: 1px solid #FEA302;
+    height: 493px;
+    width: 188px;
+}
+.flxl
+{
+    float: left;
+    margin-left: -10px;
+    margin-top: 40px;
+    *margin-left:-190px;
+    position: absolute;
+    z-index: 1000;
+}
+.leftfl ul li
+{
+    cursor: pointer;
+    float: left;
+    height: 34px;
+    line-height: 34px;
+}
+
+.fltc li a:link
+{
+	color:#1F8AEA;
+}
+
+.fltc li a:visited
+{
+	color:#1F8AEA;
+}
+
+.fltc li a:hover
+{
+	color:#FF7D00;
+}
+
+.fltc li
+{
+	padding-left:5px;
+	border-bottom:1px dotted #CCC;
+	width:290px;
+}
+.leftfl ul li a {
+    float: left;
+    overflow: hidden;
+    width: 166px;
+}
+.leftfl ul li span {
+    float: left;
+}
+.leftfl ul li span img {
+    margin-top: 10px;
+}
+.flname
+{
+    border-top: 1px dotted #BEBEBE;
+    cursor: pointer;
+    float: left;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 5px;
+    width: 178px;
+}
+
+.flxl ul li a
+{
+    font-size: 12px;
+    font-weight: 100;
+}
+.fltc
+{
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #FFA304;
+    border-right: 1px solid #FFA304;
+    border-style: solid;
+    border-width: 1px 1px 1px;
+    box-shadow: 1px 1px 5px 1px #CCCCCC;
+    display: none;
+    float: left;
+    height: auto;
+    margin-left: 183px;
+    position: absolute;
+    width: 300px;
+    z-index: 100;
+    *margin-left:5px;
+    margin-top:-1px;
+}
+.fltcb li
+{
+    border-bottom: 1px dotted #CCCCCC;
+    float: left;
+    height: 32px;
+    overflow: hidden;
+    padding: 0 5px;
+    width: 290px;
+}
+
+.fltcb li a
+{
+    float: left;
+    height: 32px;
+    overflow: hidden;
+    width: 166px;
+    color:#1F8AEA;
+}
+.fltcb li a:hover
+{
+    float: left;
+    height: 32px;
+    overflow: hidden;
+    width: 166px;
+    color:#F90;
+    text-decoration:underline;
+}
+.subdj
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    position: relative;
+    width: 192px;
+    z-index: 200;
+}
+.flmove
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #FFA304;
+    border-top: 1px solid #FFA304;
+    height: 32px;
+    margin: -1px -5px -1px 0;
+    padding-left: 5px;
+    position: relative;
+    width: 191px;
+}
+

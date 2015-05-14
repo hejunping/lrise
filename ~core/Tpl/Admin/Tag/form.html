@@ -1,0 +1,29 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit f14">
+		<gt name="item.id" value="0">编辑<else/>添加</gt>标签 - 
+		<a href="{:U('admin/tag/index')}" class="cBlue f14">返回列表</a>
+	</div>
+	<div class="form2">
+	<form method="post" action="{:U('admin/tag/form')}" enctype="multipart/form-data">
+		{:dp_input('name',$item['name'],'标签名称','标签帐号不能空')}
+		{:dp_input('hot',$item['hot'],'总热度','1亿以内的数字')}
+		{:dp_input('count_song',$item['count_song'],'单曲数')}
+		{:dp_input('count_album',$item['count_album'],'专辑数')}
+		{:dp_input('count_singer',$item['count_singer'],'歌手数')}
+		{:dp_input('count_user',$item['count_user'],'用户数')}
+		{:dp_input('pic',$item['pic'],'标签图片','image','file','text h20')}
+		{:dp_textarea('info',$item['info'],'标签详情','','','text w500 h100')}
+    	<div class="page_btm">
+      		<input type="submit" class="btn_b" value="提交" />
+      		<gt name='item.id' value='0'><input name="id" type="hidden" value="{$item.id}"></gt>
+    	</div>
+	</form>
+</div>
+<script type="text/javascript">
+var vars_tpl = '';
+$(function(){
+	form_chg();
+});
+</script>
+<include file="Public:foot" />

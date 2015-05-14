@@ -1,0 +1,147 @@
+<div class='pTop wwrap'>
+	<div class='w980 txtL' > 
+		<ul class='table fL lt'>
+			<li>您好，欢迎来到{:getOption('website','website_name','赶圩网')}，让您购物无忧！</li>
+			<present name='uinfo'>
+			<li><a href="{:U('user/index/index')}" class='cRed username' username='{$uinfo.account}'>{$uinfo.account}</a></li>
+			<li><a href="{:U('home/user/logout')}">退出登录</a></li>
+			<else/>
+			<li><a href="{:U('home/user/login')}" class='logreg'>[登录]</a></li>
+			<li><a href="{:U('home/user/reg')}" class='logreg'>[免费注册]</a></li>
+			</present>
+		</ul>
+		
+		<ul class='table fR rt txtL'>
+			<li>
+			</li>
+			<li class="txtL w100 ">
+			<div class="shops pAbs txtL fL " >
+				<div class=" shoptops  txtC pRel hs20 w100"  url="{:U('user/shopcat/indexshop')}" deleurl="{:U('user/shopcat/shoudele')}"  shuaurl="{:U('user/shopcat/shuacount')}" user="{:U('user/shopcat/index')}"> 
+				    <span class=" fR   hs20" >购物车<span class="mL5 mR5 cRed bold shuacount"><present name='uinfo'>{$s|shopCount}<else/>0</present></span>个</span>
+				     <span class='fR mR5  card'></span>
+				</div>
+				<present name='uinfo'>
+				<div class="pAbs showshops bd w300 txtL hide"  >
+			        <span class="ca10000">  加载中…………  </span>
+				</div>
+				</present>
+				<div class='clear'></div>
+		   </div>
+			</li>
+			<li>
+			<span class='  mR cGray'>|</span>
+				<a class='' href="{:U('home/info/help')}">帮助中心</a><span class='mL mR cGray'>|</span>
+			</li>
+			<li class="addfav" iname="赶圩网" url="{$servername}"><a href="#">加为收藏</a></li>
+		</ul>
+		
+	<div class='clear'></div>
+	</div>
+
+</div>
+
+<style type="text/css">
+.float_list_ul {
+padding: 8px 10px;
+border: 1px solid #ddd;
+border-top:0;
+background-color: white;
+line-height: 1.7;
+}
+.ons{
+ border-top:1px solid #dddddd;
+ border-right:1px solid #dddddd;
+ border-left:1px solid #dddddd;
+ border-bottom:1px solid #f4f4f4;
+ background-color: #F4F4F4;
+ height: 26px;
+}
+.showshops{
+ background-color: #F4F4F4;
+ margin-top: -2px;
+ z-index:300000;
+}
+.shoptops{
+ z-index:400000;
+}
+.shops{
+ z-index: 20000;
+
+ }
+</style>
+
+<script type='text/javascript'>
+$(function(){
+	$('.shops').hover(function(){
+		var username = $('.username').attr('username');
+		if(username!=undefined){
+		 	shopcart(this,'.showshops',2);
+		 	$('.shoptops').addClass('ons');
+		 	$('.showshops').removeClass('hide');
+		}
+	},function(){
+		 $('.shoptops').removeClass('ons');
+		 $('.showshops').addClass('hide');
+	});
+
+	$('.addfav').click(function(){
+	        addfov();
+	});
+	$('.account').click(function(){
+		SetHome();
+    });
+});
+
+function shopcart(obj,div,cou){
+	//alert('ddd')
+	var url = $('.shoptops').attr('url');
+	var user=$('.shoptops').attr('user');
+	var html='';
+    $.get(url,{cou:cou},function(data){
+    	var href="{:U('prod/'.$item['id'].'/index')}";
+    	 if(data.uid!=0){ 
+    		if(data.counts!=0){
+    			html+='<span class="fw6 mL fL w300 mT">最近加入购物车的宝贝：</span>';
+    			html+='<div class="clear"></div>';
+    			for (key in data.rue ) {
+	    			html+='<div class="mT5 w300 shang2">';
+	    			html+='   <div class="mL fL mT5 h40 w40 ">';
+	      			html+='     <a href="{:U("prod/'+data.rue[key].id+'/index")}"> <img class="imgs w40 h40" onerror="this.src=\'images/nothing.gif\'" src="'+data.rue[key].info.pic+'"></a>';
+	    			html+='    </div>';
+	    			html+='    <div class="h40 mL l20 mT5 w175 fL">';
+	      			html+='       <a href="{:U("prod/'+data.rue[key].id+'/index")}"><span class="fL h20 w175 oF" >'+data.rue[key].info.name+'</span></a><br/>';
+	    			html+='       <span class="fL h20 w175 oF c808080 vars">'+data.rue[key].info.vars+'</span>';
+	    			html+='    </div>';
+	    			html+='    <div class="h40 l20  mT5 fL w50">';
+	    			html+='       <span class="ca10000 fR">￥<span class="price">'+data.rue[key].info.price+'</span></span><br/>';
+	    			html+='       <span class="fR curP" onclick="delet('+data.rue[key].id+')"> 删除 </span>';
+	    			html+='    </div>'; 
+	    			html+='<div class="clear"></div></div>';
+	    			html+='<div class="clear"></div>';
+    			}
+    			var countss=data.counts-cou;
+    			html+='<div class="mT fR mR mB w150">';
+    			if(countss>0){
+    			   html+='    <span class="fw6 fR">购物车还有 <span class="ca10000 count"> '+countss+' </span> 件宝贝</span><br/>';
+    			}
+    			html+='    <a class="fR" href="{:U("user/shopcat/index")}"><span class="fR mT5 bgimg"> </span></a>';
+    			html+='</div>';
+    		 }else if(data.counts==0){
+        		 
+    			 html+='<div class="mT5 fR mR mB ">';
+    			 html+='   <span class="ca10000 fL mT mR20 mL20">你的购物车还没有任何宝贝</span>';
+    			 html+='   <a href="{:U("user/shopcat/index")}"><span class="fR mT5 bgimg"> </span></a>';
+    			 html+='</div>';
+    		 }
+    		$('.showshops').empty();
+    		$('.showshops').html(html);
+    	  }else{
+    		  layer_alert("数据加载失败！");
+    		  $('.showshops').addClass('hide');
+    		  $(obj).removeClass('ons');
+    	   }
+    	  
+      },"json");
+    
+}
+</script>

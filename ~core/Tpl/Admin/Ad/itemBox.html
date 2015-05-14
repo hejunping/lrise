@@ -1,0 +1,55 @@
+<div id="itemBox" class="uploadBox hide">
+    <form>
+        <ul class="table">
+            <li class="w120 txtR">容器背景颜色：</li>
+            <li>
+                <input type="text" name="item[bg_color]" value="#FF0000" class="w70 h20 txtC bg_color"/>
+                <span class="cGray">留空为透明底</span>
+            </li>
+        </ul>
+        <ul class="table autoH">
+            <li class="w120 txtR">容器背景：</li>
+            <li class="w300">
+                <div class="fL pRel" style="width:55px;height:55px;">
+                    <img class="pAbs preview" src="images/preview.png" width="55" height="55" style="z-index:999;top:0;left:0;"/>
+                    <a class="uploadBtn" id="uBtn3"></a>
+                </div>
+                <span class="bd h20 iblock fL" style="padding:1px 4px;margin-left:5px;">
+                    背景位置：<input type="radio" name="item[bg_image_pos]" value="left top" class="bg_image_position" checked="checked" /> 居左
+                    <input type="radio" name="item[bg_image_pos]" value="50% top" class="bg_image_position"/> 居中
+                    <input type="radio" name="item[bg_image_pos]" value="right top" class="bg_image_position"/> 居右
+                </span>
+                <a href="javascript:void(0);" class="bd h20 fL delBtn" style="padding:1px 4px;margin:5px 5px 0 5px;">删除背景</a>
+                <span class="bd h20 iblock fL" style="padding:1px 4px;margin:5px 5px 0 5px;">
+                    背景：<input type="checkbox" class="bg_image_repeat" name="item[bg_image_repeat]" value="repeat"/> 重复
+                </span>
+                <input type="hidden" name="item[bg_image_url]" class="imageValue"/>
+            </li>
+        </ul>
+        <ul class="table">
+            <li class="w120 txtR">容器大小：</li>
+            <li>
+                长：<input type="text" name="item[width]" class="w50 h20 txtC box_width" value="500"/> px × 
+                高：<input type="text" name="item[height]" class="w50 h20 txtC box_height" value="300"/> px
+            </li>
+        </ul>
+    <ul class="table">
+        <li class="w120 txtR">容器位置：</li>
+        <li>
+            X：<input type="text" name="item[left]" class="w50 h20 txtC box_left" value="0"/>  &nbsp;&nbsp;
+            Y：<input type="text" name="item[top]" class="w50 h20 txtC box_top" value="0"/> &nbsp;&nbsp;
+            层级：<input type="text" name="item[z-index]" class="w50 h20 txtC box_z-index" value="10" />
+        </li>
+    </ul>
+    <ul class="table">
+        <li class="w120 txtR">附加链接：</li>
+        <li><input type="text" name="item[link]" class="text h20 w300"/></li>
+    </ul>
+    <ul class="table autoH">
+        <li class="w120 txtR">容器内容：</li>
+        <li>
+            <textarea name="item[html]" class="text w300 h100 box_html"></textarea>
+        </li>
+    </ul>
+    </form>
+</div>

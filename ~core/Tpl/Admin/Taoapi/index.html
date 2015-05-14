@@ -1,0 +1,75 @@
+<include file="Public:head" />
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#quanxuan").click(function(){
+		var flag = $("#quanxuan").attr("checked");
+		if(flag=="checked"){
+			$("input[name='xuans']").attr("checked",true);
+			}else{
+				$("input[name='xuans']").attr('checked',false);
+			}
+	})
+	
+})	
+function shanx(){
+		var arr=new Array();
+	    var arrChk=$("input[name='xuans']:checked");
+	     for (var i=0;i<arrChk.length;i++)
+	    {
+	    	arr[i]=arrChk[i].value;
+	    	
+	    }
+		$("#arra").val(arr);
+}
+</script>
+<div class="so_main">
+	<div class="page_tit">
+        淘宝数据采集
+    </div>
+  	<div class='Toolbar_inbox'>
+  		<form action="{:U('admin/taoapi/index')}" method="GET">
+  		    <a href="{:U('admin/taoapi/keydele')}" class="btn_a"><span>删除过期</span></a>
+	  		{:form_select('ctype',$_GET['ctype'],cate_opt('prod'),'','全部分类')}
+	        &nbsp;&nbsp;<input type="submit" value="查询" class="btn_b"/>
+  		</form>
+  	</div>
+  	  	<div class="list">
+	  	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  	<tr>
+		  	    <th class="line_l" width="15%" height="40">
+		  	       <form action="{:U('admin/taoapi/batch')}" method="post">
+		  	       <input class="zhaxi" type="checkbox" name="quanxuan" id="quanxuan" /> 全选&nbsp;&nbsp;
+		           <input type="hidden" name="arra" id="arra" value="">
+		           <input class="bd  cRed fw8 f14" type="submit" value="采集选中" onclick="shanx()"  />
+		           </form>
+		  	    </th>
+		    	<th class="line_l" width="10%">ID</th>
+		    	<th class="line_l" width="35%">分类名称</th>
+		    	<th class="line_l" width="15%">所属分类</th>
+		    	<th class="line_l" width="10%">采集时间</th>
+		    	<th class="line_l" width="10%">操作</th>
+		  	</tr>
+		  	<foreach name="list" item="item">
+			<tr>
+			    <td><input class="zhaxi" type="checkbox" name="xuans" id="xuans{$item.id}" value="{$item.id}"></td>
+			    <td>{$item.id}</td>
+			    <td class="cGreen">{$item.name}</td>
+			    <td class="cGreen">{$item.pid|getItemByid='prod'}</td>
+			    <td class="cGreen"><gt name="item.bak2" value="100000">{$item.bak2|sTime}<else/>无采集</gt></td>
+			    <td>
+			       <a href="{:U('admin/taoapi/forms',array('id'=>$item['id']))}" class="cRed bold">采集</a>
+			    </td>
+			</tr>
+		  	</foreach>
+	  	</table>
+		<notpresent name="list">
+		  	<div class="l40 cRed bold f14">暂无分类</div>
+		</notpresent>
+	</div>
+    <present name='page'>
+  	<div class="Toolbar_inbox">
+  		<div class="page">{$page}</div>
+  	</div>
+  	</present>
+</div>
+<include file="Public:foot" />

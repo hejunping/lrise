@@ -1,0 +1,164 @@
+<include file='tpl/head_ru.html' />
+<script type="text/javascript" src="web/js/mod/user/profile/js.js"></script>
+<script type="text/javascript" src="web/js/mod/user/profile/EditUserInfo.js"></script>
+<script type="text/javascript" src="web/js/mod/user/profile/s_code_en.js"></script>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">Главная</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">Моя Iorder</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>Личный профиль</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />
+        <script type="text/javascript">
+    var currentIndex = 1;
+</script>
+
+<div class="sidebox yoymbox">
+    <div class="a_rside sbr">
+        <div class="rtit">
+            Личный профиль</div>
+        <div class="bdbox">
+            <ul class="mlst">
+                <li id="two1" onclick="setTab('two',1,5)" class="hover">Редактировать личный профиль</li>
+                <li class="" id="two2" onclick="setTab('two',2,5)">Подписаться через почту</li>
+            </ul>
+            <!--My Personal profile star-->
+            <div style="display: block;" id="con_two_1">
+                <form action="{:U('user/settings/ziliaoc')}" method="post" id="editUinfoForm" name="editUinfoForm" enctype="multipart/form-data">
+                <div class="personal_box">
+                    <div class="personalXg">
+                        <ul>
+                            <li><b>Имя пользователя:</b> <span>{$list.account}</span><a href="{:U('user/settings/changepwd')}">Изменить пароль</a></li>
+                            <li><b>Электронная почта:</b> <span>{$list.email}</span>
+<!--                            <a href="{:U('user/settings/changemail')}">Change E-mail</a>-->
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="personal_a">
+                        <ul>
+                            <li><a>настоящее имя:</a><input name="Name" id="Name" value="{$res.rname}" type="text"
+                                    class="personal_input" /><span class="red" id="nameValidator"></span></li>
+                            <li><a>Пол:</a>
+                                <p>
+                                    <label>
+                                      <input type="radio" <eq name="list.sex" value="0" id="Gender" class="Gender" >checked="checked" </eq> name="sex" value="0"/>
+                                        Пол</label>
+                                    <label>
+                                        <input type="radio" <eq name="list.sex" value="1" id="Gender" class="Gender" >checked="checked"</eq> name="sex" value="1" />
+                                        Пол
+                                    </label>
+                                </p>
+                                <span class="red" id="genderValidator"></span></li>
+                            <li><a>почтовый индекс:</a><input name="Post" id="Post" value="{$res.pcode}" type="text"
+                                    class="personal_input" /><span class="red" id="postValidator"></span></li>
+                            <li><a>Телефон:</a><input name="Phone" id="Phone" type="text" value="{$res.phone}"
+                                    class="personal_input" /><span class="red" id="phoneValidator"></span></li>
+                            <li><a>Страна:</a><p>
+                                <select class="personal_input_a" id="CountryId" name="CountryList" style="width:204px; hight:22px; border:#999 solid 1px;">
+                                   {$area|_inteArea}
+                                 </select>
+                            </p>
+                                <span class="red" id="countryValidator"></span></li>
+                            <li><a>городской:</a><input name="City" id="City" type="text" value="{$res.city}"
+                                    class="personal_input" /><span class="red" id="cityValidator"></span></li>
+                            <li><a>адрес:</a><input name="Address" id="Address" type="text" value="{$res.address}"
+                                class="personal_input" /><span class="red" id="addressValidator"></span></li>
+                            <li class="Browsing" id="UploadPicture" url="{:U('user/settings/preview')}"><a>Загрузить фото:</a>
+                                <input id="Photo" name="Photo" type="file" style="border: #999 solid 1px;" /></li>
+                        </ul>
+                        <em class="pic">* Формат изображения должен быть .jpg /.bmp/.gif,размер файла должен быть меньше , чем 100 байт</em>
+                        <p>
+                            <label>
+                                &nbsp;</label>
+                                <img id="Img1" src="{$img}" width="155px" />
+                        </p>
+                    </div>
+                </div>
+                <div class="personal_b">
+                    <a href="javascript:changeSubmit();" class="arrow_selectsubtype">
+                        <img src="web/images/user/an_tj_05.gif" width="83" height="29" border="0"
+                            alt="submit" /></a> <a style="cursor: pointer" id="reset">
+                                <img src="web/images/user/an_tj_10.gif" width="83" height="29" border="0"
+                                    alt="reset" /></a>
+                </div>
+                <div id="visualsearch_transparency" style="display: none">
+                </div> 
+                 <div id="advisor">  </div>
+                </form>
+            </div>
+            <div style="display: none;" id="con_two_2">
+                <form action="{:U('user/settings/profile')}" method="post" id="EmailSubscriptionForm" name="EmailSubscriptionForm">
+                <div class="personal_box">
+                    <div class="personal_c">
+                        <p>
+                            Эти почты генерируются автоматически Lrise системой .Пожалуйста, выбрать письма, которые вам нужны, как показано ниже:</p>
+                        <ul>
+                                <li>
+                                    <input id="EmailSubscriptionName" name="EmailSubscriptionName" type="checkbox" 
+                                                   value="AddMoneySuccess" 
+                                                   class="i_c" />
+                                    <span>1.Баланс пополнен успешно</span> </li>
+                                <li>
+                                    <input id="EmailSubscriptionName" name="EmailSubscriptionName" type="checkbox" 
+                                                   value="SubmittedOrderSuccess" 
+                                                   class="i_c" />
+                                    <span>2.Заказ оформлен успешно</span> </li>
+                                <li>
+                                    <input id="EmailSubscriptionName" name="EmailSubscriptionName" readonly="readonly" 
+                                    onclick="return false;" value="CommodityFillingMoney" checked="checked" class="i_c" type="checkbox">
+                                    <span>3.Требуется доплата по требованию продавца</span> </li>
+                                <li>
+                                    <input id="EmailSubscriptionName" name="EmailSubscriptionName" type="checkbox" 
+                                                   value="ParcelSentOutSuccess" 
+                                                   class="i_c" />
+                                    <span>4.Посылка отправлена</span> </li>
+                                <li>
+                                    <input id="EmailSubscriptionName" name="EmailSubscriptionName" type="checkbox" 
+                                                   value="ShoppingCartGoodsNoSubmitOrder" 
+                                                   class="i_c" />
+                                    <span>5. в ожидании платежа</span> </li>
+                                <li>
+                                    <input id="EmailSubscriptionName" name="EmailSubscriptionName" type="checkbox" 
+                                                   value="RefundSuccess" 
+                                                   class="i_c" />
+                                    <span>6.Заявка на возврат платежа оформлена успешно</span> </li>
+                                <li>
+                                    <input id="EmailSubscriptionName" name="EmailSubscriptionName" type="checkbox" 
+                                                   value="ActivityAndNews" 
+                                                   class="i_c" />
+                                    <span>7.Iorder новости по почте</span> </li>
+                                <li>
+                                    <input id="EmailSubscriptionName" name="EmailSubscriptionName" type="checkbox" 
+                                                   value="AllGoodsArrivedIorder" 
+                                                   class="i_c" />
+                                    <span>8.Все позиции заказа прибыли на складIOrder</span> </li>
+                                <li>
+                                    <input id="EmailSubscriptionName" name="EmailSubscriptionName" type="checkbox" 
+                                                   value="BuyerSendMessage" 
+                                                   class="i_c" />
+                                    <span>9. Ты покупателей информации</span> </li>
+                                <li>
+                                    <input id="EmailSubscriptionName" name="EmailSubscriptionName" type="checkbox" 
+                                                   value="BuyerBackGoods" 
+                                                   class="i_c" />
+                                    <span>10.Возврат платежа в связи с невозможностью приобрести позицию</span> </li>
+                                <li>
+                                   <input id="EmailSubscriptionName" name="EmailSubscriptionName" readonly="readonly" onclick="return false;" value="PackageDifference" checked="checked" class="i_c" type="checkbox">
+                                    <span>11.Требуется доплата в связи с разницей в весе посылки</span> </li>
+                            <li class="all">
+                                <input id="chkall" name="chkall" type="checkbox" value="" class="i_c" onclick="checkalls();" /><span>Все</span></li>
+                            <!--全选-->
+                        </ul>
+                    </div>
+                </div>
+                <div class="personal_b">
+                    <input type="submit" value="" id="BtnSubmitES" name="BtnSubmitES" style="display: none;" />
+                    <a href="javascript:void(0);" onclick="javascript:SubmitEmailSubscription();" class="arrow_selectsubtype">
+                        <img src="web/images/user/an_tj_05.gif" width="83" height="29" border="0" /></a></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+   <include file="tpl/foot.html"/>

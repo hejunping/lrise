@@ -1,0 +1,19 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit f14">
+		<gt name="item.id" value="0">编辑<else/>添加</gt>词条 - 
+		<a href="{:U('admin/word/index')}" class="cBlue f14">返回列表</a>
+	</div>
+	<div class="form2">
+	<form method="post" action="{:U('admin/word/form')}">
+		{:dp_select('ctype',$item['ctype'],array('attr'=>'商品属性','prop'=>'销售属性','other'=>'其它'),'词条类型','','w150')}
+		{:dp_input('name',$item['name'],'词条','词条不能空')}
+		{:dp_input('ename',$item['ename'],'翻译','翻译不能空')}
+    	<div class="page_btm">
+      		<input type="submit" class="btn_b" value="提交" />
+      		<gt name='item.id' value='0'><input name="id" type="hidden" value="{$item.id}"></gt>
+    	</div>
+	</form>
+</div>
+
+<include file="Public:foot" />

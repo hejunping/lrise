@@ -1,0 +1,57 @@
+<include file='tpl/head_ru.html' />
+<div class="bd">
+    <div class="sideLeft">
+        <div class="sm_bd">
+            <a href="#">
+                <img src="web/images/home/sm_ba.jpg" alt=""></a></div>
+        <div class="path">
+            <a href="{:U('home/index/index')}">Главная</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>{$page.name}</b></div>
+        <div class="module" id="step">
+            <h5 class="title">
+                подробный</h5>
+            <div class="FaqBox">
+                <div id="con_two_1">
+                    <h5 class="fq">
+                        {$page.name}</h5>
+                    <div class="pgtxt">
+                        {$page.text}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sideRight">
+<div class="qobox">
+       <div class="txt"> You have selected the Items? Click the button below to quick order！</div>
+       <div class="qo"><a href="{:U('user/order/neworder')}"><img src="web/images/home/qo.jpg" alt=""></a></div>
+</div>
+<div class="usbox">
+   
+    <ul class="uslst">
+        <volist name="list" id="vo" key="k">
+            <li><a href="javascript:showOrClose({$k});">
+                {$vo.name} </a>
+                <div id="son{$k}" style="display: none; ">
+                    <volist name="vo.sub" id="map">
+                        <div class="sonli">
+                            <a href="{:U('home/info/index','id='.$map['id'])}">
+                               {$map.name} </a>
+                        </div>
+                     </volist>
+                </div>
+            </li>
+        </volist>   
+    </ul>
+</div>
+<script type="text/javascript">
+
+    function showOrClose(id) {
+
+        $("#son" + id).toggle("slow");
+    	
+    }
+  
+</script>
+    </div>
+</div>
+<include file="tpl/foot.html"/>

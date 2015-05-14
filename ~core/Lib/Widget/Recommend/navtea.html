@@ -1,0 +1,58 @@
+			<!-- 推荐各地名茶   -->
+			<div class='F1 mT'>
+				<div class='rh'>
+					<div class='fL f16 cBlack bold'><span class='cRed mR'>2F</span>各地茗茶</div>
+					<div class="fR"><a href="{:U('prod/tea/index')}">更多</a><a href="{:U('prod/tea/index')}"><span class='iblock more mL'></span></a></div>
+				</div>
+				<div class='clear'></div>
+				
+				<div class='pcont2 mT'>
+					<foreach name='prod' item='item' key='k'>
+					<eq name='k' value='0'>
+					<ul class='fL first'>
+						<li  class='oF subname'>
+						 <eq  name="item.collection" value="1"> 
+						   <a class='tit bold' href="{$item.clickurl}" target="_blank" title="{$item.subname}">{$item.subname}</a>
+						 <else /> 
+						   <a class='tit bold' href="{:U('prod/'.$item['id'].'/index')}" title="{$item.subname}">{$item.subname}</a>
+						 </eq >
+					    </li>
+						<li class='clblack bold w150 name txtL'>{$item.name}</li>
+						<li class='pimg txtC'>
+							<eq  name="item.collection" value="1"> 
+							   <a href="{$item.clickurl}" target="_blank"><img src='{$item.picurl}' class="mw175 mh230" onerror="this.src='images/nothing.gif'" /></a>
+							<else /> 
+							   <a href="{:U('prod/'.$item['id'].'/index')}"><img src='{$item.pic}' class="mw175 mh230" onerror="this.src='images/nothing.gif'" /></a>
+							</eq >
+						</li>
+					</ul>
+					<else/>
+					<ul class='fL'>
+						<li class='title h40 oF pL mT'>
+						<eq  name="item.collection" value="1"> 
+						   <a href="{$item.clickurl}" target="_blank" title="{$item.name}" class='bold cBlack'>{$item.name}</a>
+						<else /> 
+						    <a href="{:U('prod/'.$item['id'].'/index')}" title="{$item.name}" class='bold cBlack'>{$item.name}</a>
+						</eq >
+						</li>
+						<li class='img txtC'>
+						<eq  name="item.collection" value="1"> 
+						   <a href="{$item.clickurl}" target="_blank"><img src='{$item.picurl}' class="mh130" onerror="this.src='images/nothing.gif'" /></a>
+						<else /> 
+					       <a href="{:U('prod/'.$item['id'].'/index')}"><img src='{$item.pic}' class="mh130" onerror="this.src='images/nothing.gif'" /></a>
+						</eq >
+						</li>
+						<li class='m_price h20 pL'><span class='clblack fL'>市场价：</span><span class='dd fL'>{$item.market}元</span></li>
+						<li class='n_price h20 pL'  style="_margin-top:-4px;">
+						       
+								   <span class='clblack fL'>赶圩价：</span>
+								   <span class='dd f14 bold fL'>{$item.price}元</span>
+								   <span class='iblock w20 h20 buy fR mR txtC'>
+							      <a href="{:U('prod/order/index',array('pid'=>$item['id']))}" class='cWhite'>购买</a></span>
+							   
+						</li>
+					</ul>
+					</eq>
+					</foreach>
+				</div>
+			</div>

@@ -1,0 +1,15 @@
+<div id="toolBar">
+    <a class="close pAbs f14 fHei curP" style="right:10px;line-height:61px;">×</a>
+    <div class="tool w980">
+        <a href="javascript:void(0);" url="{:U('admin/ad/subject_config?id='.$ad[id])}" id="configItem" class="toolBtn fHei f16 fL mR">专题配置</a>
+        <a href="javascript:void(0);" url="{:U('admin/ad/subject_save?id='.$ad[id])}" id="newItem" class="toolBtn fHei f16 fL mR">新增容器</a>
+        <a href="{:U('admin/ad/subject_view?id='.$ad[id])}" id="viewItem" target="_blank" class="toolBtn fHei f16 fR mL">浏览结果</a>
+        <a href="javascript:void(0);" url="{:U('admin/ad/subject_layout?id='.$ad[id])}" id="saveItem" class="toolBtn fHei f16 fR">保存布局</a>
+    </div>
+</div>
+<ul id="toolMenu" class="contextMenu">
+    <li class="move"><a href="#move">移动容器</a></li>
+    <li class="pin"><a href="#pin">固定容器</a></li>
+    <li class="edit separator"><a href="#edit" url="{:U('admin/ad/subject_get?id='.$ad[id])}" saveurl="{:U('admin/ad/subject_save?id='.$ad[id])}">编辑容器</a></li>
+	<li class="delete"><a href="#del" url="{:U('admin/ad/subject_del?id='.$ad[id])}">删除容器</a></li>
+</ul>

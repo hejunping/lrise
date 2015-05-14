@@ -1,0 +1,87 @@
+<include file="Public:head" />
+<div class='so_main'>
+	<div class='page_tit'>订单管理</div>
+	<div class='Toolbar_inbox'>
+		<form action="{:U('admin/prod/order')}" method="GET">
+			<a href="{:U('admin/prod/order')}" class='btn_a'><span>显示全部</span></a>
+	  		&nbsp;&nbsp;订单状态： {:form_select('status',$_GET['status'],array(0=>'未支付',1=>'已支付等待购买',2=>'在过程',3=>'已发货',4=>'抵达',5=>'存储',6=>'等待付邮费',7=>'邮费已付',8=>'包裹寄出',9=>'确认收货',10=>'评价',11=>'完成',12=>'放弃',13=>'退还',14=>'退还成功',15=>'交易关闭'),'',array('-1','--'))}
+	  		<span class="hide">&nbsp;&nbsp;买家状态： {:form_select('status_buyer',$_GET['status_buyer'],array(0=>'正常',1=>'回收站',2=>'删除'),'',array('-1','不限'))}</span>
+	  		&nbsp;&nbsp;或 &nbsp;订单号： {:form_input('id',$_GET['id'],'text w140 h20')}
+	        &nbsp;&nbsp;<input type="submit" value="查询" class="btn_b"/>
+		</form>
+	</div>
+	<div class="list">
+	<form id="form1" name="form1" method="POST" action="{:U('admin/prod/order')}" enctype="multipart/form-data" >
+	    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  	<tr>
+		    	<th class="line_l" width="5%">订单号ID</th>
+		    	<th class='line_l' width="5%">用户</th>
+		    	<th class='line_l' width="5%">用户id</th>
+		    	<th class="line_l" width="6%">物品总价</th>
+		    	<th class="line_l" width="7%">订单状态</th>
+		    	<th class="line_l" width="8%">操作</th>
+		  	</tr>
+		  	<volist name="list" id="vo">
+			<tr>
+			    <td>{$vo.id}</td>
+			    <td>{$vo.buyer.0}</td>
+			    <td>{$vo.buyer.1}</td>
+			    <td>{$vo.total}</td>
+		         <td>
+			       <switch name="vo.status">
+					<case value="0">未支付</case>
+					<case value="1">已支付等待购买</case>					
+					<case value="2">在过程</case>
+					<case value="3">已发货</case>
+					<case value="4">抵达</case>
+					<case value="5">存储</case>
+					<case value="6">等待付邮费</case>
+					<case value="7">邮费已付</case>
+					<case value="8">包裹寄出</case>
+					<case value="9">确认收货</case>
+					<case value="10">评价</case>
+					<case value="11">完成</case>
+					<case value="12">放弃</case>
+					<case value="13">退还</case>
+					<case value="14">退还成功</case>
+					<case value="15">交易关闭</case>
+					</switch>
+			    </td>
+			    <td>
+			    <a href="{:U('admin/prod/deliver',array(id=>$vo['id']))}">查看详细 </a>
+   &nbsp;|&nbsp;<a href="{:U('admin/prod/orderc',array(id=>$vo['id']))}"> 关闭</a>&nbsp;|&nbsp;
+	<switch name="vo.status">
+		<case value="0">
+			  <a href="{:U('admin/prod/ordera',array(id=>$vo['id']))}"> 设为已支付等待购买</a>
+			        </case><case value="1">		
+			  <a href="{:U('admin/prod/orderb',array(id=>$vo['id']))}"> 设为在过程</a>
+			        </case><case value="2">
+			  <a href="{:U('admin/prod/orderd',array(id=>$vo['id']))}"> 设为已发货</a>
+					</case><case value="3">
+			  <a href="{:U('admin/prod/ordere',array(id=>$vo['id']))}"> 设为抵达</a>
+					</case><case value="4">
+			  <a href="{:U('admin/prod/orderf',array(id=>$vo['id']))}"> 设为存储</a>
+					</case><case value="5">
+			  <a href="{:U('admin/prod/deliver',array(id=>$vo['id']))}">填写发货信息</a>
+					</case><case value="6">
+			  <a href="{:U('admin/prod/orderh',array(id=>$vo['id']))}"> 设为邮费已付</a>
+					</case><case value="7">
+			  <a href="{:U('admin/prod/orderm',array(id=>$vo['id']))}"> 设为包裹寄出</a>
+				</case> 
+		 </switch> 
+			    </td>
+			</tr>
+		  	</volist>
+	  	</table>
+	  	</form>
+		<notpresent name="list">
+		  	<div class="l40 cRed bold f14">暂无订单</div>
+		</notpresent>
+	</div>
+	<present name='page'>
+  	<div class="Toolbar_inbox">
+  		<div class="page">{$page}</div>
+  	</div>
+  	</present>
+</div>
+<include file="Public:foot" />

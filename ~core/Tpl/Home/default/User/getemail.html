@@ -1,0 +1,133 @@
+<include file='tpl/head.html' />  
+  <link rel="stylesheet" href="web/css/_login.css" type="text/css">
+<script language="JavaScript">
+function changeVerify(){
+ var timenow = new Date().getTime();
+ document.getElementById('verifyImg').src="{:U('home/user/verify?time=')}"+timenow;  
+}
+</script>  
+ <script type="text/javascript">
+
+        var isCheckUserName = false;
+
+        var isCheckPassword = false;
+
+        var idCheckCode=false;
+        
+        function CheckUserName() {
+
+            var userName = $("#userName").val();
+
+            if (userName == null || userName == "") {
+
+                $("#errorMessage").html("*Please enter your user name.");
+
+                isCheckUserName = false;
+
+            }else {
+
+                $("#errorMessage").html("");
+
+                isCheckUserName = true;
+
+            }
+
+        }
+
+        function CheckPassword() {
+
+            var password = $("#password").val();
+
+            if (password == null || password == "") {
+
+                $("#errorMessage").html("*Please enter your password.");
+
+                isCheckPassword = false;
+
+            }else {
+
+                $("#errorMessage").html("");
+
+                isCheckPassword = true;
+
+            }
+
+        }
+       function CheckCode(){
+    	   var code = $("#captcha").val();
+
+           if (code == "" || code.length < 4) {
+               
+               $("#errorMessage").html("*Please enter the verification code!");
+               idCheckCode=false;
+
+           } else {
+
+               var key = $("#captcha-guid").val();
+               $("#errorMessage").html("");
+               idCheckCode=true;
+           }
+           
+      }
+        function Submit() {
+        	CheckCode();
+        	CheckPassword(); 
+        	CheckUserName();
+           if(idCheckCode && isCheckPassword && isCheckUserName){
+        	   document.thisfrom.submit();
+            }
+         }
+
+    </script>
+  
+<div class="signMian">
+    <div class="left_ChangeP">
+       <form action="{:U('home/user/thisemail')}" method="post" name="thisfrom" id="thisfrom">
+            <h4>
+                Enter your user name and password</h4>
+            <ul>
+                <div class="tsUpMianb">
+                    <span id="errorMessage" class="tsUpMian"></span>
+                </div>
+                <li>
+                    <span>User Name</span><input type="text" onblur="CheckUserName()" class="Np" id="userName" name="userName">
+                </li>
+                <li>
+                    <span>Password</span><input type="password" onblur="CheckPassword()" class="Np" id="password" name="password">
+                </li>
+                <li><span>Code</span>
+                    <input type="text" class="cd" autocomplete="off" maxlength="5" value="" name="captcha" id="captcha">
+                    <a style="cursor: pointer" class="cd">
+                        <img id="verifyImg" name="verifyImg" src="{:U('home/user/verify')}"  onClick="changeVerify()" title="点击刷新验证码" alt="CAPTCHA"  width="96" height="20" class="captchaimage" />
+                    </a>
+                </li>
+            </ul>
+            <div style="margin-left: 125px;" class="botnSignP" id="submit">
+                <img style="cursor: pointer" onclick="Submit()" src="web/images/home/submit.jpg">
+            </div>
+         </form>
+        <div class="clear"></div>
+        </div>
+    <div class="right_ChangeP">
+        <h4>
+            1.Already have an account?</h4>
+        <div class="botnSign">
+            <a href="{:U('home/user/login')}">
+                <img src="web/images/home/sinin_03.jpg"></a>
+        </div>
+        <h4>
+            2.No yet a member?</h4>
+        <div class="botnSign">
+            <a href="{:U('home/user/index')}">
+                <img src="web/images/home/signup_03.jpg">
+            </a>
+        </div>
+        <h4>
+            3.Have problems?</h4>
+        <span><a href="{:U('home/info/index')}" target="_blank">Contact
+            Us</a></span>
+    </div>
+</div>
+ <div class="clear"></div>
+ <div style="margin-top:50px;"></div>
+<include file='tpl/foot.html' />

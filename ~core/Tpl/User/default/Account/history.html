@@ -1,0 +1,145 @@
+<include file='tpl/head.html'/>
+<style>
+    .h_t_18 {
+        width: 18%;
+    }
+    .h_t_10 {
+        width: 10%;
+    }
+    .h_t_17 {
+        width: 17%;
+    }
+    .h_t_18,
+    .h_t_17,
+    .h_t_10 {
+        float: left;
+        line-height: 30px;
+        text-align: center;
+    }
+</style>
+<script type="text/javascript" src="web/js/mod/user/history/jquery-ui.min.js"></script>
+<script type="text/javascript" src="web/js/mod/user/jquery.datePicker-min.js"></script>
+<script type="text/javascript" src="web/js/mod/user/colorbox.js"></script>
+<script type="text/javascript" src="web/js/rili/calendar1.js"></script>
+<script type="text/javascript" src="web/js/rili/cn.js"></script>
+<script type="text/javascript" src="web/js/rili/jscal2.js"></script>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">Home</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">My Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>My Account History</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />
+<script type="text/javascript">
+    $(window).ready(function () {
+        $('.date-pick').datePicker({
+            clickInput: true
+        }).dpSetStartDate('01/01/2010');
+      Date.format = "yyyy/mm/dd";        
+    });
+    function CNYtoUSDConstr(cny) {
+        return cny /6.25;
+    }
+    function onc(e) {
+        $("#inline_example1").html("<span id='infos'>" + e + "</span>");
+        $.colorbox({ width: "50%", inline: true, href: "#inline_example1", overlayClose: false, onCleanup: false });
+    };
+    function CompareDate(d1, d2) { // 时间比较的方法，如果d1时间比d2时间大，则返回true
+        return Date.parse(d1.replace(/-/g, "/")) > Date.parse(d2.replace(/-/g, "/"));
+    }
+    function crsobmit() {
+        var crSdt = $("#crStartDateTimeT").val(); ;
+        var crEdt = $("#crEndDateTimeT").val();
+       
+        if (CompareDate('crEdt','crSdt')) {
+             alert('ddd');
+            alert("The start time can not be later then the end time .");
+            $("#crSY").focus();
+            return false;
+        };
+        $("#crForm").submit();
+        return true;
+    }
+</script>
+<div style='display: none' class='YOYdialog cboxElement'>
+    <div id='inline_example1' style='padding: 10px; background: #fff;'>
+        <span id="infos">Action processing, please wait ... ...<br />
+            <img src="web/images/user/loading2.gif" /></span>
+    </div>
+</div>
+<div class="a_rside">
+    <div class="rtit">
+        My Account History</div>
+    <div class="bdbox">
+        <div style="display: block;" id="con_two_1">
+            <div class="history_t">
+                Search by Date:</div>
+            <div class="search">
+                <form method="GET" name="crForm" id="crForm" action="{:U('user/Account/history')}">
+                   <div class="search_a">
+                        <span>Start</span>
+                        <p>
+                            <input type="text" name="start" class="date-pick dp-applied" readonly value="{$start}">
+                        </p>
+                    </div>            
+                    <div class="search_a">
+                        <span>End</span> 
+                        <p>
+                            <input type="text" class="dp-applied date-pick" name="end" readonly value="{$end}"/>
+                        </p> 
+                    </div> 
+                    <div class="s_d"> 
+                        <a onclick="crsobmit();" href="javascript:void('submit');"> 
+                            <img style="height: 22px; border: 0px; width: 53px;" src="web/images/user/h_search_03.gif">
+                        </a>
+                    </div> 
+                </form> 
+            </div> 
+            <div class="history_center">
+                <div class="h_c_top">
+                    <div class="h_c_t_a">
+                        <div class="h_t_18">CreateDate</div>
+                        <div class="h_t_17">Method</div>
+                        <div class="h_t_10">Amount</div>
+                        <div class="h_t_10">Fee</div>
+                        <div class="h_t_18">Purse</div>
+                        <div class="h_t_17">Payer's Name</div>
+                        <div class="h_t_10">Status</div>
+                    </div>
+                </div>
+                
+                <volist name="rows" id="row">
+                    <div class="h_c_a">
+                        <div class="h_t_18">{$row.ctime|date="Y/m/d H:i:s",###}</div>
+                        <div class="h_t_17">{$row.method|default="－"}</div>
+                        <div class="h_t_10">{$row.amount|default="－"}</div>
+                        <div class="h_t_10">{$row.fees|default="－"}</div>
+                        <div class="h_t_18">{$row.purse|default="－"}</div>
+                        <div class="h_t_17">{$row.payer_name|default="－"}</div>
+                        <if condition="$row.status eq 0">
+                            <div class="h_t_10" style="color:#f90;">Unaudited</div>
+                        <else/>
+                            <div class="h_t_10" style="color:green;">Audited</div>
+                        </if>
+                    </div>  
+                </volist>
+            </div>
+            <div class="fy">
+                <div class="fy_a"></div>
+                <div class="fy_b">
+                    <div class="page_center">{$page}</div>
+                </div>
+                <div class="fy_a"></div>
+            </div>
+<!--            <div class="history_bottom">-->
+<!--                <ul>-->
+<!--                    <li class="h_b_c"><span>Balance:</span><a><script type="text/javascript">document.write(FormatNum(CNYtoUSDConstr(0.000), 2));</script></a>USD</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+        </div>
+        <!--Lrise Western Union Account over-->
+    </div>
+</div>
+
+</div>
+<include file="tpl/foot.html"/>

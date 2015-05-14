@@ -1,0 +1,122 @@
+
+
+/*body{ margin:0; padding:0; width:auto;height:100%;font:12px Arial, Helvetica, sans-serif;color:#333333;}
+*{ margin:0; padding:0;}
+.talk_box{ width:516px; height:auto; float:left; overflow:hidden;
+}*/
+.box_top{ width:516px; height:7px; margin-top:10px; background:#FFF;}
+.yj_a{ float:left;}
+.box_top_a{ width:507px; height:5px; border-top:#ffb966 solid 2px; float:left;
+}
+
+.box_center{ width:516px; height:612px; float:left;}
+.b_c_top{ width:516px; height:50px; padding-top:10px; padding-bottom:10px; background:#FFF; float:left;}
+.b_c_top ul li{ list-style:none; margin-top:5px; margin-left:20px; width:480px; height:50px; margin-bottom:20px; display:block;}
+.b_c_top ul li img{ border:#CCC solid 2px; float:left; width:32px;}
+.b_c_top ul li a{ float:left; margin-left:20px; line-height:1.6em; color:#ff9f2e; width:400px;}
+.b_c_top ul li a:hover{ text-decoration:none;}
+.tk_bj_left{ width:17px; float:left; height:41px; margin:0; padding:0;}
+.tk_bj{ background:url("http://order.yoybuy.com/Content/Images/MyOrder/tk_bj_05.gif") repeat-x center; height:41px; width:489px; float:left;}
+.tk_bj span{ font-size:18px; color:#FFF; line-height:41px;}
+.b_c_center{ width:516px; height:500px; background:#fffbf5;}
+
+
+.ly_name ul li{ list-style:none; line-height:1.8em; margin-left:50px; font-weight:bold; color:#ff5a00; float:left;}
+.ly_name ul li a{ float:left; text-decoration:none; color:#ff5a00; width:200px;}
+.ly_name ul li a:hover{ text-decoration:none;}
+.ly_name ul li span{ float:right; margin-right:10px; font-size:11px; color:#ffc785; font-weight:normal;}
+.ly_center {
+    word-wrap:break-word; width:400px; padding-left:50px; float:left; border-bottom:#ffc785 dotted 1px; padding-bottom:10px; padding-right:50px; margin-left:8px; color:#ffc785; line-height:1.8em;
+}
+.shout_box{ width:400px; height:80px; float:left; padding-left:50px; padding-top:20px;}
+.s_b{ width:400px; height:80px; border:#F93 solid 1px; font-family:Arial, Helvetica, sans-serif; color:#666; font-size:12px;float:left;}
+.send{ float:left;
+margin-top:10px; margin-right:70px; width:100%; height:19px;}
+.send span{
+	width:320px;
+	float:left;
+	margin-left:50px;
+	line-height:18px;
+	color:#F00;}
+
+
+.Shout_text{ height:330px; float:left; width:516px; overflow:-moz-scrollbars-vertical; overflow:auto; overflow-x:hidden;
+scrollbar-arrow-color: #f4ae21; /*涓夎绠ご鐨勯锟�?/
+scrollbar-face-color: #ffdbad; /*绔嬩綋婊氬姩鏉＄殑棰滆壊*/
+scrollbar-3dlight-color: #fff; /*绔嬩綋婊氬姩鏉′寒杈圭殑棰滆壊*/
+scrollbar-highlight-color: #ffd093; /*婊氬姩鏉＄┖鐧介儴鍒嗙殑棰滆壊*/
+scrollbar-shadow-color: #ffc553; /*绔嬩綋婊氬姩鏉￠槾褰辩殑棰滆壊*/
+scrollbar-darkshadow-color: #ffc553; /*婊氬姩鏉″己闃村奖棰滆壊*/
+scrollbar-track-color: #ffeac2; /*绔嬩綋婊氬姩鏉¤儗鏅锟�?/
+scrollbar-base-color: #f8f8f8; /*婊氬姩鏉＄殑鍩烘湰棰滆壊*/
+}
+
+.box_top_b{ width:507px; height:5px; border-bottom:#ffb966 solid 2px; float:left;
+}
+.tk_bj_right{ float:left;}
+
+
+
+
+#TB_overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index:100;
+	width: 100%;
+	height: 100%;
+	background-color:#CCC;
+	filter:alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}
+#TB_window {
+	
+	left: 0px;
+	position: fixed;
+	_position: absolute;
+	z-index: 102;
+	color:#000000;
+	display:none;
+}
+#TB_closeWindowButton{
+	background:url("images/user/Close_03.gif") no-repeat center; padding:5px; color:#F90;}
+#TB_caption{
+	height:25px;
+	padding:10px 30px 10px 25px;
+}
+#TB_closeWindow{
+	height:25px;
+	padding:10px 25px 10px 0;
+	float:right;
+}
+#TB_closeAjaxWindow{
+	padding:5px 10px 5px 0;
+	margin-bottom:1px;
+	text-align:right;
+	background:#fffbf5;
+	border:#fffbf5 solid 3px;
+	
+}
+
+
+#TB_load{
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	width: 100%;
+	overflow: visible;
+	visibility: visible;
+	display: block;
+	z-index:101;
+}
+#TB_loadContent{
+	margin-left: -125px;
+	position: absolute;
+	top: -50px;
+	left: 50%;
+	width: 250px;
+	height: 100px;
+	visibility: visible;
+}

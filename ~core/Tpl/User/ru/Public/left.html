@@ -1,0 +1,58 @@
+<div class="sideLeft yoyslbox">
+        <div class="module lh">
+            <h5 class="yoytit">
+                <p>
+                    <img src="web/images/user/a1.jpg" alt=""></p>
+                Мой заказ</h5>
+            <ul class="yoylst">
+                <li><a href="{:U('user/order/neworder')}">Новый заказ</a></li>
+                <li><a href="{:U('user/order/cart')}">Моя корзина</a>
+                </li>
+                <li><a href="{:U('user/order/myorder')}">Мой заказ</a> </li>
+                <!-- <li><a href="{:U('user/order/parcels')}">мой пакет</a> </li> -->
+                <li><a href="{:U('user/order/favorite')}">Моё избранное</a></li>
+            </ul>
+            <h5 class="yoytit">
+                <p>
+                    <img src="web/images/user/a2.jpg" alt=""></p>
+                Мой счет</h5>
+            <ul class="yoylst">
+                <li><a href="{:U('user/account/addmoney')}">Пополнить счет</a> </li>
+                <li><a href="{:U('user/account/history')}">История моего счета</a>
+                </li>
+                <!-- <li><a href="{:U('user/account/quqian')}">Возврат денег</a> </li>
+                <li><a href="{:U('user/account/points')}">Мои баллы на Lrise</a></li> -->
+            </ul>
+            <h5 class="yoytit">
+                <p>
+                    <img src="web/images/user/a3.jpg" alt=""></p>
+                Личные настройки</h5>
+            <ul class="yoylst bn">
+               
+                <li><a href="{:U('user/settings/address')}">Информация об адресе</a></li>
+                <li><a href="{:U('user/settings/profile')}">Личная информация
+                
+                </a></li>
+                <li><a href="{:U('user/settings/recommend')}">Порекомендовать друзьям</a></li>
+            </ul>
+            <h5 class="yoytit">
+                <p>
+                    <img src="web/images/user/customerservice.png" alt=""></p>
+                Служба поддержки
+            </h5>
+            <ul class="yoylst bn">
+                <li><a href="{:U('user/service/boxmessage')}">Отправить запрос</a></li>
+                <li><a href="javascript:opens()">
+                    Отправить запрос</a> </li>
+            </ul>
+        </div>
+    </div>
+   
+    
+<script type="text/javascript">
+function opens(){
+	var urls="{:U('user/service/ticketsubmit')}";
+	 window.open(urls,"","scrollbars=yes,tobar=no,width=650,height=500,top=0,left=0,");  
+}
+
+</script>

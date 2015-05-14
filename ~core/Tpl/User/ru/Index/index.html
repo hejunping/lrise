@@ -1,0 +1,228 @@
+<include file='tpl/head_ru.html' />
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">Главная</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>Мой Lrise</b>&nbsp;&nbsp;</div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#usermessage").click(function () {
+                $("div[class='chinadztk']").show();
+            });
+        });
+        function closeAddress() {
+            $("div[class='chinadztk']").hide();
+        }
+    </script>
+    <include file="Public:left"/>
+    <div style="float: left; width: 562px;">
+
+        <div class="home_box">
+
+            <div class="home_top">
+
+                <div class="toux">
+
+                    <a href="{:U('user/settings/profile')}">
+
+                        <img src="{$img}" alt="" border="0" width="83" 
+
+                             height="83" /></a>
+
+                    <a href="{:U('user/settings/profile')}">Загрузить фото</a>
+
+                </div>
+
+                <div class="toux_right">
+
+                    <div class="t_r_a">
+                                          
+                        <span>Привет,<a>{$user.account}</a></span>добро пожаловать на мой Lrise! <b><span style="float: left;
+
+                                                                                        line-height: 15px;">
+
+                                <img src="./web/images/user/pthy.gif" style="float: left; margin-right: 5px;" border="0" alt=""/><a
+
+                                    href="{:U('/home/info/index/id/65')}" style="float: left; background: none;
+
+                                    color: #f60; width: auto; margin-left: 0px; padding-left: 0; margin-right: 5px;">член</a></span><div
+
+                                id="datetime">
+
+                         <!-- <span class="bar"><a class="status" style="background-position: 0px -14px;">0/3000</a></span>
+
+                                    <span class="ysVIP">VIP </span>-->
+
+                            </div>
+
+ 
+                        </b>
+
+                    </div>
+
+                    <div class="t_r_b">
+
+                        <ul>
+
+                            <li><span>Мои баллы :</span><p>
+                            
+                                  {$res.point}
+                                </p>
+
+                                <span style="float: left; margin-left: 50px;"><b style="float: left; font-weight: 100;">
+
+                                        Э-купоны:</b>  {$res.coin|_usaprice}
+
+                                    <p style="float: right; font-weight: 100; line-height: 20px;">
+
+                                     CNY</p>
+
+                                </span></li>
+
+                            <li><span>На счете :</span><p>
+
+                                    0</p>
+
+                                <p>
+
+                                    CNY</p>
+
+                                <p style="color: #666;">
+
+                                    ≈</p>
+
+                                <p style="font-size: 10px; color: #666;">
+
+                                    0</p>
+
+                                <p style="font-size: 10px; color: #666;">
+
+                                    USD</p>
+
+                                <a href="{:U('user/account/addmoney')}">Пополнить счет</a></li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+                <div class="chinadz">
+
+            <div class="chinadzitme">
+                <a style="float: left;" href="{:U('home/info/index?id=418')}">мой адрес в китае >></a> 
+                <a id="usermessage">
+                        <img src="./web/images/user/My-Chinese-Addresszjt_03.png" height="13" width="14"  alt="" />
+                 </a>
+             </div>
+            <div class="chinadztk" style="display: none;">
+                <div class="chinadztkitme">
+
+                    How to order use my Chinese Address?<a onclick="closeAddress()" href="javascript:closeAddress()"><img
+                        src="web/images/user/tkitemgb.png" height="14" width="14" /></a></div>
+
+               
+
+                <ul>
+                    <li><b>STEP 1</b></li>
+                    <li>Checkout with your merchant and ship to your Chinese Address</li>
+                    <li><span title="Remember to always include this No. so that we can identify your packages as they arrive at your Chinese Address.">
+                        {$_web.website_address}{$user.id}</span></li>
+                    <li>Receiver name: <span>{$user.account}</span></li>
+                    <li>Post code: <span>{$_web.website_postcode}</span></li>
+                </ul>
+                <ul>
+                    <li><b>STEP 2</b></li>
+                    <li>We will notify you by email when your packages arrive at your Chinese Address.</li>
+                </ul>
+                <ul>
+                    <li><b>STEP 3</b></li>
+                    <li>You go to "My Chinese Address" submit delivery and pay the fee.</li>
+                </ul>
+            </div>
+            <ul>
+                <li>покупки в китайских сайтов, использовать этот адрес:</li>
+                <li><span title="Remember to always include this No. so that we can identify your packages as they arrive at your Chinese Address.">
+                    {$_web.website_address}{$user.id}</span></li>
+                <li>наименование грузополучателя: <span>{$user.account}</span></li>
+                <li>почтовый индекс: <span>{$_web.website_postcode}</span></li>
+            </ul>
+        </div>
+                <div class="home_actice">
+
+                <h2>
+
+                    Мои Заказы</h2>
+
+                <ul>
+
+                    <li><span></span></li>
+
+                    <li>Непрочитанных сообщений:<a href="{:U('user/service/boxmessage')}">{$count1}</a></li>
+
+                    <li>Товаров в корзине:<a href="{:U('user/order/cart')}">{$count2}</a> </li>
+
+                    <li>у вас есть товар был направлен в:<a href="{:U('User/Order/myorder')}"> {$count3}</a>
+</li>
+
+                    <li>Неполученных посылок:<a href="{:U('User/Order/parcels')}">{$count4}</a>
+</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="home_right">
+
+        <div class="home_r_a">          
+            <a href="{:U('user/order/neworder')}">
+
+                <img width="202" height="42" border="0" alt="" src="./web/images/head/quick_ru.jpg"></a>
+
+        </div>
+
+        <div class="home_r_b">
+
+            <div class="home_r_new">
+
+                <span>НОВОСТИ</span><a href="{:U('home/news/index')}">Больше</a></div>
+
+            <div class="home_n">
+
+                <ul>
+                 <for start='1' end='6'>
+                    <volist name="tabo" id="vo">
+                   
+                    <li><a href="{:U('home/info/index?id='.$vo['id'])}" <eq name="vo.hot" value="1">style="color:red;"</eq> >
+
+                           <span>{$i}.</span>{$vo.name}</a>
+                    </li>
+                  </volist>
+                </for>
+                </ul>  
+            </div>
+        </div>
+        <div class="home_r_c">
+            <div class="home_r_new">
+                <span>Справочный</span><a href="{:U('home/info/index')}">Больше</a></div>
+            <div class="home_n">
+              <ul>
+                    <volist name="faq" id="dao" >
+                    <li><a href="{:U('home/info/index?id='.$dao['id'])}">
+                           <span>{$i}.</span>{$dao.name} </a>
+                    </li>
+                    </volist> 
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="./tpl/foot.html"/>

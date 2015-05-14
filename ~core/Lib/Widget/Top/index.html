@@ -1,0 +1,8 @@
+ <volist name="top" id="vo">
+        <li><span><a href="{:U('prod/'.$vo['iid'].'/index')}">
+                      <img width="60" border="0" style="background: url(http://www.yoybuy.com/Content/Images/Product/loading.gif) no-repeat center;" src="{$vo.pic}" class="scrollLoading"></a></span>
+            <p><a href="{:U('prod/'.$vo['iid'].'/index')}" rel="translate" rev="title" ct="title" id="{$vo['id']}">{$vo.name}</a></p>
+            <b>{$vo.price|_usaprice}</b>
+            <h5 style="line-height: 16px;">&nbsp;&nbsp;{$vo.tao_sold} customers bought</h5>
+        </li>
+</volist>    

@@ -1,0 +1,38 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit">
+        地区特色产品
+       
+    </div>
+ 
+  	<div class="Toolbar_inbox">
+  	
+  		<a href="{:U('admin/cate/order',array('pid'=>$pid))}" class="btn_a"><span>按当前顺序更新排序</span></a>
+  	</div>
+   
+  	<div class="list">
+	  	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  	<tr>
+		    	<th class="line_l" width="10%">地区</th>
+		    	<th class="line_l">地区特色产品</th>
+		    	<th class="line_l" width="10%">操作</th>
+		  	</tr>
+		  	<volist name="list" id="vo">
+			<tr>
+			    <td>{$vo.short}</td>
+			    <td>
+			      <volist name="vo['reclass']" id="sub"><neq name="sub" value="1">|</eq> &nbsp;{$sub}&nbsp; </volist>
+			    </td>
+			  
+				<td>
+				<a href="{:U('admin/prod/teseadd',array('id'=>$vo['area_id']))}"  >  添加 </a>|
+				<a href="{:U('admin/prod/tesedele',array('id'=>$vo['area_id']))}"  > 删除 </a>
+		    	</td>
+		    	
+			</tr>
+		  	</volist>
+	  	</table>
+	
+  	</div>
+</div>
+<include file="Public:foot" />

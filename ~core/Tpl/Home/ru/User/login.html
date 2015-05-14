@@ -1,0 +1,63 @@
+<include file='tpl/head_ru.html' />
+<script  type="text/javascript"  src="web/js/mod/home/en_login_ru.js"></script>
+<script language="JavaScript">
+function changeVerify(){
+ var timenow = new Date().getTime();
+ document.getElementById('verifyImg').src="{:U('home/user/verify?w=96&h=20time=')}"+timenow;  
+}
+</script>
+ <style type="text/css">
+.right_signMian ul li {
+margin: 10px 0px;
+float: left;
+}
+.right_signMian ul li.lt{width:150px;text-align: right;line-height: 20px;}
+.right_signMian ul li.rt{width:250px;text-align: left;padding-left:10px;}
+ </style>
+<div class="signMian" style="width:980px;height:370px;background:url(web/images/login_ru.jpg) center top no-repeat;margin:15px auto;float: none;">
+    <div style="height:40px;"><a href="{:U('home/user/reg')}" style="display:block;margin-left:40px;width:70px;height:40px;"></a></div>
+    <div class="right_signMian" style="border:0;margin-left:0;">
+        <div class="Error" style="height:46px;line-height: 46px;font-size: 14px;color:red;padding-left:160px;">
+            <span id="errorMessage" url="{:U('home/user/logins')}"  turl="{:U('user/index/index')}"></span>
+        </div>
+       
+        <ul class="loginUl">
+            <li onclick="CheckUserName()" class="lt">E-mail : </li>
+            <li class="rt"> <input name="userName" style="width:190px;height:20px;" id="userName" type="text" class="Np" onkeydown="userNameKeydown(event)" onblur="CheckUserName()" value=""></li>
+            <div class="clear"></div>
+            <li class="lt">Пароль : </li>
+            <li class="rt"><input name="password" id="password" style="width:190px;height:20px;" type="password" class="Np" onkeydown="passwordKeydown(event)" onblur="CheckPassword()"></li>
+            <div class="clear"></div>
+            <li id="captchaLiTitle" class="lt">Введите символы: </li>
+            <li id="captchaLiContent" class="rt">
+                <input type="text" id="captcha" style="height:20px;" name="verify" value="" maxlength="5" autocomplete="off" class="cd" />&nbsp;&nbsp;
+                <img id="verifyImg" src="{:U('home/user/verify')}"  onClick="changeVerify()" title="click to refresh the code" alt="CAPTCHA"  width="96" height="22" class="captchaimage" />
+            </li>
+            <div class="clear"></div>
+            <div style="height:20px;"></div>
+            <li class="lt">&nbsp; </li>
+            <li class="rt">
+                <a id="btndiv" style="float:left;"><img onclick="submit();" style="cursor: pointer" src="web/images/home/sinin_03_ru.jpg"></a>
+                <input name="remember" style="float:left;margin:5px 5px 0 10px;" id="remember" type="checkbox" value=""/>
+                <span style="float:left;margin-top:5px;">Запомнить меня</span>
+            </li>
+            <div class="clear"></div>
+            <li onclick="CheckUserName()" class="lt">&nbsp; </li>
+            <li class="rt">
+                Забыли&nbsp;&nbsp;<a href="{:U('home/user/getpwd')}" style="font-weight: bold;color:orange;">пароль</a>&nbsp;&nbsp;или 
+                &nbsp;&nbsp;<a href="{:U('home/user/getemail')}" style="font-weight: bold;color:orange;">E-mail</a>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="WhTs" id="help" style="display: none;" onmouseover="doVisibleHelp()" onmouseout="outHelp()">
+    <p>
+        了解如何解决登录问题
+    </p>
+    <ul>
+        <li>
+            <a href="" target="_blank">&gt;&gt;获取登录帮助.</a></li>
+    </ul>
+</div>
+<include file='tpl/foot.html'/>

@@ -1,0 +1,19 @@
+    <ul>
+               <?php  foreach($list  as  $vo) :?>
+                  
+                      <li>
+                        <span>{$vo.name}</span>
+                           
+                        <?php  foreach($res   as  $one) :?>
+                          <eq name="one.pid" value="$vo.id">
+                          
+                       <a href="{:U('/home/info/index/id/'.$one['id'])}">{$one.name}</a>
+                        
+                      </eq>
+                      
+                       <?php  endforeach;?>
+                        </li>    
+                     
+                     <?php endforeach;  ?>
+                    
+                </ul> 

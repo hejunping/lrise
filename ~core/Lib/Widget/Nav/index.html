@@ -1,0 +1,24 @@
+<div class='w980 pRel ' style="z-index:9999;">
+	<ul class="oF fL title" style='margin-top:2px;'>
+		<li class='cate'><a href='javascript:void(0)'  class='f16 cWhite tit'>全部分类</a></li>
+		<li class='line'><span class='iblock nav_line'></span></li>
+		<foreach name='_nav' item='_nav' key='k'>
+			<li class="txtC <eq name='_nav[0]' value='$_mod'>on</eq> other" style="width:70px; width:100px\9; _width:100px;">
+				<a href="{$_nav[2]}" class='f14 cWhite bold tit'>{$_nav[1]}</a>
+			</li>
+			<neq name='_nav[0]' value='cate'><li class='line'><span class='iblock nline'></span></li></neq>
+		</foreach>
+	</ul>
+</div>
+<script type='text/javascript'>
+$(function(){
+	$('.title li.other').hover(function(){
+			$(this).css('background','#ab1013');
+			$('.title li a').css('text-decoration','none');
+	},function(){
+			$(this).css('background','none');
+			$('.title li.on').css('background','#ab1013');
+			$(this).find('.tit').css('color','#fff');
+	});
+});
+</script>

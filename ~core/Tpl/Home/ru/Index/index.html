@@ -1,0 +1,124 @@
+<include file='tpl/head_ru.html' />
+<script type="text/javascript" src="./web/js/IndexRightLogin.js"></script>
+
+<script type="text/javascript">
+
+    function changeImg(num) {
+        if(!num)num=0;
+        $("#hdparea").find("a[name='hdpimg']").each(function (Index){
+            if (num == Index) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+        $("#imgbanner").find("a").each(function (Index) {
+            if (num == Index) {
+                $(this).attr("class", "sxa");
+            } else {
+                $(this).attr("class", "sxb");
+            }
+        });
+    }
+        
+    var curIndex = 0;
+    function change() {
+        if (curIndex == 4) {
+            curIndex = 0;
+        } else {
+            curIndex += 1;
+        }
+        changeImg(curIndex);
+    }
+    setInterval('change()', 5000);
+       
+ </script>
+<!--测试多语言
+<div id="testlang" style="">
+	<a href="?l=zh-cn">中文</a>
+	<a href="?l=en-us">english</a>
+	
+	<a href="">{$Think.config.VAR_TEMPLATE}</a>
+</div>
+<h1>测试语言：{$lang1}</h1>
+<h1>测试主题：{$_GET.t}</h1>
+测试多语言-->
+<div style="width: 980px; margin: 0 auto;">
+<div class="newmenub newboxss ">
+    <div class="leftnm">
+        <a href="{:U('prod/cate/index')}"><span>Все категории</span></a></div>
+    {:W('Ad',array('tpl'=>'banner_top','num'=>'10'))}<!-- banner头部 -->
+</div>
+<div class="newbox">
+    <div class="boxleft">
+        {:W('Areacate',array('tpl'=>'index','num'=>'13'))}<!--商品分类-->
+    </div>
+    <div class="rightbox">
+         {:W('Ad',array('tpl'=>'ad_run','num'=>'5'))}<!--轮播图片-->
+        <div class="qukeright">
+            <div class="quick">
+                <a href="{:U('user/order/neworder')}">
+                    <img src="web/images/head/quick_ru.jpg" width="202" height="42" alt=""></a></div>
+            {:W('Ad',array('tpl'=>'description','num'=>'10'))}<!-- 网站介绍 -->
+            {:W('Ad',array('tpl'=>'news','num'=>'11'))}<!-- news -->
+        </div>
+        <div class="ybjj">
+            {:W('Ad',array('tpl'=>'left_top','num'=>'5'))}<!-- 帮助中心 -->
+            {:W('Ad',array('tpl'=>'left_end','num'=>'5'))}<!-- 帮助中心 -->
+            {:W('Ad',array('tpl'=>'middle_top','num'=>'5'))}<!-- 帮助中心 -->
+            {:W('Ad',array('tpl'=>'middle_end','num'=>'5'))}<!-- 帮助中心 -->
+            {:W('Ad',array('tpl'=>'right_top','num'=>'5'))}<!-- 帮助中心 -->
+            {:W('Ad',array('tpl'=>'right_end','num'=>'5'))}<!-- 帮助中心 -->
+        </div>
+    </div>
+</div>
+<div class="recom" id="RecommendDiv" style="display: none;">
+    <div class="recomtop">
+        <div class="recomtleft" id="RecommendationButton">
+            <h4 style="width: 100%">
+                <b style="width: 870px; float: left">Recommendation for you</b> <a href="javascript:void(0)" onclick="ChickRecommendation(1)">
+                    <img src="web/images/head/qhtsa.png" width="16" height="16" alt=""></a>
+                <a href="javascript:void(0)" onclick="ChickRecommendation(2)">
+                    <img src="web/images/head/qhtsb.png" width="16" height="16" alt=""></a>
+                <a href="javascript:void(0)" onclick="ChickRecommendation(3)">
+                    <img src="web/images/head/qhtsb.png" width="16" height="16" alt=""></a></h4>
+        </div>
+        <span></span>
+    </div>
+    <div class="recommian" id="recommian">
+    </div>
+</div>
+
+<div class="bottombox">
+    <div class="bottomleft">
+        <div class="recomtop">
+            <h4>
+                Рекомендуемое</h4>
+            <span></span>
+        </div>
+        {:W('Areacate',array('tpl'=>'boot','num'=>'4'))} <!--商品分类-->
+    </div>
+    <div class="bottomright">
+        <div class="recomtop">
+            <div class="recomtopb" style="width: 764px;">
+                <h4>
+                    Хиты продаж</h4>
+                <a href="{:U('prod/hot/index')}">
+                    <img src="web/images/head/mored.png" width="39" height="11" alt=""></a>
+            </div>
+            <span></span>
+        </div>
+        {:W('Hot')}<!--热销产品-->
+        <script type="text/javascript">
+            function getNum(RecomNo,ParentId){
+                //document.write(RecomNo);
+                $("#" + ParentId).html("(" + RecomNo + " customers bought)");
+            }
+        </script>
+    </div>
+
+    {:W('Ad',array('tpl'=>'about_us','num'=>'14'))}
+</div>
+</div>
+</div>
+<include file='tpl/foot_ru.html' />

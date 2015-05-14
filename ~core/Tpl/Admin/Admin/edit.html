@@ -1,0 +1,44 @@
+<include file="Public:head" />
+<div class="so_main">
+  <div class="page_tit">
+  	<if condition="$action eq 'add'" value="edit">添加管理员<elseif condition="$action eq 'edit'" />编辑管理员</if>
+  </div>
+
+  <if condition="$action eq 'add'">
+  <form method="post" action="{:U('Admin/add')}">
+  <elseif condition="$action eq 'edit'" />
+  <form method="post" action="{:U('Admin/edit',array('id'=>$_GET['id']))}">
+  </if>
+
+  <div class="form2">
+  	<dl class="lineD">
+      <dt>用户名：</dt>
+      <dd>
+        <input name="account" id="account" class="text" type="text" value="{$admin.account}" >
+        <p>请务必填写正确的用户名</p>
+    </dl>
+    <dl class="lineD">
+      <dt>密码：</dt>
+      <dd>
+        <input name="password" id="password" class="text" type="password">
+        <p>密码必须为6~12位之间的数字字母或下划线字符串</p>
+    </dl>
+    <if condition="$action eq 'add' or $admin['id'] != 1">
+    <dl class="lineD">
+      <dt>用户组：</dt>
+      <dd>
+       <select name="groupid">
+       <volist name="groups" id="group">
+       		<option value="{$group.groupid}" <eq name="admin.groupid" value="$group.groupid">selected</eq>>{$group.groupname}</option>
+       </volist>
+       </select>
+    </dl>
+    </if>
+    <div class="page_btm">
+    	<input type="hidden" name="id" value="{$admin.id}">
+		<input type="submit" class="btn_b" value="提交" />
+    </div>
+  </div>
+  </form>
+</div>
+<include file="Public:foot" />

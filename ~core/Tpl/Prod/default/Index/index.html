@@ -1,0 +1,178 @@
+<include file="./tpl/head.html"/>
+<link rel="stylesheet" type="text/css" href="web/css/prodindex.css">
+<script type="./web/js/mod/jquery.scrollLoading.js"></script>
+<script type="text/javascript">
+var leHear = "{$Think.get.credit|default='1heart'}";
+$(function(){
+    $('option[value="'+leHear+'"]').attr('selected',true).parent().change();
+});
+</script>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+    <div class="newmenub " style="width: 100%;float: left;" >
+        <div class="leftnm" id="leftmenu">
+            <a href="{:U('prod/cate/index')}" ><span>All categories</span><img alt="" src="web/images/head/Flxsj.png"></a>
+
+            <div name="menulest" style="display: none;" class="leftfl flxl">
+
+                {:W('Areacate',array('tpl'=>'index','num'=>'13'))}<!--商品分类-->
+
+            </div>
+        </div>
+         <div class="rihgtnm daohang">
+	        <ul>
+	            <span>You are here:&nbsp;</span>
+	            <em id="NavigationDiv" style="float: left;"><a href="{:U('home/index/index')}">Home</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('prod/cate/index')}">All categories</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<present name="address_2"><a href="{:U('prod/index/index','cid='.$address_1['cid'])}">{$address_1.name}</a><else/>{$address_1.name}</present><present name="address_2">&nbsp;&nbsp;&gt;&nbsp;&nbsp;{$address_2.name}</present></em>
+	        </ul>
+        </div>
+    </div>
+    {:W('Areacate',array('tpl'=>'second','num'=>'13'))}<!--商品二级分类-->
+    <div class="spbox">
+        <div class="spbTop">
+            <div class="spbtcenter">
+                <div class="spbtcentertop">
+                    <b id="resultFound"><span>
+                                {$mapcount}
+                        </span> Results found</b>
+                    <div class="rihgtct">
+                        <a  href="javascript:PageStatus(0)" class="rihgtcta" style="cursor:pointer;">
+                            <img src="./web/images/prod/spmneua.png" width="16" height="16" id="page1">
+                        </a>
+                        <a href="javascript:PageStatus(1)" class="rihgtcta" style="cursor:pointer;">
+                            <img src="./web/images/prod/spmneub.png" width="16" height="16"  id="page2">
+                        </a>
+                        <span>
+                            <img src="./web/images/prod/spmneuh.png" width="2" height="19">
+                        </span>
+                        <a href="javascript:OrderBy(0)" class="rihgtctb">
+                            <img src="./web/images/prod/spmneucb.png" width="80" height="27" id="order1">
+                        </a>
+                        <a href="javascript:OrderBy(1)" class="rihgtctb">
+                            <img src="./web/images/prod/spmneudb.png" width="80" height="27" id="order2">
+                        </a>
+                        <span>
+                            <img src="./web/images/prod/spmneuh.png" width="2" height="19">
+                        </span>
+                        <a href="javascript:PageMess(20)" class="rihgtctc">
+                            <img src="./web/images/prod/spmneue.png" id="pagemess1">
+                        </a>
+                        <a href="javascript:PageMess(40)" class="rihgtctc">
+                            <img src="./web/images/prod/spmneuf.png" id="pagemess2">
+                        </a>
+                        <a href="javascript:PageMess(80)" class="rihgtctc">
+                            <img src="./web/images/prod/spmneug.png" id="pagemess3">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="spbtcenterbot">
+                    <ul>
+                        <li class="scba">
+                            <span>Price:</span>
+                            <input type="text" name="StartPrice" id="StartPrice" value="{$Think.get.startprice|default=1}" style="margin-top: 0px;" />
+                            <em>$</em>  -
+                            <input type="text" name="EndPrice" id="EndPrice" value="{$Think.get.endprice|default=1000}" style="margin-top: 0px;" />
+                            <em>$</em>
+                        </li>
+                        <li class="scbb">
+                            <span>Seller Level:</span>
+                            <select name="SellerLevel" id="SellerLevel" onchange="SellerLeveChange(this.value)">
+                                <option value="1" selected="selected">1+</option>
+                                <option value="2">2+</option>
+                                <option value="3">3+</option>
+                                <option value="4">4+</option>
+                                <option value="5">5+</option>
+                                <option value="6">6+</option>
+                                <option value="7">7+</option>
+                                <option value="8">8+</option>
+                                <option value="9">9+</option>
+                                <option value="10">10+</option>
+                                <option value="11">11+</option>
+                                <option value="12">12+</option>
+                                <option value="13">13+</option>
+                                <option value="14">14+</option>
+                                <option value="15">15+</option>
+                                <option value="16">16+</option>
+                                <option value="17">17+</option>
+                                <option value="18">18+</option>
+                                <option value="19">19+</option>
+                                <option value="20">20+</option>
+                            </select>
+                            <span id="SellerSrc"><img src="./web/images/prod/level_1.gif" border="0" alt=""></span>
+                        </li>
+                    </ul>
+                    <div class="sbsearch"><a href="javascript:Search()"><img src="./web/images/prod/search.png" width="60" height="27" /></a></div>
+                </div>
+            </div>
+            <div class="spbtright">
+            </div>
+        </div>
+    </div>
+     <present name="x">
+        <div class="splb" id="splb">
+            <volist name="list" id="vo">
+                <dl>
+                    <dt><a href="{:U('prod/'.$vo['iid'].'/index')}">
+                        <img class="photo_hot scrollLoading" border="0" alt="{$vo.name}" src="{$vo.pic}" data-url="{$vo.clickurl}" style="background:url(/web/images/home/loading.gif) no-repeat center;">
+                    </a>
+                    </dt>
+                    <dd>
+                        <a href="{:U('prod/'.$vo['iid'].'/index')}"><span class="itmename sp" rel="translate" rev="title" ct="title" id="{$vo.id}">{$vo.name}</span>
+                            <span class="cbut sp" id="Volume17837276072">({$vo.tao_sold} customers bought)</span><span class="money sp">
+                                {$vo.price|_usaprice}</span> <span class="sp">
+                                <img src="./web/images/prod/level_0.gif">
+                            </span>
+                        </a>
+                    </dd>
+                </dl>           
+            </volist>
+        </div>
+         <else/>
+        <div class="spzx" id="spzx">
+            <volist name="list" id="vo" >
+                <div class="leftspzx">
+                    <dl>
+                        <dt><a href="{:U('prod/'.$vo['iid'].'/index')}">
+                            <img class="photo_hot scrollLoading" border="0" alt="{$vo.name}" src="{$vo.pic}" data-url="{:U('prod/'.$vo['iid'].'/index')}" style="background:url(/web/images/prod/loading.gif) no-repeat center;">
+                        </a></dt>
+                        <dd>
+                            <div class="lbname">
+                                <a href="{:U('prod/'.$vo['iid'].'/index')}" rel="translate" rev="title" ct="title" id="{$vo.id}">{$vo.name}
+                                </a>
+                            </div>
+                            <p>
+                                Condition:<if condition="$vo['status'] eq 1">New</if> </p>
+                        <span><b>Shop: <a></a></b>
+                            <img src="./web/images/prod/level_0.gif">
+                        </span>
+                        </dd>
+                    </dl>
+                    <span id="Volume18123304886" class="sx">({$vo.tao_sold} customers bought)</span><span class="totalfl">
+                        {$vo.price|_usaprice}</span>
+                </div>
+            </volist>
+        </div>
+     </present>
+        <div class="spbottom">
+            <link href="web/css/page_new.css" rel="stylesheet" type="text/css">
+            <style type="text/css">
+                div.pages{background-color:#F1F1F1;}
+                div.pagesNav{color:#E86724; margin:15px 20px 0px 20px; font-size:14px;padding-bottom:10px;}
+                div.pagesNav a{ padding:6px 6px; border:1px solid #D3D3D3; background-color:white;}
+                div.pagesNav .current{ border:1px solid #D3D3D3;  display:inline-block; padding:6px 9px; font-size:14px; color:red; font-weight:bold;  background: #F90; }
+                .page{color: #333;}
+            </style>
+
+            <div class="pagesNav" id="fenye">
+                {$page}
+                <div class="page">
+                        <span>Pages</span>
+                        <input name="newcurpage" type="text" value="1" id="newcurpage" onkeyup="checktest(this)" class="pMax_{$pMax}"/>
+                        <img style="cursor: pointer;margin-left: 8px;" alt="" onclick="doGO()" src="web/images/prod/pagego.png" width="40"
+                             height="27" />
+                    </div>
+            </div>
+        </div>
+    
+</div>
+
+<include file="./tpl/foot.html"/>

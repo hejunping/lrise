@@ -1,0 +1,118 @@
+<include file='tpl/head.html' />
+  <link rel="stylesheet" href="web/css/_login.css" type="text/css">
+
+<script language="JavaScript">
+function changeVerify(){
+ var timenow = new Date().getTime();
+ document.getElementById('verifyImg').src="{:U('home/user/verify?time=')}"+timenow;  
+}
+</script>
+<script language="JavaScript">
+var istrue=false;
+var iscode=false;
+function CheckEmail() {    
+    var emailZhengZe = "^([0-9a-zA-Z-_.])+@[0-9a-zA-Z-.]+$";
+    if ($("#email").val() == null || $("#email").val() == "") {
+        $("#errorMessage").html("*Please enter your e-mail address.");
+    }
+    else if (!$("#email").val().match(emailZhengZe)) {
+        $("#errorMessage").html("*The e-mail address is incorrect.");
+    }
+    else {
+	    var  curl=$("#formail").attr("url");
+		var  email=$("#email").val();
+        $.ajax({
+            url: curl,
+            data: {email:email},
+			dataType:"json",
+            type: "POST",
+            success: function (data) {
+                if (data.result == true) {
+                    $("#errorMessage").html("");
+                    istrue=true;
+                }
+                else {
+                    $("#errorMessage").html("*This e-mail is not registered on our site, please enter your valid e-mail!");
+                    istrue=false;
+                }
+            },
+            error: function () {
+                alert("Sorry!The system is busy, please try again later.");
+                istrue=false;
+            }
+        });
+
+    }
+}
+
+
+function checkCaptcha(){
+    var emails=$("#captcha").val();
+    if(emails.length<4){
+    	$("#errorMessage").html("*Please enter code.");
+    }else{
+    	$("#errorMessage").html("");
+    	iscode=true;
+    }
+}
+
+function Next() {  
+	CheckEmail();
+	checkCaptcha();
+    if(istrue && iscode){
+     
+ 	   document.forms.submit();
+    }
+}
+</script>
+<div class="signMian">
+    <div class="left_ChangeP">
+    <form action="{:U('home/user/forpassget')}" id="forms" name="forms" method="post">
+        <h4>
+            Enter your e-mail address and code blow.</h4>
+        <ul>
+            <div class="tsUpMianb" id="address">
+                <span id="errorMessage" ></span>
+            </div>
+            <li>
+                 <span id="formail" url="{:U('home/user/foremail')}"  >E-mail Address</span>
+                 <input   name="email" id="email" class="Np"  onblur="CheckEmail()" type="text"><span id="emailspan"></span>
+            </li>
+            <li><span>Code</span>
+                <input id="captcha" name="captcha" maxlength="4" onclick="checkCaptcha()"  class="cd" type="text">
+                <a class="cd" style="cursor: pointer">
+                   <img id="verifyImg" name="verifyImg" src="{:U('home/user/verify')}"  onClick="changeVerify()" title="点击刷新验证码" alt="CAPTCHA"  width="96" height="20" class="captchaimage" />
+                </a>
+                <span id="codespan"></span>
+           </li>
+        </ul>
+        <div class="botnSignP">
+            <a class="" id="submit"   >
+               <img onclick="Next()" style="cursor: pointer" src="web/images/home/Ne_03.jpg">
+            </a>
+        </div>
+      </form>
+    </div>
+    <div class="right_ChangeP">
+        <h4>
+            1.Already have an account?</h4>
+        <div class="botnSign">
+            <a href="{:U('home/user/login')}">
+                <img src="web/images/home/sinin_03.jpg"></a>
+        </div>
+        <h4>
+            2.No yet a member?</h4>
+        <div class="botnSign">
+            <a href="{:U('home/user/index')}">
+                <img src="web/images/home/signup_03.jpg">
+            </a>
+        </div>
+        <h4>
+            3.Have problems?</h4>
+        <span><a href="{:U('/home/info/index/id/456')}" target="_blank">Contact
+            Us</a></span>
+    </div>
+</div>
+ <div class="clear"></div>
+ <div style="margin-top:50px;"></div>
+<include file='tpl/foot.html' />

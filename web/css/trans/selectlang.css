@@ -1,0 +1,47 @@
+#selectlang a{
+    display: block;
+    width:91px;
+    height:20px;
+    margin-left:9px;
+    text-indent: 20px;
+}
+#selectlang .showlang{
+    background: url(http://login.yoybuy.com/content/images/xyzbj.png) no-repeat 0 0;
+}
+#selectlang .showlang a:hover{
+    color:inherit;
+    cursor:pointer;
+}
+#selectlang .langlist{
+    width: 98px;
+    height:93px;
+    border:1px solid #ccc;
+    position: relative;
+    left:0;
+    top:0;
+    background: #fff;
+    border-radius: 5px;
+    display: none;
+}
+#selectlang .langlist span{
+    display: block;
+    width:96px;
+    height:30px;
+    border-bottom:1px dashed #e0e0e0;
+}
+#selectlang .langlist a{
+    height: 30px;
+    line-height: 30px;
+}
+#selectlang .langlist span:hover{
+    background-color: #f9f9f9;
+}
+#selectlang a.default{
+    background: url(http://img.yoybuy.com/share/head/en.png) no-repeat left center;
+}
+#selectlang a.zh{
+    background: url(http://img.yoybuy.com/share/head/cn.png) no-repeat left center;
+}
+#selectlang a.ru{
+    background: url(http://img.yoybuy.com/share/head/ru.png) no-repeat left center;
+}

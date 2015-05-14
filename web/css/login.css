@@ -1,0 +1,28 @@
+/**
+ * @title 系统管理样式 
+ * @author birdy
+ * @date  2012-03-10 
+*/
+@charset "utf-8";
+@import "public.css";
+@import "style.css";
+@import "debug.css";
+body {background:#a6acba;}
+.box_top{ background:url(images/admin/login_box_top.gif) no-repeat;width:435px;height:93px;}
+.box {width:435px;margin:0 auto;margin-top:100px;}
+.box .logo{width:193px;height:75px;background:#e6e9ee url(images/admin/logo.gif) no-repeat;}
+.box .la { width:433px; background:#e6e9ee url(images/admin/login_bg1.gif) repeat-x top; border:1px solid #fff; border-bottom:none; border-top:none;}
+.box .lb { width:176px; height:215px; background:url(images/admin/login_bg2.gif) no-repeat center center;}
+.box .lc { width:257px; height:215px; background:url(images/admin/login_bg3.gif) no-repeat top left; color:#5b5d6a;}
+.box .lc ul { padding-left:20px;}
+.box .lc li { float:left; width:237px; line-height:22px;}
+.box .lc li.w180{width:180px;}
+.box .lx { margin-left:24px;}
+.ldinput {border:1px solid #c3c6cb; padding:2px;}
+.box .ld { background:url(images/admin/login_bg4.gif) no-repeat top right;}
+.box .le { background:url(images/admin/login_bg5.gif) no-repeat top right;}
+.box .lg { background:url(images/admin/login_bg6.gif) repeat-x;}
+.box .lf {  margin-bottom:13px; }
+.box .submit{background:url(images/admin/login_submit.gif);height:27px; width:81px;}
+.box .reset{background:url(images/admin/login_reset.gif);height:27px; width:81px;}
+.box .lbm { width:435px; height:39px; line-height:22px; color:#f6f4f9; background:url(images/admin/login_box_foot.gif) no-repeat; text-align:center; padding-top:30px;}

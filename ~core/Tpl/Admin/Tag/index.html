@@ -1,0 +1,64 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit">标签管理</div>
+  	<div class="Toolbar_inbox">
+        <form action="{:U('admin/tag/index')}" method="GET">
+  		<a href="{:U('admin/tag/form')}" class="btn_a"><span>添加标签</span></a>
+  		<a href="{:U('admin/tag/index')}" class="btn_a"><span>显示全部</span></a>
+  		&nbsp;&nbsp;可用 {:form_select('status',$_GET['status'],'','',array('-1','不限'))}
+  		&nbsp;&nbsp;{:form_input('key',$_GET['key'],'text w120 h20')}
+        &nbsp;&nbsp;<input type="submit" value="查询" class="btn_b"/>
+  		</form>
+    </div>
+  	<div class="list">
+	  	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  	<tr>
+		    	<th class="line_l">ID</th>
+		    	<th class="line_l">标签名称</th>
+		    	<th class="line_l">总热度</th>
+		    	<th class="line_l">单曲数</th>
+		    	<th class="line_l">专辑数</th>
+		    	<th class="line_l">歌手数</th>
+		    	<th class="line_l">用户数</th>
+		    	<th class="line_l">可用</th>
+		    	<th class="line_l">添加时间</th>
+		    	<th class="line_l">操作</th>
+		  	</tr>
+		  	<foreach name="list" item="item">
+			<tr>
+			    <td>{$item.id}</td>
+			    <td class="f14 bold cGreen">
+                    <img src="{:imageUrl(getImage($item['id'],'tag','small'))}" height="20" />
+                    {$item.name}
+                    <if condition="$item['ename']"> ({$item.ename})</if>
+                </td>
+			    <td>{$item.hot}</td>
+			    <td>{$item.count_song}</td>
+			    <td>{$item.count_album}</td>
+			    <td>{$item.count_singer}</td>
+			    <td>{$item.count_user}</td>
+				<td>{$item.status|dp_bool=$item['id'],'admin/prod/bool','status'}</td>
+			    <td>{$item.ctime|date="Y-m-d",###}</td>
+			    <td><a href="{:U('admin/tag/form',array('id'=>$item['id']))}">编辑</a></td>
+			</tr>
+		  	</foreach>
+	  	</table>
+		<notpresent name="list">
+		  	<div class="l40 cRed bold f14">暂无标签</div>
+		</notpresent>
+	</div>
+	<present name='page'>
+  	<div class="Toolbar_inbox">
+  		<div class="page">{$page}</a>
+  	</div>
+  	</present>
+</div>
+<script type="text/javascript">
+$(function(){
+	tr_hover();
+	ajax_bool();
+	ajax_sort();
+	input_toggle($('form [name="key"]'),'cGray','标签名称');
+});
+</script>
+<include file="Public:foot" />

@@ -1,0 +1,402 @@
+<include file='tpl/head_zh.html'/>
+<script type="text/javascript" src="web/js/mod/user/address/addressbook_zh.js"></script>
+<script type="text/javascript" src="web/js/mod/user/address/colorbox.js"></script>
+<script type="text/javascript" src="web/js/mod/user/address/jquery_1.js"></script>
+<script type="text/javascript" src="web/js/mod/user/address/jquery_002.js"></script>
+<script type="text/javascript" src="web/js/mod/user/address/jquery_ui_1.js"></script>
+<script type="text/javascript" src="web/js/mod/user/address/languageselect.js"></script>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">首页</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">我的Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>地址记录</b></div>
+</div>
+
+<include file='Public:left' />  
+<div class="sidebox yoymbox">
+    <div class="a_rside sbr">
+        <!--My order star-->
+        <div class="rtit">
+            地址记录</div>
+        <div class="bdbox">
+            <div class="m_order_box">
+                <!--Consignee information star-->
+                <div class="titleH">
+                    <h4>
+                        配送地址</h4>
+                </div>   
+                <foreach name="list"  item="listadd">
+                 <div id="ShippingAddress">
+                    <div name="addressdiv" class="c_i_center_a" id="delete" durl="{:U('user/settings/delete')}">
+                        <div class="ci_cb_aX">
+                         
+                            <div class="ci_cb_aXleft">
+                            
+                                <ul>
+                               
+                                    <li>
+                                        <p>
+
+                                            <input type="hidden" value="{$listadd.id}" name="cord.AddressId"/>
+                                            <b><a name="name">{$listadd.name}</a></b>
+                                        </p>
+                                        <span>电话:<a name="Phone">{$listadd.phone}</a></span> <span>邮政编码:<a name="zipcode">{$listadd.pcode}</a></span>
+                                    </li>
+                                    <li><a name="address">{$listadd.address}</a><a name="cityName">{$listadd.city}</a> <a name="provinceName">{$listadd.prov}</a><b><a
+                                                name="enCountryName">{$listadd.country}</a></b></li>
+                                               
+                                </ul>
+                                <input type="hidden" name="countryId" value="" />
+                                
+                                <input type="hidden" name="userId" value="{$listadd.uid}" />
+                            </div>
+                            <div style="" class="ci_cb_aXright">
+                                <ul>
+                                    <li><a name="edit" onclick="editAddress(this)" href="javascript:void(0)" >编辑</a></li>
+                                    <li><a onclick="deleteAddress(this)" href="javascript:void(0)" ><span>删除</span ></a></li>
+                                </ul>  
+                            </div>
+                        </div>
+                    </div>
+                    </foreach>
+                <div style="display: none" id="AddressArea" class="ci_cb_aX" url="{:U('user/settings/save')}">
+                    <div name="closeArea" style="float: right; font-family: Verdana, Geneva, sans-serif;
+                         font-size: 10px; width: 50px; line-height: 25px;">
+                        <a onclick="colsArea(this)" href="javascript:void(0)">close</a></div>
+                    <div class="ci_cb_aXxg">
+                        <ul>
+                            <li><span>收件人姓名:</span><input type="text" onblur="check_addressName(this)"
+                                                                     onkeyup="check_addressName(this)" class="zlinput" name="name" /></li>
+                            <div class="cwTx">
+                            </div>
+                            <li><span>电话:</span><input type="text" onblur="check_tel(this)" onkeyup="check_tel(this)"
+                                                        class="zlinput" name="tel" /></li>
+                            <div class="cwTx">
+                            </div>
+                            <li><span>国家:</span>
+                                <select onchange="check_Country(this)" class="zlinputGj" name="Country">
+                                     {$area|_inteArea}
+                                     
+                                </select>
+                            </li>
+                            <div class="cwTx">
+                            </div>
+                            <li><span>省份/洲e:</span><input type="text" class="zlinput" name="Provinces"
+                                                                    onfocus="keymessage.focus(this)" onblur="keymessage.blur(this)" onkeyup="keymessage.getProvinces(this)" /></li>
+                            <div class="cwTx">
+                            </div>
+                            <li><span>城市:</span><input type="text" class="zlinput" name="City" onblur="keymessage.blur(this)"
+                                                         onkeyup="keymessage.getCity(this)" /></li>
+                            <div class="cwTx">
+                            </div>
+                            <li><span>邮政编码:</span><input type="text" onblur="keymessage.blur(this)" onkeyup="keymessage.getPostCode(this)"
+                                                              class="zlinput" name="Postcode" /></li>
+                            <div class="cwTx">
+                            </div>
+                            <li><span>地址:</span><input type="text" onblur="check_address(this)" onkeyup="check_address(this)"
+                                                            style="width: 400px;" class="zlinput" name="Address" /></li>
+                            <div class="cwTx">
+                            </div>
+                        </ul>
+                        <div class="add_mneu">
+                            <a onclick="save(this)" href="javascript:void(0)">
+                                <img height="21" border="0" width="75" alt="" src="web/images/user/tup_03.gif" /></a>
+                        </div>
+                    </div>
+                </div>                                                                          
+                <div class="xl_dz ui-helper-reset" id="accordion" url="{:U('user/settings/updateaddress')}">
+                    <h3>
+                        <a href="javascript:Address()">添加新地址[+]</a></h3>
+                    <div style="display: none" id="addressDiv" class="c_i_center_aX" >
+                        <div class="ci_cb_aX" >
+                            <div class="ci_cb_aXxg"  >
+                                <ul>
+                                
+                                    <li><span>收件人姓名:</span><input type="text" onkeyup="check_addressName(this)"
+                                                                             onblur="check_addressName(this)" class="zlinput" name="name" /></li>
+                                    <div class="cwTx">
+                                    </div>
+                                    <li><span>电话:</span><input type="text" onkeyup="check_tel(this)" onblur="check_tel(this)"
+                                                                class="zlinput" name="tel" /></li>
+                                    <div class="cwTx">
+                                    </div>
+                                    <li><span>国家:</span>
+                                        <select onchange="check_Country(this)" onblur="check_Country(this)" class="zlinputGj" name="Country">
+                                          <option value="0">- select one -</option>
+                                          <option value="1">China</option>
+                                          <option value="2">Afghanistan</option>
+                                          <option value="3">Albania</option>
+                                          <option value="4">Algeria</option>
+                                          <option value="5">American Samoa</option>
+                                          <option value="6">Andorra</option>
+                                          <option value="7">Angola</option>
+                                          <option value="8">Anguilla</option>
+                                          <option value="9">Antigua</option>
+                                          <option value="10">Argentina</option>
+                                          <option value="11">Armenia</option>
+                                          <option value="12">Aruba</option>
+                                          <option value="13">Australia</option>
+                                          <option value="14">Austria</option>
+                                          <option value="15">Azerbaijan</option>
+                                          <option value="16">Bahamas</option>
+                                          <option value="17">Bahrain</option>
+                                          <option value="18">Bangladesh</option>
+                                          <option value="19">Barbados</option>
+                                          <option value="20">Belarus</option>
+                                          <option value="21">Belgium</option>
+                                          <option value="22">Belize</option>
+                                          <option value="23">Benin</option>
+                                          <option value="24">Bermuda</option>
+                                          <option value="25">Bhutan</option>
+                                          <option value="26">Bolivia</option>
+                                          <option value="27">Bonaire</option>
+                                          <option value="28">Bosnia &amp; Herzegovina</option>
+                                          <option value="29">Botswana</option>
+                                          <option value="30">Brazil</option>
+                                          <option value="31">Brunei</option>
+                                          <option value="32">Bulgaria</option>
+                                          <option value="33">Burkina Faso</option>
+                                          <option value="34">Burundi</option>
+                                          <option value="35">Cambodia (Kampuchea)</option>
+                                          <option value="36">Cameroon</option>
+                                          <option value="37">Canada</option>
+                                          <option value="38">Sri Lanka</option>
+                                          <option value="39">Cape Verde</option>
+                                          <option value="40">Cayman Islands</option>
+                                          <option value="41">Central African Republic</option>
+                                          <option value="42">Chad</option>
+                                          <option value="43">Chile</option>
+                                          <option value="44">Colombia</option>
+                                          <option value="45">Comoros</option>
+                                          <option value="46">Congo</option>
+                                          <option value="47">Congo, The Democratic Republic</option>
+                                          <option value="48">Cook Islands</option>
+                                          <option value="49">Costa Rica</option>
+                                          <option value="50">Cote D'lvoire</option>
+                                          <option value="51">Croatia</option>
+                                          <option value="52">Cuba</option>
+                                          <option value="53">Curacao</option>
+                                          <option value="54">Cyprus</option>
+                                          <option value="55">Czech Republic</option>
+                                          <option value="56">Denmark</option>
+                                          <option value="57">Djibouti</option>
+                                          <option value="58">Dominican Republic</option>
+                                          <option value="60">East Timor</option>
+                                          <option value="61">Ecuador</option>
+                                          <option value="62">Egypt</option>
+                                          <option value="63">El Salvador</option>
+                                          <option value="64">Equatorial Guinea</option>
+                                          <option value="65">Eritrea</option>
+                                          <option value="66">Estonia</option>
+                                          <option value="67">Ethiopia</option>
+                                          <option value="68">Falkland Islands</option>
+                                          <option value="69">Faroe Islands</option>
+                                          <option value="70">Fiji Islands</option>
+                                          <option value="71">Finland</option>
+                                          <option value="72">France</option>
+                                          <option value="73">French Guiana</option>
+                                          <option value="74">French Polynesia</option>
+                                          <option value="75">Gabon</option>
+                                          <option value="76">Gambia</option>
+                                          <option value="77">Georgia</option>
+                                          <option value="78">Germany</option>
+                                          <option value="79">Ghana</option>
+                                          <option value="80">Gibraltar</option>
+                                          <option value="81">Greece</option>
+                                          <option value="82">Greenland</option>
+                                          <option value="83">Grenada</option>
+                                          <option value="84">Guadeloupe</option>
+                                          <option value="85">Guam</option>
+                                          <option value="86">Guatemala</option>
+                                          <option value="87">Guernsey</option>
+                                          <option value="88">Guinea Republic</option>
+                                          <option value="89">Guinea-Bissau </option>
+                                          <option value="90">Guyana(British)</option>
+                                          <option value="91">Haiti</option>
+                                          <option value="92">Honduras</option>
+                                          <option value="93">Hongkong</option>
+                                          <option value="94">Hungary</option>
+                                          <option value="95">Iceland</option>
+                                          <option value="96">India</option>
+                                          <option value="97">Indonesia</option>
+                                          <option value="98">Iran</option>
+                                          <option value="99">Iraq</option>
+                                          <option value="100">Ireland</option>
+                                          <option value="101">Israel</option>
+                                          <option value="102">Italy</option>
+                                          <option value="103">Jamaica</option>
+                                          <option value="104">Japan</option>
+                                          <option value="105">Jersey</option>
+                                          <option value="106">Jordan</option>
+                                          <option value="107">Kazakhstan</option>
+                                          <option value="108">Kenya</option>
+                                          <option value="109">Kiribati</option>
+                                          <option value="110">Korea, D.P.R.of</option>
+                                          <option value="111">Korea, Republic of</option>
+                                          <option value="112">Kuwait</option>
+                                          <option value="113">Kyrgyzstan</option>
+                                          <option value="114">Laos</option>
+                                          <option value="115">Latvia</option>
+                                          <option value="116">Lebanon</option>
+                                          <option value="117">Lesotho</option>
+                                          <option value="118">Liberia</option>
+                                          <option value="119">Libya</option>
+                                          <option value="120">Liechtenstein</option>
+                                          <option value="121">Lithuania</option>
+                                          <option value="122">Luxembourg</option>
+                                          <option value="123">Macau</option>
+                                          <option value="124">Macedonia</option>
+                                          <option value="125">Madagascar</option>
+                                          <option value="126">Malawi</option>
+                                          <option value="127">Malaysia</option>
+                                          <option value="128">Maldives</option>
+                                          <option value="129">Mali</option>
+                                          <option value="130">Malta</option>
+                                          <option value="131">Marshall Islands</option>
+                                          <option value="132">Martinique</option>
+                                          <option value="133">Mauritania</option>
+                                          <option value="134">Mauritius</option>
+                                          <option value="135">Mexico</option>
+                                          <option value="136">Moldova</option>
+                                          <option value="137">Monaco</option>
+                                          <option value="138">Mongolia</option>
+                                          <option value="139">Montserrat</option>
+                                          <option value="140">Morocco</option>
+                                          <option value="141">Mozambique</option>
+                                          <option value="142">Myanmar</option>
+                                          <option value="143">Namibia</option>
+                                          <option value="144">Nauru</option>
+                                          <option value="145">Nepal</option>
+                                          <option value="146">Netherland</option>
+                                          <option value="147">Nevis</option>
+                                          <option value="148">New Caledonia</option>
+                                          <option value="149">New Zealand</option>
+                                          <option value="150">Nicaragua</option>
+                                          <option value="151">Niger</option>
+                                          <option value="152">Nigeria</option>
+                                          <option value="153">Niue</option>
+                                          <option value="154">Norway</option>
+                                          <option value="155">Oman</option>
+                                          <option value="156">Pakistan</option>
+                                          <option value="157">Panama</option>
+                                          <option value="158">Papua New Guinea</option>
+                                          <option value="159">Paraguay</option>
+                                          <option value="160">Peru</option>
+                                          <option value="161">Philipines</option>
+                                          <option value="162">Poland</option>
+                                          <option value="163">Portugal</option>
+                                          <option value="164">Puerto Rico</option>
+                                          <option value="165">Qatar</option>
+                                          <option value="166">Reunion Island</option>
+                                          <option value="167">Romania</option>
+                                          <option value="168">Russia</option>
+                                          <option value="169">Rwanda</option>
+                                          <option value="170">Saipan</option>
+                                          <option value="171">Samoa</option>
+                                          <option value="172">Sao Tome and Principe</option>
+                                          <option value="173">Saudi Arabia</option>
+                                          <option value="174">Senegal</option>
+                                          <option value="175">Serbia</option>
+                                          <option value="176">Seychelles</option>
+                                          <option value="177">Sierra Leone</option>
+                                          <option value="178">Singapore</option>
+                                          <option value="179">Slovakia</option>
+                                          <option value="180">Slovenia</option>
+                                          <option value="181">Soloman Islands</option>
+                                          <option value="182">Somalia</option>
+                                          <option value="183">Soomaaliland </option>
+                                          <option value="184">South Africa</option>
+                                          <option value="185">Spain</option>
+                                          <option value="186">Canary Islands</option>
+                                          <option value="187">St Barthelemy</option>
+                                          <option value="188">St Eustatius</option>
+                                          <option value="189">St Kitts</option>
+                                          <option value="190">St Lucia</option>
+                                          <option value="191">St Maarten</option>
+                                          <option value="192">St Vincent</option>
+                                          <option value="193">Sudan</option>
+                                          <option value="194">Suriname</option>
+                                          <option value="195">Swaziland</option>
+                                          <option value="196">Sweden</option>
+                                          <option value="197">Switzerland</option>
+                                          <option value="198">Syria</option>
+                                          <option value="199">Tahiti</option>
+                                          <option value="200">Taiwan</option>
+                                          <option value="201">Tajikistan</option>
+                                          <option value="202">Tanzania</option>
+                                          <option value="203">Thailand</option>
+                                          <option value="204">Togo</option>
+                                          <option value="205">Tonga</option>
+                                          <option value="206">Trinidad and Tobago</option>
+                                          <option value="207">Tunisia</option>
+                                          <option value="208">Turkey</option>
+                                          <option value="209">Turkmeinistan</option>
+                                          <option value="210">Turks And Caicos Islands</option>
+                                          <option value="211">Tuvalu</option>
+                                          <option value="212">Uganda</option>
+                                          <option value="213">Ukraine</option>
+                                          <option value="214">United Arab Emirates</option>
+                                          <option value="215">United Kingdom</option>
+                                          <option value="216">United States of America</option>
+                                          <option value="217">Uruguay</option>
+                                          <option value="218">Uzbekistan</option>
+                                          <option value="219">Vanuatu</option>
+                                          <option value="220">Venezuela</option>
+                                          <option value="221">Vietnam</option>
+                                          <option value="222">Virgin Islands (British)</option>
+                                          <option value="223">Virgin Islands (U.S.)</option>
+                                          <option value="224">Yemen</option>
+                                          <option value="225">Zambia</option>
+                                          <option value="226">Zimbabwe</option>
+                                          <option value="231">The Republic of San Marino</option>
+                                          <option value="235">Netherlands Antilles</option>
+                                          <option value="236">Yugoslavia</option>
+                                          <option value="240">The Vatican City State</option>
+                                          <option value="242">Saint Pierre and Miquelon</option>
+                                          <option value="245">Montenegro</option>
+                                          <option value="247">SOUTH SUDAN</option>
+                                          <option value="248">Kosovo</option>
+                                          <option value="249">Mayotte</option>
+                                          <option value="250">Palau</option>
+                                          <option value="251">Micronesia</option>
+                                          <option value="252">Azores</option>
+                                          <option value="253">Madeira</option> 
+                                        </select>
+                                    </li>
+                                    <div class="cwTx" >
+                                    </div>
+                                    <li><span>省份/洲:</span><input type="text" class="zlinput" name="Provinces"
+                                                                            onfocus="keymessage.focus(this)" onblur="keymessage.blur(this)" onkeyup="keymessage.getProvinces(this)" /></li>
+                                    <div class="cwTx" >
+                                    </div>
+                                    <li><span>城市:</span><input type="text" class="zlinput" name="City" onblur="keymessage.blur(this)"
+                                                                 onkeyup="keymessage.getCity(this)" /></li>
+                                    <div class="cwTx" >
+                                    </div>
+                                    <li><span>邮政编码:</span><input type="text" onblur="keymessage.blur(this)" onkeyup="keymessage.getPostCode(this)"
+                                                                      class="zlinput" name="Postcode" /></li>
+                                    <div class="cwTx">
+                                    </div>
+                                    <li><span>地址:</span><input type="text" onblur="check_address(this)" onkeyup="check_address(this)"
+                                                                    style="width: 400px;" class="zlinput" name="Address" /></li>
+                                    <div class="cwTx">
+                                    </div>
+                                </ul>
+                                <input type="hidden" value="{$listadd.uid}" name="userId" />
+                                 <input type="hidden" value="{$listadd.id}" name="cord.AddressId"/>
+                                <div class="add_mneu">
+                                     <a onclick="CreateAddress(this)" href="javascript:void(0)">
+                                        <img height="21" border="0" width="75" alt="" src="web/images/user/tup_03.gif"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--My order star-->
+    </div>
+</div>
+</div>
+</div>
+<include file="tpl/foot.html"/>

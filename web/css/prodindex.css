@@ -1,0 +1,400 @@
+@CHARSET "UTF-8";
+.mxfl {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: auto;
+    margin-bottom: 5px;
+   
+    overflow: hidden;
+    width: 188px;
+}
+.mxfl h2 {
+    background: url("images/letimbj.png") repeat scroll left top transparent;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 5px;
+    width: 178px;
+}
+.mxfl ul {
+    border-top: 1px solid #CCCCCC;
+    float: left;
+    padding: 5px;
+    width: 178px;
+}
+.mxfl ul li {
+    border-bottom: 1px dotted #CCCCCC;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    list-style: disc inside url("images/xst.png");
+    overflow: hidden;
+    width: 100%;
+}
+
+.spleftbot {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: auto;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+    width: 188px;
+}
+
+.spleftbot h2 {
+    float: left;
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: 6px;
+    padding: 0 5px;
+    width: 178px;
+}
+
+.rightmxfl {
+    float: left;
+    height: auto;
+    margin-top: 10px;
+    overflow: hidden;
+    width: 785px;
+}
+
+.spjs {
+    background: url("images/ppjj.png") no-repeat scroll left top #FFFFFF;
+    float: left;
+    height: auto;
+    padding-top: 7px;
+    width: 785px;
+}
+
+.boxleft {
+    float: left;
+    height: auto;
+    margin-right: 5px;
+    margin-top: 10px;
+    width: 190px;
+}
+
+.spjs h3 {
+    float: left;
+    padding: 0 10px;
+    width: 765px;
+}
+
+.spjs p {
+    background: url("images/ppjjb.png") no-repeat scroll left bottom transparent;
+    float: left;
+    height: auto;
+    line-height: 20px;
+    margin-top: 5px;
+    padding: 0 10px 10px;
+    width: 765px;
+}
+
+.mxfl h1 {
+    background: url("images/letimbj.png") repeat scroll left top transparent;
+    float: left;
+    font-size: 12px;
+    height: 36px;
+    line-height: 36px;
+    overflow: hidden;
+    padding: 0 5px;
+    width: 178px;
+}
+
+.spbox {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    /* margin-top: 10px;*/
+    overflow: hidden;
+    width: 100%;
+}
+
+.spbTop {
+    background: url("images/spboxbj.png") no-repeat scroll left top transparent;
+    height: 80px;
+    padding-left: 6px;
+    width: 779px;
+}
+
+.spbtcenter {
+    background: url("images/spboxbjb.png") repeat-x scroll left top transparent;
+    float: left;
+    height: 80px;
+    width: 774px;
+}
+
+.spbtcentertop {
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    width: 100%;
+}
+
+.spbtcentertop b {
+    float: left;
+    padding-left: 5px;
+    width: 150px;
+}
+.spbtcentertop b span {
+    color: #FF6600;
+}
+
+.rihgtct {
+    float: right;
+    height: 100%;
+}
+
+.rihgtcta {
+    float: left;
+    margin: 14px 5px 0;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+img {
+    border: medium none;
+}
+
+.rihgtct span {
+    float: left;
+    margin: 12px 5px 0;
+}
+
+.rihgtctb {
+    float: left;
+    margin: 8px 5px 0;
+}
+
+.rihgtctc {
+    float: left;
+    margin: 9px 5px 0;
+}
+
+.spbtcenterbot {
+    float: left;
+    height: 37px;
+    line-height: 30px;
+    margin-top: 2px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.spbtcenterbot ul li {
+    border-right: 1px dashed #666666;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    width: auto;
+}
+
+.scba input {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    width: 50px;
+}
+
+em {
+    font-style: normal;
+}
+
+.scba input {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    width: 50px;
+}
+
+input {
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+.spbtcenterbot ul li {
+    border-right: 1px dashed #666666;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    width: auto;
+}
+
+li {
+    list-style: none outside none;
+}
+
+.scbb span {
+    float: left;
+    margin: 0 2px;
+}
+
+.scbb span img {
+    margin-top: 6px;
+}
+
+.sbsearch {
+    float: right;
+}
+
+.spbtright {
+    background: url("images/spboxbjc.png") no-repeat scroll left top transparent;
+    float: left;
+    height: 80px;
+    padding-right: 5px;
+}
+
+.splb {
+    float: left;
+    height: auto;
+    overflow: hidden;
+    padding-bottom: 5px;
+    padding-left: 7px;
+    width: 778px;
+}
+
+.splb dl {
+    cursor: pointer;
+    float: left;
+    height: 275px;
+    margin: 5px;
+    overflow: hidden;
+    padding: 6px;
+    width: 171px;
+}
+
+.splb dl dt {
+    float: left;
+    height: 170px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    width: 170px;
+}
+
+.splb dl dt a {
+    border: 1px solid #E7E7E7;
+    display: table-cell;
+    height: 168px;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    width: 168px;
+}
+
+.splb dl dt a img {
+    width: 168px;
+}
+
+.spbottom {
+    border-top: 1px dotted #CCCCCC;
+    float: left;
+    margin: 0 10px;
+    width: 760px;
+}
+
+.newfy {
+    float: left;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.newfy a {
+    border: 1px solid #CCCCCC;
+    cursor: pointer;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    margin: 0 2px;
+    text-align: center;
+    width:45px;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.sp {
+    float: left;
+    margin-top: 5px;
+}
+
+.sp {
+    width: 168px;
+}
+
+.itmename {
+    height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.cbut {
+    color: #999999;
+    font-size: 10px;
+
+}
+
+.money {
+    color: #FF9900
+    line-height: 14px;
+}
+
+.spleftbot p {
+    float: left;
+    height: auto;
+    padding: 10px;
+    width: 168px;
+}
+
+html {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.main {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #666666;
+    display: none;
+    float: left;
+    padding: 10px;
+    position: relative;
+    width: 700px;
+}
+
+
+.closeBtn {
+    float: right;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 10px;
+}
+
+.main ul li {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 0 10px;
+    width: 195px;
+}
+.scfy {
+    border-top: 1px dotted #CCCCCC;
+    float: left;
+    line-height: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+.scfy a {
+    padding: 0 2px;
+}
+

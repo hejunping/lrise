@@ -1,0 +1,39 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit f14">
+		<gt name="item.id" value="0">编辑<else/>添加</gt>广告 - 
+		<a href="{:U('admin/ad/index')}" class="cBlue f14">返回列表</a>
+	</div>
+	<div class="form2">
+	<form method="post" action="{:U('admin/ad/form')}" enctype="multipart/form-data">
+		{:dp_select('pos',$item['pos'],cate_opt('ad_pos'),'广告位','','w150')}
+		{:dp_input('title',$item['title'],'广告标题','广告标题不能为空','text','text h20 w400')}
+		{:dp_input('url',$item['url'],'链接地址','','text','text h20 w400')}
+		{:dp_input('subtitle',$item['subtitle'],'广告副标题','','text','text h20')}
+		{:dp_input('sublink',$item['sublink'],'副标题链接','','text','text h20 w400')}
+		{:dp_input('pics',$item['path'],'广告图片','image','file','h20')}
+    	<div class="page_btm">
+      		<input type="submit" class="btn_b" value="提交" />
+      		<gt name='item.id' value='0'><input name="id" type="hidden" value="{$item.id}"></gt>
+      	
+    	</div>
+	</form>
+</div>
+<script type="text/javascript">
+$(function(){
+	form_chg();
+});
+</script>
+<!-- 后台附加翻译接口单页面初始化 start-->
+<script>
+	$(document).ready(function(){
+		$('#trans_api').css({	//初始化html翻译接口显示和定位
+			'display':'block',
+			'top':90,
+		});
+		$('#trans_api .title').html('<span>广告标题：</span>');//初始化翻译字段标题
+	})
+	var transField = $('input[name="title"]');//翻译字段初始化
+</script>
+<!-- 后台附加翻译接口单页面初始化 end-->
+<include file="Public:foot" />

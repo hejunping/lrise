@@ -1,0 +1,263 @@
+
+     
+.ChangePb_Bottom{
+	width:742px;
+	text-align:center;
+	float:left;
+	font-size:10px;
+	line-height:20px;
+	color:#666;
+	}
+.ChangePb_Bottom a{
+	text-decoration:underline;
+	color:#06C;}
+.ChangePb_Bottom a:hover{
+	color:#f60;}	
+
+.loggingC
+{
+    padding: 0 10px;
+    height: 22px;
+    line-height: 22px;
+    width: 50px;
+    float: left;
+    margin-right: 10px;
+    text-align: center;
+    color: #333;
+    border: #F90 solid 1px;
+}
+.loggingC img
+{
+    margin-top: 3px;
+}    	
+.signMian{
+	width:1130px;
+	height:auto;
+	margin:10px 0;
+	float:right;
+	margin-top:50px;
+	margin-bottom:100px;}
+.left_UpMian{
+	width:auto;
+	height:auto;
+	float:left;
+	overflow:hidden;
+	margin-left:80px;
+	border:#CCC solid 1px;
+	padding-bottom:10px;
+	}
+.left_UpMian h4{
+	width:520px;
+	padding:0 10px;
+	height:40px;
+	float:left;
+	margin-bottom:20px;
+	line-height:40px;
+	border-bottom:#F90 solid 2px;
+	}	
+.left_UpMian ul li{
+	margin:10px 0px;
+	float:left;
+	width:540px;
+	}
+.left_UpMian ul li span{
+	width:120px;
+	float:left;
+	text-align:right;
+	margin-right:5px;
+	}
+    .left_UpMian ul li em{display:none;}
+.UnB{
+	float:left;
+	width:200px;
+	height:16px;
+	padding:1px 2px;
+	line-height:16px;}	
+.left_UpMian ul li select{
+	float:left;
+	width:205px;
+	height:22px;
+	padding:1px 2px;
+	line-height:22px;
+	font-family:Verdana, Geneva, sans-serif;
+	color:#666;
+	font-size:11px;}	
+.tsUpMian{
+	color:#F00;
+	float:left;
+	margin-left:125px;
+	font-size:10px;
+	width:400px;
+	overflow:hidden;
+    height: 20px
+    }	
+.left_UpMian ul li a{
+	margin-left:20px;
+	text-decoration:underline;
+	color:#2682e0;}	
+.tsUpMian input{
+	float:left;
+	margin-right:5px;}	
+.tsUpMian a{
+	color:#06F;
+	text-decoration:underline;
+	line-height:14px;
+	float:left;}	
+.tsUpMian a:hover{
+	color:#f60;}	
+	
+.botnUp{
+	width:400px;
+	margin-left:125px;
+	margin-top:15px;
+	float:left;
+	}	
+.botnUpa{
+	padding:0 10px;
+	height:22px;
+	line-height:22px;
+	width:50px;
+	float:left;
+	margin-right:10px;
+	text-align:center;
+	color:#333;
+	border:#F90 solid 1px;}	
+.loggingC{
+	padding:0 10px;
+	height:22px;
+	line-height:22px;
+	width:50px;
+	float:left;
+	margin-right:10px;
+	text-align:center;
+	color:#333;
+	border:#F90 solid 1px;}	
+.loggingC img{
+	margin-top:3px;
+	}	
+.right_UpMian{
+	float:right;
+	width:225px;
+	height:auto;
+	height:140px;
+	overflow:hidden;
+	padding-bottom:10px;
+	margin-right:100px;
+	background:url(../images/user/sign_in_bj_03.jpg) no-repeat 0 0;
+	}
+.right_UpMian a{
+	width:225px;
+	text-align:center;
+	margin-top:90px;
+	float:left;}	
+.cd{
+	width:80px;
+	height:16px;
+	padding:1px 2px;
+	font-family:Verdana, Geneva, sans-serif;
+	color:#666;
+	font-size:10px;
+	line-height:16px;
+	float:left;}
+
+.aq_wx {
+    float: left;
+    height: 20px;
+    overflow: hidden;
+    width: 70px;
+}
+.aq_wx h5 {
+    color: #666666;
+    float: left;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 10px;
+    font-weight: 100;
+    height: 10px;
+    line-height: 10px;
+    text-align: center;
+    width: 70px;
+}
+.aq_wx h3 {
+    background: none repeat scroll 0 0 #FF0000;
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 3px;
+    width: 16px;
+}
+.aq_wx h4 {
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 3px;
+    width: 16px;
+    padding:0;
+}
+.aq_yb {
+    float: left;
+    height: 20px;
+    overflow: hidden;
+    width: 70px;
+}
+.aq_yb h5 {
+    color: #666666;
+    float: left;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 10px;
+    font-weight: 100;
+    height: 10px;
+    line-height: 10px;
+    text-align: center;
+    width: 70px;
+}
+.aq_yb h3 {
+    background: none repeat scroll 0 0 #FFFF00;
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 3px;
+    width: 16px;
+}
+.aq_yb h4 {
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 3px;
+    width: 16px;
+    padding:0;
+}
+.aq_gj {
+    float: left;
+    height: 20px;
+    overflow: hidden;
+    width: 70px;
+}
+.aq_gj h5 {
+    color: #666666;
+    float: left;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 10px;
+    font-weight: 100;
+    height: 10px;
+    line-height: 10px;
+    text-align: center;
+    width: 70px;
+}
+.aq_gj h3 {
+    background: none repeat scroll 0 0 #00FF00;
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 3px;
+    width: 16px;
+}

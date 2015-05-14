@@ -1,0 +1,53 @@
+	    <div class='bd w260'>
+            <dl class="rank">
+				<h3 class='bdB h30'><span class="htit tit05"></span></h3>
+                <foreach name='paiwu' item='pai' key="k">
+                <dd> 
+                    <ul class="rank_on">
+                        <li class="rank_img">
+                            <span class="rank_span rank_spanon">{$k+1}</span> 
+                            <a href="{:U($pai['id'].'/index/index')}" target="_blank" title="{$pai.name}"> 
+                                <img src="{$pai.pic}" alt="{$pai.name}" width="100" height="100"> 
+                            </a> 
+                        </li>
+                        <li class="rankon_name"><a href="{:U($pai['id'].'/index/index')}" title="{$pai.name}" target="_blank">{$pai.name}</a></li>
+                        <li class="cBlue">{$pai.pai_uname}</li>
+                        <li><font>{$pai.pai_price|_price}</font></li>
+                    </ul>
+                    <ul class="rank_off <eq name="k%2" value="0">rank_odd</eq>">
+                        <li class="rank_name"><span class="rank_span">{$k+1}</span><a href="{:U($pai['id'].'/index/index')}" title="{$pai.name}" target="_blank">{$pai.name}</a></li>
+                    </ul>
+                </dd>
+				</foreach>
+            </dl>
+		</div>
+		<script type='text/javascript'>
+		$(function(){
+			$('.rank').find('dd').mouseover(function(){				  
+                $('.rank').find('.rank_on').hide();
+                $('.rank').find('.rank_off').show();		
+                $(this).find('.rank_on').show();		  
+                $(this).find('.rank_off').hide();	
+            }).eq(0).trigger('mouseover');
+		});
+		</script>
+        <style type="text/css">
+            .rank { height:459px;}
+.rank dt { background:url(images/index_bg.gif) no-repeat -542px -32px; height:39px; border-bottom:1px solid #eaeaea; }
+.rank dd { height:auto; margin:0 14px; }
+.rank dd ul { border-bottom:1px solid #eaeaea; width:228px; }
+.rank_on { width:196px; height:100px; display:none; overflow:hidden; padding:10px 0; }
+.rank_img { position:relative; float:left; margin-right:10px; }
+.rank_span { display:block; width:17px; height:14px; background:url(images/index_bg.gif) no-repeat -233px -195px; color:#666; text-align:center; font-weight:bold; font-size:12px; position:absolute; line-height:14px; }
+.rank_spanon { color:#fff; background:url(images/index_bg.gif) no-repeat -233px -209px; }
+.rank_on font { font-size:12px; color:#c90809; font-family:Arial, Helvetica, sans-serif; }
+.rankon_name { padding-bottom:5px; }
+.rank_off { height:22px; padding-top:10px; }
+.rank_name { float:left; position:relative; width:228px; }
+.rank_name a { padding-left:22px; width:204px; height:14px; overflow:hidden; display:inline-block; text-overflow:ellipsis; white-space:nowrap; }
+
+        </style>
+        
+        
+        
+        

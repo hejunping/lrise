@@ -1,0 +1,149 @@
+<include file='tpl/head.html'/>
+<div class="daoh" id="NaviList_">
+        
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">Home</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;<b><a href="{:U('user/index/index')}">My Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;<b>My New Lrise</b></div>
+</div>
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />
+<div class="a_rside sbr" id="huil" huil="{$ss|currency}">
+    <ul class="step">
+        <li class="step_1">
+            <img src="web/images/user/s1_2.jpg" alt="" /></li>
+        <li class="step_2">
+            <img src="web/images/user/s2_1.jpg" alt="" /></li>
+        <li class="step_3">
+            <img src="web/images/user/s3_1.jpg" alt="" /></li>
+        <li class="step_4">
+            <img src="web/images/user/s4_1.jpg" alt="" /></li>
+        <li class="step_5">
+            <img src="web/images/user/s5_1.jpg" alt="" /></li>
+    </ul>
+</div>
+<div class="a_rside" id="first">
+    <div class="rtit">
+        Place new order</div>
+    <div class="bdbox_a">
+        <div class="new_center"  id="goodsurlajax" goodsurlajax="{:U('home/ajax/newgoogs')}" addurl="{:U('home/ajax/newGoodsAdd')}">
+            <ul>
+                <li>
+                    <input name="goodsUrl" id="goodsUrl" name="" type="text" class="new_o_input" value="" />
+                    <a href="javascript:getGoods();">
+                        <img src="web/images/user/new_order_1_03.gif" width="73" height="27" border="0" /></a>
+                </li>
+            </ul>
+        </div>
+        <div class="n_c_text" id="firstTip">
+            *Attention: Please enter the original webpage URL of the item or add item from <a
+                href="{:U('home/index/index')}">our website</a> directly!</div>
+        <div id="second" style="display: none;">
+            <div>
+                <form action="" method="get">
+                    <div class="p_center" style="display: none;">
+                        <ul>
+                            <li>Item’s webpage URL :
+                            <input name="goodsAddress" id="goodsAddress" type="text" class="p_p" readonly="true" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p_left">
+                        <img id="goodsPhoto" name="goodsPhoto" src="" width="204" height="204" border="0" />
+                    </div>
+                    <div class="p_rihgt">
+                        <ul>
+                            <li><span>Title：</span>
+                            <input id="goodsName" name="goodsName" type="text" maxlength="150"  class="p_r_a" />
+                            </li>
+                            <li><span>Price：</span>
+                                <input id="goodsPricehide" name="goodsPricehide" onkeyup="value=value.replace(/[^\d\.]/g,'')"
+                                       onclick="javascript:this.focus();this.select();" value="0" type="text" class="p_r_b" /><p>
+                                    CNY</p>
+                                <p>
+                                    ≈</p>
+                                <input id="goodsPrice" name="goodsPrice" onkeyup="value=value.replace(/[^\d\.]/g,'')"
+                                       disabled="disabled" value="0" type="text" class="p_r_b" /><p>
+                                    USD
+                                </p>
+                            </li>
+                            <li><span>Shipping：</span>
+                                <input id="goodsFreighthide" name="goodsFreighthide" onkeyup="value=value.replace(/[^\d\.]/g,'')"
+                                       onclick="javascript:this.focus();this.select();" value="0" type="text" class="p_r_b" /><p>
+                                    CNY</p>
+                                <p>
+                                    ≈</p>
+                                <input name="goodsFreight" disabled="disabled" onkeyup="value=value.replace(/[^\d\.]/g,'')"
+                                       id="goodsFreight" class="p_r_b" type="text" value="0" />
+                                <p>
+                                    USD
+                                </p>
+                            </li>
+                            <li><span>Qty：</span><input id="goodsCounts" name="goodsCounts" onkeyup="value=value.replace(/[^\d]/g,'')"
+                                                        value="1" maxlength="4" type="text" class="p_r_b" onclick="javascript:this.focus();this.select();" /><a
+                                                        href="javascript:countsManager('add');" id="add">＋</a><a href="javascript:countsManager('minus');"
+                                                        id="minus">－</a></li>
+                            <li><span>Comments：</span><textarea id="goodsRemark" cols="40" name="goodsRemark"
+                                                                onclick="clearRemarkA();" onblur="clearRemarkB();" class="p_r_c" style="resize: none">Please enter the purchasing information of this item, such as color, size or other requirements.</textarea></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="p_c_top" id="secondTip">
+                        *Tips: If the information of the product is not snatched, please complete that by
+                        yourself.</div>
+                    <div class="p_bottom">
+                    </div>
+                    <div class="p_mneu">
+                        <a href="javascript:submitGoods();">
+                            <img src="web/images/user/tjdgDaoGWC.jpg" width="130" height="30" border="0" /></a>
+                        <a href="javascript:cleanEmpty();">
+                            <img src="web/images/user/qx.jpg" width="80" height="30" border="0" /></a></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="a_rside" id="three" style="display: none; ">
+    <div class="rtit">
+        Successfully add to shopping cart</div>
+    <div class="raddress stepard">
+        <div class="statusBox">
+            <div>
+                <img width="94" height="94" style="float: left; margin-left: 50px; margin-top: 40px;
+                    border: 2px solid #d9d9d9;" id="sp_proPic" src="" alt="">
+                <div class="paystatus">
+                    <p>
+                        <img src="web/images/user/addcg.jpg" alt=""></p>
+                    <div class="addinfo">
+                        <dl class="mbdl mbcg">
+                            <dt></dt>
+                            <dd>
+                                <p>
+                                    <a href=" " target="_blank" id="linktogoods" class="blue" style="overflow: hidden">
+                                        <span id="sp_proName"></span></a>
+                                </p>
+                            </dd>
+                        </dl>
+                        <p class="pr">
+                            <span>Unit Price：<b><span id="sp_proPrice"> </span></b></span> <span>Shipping：<b><span id="sp_proFright">  </span></b></span> <span>Qty：<b><span id="sp_proNum"> </span></b></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="stutasLink">
+                <a href="{:U('user/order/cart')}">
+                    <img src="web/images/user/viewshopping.jpg" alt="Shopping cart"></a>
+                <a href="javascript:void(0)" onclick="CloseShow('three'),OpenShow('first');">
+                    <img src="web/images/user/addmore.jpg" alt="Keep Shopping"></a>
+            </div>
+        </div>
+        <div class="statusBox none">
+            <div class="paystatus">
+                <img src="web/images/user/status_sb.jpg" alt="">
+            </div>
+            <div class="pts">
+            </div>
+            <div class="stutasLink">
+                <a href="javascript:void(0)" class="orange">New Order</a><a href="javascript:void(0)" class="orange">Order Status&gt;&gt;</a></div>
+        </div>
+    </div>
+</div>
+</div>
+<include file="tpl/foot.html"/>

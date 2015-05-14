@@ -1,0 +1,36 @@
+		<!-- 天天实惠 -->
+		<div class='show_hot fR bd mL mR'>
+			<div class='txtC oF'>
+				<div class="bdB h30">
+                    <span class='htit tit07 fL'></span>
+                    <span class="fR pR">已有 <span class='cRed'>{$info.click_count}</span> 人关注</span>
+                </div>
+                <div class="pRel" style="height:194px;">
+                    <div class="pAbs" style="left:0;top:0;">
+                        <table width="240" height="180">
+                            <tr>
+                                <td align="center" valign="middle">
+                                    <a href="{:U('bid/prod/'.$info['id'])}"><img src='{$info.pic}' onerror="this.src='images/nothing.gif'" /></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class='price iblock w70 h70 cWhite pRel'>
+                        <span class='f14 pAbs' style='top:4px; left:13px;'>
+                            <span style='font-size:49px;'>{$info.dis1}</span>.
+                            <span>{$info.dis2}</span>
+                            <span class='pAbs' style='top:20px; left:28px;'>折</span>
+                        </span>
+                    </div>
+                </div>
+			</div>
+			<div class='pL pT oF desc h40'>
+				<p>
+                    <a href="{:U('bid/prod/'.$info['id'])}" class='fL w160 oF  l20' title="{$info.name}">{$info.name}</a>
+                    <span class='fR pR l20'>
+                        <span class="cRed f14">{$info.price|_price}</span><br/>
+                        <del>{$info.market|_price}</del>
+                    </span>
+                </p>
+			</div>
+		</div>

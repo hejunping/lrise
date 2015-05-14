@@ -1,0 +1,46 @@
+<include file="Public:head" />
+<script type="text/javascript">
+    $(function(){
+       $('[name="ctype"]').change(function(){
+           var val = $(this).val();
+           if(val == 'mul' || val == 'mulimage') 
+           {
+               $('dd.filedd').html('<input type="file" name="file[]" /><br/><input type="file" name="file[]" /><br/><input type="file" name="file[]" />');
+           }
+           else $('dd.filedd').html('<input type="file" name="file[]" />');
+       }) ;
+    });
+</script>
+<div class="so_main">
+	<div class="page_tit f14">上传测试</div>
+	<div class="form2">
+        <form method="post" action="{:U('admin/test/deal')}" enctype="multipart/form-data">
+            <dl class='lineD'>
+                <dt>处理类型</dt>
+                <dd>
+                    <select name="ctype">
+                        <option value="common">普通上传</option>
+                        <option value="rename">按时间存储</option>
+                        <option value="temp">上传到临时文件夹</option>
+                        <option value="thumb">生成缩略图，保留原图</option>
+                        <option value="thumb_del">生成缩略图，删除原图</option>
+                        <option value="thumb_fixname">生成固定名字的缩略图</option>
+                        <option value="mul">多文件上传</option>
+                        <option value="mulimage">多图片上传，并生成缩略图</option>
+                    </select>
+                </dd>
+            </dl>
+            
+            <dl class='lineD'>
+                <dt>选择文件</dt>
+                <dd class="filedd"><input type="file" name="file[]" /></dd>
+            </dl>
+            <div class="page_btm">
+                <input type="submit" class="btn_b" value="提交" />
+                <gt name='item.id' value='0'><input name="id" type="hidden" value="{$item.id}"></gt>
+            </div>
+        </form>
+    </div>
+</div>
+<include file="Public:foot" />
+        

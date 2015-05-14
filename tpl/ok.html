@@ -1,0 +1,31 @@
+<php>$lang_select = isLang();</php>
+<if condition="$lang_select eq 'zh'">
+	<include file="tpl/head_zh.html"/>
+<elseif condition="$lang_select eq 'ru'" />
+	<include file="tpl/head_ru.html"/>
+<else/>
+	<include file="tpl/head.html"/>
+</if>
+<script type="text/javascript">
+var IS_LOGIN = "{$Think.const.IS_LOGIN}"; //是否登录
+var PAGE_URL = "__URL__"; //当前页面地址
+//顶部我的账户js
+$(function(){
+    <notempty name='jumpUrl'>
+    setTimeout(function(){
+        location.href = '{$jumpUrl}';
+    },3000);
+    </notempty>
+});
+</script>
+	<div class="bd w960 mT" style="height:400px;">
+		<div class="l40 pL pR pT pB cGreen f14 ">
+	        <!--头部结束-->
+	        <div style="border:1px dashed green;padding:15px 15px 10px 70px;margin:20px auto;background:url(images/right.gif) no-repeat 20px center;" class="w400">
+	            <div class="l20">{$message|default="Unknown operation"}</div>
+	            <notempty name='jumpUrl'><div class="l30"><a href="{$jumpUrl}" class="clblack">Seconds after automatic jump, if not jump, click here </a></div><notempty>
+	        </div>
+		</div>
+	</div>
+	
+<include file="tpl/foot.html"/>

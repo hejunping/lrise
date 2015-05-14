@@ -1,0 +1,262 @@
+.yoymbox
+{
+    float: right;
+    width: 795px;
+}
+.sbr
+{
+    margin-bottom: 10px;
+}
+.bd
+{
+    clear: both;
+    margin: 0 auto;
+    width: 982px;
+}
+
+.daoh a
+{
+    color: #0066CC;
+}
+.daoh
+{
+    clear: both;
+    color: #0066CC;
+    font-size: 11px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-left: 10px;
+    width: 970px;
+}
+.daoh b
+{
+    color: #333333;
+}
+.personal_a img
+{
+    clear: both;
+    margin-left: 110px;
+}
+.a_rside
+{
+    background: none repeat scroll 0 0 #FFFFFB;
+    border: 1px solid #DBDBDB;
+    float: right;
+    width: 795px;
+}
+.rtit
+{
+    background: url("images/home/rtitbg.jpg") repeat-x scroll center center transparent;
+    border: 1px solid #E0E0E0;
+    color: #333333;
+    float: left;
+    font-weight: bold;
+    line-height: 31px;
+    padding: 0 12px;
+    width: 770px;
+}
+.bdbox
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #E0E0E0;
+    float: left;
+    padding: 14px 15px;
+    width: 764px;
+}
+.mlst
+{
+    border-bottom: 1px solid #FF9900;
+    height: 31px;
+    margin: 0 0 10px;
+    padding: 0;
+}
+.mlst li, .paylst li
+{
+    background: none repeat scroll 0 0 #F0F0F0;
+    color: #999999;
+    cursor: pointer;
+    float: left;
+    margin: 0 1px 0 0;
+    padding: 6px 15px 7px;
+}
+.personal_box
+{
+    border: 2px solid #F3F3F3;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    padding: 20px 0;
+    width: 760px;
+}
+.personal_a
+{
+    width: 760px;
+}
+.pic
+{
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    margin-left: 110px;
+    width: 600px;
+}
+.personal_a ul li
+{
+    display: block;
+    float: right;
+    height: 22px;
+    line-height: 22px;
+    list-style: none outside none;
+    margin: 10px 0;
+    width: 760px;
+}
+.personal_a ul li a
+{
+    float: left;
+    margin-right: 10px;
+    text-align: right;
+    text-decoration: none;
+    width: 120px;
+}
+.personal_input
+{
+    border: 1px solid #999999;
+    color: #666666;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    height: 20px;
+    margin-right: 5px;
+    width: 200px;
+}
+.personal_a ul li span
+{
+    float: left;
+    margin-top: 2px;
+    width: 400px;
+}
+.personal_a ul li p
+{
+    float: left;
+    height: 22px;
+    line-height: 22px;
+    margin-right: 5px;
+    width: 200px;
+}
+.personal_a ul li p label
+{
+    float: left;
+}
+.pic
+{
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    margin-left: 110px;
+    width: 600px;
+}
+.personal_b
+{
+    clear: both;
+    margin-top: 20px;
+    text-align: right;
+}
+.personal_b a
+{
+    margin-left: 10px;
+}
+.personal_box
+{
+    border: 2px solid #F3F3F3;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    padding: 20px 0;
+    width: 760px;
+}
+.mlst li.hover, .paylst li.hover
+{
+    background: none repeat scroll 0 0 #FF9900;
+    color: #FFFFFF;
+}
+.personal_c
+{
+    float: left;
+    padding: 20px;
+    width: 720px;
+}
+.personal_c p
+{
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 30px;
+}
+.personal_c ul
+{
+    float: left;
+    margin-top: 20px;
+}
+.personal_c ul li
+{
+    display: block;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    list-style: none outside none;
+    width: 720px;
+}
+.i_c
+{
+    float: left;
+    height: 30px;
+    margin-right: 10px;
+}
+.personal_c ul li span
+{
+    float: left;
+    font-size: 14px;
+    line-height: 30px;
+}
+.all
+{
+    border-top: 1px dashed #CCCCCC;
+}
+.personalXg
+{
+    width: 760px;
+}
+.personalXg ul li
+{
+    color: #333333;
+    display: block;
+    float: right;
+    height: 22px;
+    line-height: 22px;
+    list-style: none outside none;
+    margin: 10px 0;
+    width: 760px;
+}
+.personalXg ul li b
+{
+    float: left;
+    font-weight: 100;
+    margin-right: 10px;
+    text-align: right;
+    width: 120px;
+}
+.personalXg ul li span
+{
+    color: #FF3300;
+    float: left;
+    margin-right: 20px;
+}
+.personalXg ul li a
+{
+    color: #0066CC;
+    text-decoration: underline;
+}
+

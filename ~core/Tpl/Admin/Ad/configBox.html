@@ -1,0 +1,84 @@
+<div id="configBox" class="hide">
+    <form>
+    <div id="bodyBox" class="uploadBox" rel="body">
+        <ul class="table">
+            <li class="w120 txtR">网页背景颜色：</li>
+            <li>
+                <input type="text" name="subject[body_bg_color]" value="{$config.subject.body_bg_color}" class="w70 txtC bg_color"/>
+                <span class="cGray">留空为透明底</span>
+            </li>
+        </ul>
+        <ul class="table autoH">
+            <li class="w120 txtR">网页背景：</li>
+            <li class="w300">
+                <div class="fL pRel" style="width:55px;height:55px;">
+                    <img class="pAbs preview" src="{$config.subject.body_bg_image_url|default='images/preview.png'}" width="55" height="55" style="z-index:999;top:0;left:0;"/>
+                    <a class="uploadBtn" id="uBtn1"></a>
+                </div>
+                <span class="bd h20 iblock fL" style="padding:1px 4px;margin-left:5px;">
+                    背景位置：<input type="radio" name="subject[body_bg_image_pos]" value="left top" <eq name="config.subject.body_bg_image_pos" value="left top">checked="checked"</eq> class="bg_image_position"/> 居左
+                    <input type="radio" name="subject[body_bg_image_pos]" value="50% top" <eq name="config.subject.body_bg_image_pos" value="50% top">checked="checked"</eq> class="bg_image_position"/> 居中
+                    <input type="radio" name="subject[body_bg_image_pos]" value="right top" <eq name="config.subject.body_bg_image_pos" value="right top">checked="checked"</eq> class="bg_image_position"/> 居右
+                </span>
+                <a href="javascript:void(0);" class="bd h20 fL delBtn" style="padding:1px 4px;margin:5px 5px 0 5px;">删除背景</a>
+                <span class="bd h20 iblock fL" style="padding:1px 4px;margin:5px 5px 0 5px;">
+                    背景：<input type="checkbox" class="bg_image_repeat" name="subject[body_bg_image_repeat]" value="repeat" <eq name="config.subject.body_bg_image_repeat" value="repeat">checked="checked"</eq>/> 重复
+                    <input type="checkbox" class="bg_image_attachment" name="subject[body_bg_image_attachment]" value="fixed" <eq name="config.subject.body_bg_image_attachment" value="fixed">checked="checked"</eq>/> 固定
+                </span>
+                <input type="hidden" name="subject[body_bg_image_url]" class="imageValue" value="{$config.subject.body_bg_image_url}"/>
+            </li>
+        </ul>
+    </div>
+    <div id="subjectBox" class="uploadBox" rel="#container">
+    <ul class="table">
+        <li class="w120 txtR">专题容器模式：</li>
+        <li>
+            <input type="radio" name="subject[mode]" value="full" class="box_mod"/> 全屏
+            <input type="radio" name="subject[mode]" value="middle" class="box_mod" checked="checked"/> 居中
+            <input type="radio" name="subject[mode]" value="left"  class="box_mod"/> 居左
+        </li> 
+    </ul>
+    <ul class="table">
+        <li class="w120 txtR">专题容器大小：</li>
+        <li>
+            长：<input type="text" name="subject[width]" class="w50 txtC box_width" value="{$config.subject.width}"/> px × 
+            高：<input type="text" name="subject[height]" class="w50 txtC box_height" value="{$config.subject.height}"/> px
+        </li>
+    </ul>
+        <ul class="table">
+            <li class="w120 txtR">专题背景颜色：</li>
+            <li>
+                <input type="text" name="subject[subject_bg_color]" value="{$config.subject.subject_bg_color}" class="w70 txtC bg_color"/>
+                <span class="cGray">留空为透明底</span>
+            </li>
+        </ul>
+        <ul class="table autoH">
+            <li class="w120 txtR">专题背景：</li>
+            <li class="w300">
+                <div class="fL pRel" style="width:55px;height:55px;">
+                    <img class="pAbs preview" src="{$config.subject.subject_bg_image_url|default='images/preview.png'}" width="55" height="55" style="z-index:999;top:0;left:0;"/>
+                    <a class="uploadBtn" id="uBtn2"></a>
+                </div>
+                <span class="bd h20 iblock fL" style="padding:1px 4px;margin-left:5px;">
+                    背景位置：<input type="radio" name="subject[subject_bg_image_pos]" value="left top" class="bg_image_position"/> 居左
+                    <input type="radio" name="subject[subject_bg_image_pos]" value="50% top" checked="checked" class="bg_image_position"/> 居中
+                    <input type="radio" name="subject[subject_bg_image_pos]" value="right top" class="bg_image_position"/> 居右
+                </span>
+                <a href="javascript:void(0);" class="bd h20 fL delBtn" style="padding:1px 4px;margin:5px 5px 0 5px;">删除背景</a>
+                <span class="bd h20 iblock fL" style="padding:1px 4px;margin:5px 5px 0 5px;">
+                    背景：<input type="checkbox" class="bg_image_repeat" name="subject[subject_bg_image_repeat]" value="repeat"/> 重复
+                    <input type="checkbox" class="bg_image_attachment" name="subject[subject_bg_image_attachment]" value="fixed"/> 固定
+                </span>
+                <input type="hidden" name="subject[subject_bg_image_url]" class="imageValue" value="{$config.subject.subject_bg_image_url}"/>
+            </li>
+        </ul>
+    </div>
+    <ul class="table">
+        <li class="w120 txtR">网站附带：</li>
+        <li>
+            <input type="checkbox" name="subject[other][]" value="head" /> 网站头部
+            <input type="checkbox" name="subject[other][]" value="foot" /> 网站尾部
+        </li>
+    </ul>
+    </form>
+</div>

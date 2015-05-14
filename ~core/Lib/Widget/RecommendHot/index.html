@@ -1,0 +1,67 @@
+						
+			<!--  推荐热卖   -->
+			<div class='r_head'>
+				<span class='cRed f16 bold fL'>推荐热卖</span>
+				<div class='fR dot'>
+					<span class='iblock one dot2 mL curP' onclick='chgp(0,8);'></span>
+					<span class='iblock two dot1 mL curP' onclick='chgp(8,16)'></span>
+					<span class='iblock three dot1 mL curP' onclick='chgp(16,24)'></span>
+				</div>
+			</div>
+			<div class='clear'></div>
+			
+			<div class='pcont1 mT oF' id="produl"><!--固定高度 -->
+				<foreach name='prod' item='item'>
+				<ul class='fL'>
+					<li class='title h40 oF pL mT'>
+					  <eq  name="item.collection" value="1"> 
+					   <a href="{$item.clickurl}" target="_blank" title="{$item.name}" class='bold cBlack'>{$item.name}</a>
+					  <else /> 
+					   <a href="{:U('prod/'.$item['id'].'/index')}" title="{$item.name}" class='bold cBlack'>{$item.name}</a>
+					  </eq >
+					</li>
+					<li class='img txtC'>
+						<eq  name="item.collection" value="1"> 
+						    <a href="{$item.clickurl}" target="_blank"><img src="{$item.picurl}" class="mh130" onerror="this.src='images/nothing.gif'" /></a>
+						<else /> 
+						    <a href="{:U('prod/'.$item['id'].'/index')}"><img src="{$item.pic}" class="mh130" onerror="this.src='images/nothing.gif'" /></a>
+						</eq >
+					</li>
+					<li class='m_price h20 pL'><span class='clblack fL'>市场价：</span><span class='dd fL'>{$item.market}元</span></li>
+					<li class='n_price h20 pL' style="_margin-top:-4px;">
+					   
+						   <span class='clblack fL'>赶圩价：</span>
+						   <span class='dd f14 bold fL'>{$item.price}元</span>
+						   <span class='iblock w20 h20 buy fR mR txtC'>
+					      <a href="{:U('prod/order/index',array('pid'=>$item['id']))}" class='cWhite'>购买</a></span>
+					   
+					</li>
+				</ul>
+				</foreach>
+			</div>
+			<script type="text/javascript">
+			var start = 0;
+			var end = 8;
+			$(function(){
+				chgp(start,end);
+			});
+			
+			function chgp(start,end)
+			{
+				//var start = eachPage * curPage++;
+				//var end = start + eachPage;
+				if(start == '0'){
+					$('.one').siblings('span').removeClass('dot2').addClass('dot1');
+					$('.one').removeClass('dot1').addClass('dot2');
+				}else if(start == '8'){
+					$('.two').siblings('span').removeClass('dot2').addClass('dot1');
+					$('.two').removeClass('dot1').addClass('dot2');
+				}else if(start == '16'){
+					$('.three').siblings('span').removeClass('dot2').addClass('dot1');
+					$('.three').removeClass('dot1').addClass('dot2');
+				}
+				$("#produl ul").hide();
+				$("#produl ul").slice(start,end).show();
+			}
+			</script>
+			

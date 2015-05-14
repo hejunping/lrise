@@ -1,0 +1,13 @@
+		<!-- 头部分类 -->
+		<div class='cate fL'>
+			<ul>
+				<foreach name='cate' item='item' key='k'>
+				<lt name='k' value='9'><!-- 只取出8条推荐分类  -->
+				<li class='pRel'>
+					<a href="<?php echo setUrl('ctype',$item['id'],'ctype','prod/'.$item['nav'].'/index'); ?>" class='f14'>{$item.name}</a><span class='iblock ico_l pAbs'></span>
+				</li>
+				</lt>
+				</foreach>
+			</ul>
+		</div>
+		

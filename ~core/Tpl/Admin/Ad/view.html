@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$ad.title} - 专题浏览</title>
+<meta name="copyright" content="东腾网络 http://www.eastsoar.com" />
+<style type="text/css">
+* {  -webkit-text-size-adjust: none;}
+body { font:12px Arial, Verdana, Helvetica, sans-serif; color:#333; }
+body, div, dl, dt, dd, ul, ol, li, pre, form, fieldset, blockquote, h1, h2, h3, h4, h5, h6,p { padding:0; margin:0 }
+table, td, tr, th { font-size:12px;padding:0;margin:0;}
+input, select { vertical-align: middle; }
+img { border:none }
+ol, ul, li{ list-style:none }
+a{ font-size:12px;color:#555; text-decoration:none }
+a:hover {text-decoration:underline;}
+</style>
+</head>
+<body style="padding:0;margin:0;<notempty name='config.subject.body_bg_color'>background-color:{$config.subject.body_bg_color};</notempty>
+<notempty name='config.subject.body_bg_image_url'>background-image:url({$config.subject.body_bg_image_url});background-position:{$config.subject.body_bg_image_pos};</notempty>
+<empty name='config.subject.body_bg_image_repeat'>background-repeat:no-repeat;</empty>">
+
+    <div id="container" style="overflow: hidden;position:relative;width:<eq name="config.subject.mode" value="full">100%<else/>{$config.subject.width}px</eq>;
+margin:<eq name="config.subject.mode" value="middle">0 auto;<else/>0</eq>;height:{$config.subject.height}px;
+<notempty name='config.subject.subject_bg_color'>background-color:{$config.subject.subject_bg_color};</notempty>
+<notempty name='config.subject.subject_bg_image_url'>background-image:url({$config.subject.subject_bg_image_url});background-position:{$config.subject.body_bg_image_pos};</notempty>
+<empty name='config.subject.subject_bg_image_repeat'>background-repeat:no-repeat;</empty>">
+    <foreach name="config.items" item="item" key="k">
+        <div id="itemBox_{$k}" iid="{$k}" class="itemBox" style="position: absolute;width:{$item.width}px;height:{$item.height}px;left:{$item.left}px;top:{$item.top}px;
+             z-index:{$item.z-index};<notempty name='item.bg_color'>background-color:{$item.bg_color};</notempty>
+             <notempty name='item.bg_image_url'>background-image:url({$item.bg_image_url});background-repeat:{$item.bg_image_pos};</notempty>">
+            <notempty name="item.link">
+                <a href="{$item.link}" target="_blank" style="display:block;width:{$item.width}px;height:{$item.height}px;"></a>
+                <else/>
+                {$item.html|stripslashes}
+            </notempty>
+        </div>
+    </foreach>  
+    </div>
+</body>
+</html>

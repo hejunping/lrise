@@ -1,0 +1,320 @@
+@CHARSET "UTF-8";
+.spzx {
+    float: left;
+    height: auto;
+    width: 100%;
+}
+.leftspzx {
+    border-bottom: 1px dotted #CCCCCC;
+    float: left;
+    padding: 19px 0;
+    width: 100%;
+}
+.leftspzx dl {
+    float: left;
+    height: 80px;
+    margin-left: 10px;
+    overflow: hidden;
+    width: 430px;
+}
+.leftspzx dl dt {
+    float: left;
+    height: 80px;
+    margin-right: 10px;
+    width: 80px;
+}
+.leftspzx dl dt a {
+    border: 1px solid #E7E7E7;
+    display: table-cell;
+    height: 78px;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    width: 78px;
+}
+.leftspzx dl dt a img {
+    width: 78px;
+}
+.leftspzx dl dd {
+    float: left;
+    height: 80px;
+    overflow: hidden;
+    width: 340px;
+}
+.leftspzx dl dd h4 {
+    height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+.leftspzx dl dd p {
+    color: #999999;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+.sx {
+    color: #999999;
+    float: left;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 10px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    width: 240px;
+}
+.totalfl {
+    color: #FF0000;
+    float: left;
+    font-weight: bold;
+    height: 80px;
+    line-height: 80px;
+    margin-right: 10px;
+    overflow: hidden;
+    width: 80px;
+}
+.itembox {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 5px;
+    width: 970px;
+}
+.leftitem {
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    overflow: hidden;
+    width: 970px;
+}
+.leftimg {
+    float: left;
+    height: 360px;
+    margin-right: 5px;
+    width: 312px;
+}
+.leftimg span {
+    float: left;
+    height: 312px;
+    width: 312px;
+}
+.leftimg span a {
+    border: 1px solid #CCCCCC;
+    display: table-cell;
+    height: 310px;
+    text-align: center;
+    vertical-align: middle;
+    width: 310px;
+}
+.leftimg ul li {
+    float: left;
+    height: 40px;
+    margin: 0 2px;
+    padding: 5px 2px 2px;
+    width: 40px;
+}
+.leftimg ul li a {
+    border: 1px solid #CCCCCC;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.leftimg ul li a img {
+    width: 38px;
+}
+.leftimg ul li:hover {
+    background: url("images/imgbk.png") no-repeat scroll left bottom transparent;
+    height: 40px;
+    padding: 5px 2px 2px;
+    width: 40px;
+}
+.leftimg ul li a:hover {
+    border: 0 none;
+    height: 38px;
+    padding: 1px;
+    width: 38px;
+}
+.leftimg ul li a:hover img {
+    width: 38px;
+}
+.xza {
+    background: url("images/imgbk.png") no-repeat scroll left bottom transparent;
+    height: 40px;
+    padding: 5px 2px 2px;
+    width: 40px;
+}
+.itmemx {
+    float: left;
+    height: 360px;
+    overflow: hidden;
+    width: 440px;
+}
+.itmemx h2 {
+    border-bottom: 1px dotted #CCCCCC;
+    color: #000000;
+    font-weight: 100;
+    height: 50px;
+    line-height: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+.itmemx ul li {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+}
+.itempr {
+    float: left;
+    margin-right: 10px;
+    width: 120px;
+}
+.itempr b {
+    color: #FF0000;
+}
+.itemcolor b {
+    float: left;
+    width: 80px;
+}
+.color {
+    float: left;
+    margin-top: 10px;
+    width: 100px;
+}
+.itemcolor {
+    float: left;
+    width: 250px;
+}
+.itemcolor em {
+    color: #999999;
+    float: left;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 10px;
+    font-style: inherit;
+    margin-left: 5px;
+}
+.size {
+    float: left;
+    margin-top: 10px;
+    width: 50px;
+}
+.itemprfirst {
+    border-bottom: 1px dotted #CCCCCC;
+    margin-bottom: 10px;
+}
+.itemsx {
+    border-bottom: 1px dotted #CCCCCC;
+    border-top: 1px dotted #CCCCCC;
+    margin-top: 10px;
+}
+.itemsx span {
+    float: left;
+    margin-right: 10px;
+}
+.itemsx a {
+    float: left;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 9px;
+}
+.itemsx a img {
+    margin-top: 13px;
+}
+.addmenu {
+    float: left;
+    margin-top: 20px;
+    width: 100%;
+}
+.addmenu a {
+    float: left;
+    margin-right: 20px;
+}
+.itemright {
+    border: 1px solid #CCCCCC;
+    float: right;
+    height: auto;
+    margin-left: 5px;
+    width: 195px;
+}
+.itemright h4 {
+    background: none repeat scroll 0 0 #F9F9F9;
+    float: left;
+    line-height: 30px;
+    padding: 0 5px;
+    width: 185px;
+}
+.itemright ul li {
+    border-top: 1px dotted #CCCCCC;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 5px;
+    width: 180px;
+}
+.itemright ul li span {
+    float: left;
+    margin-right: 5px;
+}
+.itemright ul li em {
+    float: left;
+    font-style: inherit;
+}
+.itemright ul li img {
+    float: left;
+    margin-top: 4px;
+}
+.itmetblj {
+    background: none repeat scroll 0 0 #F9F9F9;
+    border: 1px solid #CCCCCC;
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 10px;
+    padding: 5px;
+    width: 185px;
+}
+.itmetblj img {
+    float: left;
+    margin-top: 2px;
+}
+.itmetblj a {
+    float: left;
+    height: 20px;
+    margin-left: 5px;
+    overflow: hidden;
+    width: 160px;
+}
+.itmetblj a span {
+    float: left;
+}
+.itmetblj a img {
+    float: right;
+}
+.itmefx {
+    background: none repeat scroll 0 0 #F9F9F9;
+    border: 1px solid #CCCCCC;
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 10px;
+    padding: 5px;
+    text-align: center;
+    width: 185px;
+}
+.itmefx a img {
+    margin-top: 2px;
+}
+.itmekzxx {
+    float: left;
+    height: 500px;
+    width: 970px;
+}
+.h2 {
+    font-size: 14px;
+    margin: 0;
+}
+img {
+    border: medium none;
+}

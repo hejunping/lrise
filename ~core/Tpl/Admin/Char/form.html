@@ -1,0 +1,26 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit f14">
+		<gt name="item.id" value="0">编辑<else/>添加</gt>字符 - 
+		<a href="{:U('admin/char/index')}" class="cBlue f14">返回列表</a>
+	</div>
+	<div class="form2">
+	<form method="post" action="{:U('admin/char/form')}" enctype="multipart/form-data">
+		{:dp_input('name',$item['name'],'字符名称','字符帐号不能空')}
+		{:dp_input('pinyin',$item['pinyin'],'拼音','请使用小写字母')}
+		{:dp_input('py',$item['py'],'拼音原文','')}
+		{:dp_input('bh',$item['bh'],'笔画顺序','1表示“横”；2表示“竖”；3表示“撇”；4表示“捺”；5表示“折”')}
+		{:dp_input('bh_total',$item['bh_total'],'笔画长度','50以内的数字')}
+    	<div class="page_btm">
+      		<input type="submit" class="btn_b" value="提交" />
+      		<gt name='item.id' value='0'><input name="id" type="hidden" value="{$item.id}"></gt>
+    	</div>
+	</form>
+</div>
+<script type="text/javascript">
+var vars_tpl = '';
+$(function(){
+	form_chg();
+});
+</script>
+<include file="Public:foot" />

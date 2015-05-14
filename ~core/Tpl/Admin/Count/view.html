@@ -1,0 +1,63 @@
+<include file='Public:head' />
+<link rel="stylesheet" type="text/css" href="css/rili/jscal2.css" />
+<script type="text/javascript" src="js/rili/jscal2.js"></script>
+<script type="text/javascript" src="js/rili/cn.js"></script>
+<div class="so_main">
+    <div class="page_tit">商品管理</div>
+    <div class="Toolbar_inbox">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+           <volist name="rue" id="val" offset="0" length='1'>
+            <tr>
+                <th class="line_l" width="10%">商品id&nbsp;: &nbsp;&nbsp; {$val.pid}</th>
+                <th class="line_l" width="60%">商品名&nbsp;:&nbsp;&nbsp;  {$val.name}</th>
+                <th class="line_l" width="30%">数量&nbsp;:&nbsp;&nbsp;{$total}</th>
+            </tr>
+           </volist>
+
+        </table>
+    </div>
+    <div class="list">
+         
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+
+                <th class="line_l" width="10%">订单编号</th>
+                <th class="line_l" width="10%">买家ID</th>
+                <th class="line_l" width="10%">数量</th>
+                <th class="line_l" width="25%">单价</th>
+                 <th class="line_l" width="25%">总价</th>
+                <th class="line_l" width="25%">下单时间</th>
+
+            </tr>
+            <volist name="rue" id="val">
+                <tr>
+                    <td>{$val.oid}</td>
+                    <td>{$val.uid}</td>
+                    <td>{$val.mem}</td>
+                    <td>{$val.price}</td>
+                    <td>{$val.pic}</td>
+                    <td>{$val.ctime|date='Y-m-d H:i:s',###}</td>
+                    <td></td>
+                </tr>
+            </volist>
+                   <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>{$total}</td>
+                    <td>-</td>
+                    <td>{$totl}</td>
+                    <td>-</td>
+                    <td></td>
+                </tr>
+        </table>
+        <notpresent name="ulist">
+            <if condition="$val.id eq null"> 
+                <div class="l40 cRed bold f14">暂无记录</div>
+                <else/>
+            </if>
+        </notpresent>
+
+    </div>
+</div>
+
+<include file='Public:foot' />
