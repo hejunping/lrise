@@ -177,9 +177,11 @@ class UserAction extends FrontAction{
 	public function pwdsave(){
 		$data['password']=$this->_post("password","trim");
 		$sd=$this->_post("sd","trim");
-		$res=M("User")->where('id="'.$sd.'"')->save($data);
-		if($res){
-			$this->success("Success !",U('home/user/login'));
+		$data['id']=$sd;
+		$res=M("User")->save($data);
+		if($res!=false){
+			//$this->success("Success !",U('home/user/login'));
+			$this->redirect("home/user/login");
 		}else{
 			$this->_error("System error please contact your administrator ");
 		}
@@ -187,8 +189,8 @@ class UserAction extends FrontAction{
 	
 	//重新发送
    public  function sendemail(){
-	 	$email=$this->_POST("email","trim");
-        $user=getUserInfo("id");
+	 	$email=$this->_POST("userEmail","trim");
+		$user=M('User')->field("id")->where('email="'.$email.'"')->find();
         $myhttp="Please click the following link to reset your password:<br/>";
 	 	$myhttp.="http://".$_SERVER["SERVER_NAME"].U('home/user/resultpwd',array(sd=>$user['id']));
 	 	$myhttp.="<br/>If you have any questions, please feel free to contact our customer service.";

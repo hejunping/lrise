@@ -52,14 +52,14 @@ function CheckRePassword(){
 	}
 }
 function Next(){
-	if(isrepwd && isrepwd){
-		document.rorms.submit();
-		}
+	if(ispwd && isrepwd){
+ 	   document.forms.submit();
+	}
 }
 </script>
 <div class="signMian">
     <div class="left_ChangeP">
-      <form action="{:U('home/user/pwdsave')}" id="forms" id="forms" method="post"">
+      <form action="{:U('home/user/pwdsave')}" id="forms" name="forms" method="post"">
         <h4>
             Type your new password and save it in case you forget it.</h4>
         <ul>

@@ -9,7 +9,8 @@
                 datatype:"json",
                 data: { userEmail: userEmail },
                 success: function (data){
-                    if (data.result) {
+					var obj=$.parseJSON(data);
+                    if (obj.result) {
                         alert("The verification letter "+ userEmail +" has resent successfully.");
                     }
                     else {
