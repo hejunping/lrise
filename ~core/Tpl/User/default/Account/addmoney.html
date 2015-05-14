@@ -23,7 +23,7 @@
 	}
 	.pay-left {
 		float: left;
-		margin-top: 12px;
+		width: 248px;
 	}
 	.pay-right {
 		margin-left: 32px;
@@ -53,6 +53,26 @@
 	.pay-tip a {
 		text-decoration: underline;
 	}
+	.pay-info {
+		  width: 100%;
+		  line-height: 180%;
+		  color: #F60;
+		  border: 1px solid #F60;
+		  padding: 12px 0;
+	}
+	.pay-info h1 {
+		text-align: center;
+		margin-bottom: 6px;
+		font-size: 16px;
+	}
+	.pay-info div {
+		padding-left: 12px;
+	}
+	.pay-left .pay-logo {
+		width: 180px;
+		height: auto;
+		margin-left: 34px;
+	}
 </style>
 <script type="text/javascript" src="web/js/mod/userAddMoney.js"></script>
 <script type="text/javascript" src="web/js/mod/user/jquery.datePicker-min.js"></script>
@@ -74,13 +94,14 @@
         <div style="display: block;" id="con_two_1">
         	<div class="pay-left">
         		<a href="https://www.westernunion.com" target="_blank">
-        			<img src="web/images/user/westernunion.jpg" style="width: 180px;height: auto;"/>
+        			<img src="web/images/user/westernunion.jpg" class="pay-logo"/>
         		</a>
-        		<div style="width:100%; padding-left: 30px; line-height: 180%;color:red;">	
-        			<div>First name: HONGYU</div>
-        			<div>Last name: ZHAO</div>
-        			<div>CHINA</div>
-        			<div>SHANGHAI</div>
+        		<div class="pay-info">
+        			<h1>Lrise Western Union Account</h1>
+        			<div>Receiver's First Name : <b>HONGYU</b></div>
+        			<div>Receiver's Last Name : <b>ZHAO</b></div>
+        			<div>City : <b>SHANGHAI</b></div>
+        			<div>Country : <b>CHINA</b></div>
         		</div>
         	</div>
 	        <div class="pay-right">
@@ -120,10 +141,12 @@
         <div style="display: none;" id="con_two_2">
             <div class="pay-left">
         		<a href="http://www.wmtransfer.com" target="_blank">
-        			<img src="web/images/user/webmoney.jpg" style="width: 180px;height: auto;"/>
+        			<img src="web/images/user/webmoney.jpg" class="pay-logo"/>
         		</a>
-        		<div style="width:100%; padding-left: 30px; line-height: 180%;color:red;">	
-        			<div>Merchant:&nbsp;Z271884996875</div>
+        		<div class="pay-info">	
+        			<h1>Lrise WebMoney Account</h1>
+        			<div style="padding-left: 28px;">MD ID&nbsp;:&nbsp;<b>396110804213</b></div>
+        			<div style="padding-left: 28px;">Purse&nbsp;:&nbsp;<b>Z271884996875</b></div>
         		</div>
         	</div>
 	        <div class="pay-right">
