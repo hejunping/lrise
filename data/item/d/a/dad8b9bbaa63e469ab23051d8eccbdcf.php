@@ -1,0 +1,2 @@
+<?php
+return array ( 'cid' => NULL, 'desc' => NULL, 'detail_url' => NULL, 'props' => NULL, 'props_name' => NULL, 'property_alias' => NULL, 'item_imgs' => NULL, 'num' => NULL, 'post_fee' => NULL, 'skus' => NULL, 'props_name_formate' => '', 'click_url' => NULL, 'shop_click_url' => NULL, ); ?>

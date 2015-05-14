@@ -1,0 +1,93 @@
+<?php
+return array ( 'cid' => '50005867', 'desc' => '<div><img style="float: left;" src="http://img01.taobaocdn.com/imgextra/i1/809020329/TB2opptbpXXXXauXXXXXXXXXXXX_!!809020329.png?s=142243741754c8ac2973307_s"><div style="background: #ffffff;overflow: hidden;width: 750.0px;font-size: 12.0px;font-family: 宋体;line-height: normal;">
+
+    <div style="border: 1.0px solid #ab223e;padding: 9.0px;width: 223.0px;height: 150.0px;float: left;overflow: hidden;margin-right: 10.0px;">
+        <div style="margin-bottom: 6.0px;width: 223.0px;height: 14.0px;overflow: hidden;">
+            <a href="http://item.taobao.com/item.htm?id=16985177477" target="_blank" style="color: #999999;text-decoration: none;" name="title" title="高档耐磨 工作裤 男   秋冬工作服裤子 劳保裤 男 电焊汽修裤9997">高档耐磨 工作裤 男   秋冬工作服裤子 劳保裤 男 电焊汽修裤9997</a>
+        </div>
+        <div style="float: left;margin-right: 9.0px;width: 130.0px;height: 130.0px;">
+            <a href="http://item.taobao.com/item.htm?id=16985177477" target="_blank"><img src="http://img02.taobaocdn.com/bao/uploaded/i2/T18UwtFH0eXXXXXXXX_!!0-item_pic.jpg" width="130px" height="130px" alt="" style="border: none;" name="img"></a>
+        </div>
+        <div style="float: left;margin-top: 10.0px;">
+            <div style="color: #b9000c;margin-bottom: 6.0px;width: 84.0px;height: 14.0px;overflow: hidden;"><span style="float: left;display: block;">现价：</span><strong style="float: left;display: block;width: 48.0px;" title="30.00">30.00</strong></div>
+            <div style="color: #c2c2c2;margin-bottom: 10.0px;width: 84.0px;height: 14.0px;overflow: hidden;"><span style="float: left;display: block;">原价：</span><span style="float: left;display: block;width: 48.0px;" title="40">40</span></div>
+            <div><a href="http://item.taobao.com/item.htm?id=16985177477" target="_blank" style="color: #ffffff;background: #ce0009;padding: 3.0px 5.0px;text-decoration: none;" bgcolor="bg">立即前往</a></div>
+            <div style="margin-top: 42.0px;color: #c2c2c2;width: 84.0px;height: 22.0px;overflow: hidden;">推荐值：<span style="color: #ff9191;font-size: 18.0px;">100%</span></div>
+        </div>
+    </div>
+    
+    <div style="border: 1.0px solid #ab223e;padding: 9.0px;width: 223.0px;height: 150.0px;float: left;overflow: hidden;margin-right: 10.0px;">
+        <div style="margin-bottom: 6.0px;width: 223.0px;height: 14.0px;overflow: hidden;">
+            <a href="http://item.taobao.com/item.htm?id=15573640017" target="_blank" style="color: #999999;text-decoration: none;" name="title" title="春秋工作服 工作服套装男 汽修车间厂服 工程服工装男 长袖劳保服">春秋工作服 工作服套装男 汽修车间厂服 工程服工装男 长袖劳保服</a>
+        </div>
+        <div style="float: left;margin-right: 9.0px;width: 130.0px;height: 130.0px;">
+            <a href="http://item.taobao.com/item.htm?id=15573640017" target="_blank"><img src="http://img03.taobaocdn.com/bao/uploaded/i3/TB1vjGCGXXXXXb8XVXXXXXXXXXX_!!0-item_pic.jpg" width="130px" height="130px" alt="" style="border: none;" name="img"></a>
+        </div>
+        <div style="float: left;margin-top: 10.0px;">
+            <div style="color: #b9000c;margin-bottom: 6.0px;width: 84.0px;height: 14.0px;overflow: hidden;"><span style="float: left;display: block;">现价：</span><strong style="float: left;display: block;width: 48.0px;" title="28">28</strong></div>
+            <div style="color: #c2c2c2;margin-bottom: 10.0px;width: 84.0px;height: 14.0px;overflow: hidden;"><span style="float: left;display: block;">原价：</span><span style="float: left;display: block;width: 48.0px;" title="32">32</span></div>
+            <div><a href="http://item.taobao.com/item.htm?id=15573640017" target="_blank" style="color: #ffffff;background: #ce0009;padding: 3.0px 5.0px;text-decoration: none;" bgcolor="bg">立即前往</a></div>
+            <div style="margin-top: 42.0px;color: #c2c2c2;width: 84.0px;height: 22.0px;overflow: hidden;">推荐值：<span style="color: #ff9191;font-size: 18.0px;">100%</span></div>
+        </div>
+    </div>
+    
+    <div style="border: 1.0px solid #ab223e;padding: 9.0px;width: 223.0px;height: 150.0px;float: left;overflow: hidden;">
+        <div style="margin-bottom: 6.0px;width: 223.0px;height: 14.0px;overflow: hidden;">
+            <a href="http://item.taobao.com/item.htm?id=15246308353" target="_blank" style="color: #999999;text-decoration: none;" name="title" title="春秋工作服男工作服 套装男工装劳保服电焊工作服汽修工作服1121">春秋工作服男工作服 套装男工装劳保服电焊工作服汽修工作服1121</a>
+        </div>
+        <div style="float: left;margin-right: 9.0px;width: 130.0px;height: 130.0px;">
+            <a href="http://item.taobao.com/item.htm?id=15246308353" target="_blank"><img src="http://img04.taobaocdn.com/bao/uploaded/i4/TB1EzRnGXXXXXaCXFXXXXXXXXXX_!!0-item_pic.jpg" width="130px" height="130px" alt="" style="border: none;" name="img"></a>
+        </div>
+        <div style="float: left;margin-top: 10.0px;">
+            <div style="color: #b9000c;margin-bottom: 6.0px;width: 84.0px;height: 14.0px;overflow: hidden;"><span style="float: left;display: block;">现价：</span><strong style="float: left;display: block;width: 48.0px;" title="45">45</strong></div>
+            <div style="color: #c2c2c2;margin-bottom: 10.0px;width: 84.0px;height: 14.0px;overflow: hidden;"><span style="float: left;display: block;">原价：</span><span style="float: left;display: block;width: 48.0px;" title="53">53</span></div>
+            <div><a href="http://item.taobao.com/item.htm?id=15246308353" target="_blank" style="color: #ffffff;background: #ce0009;padding: 3.0px 5.0px;text-decoration: none;" bgcolor="bg">立即前往</a></div>
+            <div style="margin-top: 42.0px;color: #c2c2c2;width: 84.0px;height: 22.0px;overflow: hidden;">推荐值：<span style="color: #ff9191;font-size: 18.0px;">100%</span></div>
+        </div>
+    </div>
+    
+    <div style="border: 1.0px solid #ab223e;padding: 9.0px;width: 223.0px;height: 150.0px;float: left;overflow: hidden;margin-top: 10.0px;margin-right: 10.0px;">
+        <div style="margin-bottom: 6.0px;width: 223.0px;height: 14.0px;overflow: hidden;">
+            <a href="http://item.taobao.com/item.htm?id=36911651695" target="_blank" style="color: #999999;text-decoration: none;" name="title" title="连体工作服 男 工程服 汽修喷漆工厂服 船厂 防尘劳保工作服FC006">连体工作服 男 工程服 汽修喷漆工厂服 船厂 防尘劳保工作服FC006</a>
+        </div>
+        <div style="float: left;margin-right: 9.0px;width: 130.0px;height: 130.0px;">
+            <a href="http://item.taobao.com/item.htm?id=36911651695" target="_blank"><img src="http://img02.taobaocdn.com/bao/uploaded/i2/TB1vDeIGpXXXXbPXXXXXXXXXXXX_!!0-item_pic.jpg" width="130px" height="130px" alt="" style="border: none;" name="img"></a>
+        </div>
+        <div style="float: left;margin-top: 10.0px;">
+            <div style="color: #b9000c;margin-bottom: 6.0px;width: 84.0px;height: 14.0px;overflow: hidden;"><span style="float: left;display: block;">现价：</span><strong style="float: left;display: block;width: 48.0px;" title="60.00">60.00</strong></div>
+            <div style="color: #c2c2c2;margin-bottom: 10.0px;width: 84.0px;height: 14.0px;overflow: hidden;"><span style="float: left;display: block;">原价：</span><span style="float: left;display: block;width: 48.0px;" title="72">72</span></div>
+            <div><a href="http://item.taobao.com/item.htm?id=36911651695" target="_blank" style="color: #ffffff;background: #ce0009;padding: 3.0px 5.0px;text-decoration: none;" bgcolor="bg">立即前往</a></div>
+            <div style="margin-top: 42.0px;color: #c2c2c2;width: 84.0px;height: 22.0px;overflow: hidden;">推荐值：<span style="color: #ff9191;font-size: 18.0px;">100%</span></div>
+        </div>
+    </div>
+    
+    <div style="border: 1.0px solid #ab223e;padding: 9.0px;width: 223.0px;height: 150.0px;float: left;overflow: hidden;margin-top: 10.0px;margin-right: 10.0px;">
+        <div style="margin-bottom: 6.0px;width: 223.0px;height: 14.0px;overflow: hidden;">
+            <a href="http://item.taobao.com/item.htm?id=36346671073" target="_blank" style="color: #999999;text-decoration: none;" name="title" title="多功能 加厚 军大衣 棉衣 男 保安大衣 劳保棉衣 防寒保暖服 大衣">多功能 加厚 军大衣 棉衣 男 保安大衣 劳保棉衣 防寒保暖服 大衣</a>
+        </div>
+        <div style="float: left;margin-right: 9.0px;width: 130.0px;height: 130.0px;">
+            <a href="http://item.taobao.com/item.htm?id=36346671073" target="_blank"><img src="http://img01.taobaocdn.com/bao/uploaded/i1/TB1BTiJGpXXXXaHXVXXXXXXXXXX_!!0-item_pic.jpg" width="130px" height="130px" alt="" style="border: none;" name="img"></a>
+        </div>
+        <div style="float: left;margin-top: 10.0px;">
+            <div style="color: #b9000c;margin-bottom: 6.0px;width: 84.0px;height: 14.0px;overflow: hidden;"><span style="float: left;display: block;">现价：</span><strong style="float: left;display: block;width: 48.0px;" title="99.00">99.00</strong></div>
+            <div style="color: #c2c2c2;margin-bottom: 10.0px;width: 84.0px;height: 14.0px;overflow: hidden;"><span style="float: left;display: block;">原价：</span><span style="float: left;display: block;width: 48.0px;" title="135">135</span></div>
+            <div><a href="http://item.taobao.com/item.htm?id=36346671073" target="_blank" style="color: #ffffff;background: #ce0009;padding: 3.0px 5.0px;text-decoration: none;" bgcolor="bg">立即前往</a></div>
+            <div style="margin-top: 42.0px;color: #c2c2c2;width: 84.0px;height: 22.0px;overflow: hidden;">推荐值：<span style="color: #ff9191;font-size: 18.0px;">100%</span></div>
+        </div>
+    </div>
+    
+    <div style="border: 1.0px solid #ab223e;padding: 9.0px;width: 223.0px;height: 150.0px;float: left;overflow: hidden;margin-top: 10.0px;">
+        <div style="margin-bottom: 6.0px;width: 223.0px;height: 14.0px;overflow: hidden;">
+            <a href="http://item.taobao.com/item.htm?id=16872868675" target="_blank" style="color: #999999;text-decoration: none;" name="title" title="真皮 劳保鞋 防护鞋 安全鞋 工作鞋男 防砸 防穿刺 耐磨包邮3326">真皮 劳保鞋 防护鞋 安全鞋 工作鞋男 防砸 防穿刺 耐磨包邮3326</a>
+        </div>
+        <div style="float: left;margin-right: 9.0px;width: 130.0px;height: 130.0px;">
+            <a href="http://item.taobao.com/item.htm?id=16872868675" target="_blank"><img src="http://img02.taobaocdn.com/bao/uploaded/i2/10329028587335297/T1StO6FaReXXXXXXXX_!!0-item_pic.jpg" width="130px" height="130px" alt="" style="border: none;" name="img"></a>
+        </div>
+        <div style="float: left;margin-top: 10.0px;">
+            <div style="color: #b9000c;margin-bottom: 6.0px;width: 84.0px;height: 14.0px;overflow: hidden;"><span style="float: left;display: block;">现价：</span><strong style="float: left;display: block;width: 48.0px;" title="55.00">55.00</strong></div>
+            <div style="color: #c2c2c2;margin-bottom: 10.0px;width: 84.0px;height: 14.0px;overflow: hidden;"><span style="float: left;display: block;">原价：</span><span style="float: left;display: block;width: 48.0px;" title="66">66</span></div>
+            <div><a href="http://item.taobao.com/item.htm?id=16872868675" target="_blank" style="color: #ffffff;background: #ce0009;padding: 3.0px 5.0px;text-decoration: none;" bgcolor="bg">立即前往</a></div>
+            <div style="margin-top: 42.0px;color: #c2c2c2;width: 84.0px;height: 22.0px;overflow: hidden;">推荐值：<span style="color: #ff9191;font-size: 18.0px;">100%</span></div>
+        </div>
+    </div>
+</div><img src="http://img01.taobaocdn.com/imgextra/i1/809020329/TB2opptbpXXXXauXXXXXXXXXXXX_!!809020329.png?e=142243741754c8ac2973307_e"></div><p><img align="absmiddle" src="http://img01.taobaocdn.com/imgextra/i1/809020329/TB2EE0.aVXXXXX7XXXXXXXXXXXX_!!809020329.jpg"></p><p><a target="_blank" href="http://zunshi.taobao.com/p/huodong.htm?spm=2013.1.w5002-7320829128.5.wsYqKQ"><img align="absmiddle" style="float: none;margin: 0.0px;" src="http://img02.taobaocdn.com/imgextra/i2/809020329/TB2TGV8aVXXXXXkXpXXXXXXXXXX_!!809020329.jpg"></a></p><p><a target="_blank" href="http://item.taobao.com/item.htm?id=36346671073"></a></p><p><img border="0" height="157" usemap="#Mapfenleidaohang" width="750" src="http://img01.taobaocdn.com/imgextra/i1/809020329/TB2JHWXaVXXXXXQXXXXXXXXXXXX_!!809020329.jpg"><map name="Mapfenleidaohang"><area coords="2,2,185,107" shape="rect" href="http://zunshi.taobao.com/category-797392530.htm?spm=a1z10.1.0.0.k3uipL&search=y&catName=%C7%EF%B6%AC%B9%A4%D7%F7%B7%FE"><area coords="189,3,374,108" shape="rect" href="http://zunshi.taobao.com/category-797392899.htm?spm=a1z10.1.0.0.k3uipL&search=y&catName=%B4%BA%CF%C4%B9%A4%D7%F7%B7%FE"><area coords="379,3,563,109" shape="rect" href="http://zunshi.taobao.com/category-711165948.htm?spm=a1z10.1.0.0.k3uipL&search=y&catName=%B7%C0%BB%A4%B9%A4%D7%B0"><area coords="566,2,750,107" shape="rect" href="http://zunshi.taobao.com/category-711163230.htm?spm=a1z10.1.0.0.k3uipL&search=y&catName=T%D0%F4%2F%B9%E3%B8%E6%C9%C0"><area coords="3,113,112,153" shape="rect" href="http://zunshi.taobao.com/category-711163231.htm?spm=a1z10.1.0.0.k3uipL&search=y&parentCatId=710871910&parentCatName=%B7%C0%BB%A4%D3%C3%C6%B7&catName=%CD%B7%B2%BF%B7%C0%BB%A4-%D1%BC%C9%E0%C3%B1"><area coords="116,113,221,152" shape="rect" href="http://zunshi.taobao.com/category-797413493.htm?spm=a1z10.1.0.0.k3uipL&search=y&catName=%B0%B2%C8%AB%C3%B1"><area coords="226,113,346,151" shape="rect" href="http://zunshi.taobao.com/category-797413901.htm?spm=a1z10.1.0.0.k3uipL&search=y&catName=%B0%B2%C8%AB%D0%AC"><area coords="353,113,445,151" shape="rect" href="http://zunshi.taobao.com/category-710874795.htm?spm=a1z10.1.0.0.k3uipL&search=y&parentCatId=710871910&parentCatName=%B7%C0%BB%A4%D3%C3%C6%B7&catName=%CA%D6%B2%BF%B7%C0%BB%A4-%CA%D6%CC%D7"><area coords="473,114,592,153" shape="rect" href="http://zunshi.taobao.com/category-710871911.htm?spm=a1z10.1.0.0.k3uipL&search=y&parentCatId=710871910&parentCatName=%B7%C0%BB%A4%D3%C3%C6%B7&catName=%BA%F4%CE%FC%B7%C0%BB%A4-%BF%DA%D5%D6"><area coords="618,113,743,151" shape="rect" href="http://zunshi.taobao.com/category-711163234.htm?spm=a1z10.1.0.0.k3uipL&search=y&parentCatId=710871910&parentCatName=%B7%C0%BB%A4%D3%C3%C6%B7&catName=%D1%DB%B2%BF%B7%C0%BB%A4-%BB%A4%C4%BF%BE%B5"></map></p><p><img align="absmiddle" src="http://img03.taobaocdn.com/imgextra/i3/809020329/TB2hXl6aVXXXXajXpXXXXXXXXXX_!!809020329.jpg"></p><p><img align="absmiddle" src="http://img03.taobaocdn.com/imgextra/i3/809020329/TB20kt.aVXXXXadXXXXXXXXXXXX_!!809020329.jpg"></p><div class="dm_module" data-id="748255" data-title="产品文档" id="ids-module-748255"><div><p><img style="float: none;margin: 0.0px;" src="http://img02.taobaocdn.com/imgextra/i2/809020329/T2TXw9XexXXXXXXXXX_!!809020329.jpg"></p></div></div><div class="dm_module" data-id="3" data-title="尺码参考" id="ids-module-3"><div><p><img src="http://img02.taobaocdn.com/imgextra/i2/809020329/T2iD3SXaNXXXXXXXXX_!!809020329.jpg"></p></div></div><div class="dm_module" data-id="4" data-title="模特展示" id="ids-module-4"><div><p><img style="float: none;margin: 0.0px;" src="http://img03.taobaocdn.com/imgextra/i3/809020329/T2FF38XcpaXXXXXXXX_!!809020329.jpg"></p></div></div><div class="dm_module" data-id="5" data-title="细节剖析" id="ids-module-5"><div><p><img style="float: none;margin: 0.0px;" src="http://img04.taobaocdn.com/imgextra/i4/809020329/T24r77Xg4aXXXXXXXX_!!809020329.jpg"></p></div></div><p><img align="absmiddle" src="http://img02.taobaocdn.com/imgextra/i2/809020329/TB2H186aVXXXXXKXpXXXXXXXXXX_!!809020329.jpg"><img align="absmiddle" src="http://img01.taobaocdn.com/imgextra/i1/809020329/TB27EV9aVXXXXbGXXXXXXXXXXXX_!!809020329.jpg"></p>', 'detail_url' => 'http://item.taobao.com/item.htm?id=14173435034&spm=2014.23106175.0.0', 'props' => '20000:134459602;122276315:6326709;13021751:97510;1627207:28338;20509:25054073;20509:3267947;20509:3267948;20509:3267949;20509:3267950;122216852:29871680;122216763:20520;122216345:29458;122216515:3302158;20021:105255', 'props_name' => '20000:134459602:品牌:尊世实业;122276315:6326709:工种:工人;13021751:97510:货号:1116;1627207:28338:颜色分类:蓝色;20509:25054073:尺码:160/84(XS);20509:3267947:尺码:165/88(S);20509:3267948:尺码:170/92(M);20509:3267949:尺码:175/96(L);20509:3267950:尺码:180/100(XL);122216852:29871680:适用行业:工厂车间;122216763:20520:上下装分类:套装;122216345:29458:适用季节:冬季;122216515:3302158:适用场景:上班;20021:105255:材质:棉', 'property_alias' => '1627207:28338:藏青色;20509:25054073:165/M;20509:3267947:170/L;20509:3267948:175/XL;20509:3267949:180/XXL;20509:3267950:185/XXXL', 'item_imgs' => array ( 0 => array ( 'id' => '0', 'position' => '0', 'url' => 'http://img02.taobaocdn.com/bao/uploaded/i2/TB1GgJnGXXXXXcyXpXXXXXXXXXX_!!0-item_pic.jpg', ), 1 => array ( 'id' => '3316675189', 'position' => '1', 'url' => 'http://img04.taobaocdn.com/bao/uploaded/i4/809020329/T2BZoDXoFaXXXXXXXX_!!809020329.jpg', ), 2 => array ( 'id' => '4337410673', 'position' => '2', 'url' => 'http://img03.taobaocdn.com/bao/uploaded/i3/809020329/T2VaL4Xi4bXXXXXXXX_!!809020329.jpg', ), 3 => array ( 'id' => '7796533177', 'position' => '3', 'url' => 'http://img04.taobaocdn.com/bao/uploaded/i4/809020329/T2WoUkXjJbXXXXXXXX_!!809020329.jpg', ), 4 => array ( 'id' => '7796533178', 'position' => '4', 'url' => 'http://img04.taobaocdn.com/bao/uploaded/i4/809020329/T2Y2dnXoxOXXXXXXXX_!!809020329.jpg', ), ), 'num' => '2430', 'post_fee' => '5.00', 'skus' => array ( 0 => array ( 'created' => '2012-11-15 22:23:00', 'modified' => '2014-02-16 02:12:53', 'price' => '70.00', 'properties' => '1627207:28338;20509:25054073', 'properties_name' => '1627207:28338:颜色分类:蓝色;20509:25054073:尺码:160/84(XS)', 'quantity' => '485', 'sku_id' => '23791942425', ), 1 => array ( 'created' => '2012-11-15 22:23:00', 'modified' => '2014-02-16 02:12:53', 'price' => '70.00', 'properties' => '1627207:28338;20509:3267947', 'properties_name' => '1627207:28338:颜色分类:蓝色;20509:3267947:尺码:165/88(S)', 'quantity' => '480', 'sku_id' => '23791942426', ), 2 => array ( 'created' => '2012-11-15 22:23:00', 'modified' => '2014-08-21 23:10:36', 'price' => '70.00', 'properties' => '1627207:28338;20509:3267948', 'properties_name' => '1627207:28338:颜色分类:蓝色;20509:3267948:尺码:170/92(M)', 'quantity' => '480', 'sku_id' => '23791942427', ), 3 => array ( 'created' => '2012-11-15 22:23:00', 'modified' => '2014-08-21 23:10:36', 'price' => '70.00', 'properties' => '1627207:28338;20509:3267949', 'properties_name' => '1627207:28338:颜色分类:蓝色;20509:3267949:尺码:175/96(L)', 'quantity' => '490', 'sku_id' => '23791942428', ), 4 => array ( 'created' => '2012-11-15 22:23:00', 'modified' => '2014-02-16 02:12:53', 'price' => '70.00', 'properties' => '1627207:28338;20509:3267950', 'properties_name' => '1627207:28338:颜色分类:蓝色;20509:3267950:尺码:180/100(XL)', 'quantity' => '495', 'sku_id' => '23791942429', ), ), 'props_name_formate' => array ( 0 => '品牌 : 尊世实业', 1 => '工种 : 工人', 2 => '货号 : 1116', 3 => '颜色分类 : 蓝色', 4 => '尺码 : 160/84(XS) 165/88(S) 170/92(M) 175/96(L) 180/100(XL)', 5 => '适用行业 : 工厂车间', 6 => '上下装分类 : 套装', 7 => '适用季节 : 冬季', 8 => '适用场景 : 上班', 9 => '材质 : 棉', ), 'click_url' => NULL, 'shop_click_url' => NULL, ); ?>
