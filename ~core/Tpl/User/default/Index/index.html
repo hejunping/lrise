@@ -65,7 +65,7 @@
 
                         <ul>
 
-                            <li><span>My points :</span><p>
+                            <!-- <li><span>My points :</span><p>
                             
                                   {$res.point}
                                 </p>
@@ -78,13 +78,11 @@
 
                                      CNY</p>
 
-                                </span></li>
+                                </span></li> -->
 
-                            <li><span>Balance :</span><p>
+                            <li><span>Balance :</span><p>{$res.coin}</p>
 
-                                    0</p>
-
-                                <p>
+                                <!-- <p>
 
                                     CNY</p>
 
@@ -98,9 +96,9 @@
 
                                 <p style="font-size: 10px; color: #666;">
 
-                                    USD</p>
+                                    USD</p> -->
 
-                                <a href="{:U('user/account/addmoney')}">Add money</a></li>
+                                <a href="{:U('user/account/addmoney')}" style="background:#f60;">Add money</a></li>
 
                         </ul>
 

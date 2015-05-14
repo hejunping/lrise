@@ -65,7 +65,7 @@
 
                         <ul>
 
-                            <li><span>Мои баллы :</span><p>
+                            <!-- <li><span>Мои баллы :</span><p>
                             
                                   {$res.point}
                                 </p>
@@ -78,13 +78,11 @@
 
                                      CNY</p>
 
-                                </span></li>
+                                </span></li> -->
 
-                            <li><span>На счете :</span><p>
+                            <li><span>На счете :</span><p>{$res.coin}</p>
 
-                                    0</p>
-
-                                <p>
+                                <!-- <p>
 
                                     CNY</p>
 
@@ -98,9 +96,9 @@
 
                                 <p style="font-size: 10px; color: #666;">
 
-                                    USD</p>
+                                    USD</p> -->
 
-                                <a href="{:U('user/account/addmoney')}">Пополнить счет</a></li>
+                                <a href="{:U('user/account/addmoney')}" style="background:#f60;">Пополнить счет</a></li>
 
                         </ul>
 
