@@ -77,42 +77,53 @@
 	        <div style="display: block;" id="con_two_1">
 	        	<div class="pay-left">
 	        		<img src="web/images/user/card.jpeg" style="width: 180px;height: auto;">
-	        		<div style="width: 100%;text-align:center;margin-top: 12px;font-size: 1.2em;">
-	        			The Credit Fee: <span style="color:red;">3.9%</span>
-	        		</div>
 	        	</div>
 	        	<div class="pay-right">
-	        		<form  onsubmit="return checkCreditForm();" name="formpay" method="post" action="{:U('user/account/paybycredit')}">
-		                <input type="hidden" name="oid" value='{$oid}'/>
-		                <input type="hidden" name="credit_all_total" value=''/>
-		                <div class="pay-row">
-		                	Card Number :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                	<input type="text" name="CardNumber"/>
-		                </div>
-		                <div class="pay-row">
-		                	Cardholder :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                	<input type="text" name="CardName"/>
-		                </div>
-		                <div class="pay-row">
-		                	 Period Of Card :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                	 <input type="text" name="CardExpireDate"/>
-		                </div>
-		                <div class="pay-row">
-		                	 CVV :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                	 <input type="text" name="CardCVV"/>
-		                </div>
-		                <div class="pay-row">
-		                	 Bank Of Card : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                	 <input type="text" name="CardIssuerName"/>
-		                </div>
-		                <div class="credit-submit-wrap">
-		                	<input type="submit" class="credit-submit-btn" value="Pay"/>
-		                	<div class="credit-total-wrap">
-			                	<span class="credit-total">Total: <span id="credit_total">{$total}</span> </span>
-			                	(The Goods Cost: {$total} And The Fee: <span id="credit_fee_total">3.9%</span>)
-		                	</div>
-		                </div>
-		            </form>
+	        		<div style="margin-top: 12px;">Your Current Balance: <span style="color:#f90;">${$balance}</span></div>
+	        		<if condition="$balance egt $total">
+	        			<div style="margin-top: 12px;">Your Goods Cost: {$total}</div>
+	        			<form method="post" action="{:U('user/account/paybybalance')}">
+	        				<input type="hidden" name="iod" value="{$oid}"/>
+	        				<input type="submit" class="credit-submit-btn" value="Pay" style="margin-left: 0;"/>
+	        			</form>
+					<else/>
+					 	<form  onsubmit="return checkCreditForm();" name="formpay" method="post" action="{:U('user/account/paybycredit')}">
+			                <input type="hidden" name="oid" value='{$oid}'/>
+			                <input type="hidden" name="credit_all_total" value=''/>
+			                <table style="margin-top: 8px;">
+			                	<tr class="pay-row">
+			                		<td>Card Number: </td>
+			                		<td><input type="text" name="CardNumber"/></td>
+			                	</tr>
+			                	<tr class="pay-row">
+			                		<td>Cardholder: </td>
+			                		<td><input type="text" name="CardName"/></td>
+			                	</tr>
+			                	<tr class="pay-row">
+			                		<td>Period Of Card: </td>
+			                		<td><input type="text" name="CardExpireDate"/></td>
+			                	</tr>
+			                	<tr class="pay-row">
+			                		<td>CVV: </td>
+			                		<td><input type="text" name="CardCVV"/></td>
+			                	</tr>
+			                	<tr class="pay-row">
+			                		<td>Bank Of Card: </td>
+			                		<td><input type="text" name="CardIssuerName"/></td>
+			                	</tr>
+			                </table>
+			                <div class="credit-submit-wrap">
+			                	<input type="submit" class="credit-submit-btn" value="Pay"/>
+			                	<div class="credit-total-wrap">
+				                	<span class="credit-total">Total: <span id="credit_total">{$total}</span> </span>
+				                	(The Goods Cost: {$total} , Handling Fee: <span id="credit_fee_total">3.9%</span>)
+			                	</div>
+			                	<div style="width: 100%;text-align:center;margin-top: 12px;">
+				        			<span style="color:#f90;">The Credit Fee: 3.9%</span>
+				        		</div>
+			                </div>
+			            </form>
+					</if>
 	        	</div>
 	        </div>
 	        
@@ -127,10 +138,10 @@
 	        		</div>
 	        	</div>
 	        	<div class="pay-right">
-	        		<div style="margin-top: 12px;">Your balance: ${$balance}</div>
+	        		<div style="margin-top: 12px;">Your Current Balance: <span style="color:#f90;">${$balance}</span></div>
 	        		<if condition="$balance egt $total">
 	        			<div style="margin-top: 12px;">Your Goods Cost: {$total}</div>
-	        			<form method="post" action="{:U('user/account/paybywesternunion')}">
+	        			<form method="post" action="{:U('user/account/paybybalance')}">
 	        				<input type="hidden" name="iod" value="{$oid}"/>
 	        				<input type="submit" class="credit-submit-btn" value="Pay" style="margin-left: 0;"/>
 	        			</form>
@@ -156,11 +167,11 @@
 	        		</div>
 	        	</div>
 	        	<div class="pay-right">
-	        		<div style="margin-top: 12px;">Your balance: ${$balance}</div>
+	        		<div style="margin-top: 12px;">Your Current Balance: <span style="color:#f90;">${$balance}</span></div>
 	        		
 	        		<if condition="$balance egt $total">
 	        			<div style="margin-top: 12px;">Your Goods Cost: {$total}</div>
-	               		<form method="post" action="{:U('user/account/paybywebmoney')}">
+	               		<form method="post" action="{:U('user/account/paybybalance')}">
 	        				<input type="hidden" name="oid" value="{$oid}"/>
 	        				<input type="submit" class="credit-submit-btn" value="Pay" style="margin-left: 0;"/>
 	        			</form>
@@ -252,7 +263,7 @@
 		   var cardholder = $('input[name=CardName]');
 		   var period = $('input[name=CardExpireDate]');
 		   var cvv = $('input[name=CardCVV]');
-		   var bankcountry = $('select[name=CardIssuerCountry]');
+		   //var bankcountry = $('select[name=CardIssuerCountry]');
 		   var bankname = $('input[name=CardIssuerName]');
 		   if($.trim(cardnumber.val()) == '') {
 			   alert('Card number could not be empty');
@@ -274,10 +285,10 @@
 			   alert('Bank of card could not be empty');
 			   return false;
 		   }
-		   if(bankcountry.val() == 0) {
+		   /* if(bankcountry.val() == 0) {
 			   alert('Please select country');
 			   return false;
-		   }
+		   } */
 		   return true;
 	   }
 	
