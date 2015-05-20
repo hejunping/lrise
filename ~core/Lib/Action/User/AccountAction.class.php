@@ -240,6 +240,33 @@ class AccountAction extends UserAction {
         $this->display();
     }
 
+	 /***********************************************************************************
+     * 退款
+     **********************************************************************************/
+    public function refundsave() {        
+        $data['uid']	= getUserInfo('id');
+        $data['method'] = $_POST['DrawbackType'];
+        $data['amount'] = $_POST['ApplyMoney'];
+        //$data['fees']	= $_POST['fee'];
+        $data['status'] = 0; // 未审核
+		$data['ctype']	= 1; // 充值
+        $data['ctime']  = time();
+        $data['utime']  = time();
+        //$data['purse']  = $_POST['purse'];
+        $data['payer_name']  = getUserInfo('account');
+        //$data['payment_time']  = $payment_time;
+		$info = "";
+		$info.= "Name:".$_POST['ManName'];
+		$info.= "Remark:".$_POST['Remark'];
+		$data['info'] = $info;
+        $rs = M('OfflineCredit')->add($data);
+        if($rs) {
+            echo "true";
+        }else{
+			echo "false";
+		}
+    }
+
     
     /***********************************************************************************
      * Western Union 充值
@@ -254,6 +281,7 @@ class AccountAction extends UserAction {
         $data['amount']  = $_POST['amount'];
         $data['fees']  = $_POST['fee'];
         $data['status'] = 0; // 未审核
+		$data['ctype'] = 0; // 充值
         $data['ctime']  = time();
         $data['utime']  = time();
         $data['purse']  = $_POST['purse'];
@@ -278,6 +306,7 @@ class AccountAction extends UserAction {
         $data['amount']  = $_POST['amount'];
         $data['fees']  = $_POST['fee'];
         $data['status'] = 0; // 未审核
+		$data['ctype'] = 0; // 充值
         $data['ctime']  = time();
         $data['utime']  = time();
         $data['purse']  = $_POST['purse'];
@@ -662,5 +691,48 @@ class AccountAction extends UserAction {
             return false;
         }
     }
+
+
+	/**
+     * 信用退款付接口
+     * 
+     */
+    public function creditrefundapi($order,$card) {
+		$FormVersion = "";
+		$Language = "";
+		$MerchantCode = "";
+		$OrderPayId = "";
+		$OrderDate	= "";
+		$OrderCurrency = "";
+		$OrderAmount = "";
+		$RefundId = "";
+		$RefundAmcount = "";
+		$RefundRemark = "";
+		$Signature = $MerchantCert.$FormVersion.$Language.$MerchantCode.$OrderPayID.$OrderDate.$OrderCurrency.$OrderAmount.$RefundID.$RefundAmount.$RefundRemark;
+		$content= base64_encode($Signature); 
+        $DigitalSignature = hash("sha256", $content);
+		try
+			{
+			$soap = new SoapClient("http://113.108.63.41:6645/refund.svc?wsdl"); //测试地址
+			$result = $soap->DoRefund( array ( 
+				'order' => array (
+				'FormVersion' => $FormVersion,
+				'Language' => $Language,
+				'MerchantCode' => $MerchantCode,
+				'OrderPayID' => $OrderPayID,
+				'OrderDate' => $OrderDate,
+				'OrderCurrency' => $OrderCurrency,
+				'OrderAmount' => $OrderAmount,
+				'RefundId' => $RefundId,
+				'RefundAmcount' => $RefundAmcount,
+				'RefundRemark' => $RefundRemark,
+				'DigitalSignature' => $DigitalSignature
+				)));
+				return $result;
+			} catch(Exception $e) {
+				return false;
+			}
+       	}
+
 }
 

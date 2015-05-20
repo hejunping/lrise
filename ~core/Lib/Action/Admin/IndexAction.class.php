@@ -185,6 +185,7 @@ class IndexAction extends Action
 		$menu['pay'] 		=   array(
 			'帐务管理'			=>	array(
 				'线下充值'	=>  U('admin/order/offline'),
+				'退款列表'	=>  U('admin/order/refund'),
 		        '提现定单'	=>  U('admin/order/draw'),
 				//'消费记录'	=>  U('admin/order/log'),
 				'交易流水'	=>  U('admin/order/index'),

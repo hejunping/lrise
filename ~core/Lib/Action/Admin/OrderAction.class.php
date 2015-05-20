@@ -7,9 +7,9 @@ class OrderAction extends AdminBaseAction
 	public function offline(){
 		@import('ORG.Util.Page');
 		$model = M("offlineCredit");
-		$num   =  $model->where()->count();
+		$num   =  $model->where('ctype=0')->count();
 		$page  = new Page($num,15);
-		$sql   = "select a.*,b.account from iorder_offline_credit a left join iorder_user b on a.uid = b.id order by a.ctime desc limit ".$page->firstRow.",".$page->listRows;
+		$sql   = "select a.*,b.account from iorder_offline_credit a left join iorder_user b on a.uid = b.id where a.ctype = 0 order by a.ctime desc limit ".$page->firstRow.",".$page->listRows;
 		$list  = $model->query($sql);
 		//print_r($list);exit;
 		$this->assign('list',$list);
@@ -86,7 +86,7 @@ class OrderAction extends AdminBaseAction
 		else redirect(U('admin/order/offline'));
 	}
 
-	public function passOffline()
+public function passOffline()
 	{
 		if(isset($_GET['id']))
 		{
@@ -114,6 +114,126 @@ class OrderAction extends AdminBaseAction
 					}
 				}
 				redirect(U('admin/order/offline_detail',array('id'=>$_GET['id'])));
+			}
+			else exit('不存在的充值记录');
+		}
+	}
+
+	public function refund(){
+		@import('ORG.Util.Page');
+		$model = M("offlineCredit");
+		$num   =  $model->where('ctype=1')->count();
+		$page  = new Page($num,15);
+		$sql   = "select a.*,b.account from iorder_offline_credit a left join iorder_user b on a.uid = b.id where a.ctype = 1 order by a.ctime desc limit ".$page->firstRow.",".$page->listRows;
+		$list  = $model->query($sql);
+		//print_r($list);exit;
+		$this->assign('list',$list);
+		$this->assign('page',$page->show());
+
+		$this->display('refund');
+	}
+
+
+	public function refund_detail()
+	{
+		if(isset($_GET['id']))
+		{   
+			$id = $_GET['id'];
+			$offline = M('offlineCredit')->find($id);
+			if($offline)
+			{
+				$userInfo = M('user')->find($offline['uid']);
+				$dflv = DFLV('@','L');
+				$status = array('未审核','已审核','已取消');
+				$color = array('cRed','cGreen','cGray');
+				$html = array(
+					'<div class="form2">',
+					'<dl class="lineD">',
+				    '<dt>用户：</dt>',
+				    '<dd class="f14px">'.$userInfo['account'].'</dd>',
+				    '</dl>',
+					'<dl class="lineD">',
+				    '<dt>退款金额：</dt>',
+				    '<dd class="f14px cRed bold">'._price($offline['amount']).'</dd>',
+				    '</dl>',
+					'<dl class="lineD">',
+				    '<dt>手续费：</dt>',
+				    '<dd class="f14px cRed bold">'._price($offline['fees']).'</dd>',
+				    '</dl>',
+					'<dl class="lineD">',
+				    '<dt>订单状态：</dt>',
+				    '<dd class="f14px '.$color[$offline['status']].'">'.$status[$offline['status']].'</dd>',
+				    '</dl>',
+					'<dl class="lineD">',
+				    '<dt>退款方式：</dt>',
+				    '<dd class="f14px">-'.$this->getPayName($offline['method']).'-</dd>',
+				    '</dl>',
+					'<dl class="lineD">',
+				    '<dt>退款时间：</dt>',
+				    '<dd class="f14px">'.date("Y-m-d H:i",$offline['ctime']).'</dd>',
+				    '</dl>',
+					'<dl class="lineD">',
+				    '<dt>处理时间：</dt>',
+				    '<dd class="f14px">'.($offline['utime']>0?date("Y-m-d H:i",$offline['utime']):' - - ').'</dd>',
+				    '</dl>',
+					'<dl class="lineD">',
+				    '<dt>备注：</dt>',
+				    '<dd class="f14px cBlue">'.$offline['mark'].'&nbsp;</dd>',
+				    '</dl>',
+					'<dl class="lineD">',
+				    '<dt>其它信息：</dt>',
+				    '<dd class="f14px cBlue">'.$offline['info'].'&nbsp;</dd>',
+				    '</dl>',
+				    '<div class="page_btm">'
+				);
+				
+				if ($offline['status'] == 0)
+				{
+					$html[] = '<a href="'.U('admin/order/passRefund',array('id'=>$offline['id'])).'" class="btn_a passBtn"><span>设为已审核</span></a>';
+				}
+				
+				
+				$html[] = '<a href="'.U('admin/order/refund').'" class="btn_a"><span>返回列表</span></a>';
+				$html[] = '</div></div>';
+				
+				$html = $dflv->inner($html);
+				$html .= $dflv->jquery('$("a.passBtn,a.cancelBtn").click(function(){ return confirm("此操作不可逆，确定要继续？")});');
+				$this->assign('html',$html);
+				$this->display('detail');
+			}
+			else redirect(U('admin/order/refund'));
+		}
+		else redirect(U('admin/order/refund'));
+	}
+
+	public function passRefund()
+	{
+		if(isset($_GET['id']))
+		{
+			$id = $_GET['id'];
+			$offline = M('offlineCredit')->find($id);
+			if($offline)
+			{
+				$data["id"] = $id;
+				$data["status"] = 1;
+				$data["utime"] = time();
+				$data["mark"] = '由管理员通过此审核';
+				$update = M('offlineCredit')->save($data);
+				if($update){
+					$credit = M('userCredit')->where("uid=".$offline["uid"])->find();
+					if($credit){
+						$credit_data["uid"] = $offline["uid"];
+						$credit_data["coin"] = $credit["coin"] - $offline["amount"];
+						//$credit_date["point"] = $credit["point"];
+						M('userCredit')->save($credit_data);
+					}else{
+						$credit_date["uid"] = $offline["uid"];
+						$credit_date["coin"] = $offline["amount"];
+						$credit_date["point"] = 0;
+						M('userCredit')->add($credit_date);
+					}
+				}
+				redirect(U('admin/order/refund_detail',array('id'=>$_GET['id'])));
 			}
 			else exit('不存在的充值记录');
 		}
