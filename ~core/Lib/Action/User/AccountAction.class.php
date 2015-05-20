@@ -267,6 +267,64 @@ class AccountAction extends UserAction {
 		}
     }
 
+    /***********************************************************************************
+     * 信用卡 充值
+     **********************************************************************************/
+    public function addmoneybycreditcard() {
+    	$feerate = AccountAction::CreditCardFee;
+    	$amount = $_POST['Amount']*1;
+    	$fee = $amount * $feerate;
+    	// card info
+    	$card["CardNumber"] = $_POST["CardNumber"];
+    	$card["CardName"] = $_POST["CardName"];
+    	$card["CardExpireDate"] = $_POST["CardExpireDate"];
+    	$card["CardCVV"] = $_POST["CardCVV"];
+    	$card["CardIssuerCountry"] = "usa"; // 默认传值
+    	$card["CardIssuerName"] = $_POST["CardIssuerName"];
+    	
+    	$order['total'] = $amount;
+    	$order['fees'] = $fee;
+    	$order['address'] = '';
+    	$order['id'] = time().'_'. getUserInfo('id');
+    	$order['ctime'] = time();
+    	
+    	$result = $this->creditapi($order,$card);
+    	if($result->DoPayResult->ResultFlag == 'Y') {
+    		// 充值
+    		$data['uid'] = getUserInfo('id');
+    		$data['method'] = 'CreditCard';
+    		$data['amount']  = $amount;
+    		$data['fees']  = $fee;
+    		$data['status'] = 0; // 未审核
+    		$data['ctype']  = 0; // 充值
+    		$data['ctime']  = time();
+    		$data['utime']  = time();
+    		$data['purse']  = $_POST['CardNumber'];
+    		$data['payer_name']  = $_POST['CardName'];
+    		
+    		$cvv = $card["CardCVV"];
+    		$expireDate = $card["CardExpireDate"];
+    		$issuerName = $card["CardIssuerName"];
+    		if(!isset($cvv) || !$cvv) {
+    			$cvv = 'xxxx';
+    		}
+    		if(!isset($expireDate) || !$expireDate) {
+    			$expireDate = 'xxxx';
+    		}
+    		if(!isset($issuerName) || !$issuerName) {
+    			$issuerName = 'xxxx';
+    		}
+    		// cvv | expireDate | issuerName
+    		$data['info']  = $cvv. '|'. $expireDate. '|'. $issuerName;
+    		
+    		$rs = M('OfflineCredit')->add($data);
+    		if($rs) {
+    			redirect(U('user/account/history'));
+    		}
+    	} else {
+    		$this->_error($result->DoPayResult->ResultDesc);
+    	}
+    }
     
     /***********************************************************************************
      * Western Union 充值
@@ -274,19 +332,34 @@ class AccountAction extends UserAction {
     public function addmoneybywesternunion() {
         $payment_date = $_POST['payment_date'];
         $array = explode("/", $payment_date);
-        $payment_time = strtotime($array[2].$array[1].$array[0]); // Ymd
+//         $payment_time = strtotime($array[2].$array[1].$array[0]); // Ymd
+        
+        $firstname = $_POST['firstname'];
+        $middlename = $_POST['middlename'];
+        $lastname = $_POST['lastname'];
+        if(!isset($firstname) || !$firstname) {
+        	$firstname = 'xxxx';
+        }
+        if(!isset($middlename) || !$middlename) {
+        	$middlename = 'xxxx';
+        }
+        if(!isset($lastname) || !$lastname) {
+        	$lastname = 'xxxx';
+        }
+        $payer_name = $firstname. '|'. $middlename. '|'. $lastname;
         
         $data['uid'] = getUserInfo('id');
         $data['method'] = 'WesternUnion';
         $data['amount']  = $_POST['amount'];
         $data['fees']  = $_POST['fee'];
         $data['status'] = 0; // 未审核
-		$data['ctype'] = 0; // 充值
+        $data['ctype']  = 0; // 充值
         $data['ctime']  = time();
         $data['utime']  = time();
         $data['purse']  = $_POST['purse'];
-        $data['payer_name']  = $_POST['payer_name'];
-        $data['payment_time']  = $payment_time;
+        $data['payer_name']  = $payer_name;
+        $data['info']  = $_POST['country']; // info 放入国家信息
+//         $data['payment_time']  = $payment_time;
         $rs = M('OfflineCredit')->add($data);
         if($rs) {
             redirect(U('user/account/history'));
@@ -297,7 +370,7 @@ class AccountAction extends UserAction {
      * Web Money 充值
      **********************************************************************************/
     public function addmoneybywebmoney() {
-    $payment_date = $_POST['payment_date'];
+    	$payment_date = $_POST['payment_date'];
         $array = explode("/", $payment_date);
         $payment_time = strtotime($array[2].$array[1].$array[0]); // Ymd
         
@@ -306,7 +379,7 @@ class AccountAction extends UserAction {
         $data['amount']  = $_POST['amount'];
         $data['fees']  = $_POST['fee'];
         $data['status'] = 0; // 未审核
-		$data['ctype'] = 0; // 充值
+        $data['ctype']  = 0; // 充值
         $data['ctime']  = time();
         $data['utime']  = time();
         $data['purse']  = $_POST['purse'];
@@ -377,9 +450,9 @@ class AccountAction extends UserAction {
     }
     
     /***********************************************************************************
-     * Western Union 支付
+     * 余额支付
      **********************************************************************************/
-    public function paybywesternunion() {
+    public function paybybalance() {
         $oid = $_POST["iod"];
         $uid = getUserInfo('id');
         $credit = getCredit($uid,'coin');
@@ -397,7 +470,7 @@ class AccountAction extends UserAction {
                     $data['no'] = $this->creatno();
                     $data['uid'] = $uid;
                     $data['oid'] = $oid;
-                    $data['method'] = 'WesternUnion';
+                    $data['method'] = 'Balance';
                     $data['money']  = $total;
                     $data['fees']  = 0;
                     $data['ctype']  = 0;
@@ -415,47 +488,6 @@ class AccountAction extends UserAction {
             }
         }
     }
-    
-    /********************************************************************************************
-     * Web Money 支付
-     *******************************************************************************************/
-    public function paybywebmoney() {
-//      $rate = 0.02;
-        $oid = $_POST["oid"];
-        $uid = getUserInfo('id');
-        $credit = getCredit($uid,'coin');
-        $order = M("Order")->where("id=".$oid)->select();
-        if($order) {
-            $order = $order[0];
-            $total = $order['total'];
-            // 验证价格
-            if($total > $credit) {
-                $this->_error('balance not enough');
-            } else {
-                // 未支付
-                if($order['status'] == 0) {
-                    // 交易流水
-                    $data['no'] = $this->creatno();
-                    $data['uid'] = $uid;
-                    $data['oid'] = $oid;
-                    $data['method'] = 'WebMoney';
-                    $data['money']  = $total;
-                    $data['fees']  = 0;
-                    $data['ctype']  = 0;
-                    $data['status'] = 1; // 已支付
-                    $data['ctime']  = time();
-                    $rs = M('PayOrder')->add($data);
-                    if($rs){
-                        // 最终支付
-                        $this->dopay($order, $data['method']);
-                    }else{
-                        $this->_error('Create order failure !');
-                    }
-                }
-            }
-        }
-    }
-    
     /**
      * 最终支付
      * @param unknown $order
