@@ -1,21 +1,21 @@
 <include file='tpl/head.html'/>
 <style>
-    .h_t_18 {
-        width: 18%;
-    }
-    .h_t_10 {
-        width: 10%;
-    }
-    .h_t_17 {
-        width: 17%;
-    }
-    .h_t_18,
-    .h_t_17,
-    .h_t_10 {
-        float: left;
-        line-height: 30px;
-        text-align: center;
-    }
+	.h_t_18 {
+		width: 18%;
+	}
+	.h_t_10 {
+		width: 10%;
+	}
+	.h_t_17 {
+		width: 17%;
+	}
+	.h_t_18,
+	.h_t_17,
+	.h_t_10 {
+		float: left;
+		line-height: 30px;
+		text-align: center;
+	}
 </style>
 <script type="text/javascript" src="web/js/mod/user/history/jquery-ui.min.js"></script>
 <script type="text/javascript" src="web/js/mod/user/jquery.datePicker-min.js"></script>
@@ -52,7 +52,7 @@
         var crEdt = $("#crEndDateTimeT").val();
        
         if (CompareDate('crEdt','crSdt')) {
-             alert('ddd');
+        	 alert('ddd');
             alert("The start time can not be later then the end time .");
             $("#crSY").focus();
             return false;
@@ -83,7 +83,7 @@
                         </p>
                     </div>            
                     <div class="search_a">
-                        <span>End</span> 
+                    	<span>End</span> 
                         <p>
                             <input type="text" class="dp-applied date-pick" name="end" readonly value="{$end}"/>
                         </p> 
@@ -98,30 +98,44 @@
             <div class="history_center">
                 <div class="h_c_top">
                     <div class="h_c_t_a">
-                        <div class="h_t_18">CreateDate</div>
-                        <div class="h_t_17">Method</div>
+                        <div class="h_t_17">CreateDate</div>
+                        <div class="h_t_10">Method</div>
+						<div class="h_t_10">Type</div>
                         <div class="h_t_10">Amount</div>
                         <div class="h_t_10">Fee</div>
-                        <div class="h_t_18">Purse</div>
+                        <div class="h_t_10">Purse</div>
                         <div class="h_t_17">Payer's Name</div>
                         <div class="h_t_10">Status</div>
                     </div>
                 </div>
                 
                 <volist name="rows" id="row">
-                    <div class="h_c_a">
-                        <div class="h_t_18">{$row.ctime|date="Y/m/d H:i:s",###}</div>
-                        <div class="h_t_17">{$row.method|default="－"}</div>
-                        <div class="h_t_10">{$row.amount|default="－"}</div>
-                        <div class="h_t_10">{$row.fees|default="－"}</div>
-                        <div class="h_t_18">{$row.purse|default="－"}</div>
-                        <div class="h_t_17">{$row.payer_name|default="－"}</div>
-                        <if condition="$row.status eq 0">
-                            <div class="h_t_10" style="color:#f90;">Unaudited</div>
-                        <else/>
-                            <div class="h_t_10" style="color:green;">Audited</div>
-                        </if>
-                    </div>  
+                	<div class="h_c_a">
+	                    <div class="h_t_18">{$row.ctime|date="Y/m/d H:i:s",###}</div>
+	                    <div class="h_t_10">{$row.method|default="－"}</div>
+	                    <div class="h_t_10">
+						<if condition="$row.ctype eq 0">
+						Add
+						<else/>
+						Withdraw
+						</if>
+						</div>
+	                    <div class="h_t_10">
+						<if condition="$row.ctype eq 0">
+						+{$row.amount|default="－"}
+						<else/>
+						-{$row.amount|default="－"}
+						</if>
+						</div>
+	                    <div class="h_t_10">{$row.fees|default="－"}</div>
+	                    <div class="h_t_10">{$row.purse|default="－"}</div>
+	                    <div class="h_t_17">{$row.payer_name|default="－"}</div>
+	                    <if condition="$row.status eq 0">
+	                    	<div class="h_t_10" style="color:#f90;">Unaudited</div>
+	                    <else/>
+	                    	<div class="h_t_10" style="color:green;">Audited</div>
+	                    </if>
+                	</div>  
                 </volist>
             </div>
             <div class="fy">
