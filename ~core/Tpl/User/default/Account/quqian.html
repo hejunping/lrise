@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
 	var USDRate ={$ss|currency};
-	var USDbalance ={$coin/currency()};
+	var USDbalance ={$coin};
 	var GRefundSave = "{:U('user/account/refundsave')}";
 	var Grefund = "{:U('user/account/refund')}";
 </script>
@@ -31,8 +31,7 @@
 		<div id="con_two_1"  >
 			<div class="midInfo">
                 <div class="two_right">
-                    Your Balance:<span title="">{$coin}</span>CNY<br />
-                    ≈<span title="">{$coin|_usaprice}</span>USD
+                    Your Balance:<span title="">{$coin}</span>USD
                 </div>
                 <p>
                     <label>
@@ -61,8 +60,7 @@
 		<div id="con_two_2" style="display:none;">
 			<div class="midInfo">
                 <div class="two_right">
-                    Your Balance:<span title="">{$coin}</span>CNY<br />
-                    ≈<span title="">{$coin|_usaprice}</span>USD
+                    Your Balance:<span title="">{$coin}</span>USD
                 </div>
 				<p>
                     <label>
@@ -352,8 +350,7 @@
 		<div id="con_two_3" style="display:none;">
 			<div class="midInfo">
                 <div class="two_right">
-                    Your Balance:<span title="">{$coin}</span>CNY<br />
-                    ≈<span title="">{$coin|_usaprice}</span>USD
+                    Your Balance:<span title="">{$coin}</span>USD
                 </div>
 				<p>
                     <label>
