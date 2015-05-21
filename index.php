@@ -5,7 +5,7 @@
  * @time 2012-8-22
  * @version 1.0
  */
-define('APP_DEBUG',TRUE); // TODO false
+define('APP_DEBUG',false); // TODO false
 define('RUNTIME_PATH','./data/~cache/');
 define('THINK_PATH', './~frame/');
 define('APP_NAME', '~core');

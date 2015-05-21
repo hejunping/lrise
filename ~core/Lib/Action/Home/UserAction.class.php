@@ -244,7 +244,7 @@ class UserAction extends FrontAction{
         $account = $_POST['email'];
         $password = $_POST['password'];
         $code=$_POST['code'];
-       if($_SESSION['verify'] == md5($code)) { // TODO  !=
+       if($_SESSION['verify'] != md5($code)) { // TODO  !=
 	       $data['err']=false;
 	    }else{
 		    $map = array();
