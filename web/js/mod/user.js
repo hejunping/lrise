@@ -96,9 +96,16 @@ function DelGoods(id){
 			}
 		});
 	}
+	var ids = "";
+	for(var i=0;i<arr.length;i++) {
+		ids += arr[i] + ",";
+	}
+	if(ids) {
+		ids = ids.substring(0, ids.length-1);
+	}
 	var istrue=confirm('Are you sure you want to delete this item ?');
 	if(istrue){
-		$.post(url,{id:arr},function(data){
+		$.post(url,{id:ids},function(data){
 			if(data.res){
 				alert("Deleted successful !");
 				location.href=iurl;

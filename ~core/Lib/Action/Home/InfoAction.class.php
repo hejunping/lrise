@@ -8,7 +8,6 @@ class InfoAction extends FrontAction {
         if($res['id'] == 411 || $res['ename'] == 'sitemap') redirect (U('home/index/sitemap'));
         if($res['id'] == 416 || $res['ename'] == 'link') redirect (U('home/index/link'));
         if(in_array($res['id'], array(414,415))) redirect (U('home/index/page?id='.$res['id']));
-        
         //dump($res);
         $kk = $_POST['Key'];
         if(!empty($kk)){
