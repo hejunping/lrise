@@ -655,6 +655,11 @@ function checksub() {
     var arrChk = $("input[name='ckbGoods']");
     var ckbGoodsList = new Array();
     var item = 0;
+    
+    var info = "Waiting... ...<br/><img src='http://order.yoybuy.com/Content/images/myorder/loading2.gif' />";
+    $("#sendinfo").html(info);
+    $("#showSubCheck").dialog("option", "buttons", {});
+    return;
     $(arrChk).each(function () {
         if (true == $(this).attr('checked')) {
             ckbGoodsList.push(parseInt($(this).val(), 10));

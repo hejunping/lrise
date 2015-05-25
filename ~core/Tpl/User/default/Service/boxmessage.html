@@ -8,7 +8,6 @@
 
 	// 必须放在加载文档中  这样每次才会执行
 $(document).ready(function(){
-      
     
     if(getUrl('tab') == 1 || getUrl('tab') == null){
 		$("#two1").addClass('hover');
@@ -40,7 +39,7 @@ $(document).ready(function(){
 	
 	//弹出div层  (阅读消息)
 	$("a[id ^= 'Message']").click(function () {
-	
+		
 		$("#LoadMessage").html("Waiting... ...<br /><img src='web/images/user/loading2.gif' />");
 		$('#black_div').css({
 			'opacity':'0.9',
@@ -56,17 +55,22 @@ $(document).ready(function(){
                 if (data.news == ""){
                     $("#LoadMessage").html("No Message!");
                 }else{
-                    var html = "<h2 id='contentTitle'>" + data.news.name + "</h2><ul><li id='Contentnews'>" + data.news.info + "</li></ul><h3><a href='" + data.link + "'>View Details &gt;&gt;</a></h3>";
+                	
+                    var html = "<h2 id='contentTitle' style='padding: 12px;'>" + data.news.name + "</h2><ul><li id='Contentnews' style='word-break: break-word;padding: 12px;'>" + data.news.info + "</li></ul><h3><a href='" + data.link + "' ></a></h3>";
                       $("#load").css({
                       	'display':'block',
                       	'background':'yellow',
                       	'position':'absolute',
                       	'top':'150px',
-                      	'left':'500px',
+                      	'left':'30%',
+                      	'width': '40%',
                       	'z-index':'9999',
                       	'padding':'5px'
                       });
                      $("#LoadMessage").html(html);
+                     
+                     $('#cboxOverlay').hide();
+                     $('#colorbox').hide();
                 }
             }else{
 	            $("#LoadMessage").html("No Message!");
@@ -217,9 +221,9 @@ cursor: pointer; display:none;"></div>
     </div>
 </div>
 </div>
-<div style="display: none" id="load">
-    <div id="inline_example1" style="background:white; width: 500px; float: left;">
-        <div class="add_address_m" id="LoadMessage">
+<div style="display: none;  width: 40%;left:28%;" id="load">
+    <div id="inline_example1" style="background:white; width: 100%; float: left;">
+        <div class="add_address_m" id="LoadMessage" style="width: 100%;padding:0">
             Waiting... ...<br />
             <img src="web/images/user/loading2.gif" />
         </div>

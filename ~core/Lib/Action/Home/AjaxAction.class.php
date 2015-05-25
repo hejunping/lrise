@@ -126,16 +126,16 @@ class AjaxAction extends FrontAction{
 	public function deleGoods(){
 		$data['res']=false;
 		$id=$_POST['id'];
-        $cookie = getUserCookie ();
-		if(IS_LOGIN) 
-        {
-            $uid = getUserInfo('id');
-            $map = array('uid'=>$uid);
-            $map['_string'] = "uid = ".$uid.' or cookie = "'.$cookie."'";
-        }
-        else $map['cookie'] = $cookie;
+//         $cookie = getUserCookie ();
+// 		if(IS_LOGIN) 
+//         {
+//             $uid = getUserInfo('id');
+//             $map = array('uid'=>$uid);
+//             $map['_string'] = "uid = ".$uid.' or cookie = "'.$cookie."'";
+//         }
+//         else $map['cookie'] = $cookie;
         
-		$map['id'] = array('in',$id);
+		$map['id'] = array('in',explode(',', $id));
 		$res = M('Shopcart')->where($map)->delete();
 		if($res){
 			$data['res']=true;

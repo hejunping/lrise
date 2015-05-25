@@ -179,20 +179,20 @@ class OrderAction extends UserAction {
     //我的包裹
     public function parcels() {
         import("ORG.Util.Page");
-        if(isset($_GET['WMDateOfPayment'])){
-            $stime=strtotime($_GET['WMDateOfPayment']);
-            $stime2=strtotime($_GET['crEndDateTimeT']);
-            if($stime>$stime2){
-                $this->_error('input the wrong time');
-            }elseif($stime==$stime2){
-             $stime2=$stime+24*3600;
-             $map['ctime']=array(array('gt',$stime),array('lt',$stime2));               
-            }else{
-             $map['ctime']=array(array('gt',$stime),array('lt',$stime2));
-            }
-            }else{
-             $map['ctime']=array('gt',time()-30*24*3600);   
-            }                   
+//         if(isset($_GET['WMDateOfPayment'])){
+//             $stime=strtotime($_GET['WMDateOfPayment']);
+//             $stime2=strtotime($_GET['crEndDateTimeT']);
+//             if($stime>$stime2){
+//                 $this->_error('input the wrong time');
+//             }elseif($stime==$stime2){
+//              $stime2=$stime+24*3600;
+//              $map['ctime']=array(array('gt',$stime),array('lt',$stime2));               
+//             }else{
+//              $map['ctime']=array(array('gt',$stime),array('lt',$stime2));
+//             }
+//         }else{
+// 			$map['ctime']=array('gt',time()-30*24*3600);   
+//         }
         $map['status']=array('gt',5);
         $map['buyer']=getUserInfo('id');
         $mapcount = M('Order')->where($map)->count();
