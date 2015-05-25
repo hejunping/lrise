@@ -175,7 +175,7 @@ class UserAction extends FrontAction{
 	}
 	
 	public function pwdsave(){
-		$data['password']=$this->_post("password","trim");
+		$data['password']=md5($this->_post("password","trim"));
 		$sd=$this->_post("sd","trim");
 		$data['id']=$sd;
 		$res=M("User")->save($data);
