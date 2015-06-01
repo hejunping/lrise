@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	//翻译字典
 
 	return array(

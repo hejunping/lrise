@@ -30,7 +30,6 @@
 	var auto_translate = "{$_trans}";
 </script>
 <!-- 获取头部产品分类 -->
-<php>$catelist = catelist();</php>
 <div class="header">
         <div class="logo">
             <div class="leftlogo">
@@ -186,6 +185,7 @@
                         <dt id="cateName">{$cateName|default='Все категории '}</dt>
                         <dd style="display: none; " id="catelistname" surl="{:U('prod/Search/index')}">
                             <span><a class="0" href="javascript:void(0);" onclick="GetCateId(0,this)">Все категории </a></span>
+                            <php>$catelist = catelist();</php>
                             <volist name="catelist" id="vo">
                                <span><a class="{$key}" href="javascript:void(0);" onclick="GetCateId({$key},this)">{$vo}</a></span> 
                             </volist>
