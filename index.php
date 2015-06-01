@@ -11,5 +11,4 @@ define('THINK_PATH', './~frame/');
 define('APP_NAME', '~core');
 define('APP_PATH', './~core/');
 require(THINK_PATH."index.php");
-
 ?>
