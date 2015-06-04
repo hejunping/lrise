@@ -8,7 +8,7 @@
 
 	// 必须放在加载文档中  这样每次才会执行
 $(document).ready(function(){
-    
+   
     if(getUrl('tab') == 1 || getUrl('tab') == null){
 		$("#two1").addClass('hover');
 		$("#two2").removeClass('hover');
@@ -59,7 +59,7 @@ $(document).ready(function(){
                     var html = "<h2 id='contentTitle' style='padding: 12px;'>" + data.news.name + "</h2><ul><li id='Contentnews' style='word-break: break-word;padding: 12px;'>" + data.news.info + "</li></ul><h3><a href='" + data.link + "' ></a></h3>";
                       $("#load").css({
                       	'display':'block',
-                      	'background':'yellow',
+                      	'background':'#CBCBCB',
                       	'position':'absolute',
                       	'top':'150px',
                       	'left':'30%',
@@ -224,7 +224,7 @@ cursor: pointer; display:none;"></div>
 <div style="display: none;  width: 40%;left:28%;" id="load">
     <div id="inline_example1" style="background:white; width: 100%; float: left;">
         <div class="add_address_m" id="LoadMessage" style="width: 100%;padding:0">
-            Waiting... ...<br />
+            Waiting...<br />
             <img src="web/images/user/loading2.gif" />
         </div>
         <span  id="close_lm" class="close_hover">close</span>

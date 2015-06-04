@@ -1,4 +1,4 @@
-<include file='tpl/head_zh.html'/>
+﻿<include file='tpl/head_zh.html'/>
 <script type="text/javascript" src="web/js/mod/user/messagee/colorbox.js"></script>
 <script type="text/javascript" src="web/js/mod/user/messagee/QA.js"></script>
 <script type="text/javascript" src="web/js/mod/user/messagee/js.js"></script>
@@ -8,8 +8,7 @@
 
 	// 必须放在加载文档中  这样每次才会执行
 $(document).ready(function(){
-      
-    
+ 
     if(getUrl('tab') == 1 || getUrl('tab') == null){
 		$("#two1").addClass('hover');
 		$("#two2").removeClass('hover');
@@ -56,17 +55,22 @@ $(document).ready(function(){
                 if (data.news == ""){
                     $("#LoadMessage").html("No Message!");
                 }else{
-                    var html = "<h2 id='contentTitle'>" + data.news.name + "</h2><ul><li id='Contentnews'>" + data.news.info + "</li></ul><h3><a href='" + data.link + "'>View Details &gt;&gt;</a></h3>";
+                	
+                    var html = "<h2 id='contentTitle' style='padding: 12px;'>" + data.news.name + "</h2><ul><li id='Contentnews' style='word-break: break-word;padding: 12px;'>" + data.news.info + "</li></ul><h3><a href='" + data.link + "' ></a></h3>";
                       $("#load").css({
                       	'display':'block',
-                      	'background':'yellow',
+                      	'background':'#CBCBCB',
                       	'position':'absolute',
                       	'top':'150px',
-                      	'left':'500px',
+                      	'left':'30%',
+                      	'width': '40%',
                       	'z-index':'9999',
                       	'padding':'5px'
                       });
                      $("#LoadMessage").html(html);
+                     
+                     $('#cboxOverlay').hide();
+                     $('#colorbox').hide();
                 }
             }else{
 	            $("#LoadMessage").html("No Message!");
@@ -145,9 +149,9 @@ cursor: pointer; display:none;"></div>
 	                                </li>
 	                                <li class="m_c_d" id="Status_2065">
 	                                    <if condition="$vo.status == 0">
-	                                    Unread
+	                                    未读
 	                                    <else/>
-	                                    Read
+	                                    已读
 	                                    </if>
 	                                </li>
 	                                <li class="m_c_e"><a title='Delete' id="DelMessage_{$vo.id}" style='cursor: pointer'>
@@ -217,13 +221,13 @@ cursor: pointer; display:none;"></div>
     </div>
 </div>
 </div>
-<div style="display: none" id="load">
-    <div id="inline_example1" style="background:white; width: 500px; float: left;">
-        <div class="add_address_m" id="LoadMessage">
-            Waiting... ...<br />
+<div style="display: none;  width: 40%;left:28%;" id="load">
+    <div id="inline_example1" style="background:white; width: 100%; float: left;">
+        <div class="add_address_m" id="LoadMessage" style="width: 100%;padding:0">
+            等待...<br />
             <img src="web/images/user/loading2.gif" />
         </div>
-        <span  id="close_lm" class="close_hover">close</span>
+        <span  id="close_lm" class="close_hover">关闭</span>
     </div>
 </div>
 
