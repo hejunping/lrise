@@ -2,6 +2,13 @@
 
 class OrderAction extends UserAction {
 
+	protected  function creatno(){
+		while(true){
+			$no = date('ymdHis').rand(10, 99).rand(10,99);
+			$rs = M('PayOrder')->where('no='.$no)->find();
+			if(!$rs) return $no;
+		}
+	}
     //我的订单
     public function index() {
         $this->display();
@@ -152,6 +159,12 @@ class OrderAction extends UserAction {
         $this->assign('page', $show);
         $this->assign('res',$res);
         $this->assign('type',$type);
+        
+        if($type == 5) {
+        	$address=M("UserAddress")->order('is_def DESC,ctime DESC ')->where("uid=".getUserInfo('id'))->select();
+        	$this->assign('address',$address);
+        }
+        
         $this->display();
     }
     
@@ -212,6 +225,51 @@ class OrderAction extends UserAction {
         $this->assign("res",$res);
         $this->display();
     }
+    
+    // 打包裹
+    public function makeparcel() {
+    	$orders = $_POST['CkbFa'];
+    	
+    	foreach ($orders as $order){
+    		$map["oid"]=$order;
+    		$count = M('ParcelEntry')->where($map)->count();
+    		if($count > 0) {
+    			$this->error('Already package the orders');
+    			return;
+    		}
+    	}
+    	
+    	$addre = $_POST['address'];
+    	$address=M("UserAddress")->field('name,prov,city,area,address,pcode,phone')->where("id=".$addre)->find();
+    	$data['address']=serialize($address);
+    	$data['no']     = $this->creatno();
+    	$data['uid']    = getUserInfo('id');
+    	$data['status'] = 6;
+    	$data['ctime']  = time();
+    	$data['utime']  = time();
+    	$rs = M('Parcel')->add($data);
+    	if(rs) {
+    		foreach ($orders as $order) {
+    			// 子表
+    			$entry['oid']     = $order;
+    			$entry['ctime']   = time();
+    			$entry['parcelid'] = $rs;
+    			M('ParcelEntry')->add($entry);
+    			
+    			// 修改订单状态
+    			$tmp['status'] = 6;
+    			$res = M('Order')->where("id=".$order);
+    			$res->save($tmp);
+    			
+    			redirect(U('user/order/choosefreight?p='. $rs));
+    		}
+    		
+    		$this->display();
+    	} else {
+    		$this->error('Operation failure ！');
+    	}
+    }
+    
    //我喜欢的
     public function favorite() {
         $uid=getUserInfo('id');
@@ -244,6 +302,26 @@ class OrderAction extends UserAction {
         $this->assign('balance', $balance['coin']);
         $this->assign("total", $total);
         $this->display();
+    }
+    
+    function choosefreight() {
+    	$parcelId = $_GET['p'];
+    	$uid = getUserInfo('id');
+    	
+    	$map = array('uid'=>$uid);
+    	$map['_logic'] = "or";
+    	$map['cookie'] = getUserCookie ();
+    	$total = 0;
+    	
+    	$order = M("Order")->where("id=".$orderId)->select();
+    	if($order) {
+    		$total = $order[0]['total'];
+    	}
+    	
+    	$this->assign('oid', $orderId);
+    	$this->assign('balance', $balance['coin']);
+    	$this->assign("total", $total);
+    	$this->display();
     }
 
 }

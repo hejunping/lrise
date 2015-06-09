@@ -81,6 +81,13 @@ function GoToAccount(t){
 		
 	}
 }
+
+// 支付包裹，显示地址
+function parcelPayStep1() {
+	ishow('iaddress','iclass');
+}
+
+
 //删除
 function DelGoods(id){
 	var arr= new Array();

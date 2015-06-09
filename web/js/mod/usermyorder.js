@@ -652,62 +652,9 @@ function closedBox() {
 }
 
 function checksub() {
-    var arrChk = $("input[name='ckbGoods']");
-    var ckbGoodsList = new Array();
-    var item = 0;
-    
-    var info = "Waiting... ...<br/><img src='http://order.yoybuy.com/Content/images/myorder/loading2.gif' />";
-    $("#sendinfo").html(info);
-    $("#showSubCheck").dialog("option", "buttons", {});
-    return;
-    $(arrChk).each(function () {
-        if (true == $(this).attr('checked')) {
-            ckbGoodsList.push(parseInt($(this).val(), 10));
-            item += 1;
-        }
-    });
-    if (item == 0) {
-        alert("Please select the goods for processing");
-        return;
-    }
-    $.post('http://order.yoybuy.com/order/CheckSending',
-          $.param({ "goodsId": ckbGoodsList }, true),
-          function (data, textStatus) {
-              var info;
-              if (data == "1") {
-                  info = "No need to handle shipments of goods, check";
-              }
-              else if (data == "") {
-                  info = "Sorry, data acquisition fails, please try again later.";
-              }
-              else if (data == "2") {
-                  info = "Your balance is not sufficient,please add money to your yoybuy account soon.";
-              }
-              else if (data == "-9") {
-                  info = "Some items can not be submitted,check";
-              }
-              else if (data == "42") {
-                  info = "You can not process the order! Please contact  service department!";
-              }
-              else {
-                  info = "Waiting... ...<br/><img src='http://order.yoybuy.com/Content/images/myorder/loading2.gif' />";
-              }
-              $("#sendinfo").html(info);
-              if (data == "" || data == 1 || data == -9 || data == 42 || data == 2) {
-                  $("#showSubCheck").dialog("option", "buttons", { "OK": function () {
-                      $(this).dialog("close");
-                  }
-                  });
-              }
-              else {
-                  $("#showSubCheck").dialog("option", "buttons", {});
-                  $("#ckbGoodsList").val(ckbGoodsList);
-                  $("#thirdFrom").submit();
-              }
-              $("#showSubCheck").dialog('open');
-          }
-         );
+	$('#thirdFrom').submit();
 }
+
 $("a[id^='del_']").live("click", function () {
     var obj = $(this);
     var goodsId = $.trim(obj.attr("id").split('_')[1]);

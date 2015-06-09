@@ -1,0 +1,85 @@
+<include file='tpl/head.html'/>
+<style>
+.favorite_centers ul {
+	height: 60px;
+}
+.delivery-button {
+	display: none;
+}
+</style>
+<script type="text/javascript">
+	
+</script>
+
+<div class="daoh" id="NaviList_">
+    <div id="NaviList_" class="daoh">
+        <a href="{:U('home/index/index')}">Home</a> &nbsp;&nbsp;&gt;&nbsp;&nbsp;
+        <b><a href="{:U('user/index/index')}">My Lrise</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+        <b>Pay Parcel</b>
+    </div>
+</div>
+
+<div style="width: 980px; margin: 0 auto; clear: both;">
+<include file='Public:left' />
+	<div class="a_rside sbr">
+	    <div class="rtit">Order Items</div>
+	    <div class="bdbox">
+	        <form action="<eq name="type" value="5">{:U('user/order/parcel')}</eq>" id="thirdFrom" method="post">            
+	        	<div id="content" style="text-align: center;">
+				      <div id="orderloading">
+				          <div class="bdbox" style="width:732px;">
+				            <div class="favorite_top"  style="width:732px;">
+				                <ul>
+				                    <li class="f_t_a">
+				                        <input type="checkbox" class="f_t_input_a" name="selAll" id="selAll" checked="checked">All</li>
+				                    <li class="f_t_b" style="width:280px;">Items</li>
+				                    <li class="f_t_f">Weight</li>
+				                </ul>
+				            </div>
+				            <div id="favorite_fen">
+				            	<span>
+				                 <volist name="res" id="vo">
+				                  <div class="favorite_centers">
+			                           <div name="" style="float:left;width: 590px;" >
+			                            <volist name="vo[utime]" id="vos">
+			                            <ul>
+			                                <li class="f_c_as"> 
+			                                    </li>
+			                                <li class="f_c_bs">
+			                                    <div class="f_c_c_as">
+			                                        <img src="{$vos.pic}">
+			                                   </div>
+			                                    <div class="f_c_c_bs">
+			                                        <a  rel="translate" href="{:U('prod/detail/index?id='.$vos['pid'])}" style="overflow: hidden" target="_self" class="blue" title="" name="goodsnamein" id="goodsname1">
+			                                           {$vos.name}
+			                                        </a>
+			                                        <a id="goodsRemark1741098" title="No comment"> </a>
+			                                    </div>
+			                                </li>
+			                                <li class="f_c_fs">{$vos.freight|_usaprice}</li>
+			                            </ul>
+			                            </volist>
+			                            </div>
+			                           <div class="" style="float:left;width: 150px;">
+			                               <eq name="vo.status" value="0" ><a href="{:U('user/order/choosepay?o='.$vo['id'])}">Payment </a></eq>
+				                            <in name="vo.status" value="1,2,3,4,5">
+				                               <a href="javascript:Refund({$vo.id})"> Refund</a>
+				                            </in>
+			                           </div>
+				               		</div>
+				               		</volist>
+				            	</span>
+				            </div>
+				        </div>
+	                </div> 
+	            </div>
+	        </form>    
+	    </div>
+	</div>
+	<div class="sjjd" id="blk" style="display: none;">
+	    <div style='text-align: center; width: 100%;'>
+	        <img src='/Content/Images/MyOrder/loadingb.gif' /></div>
+	</div>
+</div>
+
+<include file="tpl/foot.html"/>
