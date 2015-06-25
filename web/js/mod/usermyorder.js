@@ -96,6 +96,9 @@ function LoadOrderData(page) {
 }
 function Jump(num) {
     var url = _MYURL+'?type=_Url_';
+	if(_MYURL.indexOf("?")){
+		url = _MYURL+'&type=_Url_';
+	}	
     var jumpUrl;
     if (num == 0) {
         jumpUrl = url.replace("_Url_", "0");

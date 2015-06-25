@@ -188,6 +188,7 @@ class IndexAction extends Action
 				'余额提现'	=>  U('admin/order/refund'),
 		        '订单退款'	=>  U('admin/order/draw'),
 				//'消费记录'	=>  U('admin/order/log'),
+				'包裹列表'	=>  U('admin/order/package'),
 				'交易流水'	=>  U('admin/order/index'),
 		        '支付接口'	=>  U('admin/pay/index')
 				

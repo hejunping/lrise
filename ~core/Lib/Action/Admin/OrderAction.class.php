@@ -578,5 +578,35 @@ public function passOffline()
 		$name = M('Pay')->where('class_name = "'.$key.'"')->field('name')->find();
 		return $name['name'];
 	}
+
+	public function package(){
+		@import('ORG.Util.Page');
+		$where = " And 1=1";
+		if(isset($_GET["status"])){
+				$status = $_GET['status'];
+				$where = "a.status = ".$status;
+		}
+		$model = M("Parcel");
+		$page  = new Page($num,15);
+		$sql   = "select a.*,b.account from iorder_parcel a left join iorder_user b on a.uid=b.id".$where." order by a.id desc limit ".$page->firstRow.",".$page->listRows;
+		$list  = $model->query($sql);
+		//print_r($list);exit;
+		$this->assign('list',$list);
+		$this->assign('page',$page->show());
+
+		$this->display('package');
+	}
+
+	public function updatepackage(){
+		@import('ORG.Util.Page');
+		$id = $_GET["id"];
+		$model = M("Parcel");
+		// 修改包裹状态
+		M('Parcel')->where('id='.$id)->save(array('status'=>7,'utime'=>time()));
+		// 修改订单状态
+		$pe = M('ParcelEntry')->where("parcelid=".$id)->find();
+		M('Order')->where("id=".$pe['oid'])->save(array('status'=>7,'utime'=>time()));
+		redirect(U('admin/order/package'));
+	}
 }
 ?>

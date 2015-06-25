@@ -57,7 +57,7 @@ function getDetail() {
     }
     else {
         $('#loadingInfo2').mask('Data calculation');
-        $.post("/index.php?m=tool&a=getdetail" + "&ran=" + Math.random(),
+        $.post("index.php?m=tool&a=getdetail" + "&ran=" + Math.random(),
         { "fireghtType": type, "countryId": countryId, "goodsCost": cost, "weight": googsWeight },
          function (data, textStatus) {
              $("#GoodsWeight1").html(data.ItemTotalWeight);
@@ -242,7 +242,7 @@ $(document).ready(function () {
             else {
                 $('#loadingInfo').mask('International shipping is query, please wait .....');
                 $.ajax({
-                    url: "/index.php?m=tool&a=getfreightestimate&ran=" + Math.random(),
+                    url: "index.php?m=tool&a=getfreightestimate&ran=" + Math.random(),
                     //url: "http://www.yoybuy.com/en/getfreightestimate" + "?ran=" + Math.random(),
                     data: "countryId=" + countryId + "&goodsWeight=" + googsWeight,
                     success: function (Jsons) {

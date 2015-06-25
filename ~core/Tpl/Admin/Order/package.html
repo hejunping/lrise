@@ -1,0 +1,67 @@
+<include file="Public:head" />
+<div class="so_main">
+	<div class="page_tit">包裹记录</div>
+	<div class="Toolbar_inbox alR">
+	<form method="GET" class="left" action="{:U('admin/order/package')}"> 
+		<a href="{:U('admin/order/package')}" class="btn_a"><span>显示全部</span></a> 
+			<select name="status">
+				<option value="-1">全部</option>
+				 <option value="6">等待付邮费</option>
+				 <option value="7">邮费已付</option>
+				 <option value="8">包裹寄出 </option>
+				 <option value="9">确认收获</option>
+				 <option value="10">评价  </option>
+				 <option value="11">完成  </option>
+				 <option value="12">放弃  </option>
+				 <option value="13">退还</option>
+				 <option value="14">退还成功</option>
+				 <option value="15">交易关闭 </option>
+			</select>&nbsp;&nbsp; <input type="submit" class="btn_b" value="查询">&nbsp;&nbsp; 
+	</form>
+	</div>
+	<div class="list">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<th class="line_l">单号</th>
+					<th class="line_l">用户</th>
+					<th class="line_l">金额</th>
+					<th class="line_l">状态</th>
+					<th class="line_l">包裹时间</th>
+					<th class="line_l">操作</th>
+				</tr>
+				<foreach name="list" item="item">
+				<tr>
+					<td>{$item.no}</td>
+					<td>{$item.account}</td>
+					<td>{$item.money}</td>
+					<td>
+						<switch name="item.status">
+							 <case value="6">等待付邮费</case>
+							 <case value="7">邮费已付</case>
+							 <case value="8">包裹寄出 </case>
+							 <case value="9">确认收获</case>
+							 <case value="10">评价  </case>
+							 <case value="11">完成  </case>
+							 <case value="12">放弃  </case>
+							 <case value="13">退还</case>
+							 <case value="14">退还成功</case>
+							 <case value="15">交易关闭 </case>
+							 <default />错误
+							 </switch>
+					</td>
+					<td>{$item.ctime|date='Y-m-d H:i:s',###}</td>
+						<if condition="$item.status eq 6">
+							<td><a href="{:U("order/updatepackage",array("id"=>$item['id']))}">设为已支付</a></td>
+						<else/>
+							<td>不可操作</td>
+						</if>
+					</td>
+				</tr>
+				</foreach>
+			</tbody>
+		</table>
+	</div>
+	<div class="Toolbar_inbox alL"> {$page}</div>
+</div>
+<include file="Public:foot" />
