@@ -9,27 +9,21 @@
 			'Transportation'=>'Инструкция по оформлению заказа',
 			'Payment & Charge'=>'Служба поддержки',
 			//网站描述---改变后重新修改翻译内容，或增加翻译字典中该字段
-			'Lrise.com is '=>'Lrise.com это ',
-			'Chinese purchasing agent. If you plan to shop online in China, We will help you purchase items from Chinese...'=>'китай Taobao покупки платформы. если ты собираешься в китайский интернет-магазин, мы поможем вам покупать вещи...',
+			'lrise.com is Chinese purchasing agent. If you plan to shop online in China, We will help you purchase items from Chinese...'=>'Lrise.com это китай Taobao покупки платформы. если ты собираешься в китайский интернет-магазин, мы поможем вам покупать вещи...',
 			//news--同上
 			'The new Lrise.com Panda '=>'новый талисман Lrise.com панда',
 			'All Lrise.com staffs will be off '=>'Все будет Lrise.com персонала',
 			'Cut half off your service fee '=>'стоимость услуг за полцены',
 			//帮助中心--焦点广告底部
-			'Place Order and Make 1st Payment'=>'
-                            Оформление заказа и первая оплата
-                        ',
+			'Place Order and Make 1st Payment'=>'Оформление заказа и первая оплата',
 			'How to add money?'=>'Как пополнить счет?',
 			'How to place orders?'=>'Как оформить заказ?',
 			'How much will you spend?'=>'Рассчитать стоимость товара?',
-			'Submit delivery and Make 2nd Payment'=>'                            Отправите посылку и оплатите пересылку
-',
+			'Submit delivery and Make 2nd Payment'=>'Отправите посылку и оплатите пересылку',
 			'How to check order status?'=>'Как проверить статус заказа?',
 			'How to submit delivery?'=>'Как оформить доставку?',
 			'Compare shipping methods'=>'Сравнить способы доставки?',
-			'Wait for Your Parcel and Confirm Reception'=>'
-                            Получите посылку
-                        ',
+			'Wait for Your Parcel and Confirm Reception'=>'Получите посылку',
 			'Track your package'=>'Отслеживание Вашей посылки',
 			'About Customs'=>'О таможне',
 			'Complaint & Claim'=>'Претензии и жалобы',
@@ -46,8 +40,8 @@
 			'Lrise provides the safest and quickest payment services such as Credit card, Western Union and Webmoney. It is safe, easy and convenient for clients to operate online. The money safety is promised by those services.'=>'Lrise обеспечивает безопасные и быстрые платежные услуги, такие как Credit card, Western Union и Webmoney. Это безопасно, легко и удобно для клиентов, чтобы работать в Интернете. Безопасность обещаны деньги на эти услуги.',
 			'Lower shipping fee'=>'Безопасная и быстрая доставка',
 			'If you send your request for packing all your articles into one parcel when submitting delivery, the shipping fee will be a lot lower. You also can enjoy our 50% discount on in international shipping by EMS.'=>'Если у вы посылаете ваши просьбу для упаковки все ваши статьи в одной посылке при представлении доставки, стоимость доставки будет много меньше. Вы можете также пользоваться нашим 50% скидку на международные перевозки по EMS.',
-			'Big benefits for Lrise VIP members'=>'Льготы для VIP клиентов Lrise',
-			'If you are wholesaler, you can become Lrise VIP members can enjoy 5% service fee.'=>'Если вы оптовик, то вы можете стать Rises VIP. VIP члены могут насладиться плату за услуги 5%.',
+			'Big benefits for lrise VIP members'=>'Льготы для VIP клиентов Lrise',
+			'If you are wholesaler,you can become Lrise VIP.VIP members can enjoy 5% service fee.'=>'Если вы оптовик, то вы можете стать Rises VIP. VIP члены могут насладиться плату за услуги 5%.',
 			'Fast and safe delivery methods'=>'Низкая стоимость доставки',
 			'As Taobao in English support service, we provide trustworthy delivery methods like DHL, EMS and China Post (Air parcel, SAL, Air mail) now. Their international delivery service is safe and fast.'=>'Это Taobao на английском службу поддержки, мы предоставляем надежные методы доставки, как DHL, EMS и China Post (Air parcel, SAL, Air mail) сейчас. Их международная служба доставки безопасно и быстро.',
 
@@ -59,8 +53,7 @@
 			'Transportation'=>'运输方式',
 			'Payment & Charge'=>'付款充值',
 			//网站描述---改变后重新修改翻译内容，或增加翻译字典中该字段
-			'Lrise.com is '=>'Lrise.com 是',
-			'Chinese purchasing agent. If you plan to shop online in China, We will help you purchase items from Chinese...'=>'中国淘宝代购平台。如果你打算在中国的网上购物,我们将帮助你从中国购物...',
+			'lrise.com is Chinese purchasing agent. If you plan to shop online in China, We will help you purchase items from Chinese...'=>'Lrise.com 是中国淘宝代购平台。如果你打算在中国购物,我们将帮助你从中国买到你想要的商品...',
 			//news--同上
 			'The new Lrise.com Panda '=>'新的Lrise.com熊猫吉祥物',
 			'All lrise.com staffs will be off '=>'所有Lrise.com人员将',
@@ -80,7 +73,7 @@
 			'Complaint & Claim'=>'投诉与索赔',
 			//首页热门商品底部帮助中心
 			'Reliable English Taobao agent'=>'可靠的淘宝代购',
-			'Lrise.com is one of the first and most professional agents providing shopping experience on Taobao in English. We assist you with buying all kinds of products offered at incredibly low price from Taobao and other Chinese online shops.'=>'Lrise.com是第一个并且最专业的提供以英文淘宝购物体验的代购公司。我们可以帮助您以令您惊艳的低价从淘宝等中国在线商店购物。',
+			'Lrise.com is one of the first and most professional agents providing shopping experience on Taobao in English. We assist you with buying all kinds of products offered at incredibly low price from Taobao and other Chinese online shops.'=>'Lrise.com是最早并且最专业的提供淘宝英语购物体验的代理平台。我们可以帮助你从淘宝和其他中国在线商店以难以置信的底价购买到你想要的商品。',
 			'Taobao with service in English language'=>'提供国际淘宝购物服务',
 			'Due to the vendors on Taobao not targeting foreign people (outside of China), Lrise.com has emerged as a shopping agent with English Taobao support. We provide Taobao products and service in English. Through us Taobao can be accessible easily by people.'=>'鉴于多数淘宝卖家并没有针对外国的客户服务，这是lrise.com应运而生。我们可以为您提供英文的服务和货物转运服务，通过我们您可以很容易地在淘宝上购物。',
 			'English quality service'=>'优质的英文服务',
@@ -91,8 +84,8 @@
 			'Lrise provides the safest and quickest payment services such as Credit card, Western Union and Webmoney. It is safe, easy and convenient for clients to operate online. The money safety is promised by those services.'=>'Lrise 提供最安全、最快捷支付服务，例如信用卡,西联和Webmoney。我们是安全的,方便客户在网上操作。这些方式可以保障您的资金安全。',
 			'Lower shipping fee'=>'更低的运费',
 			'If you send your request for packing all your articles into one parcel when submitting delivery, the shipping fee will be a lot lower. You also can enjoy our 50% discount on in international shipping by EMS.'=>'如果你提交发货请求我们把所有的货物包成一个包裹,这样运费会降低很多。而且你可以享受50%的国际EMS折扣',
-			'Big benefits for Lrise VIP members'=>'成为VIP会员的好处',
-			'If you are wholesaler, you can become Lrise VIP. VIP members can enjoy 5% service fee.'=>'如果你是批发商,你可以成为Lrise的VIP会员。VIP会员可以享受5%的服务费用。',
+			'Big benefits for lrise VIP members'=>'成为lrise的VIP会员有很多好处',
+			'If you are wholesaler, you can become Lrise VIP. VIP members can enjoy 5% service fee.'=>'如果你是批发商,你可以申请成为Lrise的VIP会员。VIP会员可以享受5%的服务费用。',
 			'Fast and safe delivery methods'=>'快速安全的运送方式',
 			'As Taobao in English support service, we provide trustworthy delivery methods like DHL, EMS and China Post (Air parcel, SAL, Air mail) now. Their international delivery service is safe and fast.'=>'作为英语的淘宝服务支持,我们提供可靠的运送方法,如DHL,EMS和中国邮政(航空大包,SAL,航空小包)。他们的国际快递服务是安全的和快速的。',
 
