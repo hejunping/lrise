@@ -84,6 +84,7 @@
 	        			<div style="margin-top: 12px;">Your Goods Cost: {$total}</div>
 	        			<form method="post" action="{:U('user/account/paybybalance')}">
 	        				<input type="hidden" name="iod" value="{$oid}"/>
+							<input type="hidden" name="type" value="{$type}"/>
 	        				<input type="submit" class="credit-submit-btn" value="Pay" style="margin-left: 0;"/>
 	        			</form>
 					<else/>
@@ -143,6 +144,7 @@
 	        			<div style="margin-top: 12px;">Your Goods Cost: {$total}</div>
 	        			<form method="post" action="{:U('user/account/paybybalance')}">
 	        				<input type="hidden" name="iod" value="{$oid}"/>
+							<input type="hidden" name="type" value="{$type}"/>
 	        				<input type="submit" class="credit-submit-btn" value="Pay" style="margin-left: 0;"/>
 	        			</form>
 					<else/>
@@ -173,6 +175,7 @@
 	        			<div style="margin-top: 12px;">Your Goods Cost: {$total}</div>
 	               		<form method="post" action="{:U('user/account/paybybalance')}">
 	        				<input type="hidden" name="oid" value="{$oid}"/>
+							<input type="hidden" name="type" value="{$type}"/>
 	        				<input type="submit" class="credit-submit-btn" value="Pay" style="margin-left: 0;"/>
 	        			</form>
 					<else/>

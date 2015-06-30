@@ -261,7 +261,7 @@ class OrderAction extends UserAction {
     			$res = M('Order')->where("id=".$order);
     			$res->save($tmp);
     			
-    			redirect(U('user/order/choosefreight?p='. $rs));
+    			redirect(U('user/order/fare?p='. $rs));
     		}
     		
     		$this->display();
@@ -284,21 +284,35 @@ class OrderAction extends UserAction {
     
     // 选择付款方式
     public function choosepay() {
-        $orderId = $_GET['o'];
+		$type = ""; // package Or Order
+		$total = 0;
+		if(isset($_GET['type'])){
+			$type = $_GET['type'];
+		}
+		if($type == "package"){
+			$orderId = $_GET['p'];
+			$parcel = M("Parcel")->where("id=".$orderId)->find();
+			if($parcel){
+				$total = $parcel['money'];
+			}
+		}else{
+		   $orderId = $_GET['o'];
+		   $order = M("Order")->where("id=".$orderId)->select();
+			if($order) {
+				$total = $order[0]['total'];
+			}
+		}
         $uid = getUserInfo('id');
         $balance = getCredit($uid);
         
         $map = array('uid'=>$uid);
         $map['_logic'] = "or";
         $map['cookie'] = getUserCookie ();
-        $total = 0;
         
-        $order = M("Order")->where("id=".$orderId)->select();
-        if($order) {
-            $total = $order[0]['total'];
-        }
+        
         
         $this->assign('oid', $orderId);
+		$this->assign('type', $type);
         $this->assign('balance', $balance['coin']);
         $this->assign("total", $total);
         $this->display();
@@ -322,6 +336,37 @@ class OrderAction extends UserAction {
     	$this->assign('balance', $balance['coin']);
     	$this->assign("total", $total);
     	$this->display();
+    }
+
+	//重量计算
+    public function fare(){
+		$weight = 0;
+		$pid = $_GET['p'];
+		$pe = M("ParcelEntry")->where("parcelid=".$pid)->select();
+		if($pe){
+			    foreach ($pe as $k=>$v) {
+					$oid = $v["oid"];
+					$order = M("Order")->where("id=".$oid)->find();
+					$wl = unserialize($order["wl"]);
+					$weight += $wl["weight"];
+				}
+		}
+
+		$this->assign('weight', $weight);
+		$this->assign('pid', $pid);
+		$this->display();
+    }
+
+
+	//重量计算
+    public function farepay(){
+		$money = $_GET['money'];
+		$pid = $_GET['pid'];
+		$fare = $_GET['fare'];
+		$data['money']=$money;
+		$data['delivery']=$fare;
+        $res=M('Parcel')->where('id='.$pid)->save($data);
+		redirect(U('user/order/choosepay',array('type'=>"package",'p'=>$pid)));
     }
 
 }

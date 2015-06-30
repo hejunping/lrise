@@ -453,40 +453,75 @@ class AccountAction extends UserAction {
      * 余额支付
      **********************************************************************************/
     public function paybybalance() {
+		$type = $_POST["type"];
         $oid = $_POST["iod"];
         $uid = getUserInfo('id');
         $credit = getCredit($uid,'coin');
-        $order = M("Order")->where("id=".$oid)->select();
-        if($order) {
-            $order = $order[0];
-            $total = $order['total'];
-            // 验证价格
-            if($total > $credit) {
-                $this->_error('balance not enough');
-            } else {
-                // 未支付
-                if($order['status'] == 0) {
-                    // 交易流水
-                    $data['no'] = $this->creatno();
-                    $data['uid'] = $uid;
-                    $data['oid'] = $oid;
-                    $data['method'] = 'Balance';
-                    $data['money']  = $total;
-                    $data['fees']  = 0;
-                    $data['ctype']  = 0;
-                    $data['status'] = 1; // 已支付
-                    $data['ctime']  = time();
-                    $rs = M('PayOrder')->add($data);
-                     
-                    if($rs){
-                        // 最终支付
-                        $this->dopay($order, $data['method']);
-                    }else{
-                        $this->_error('Create order failure !');
-                    }
-                }
-            }
-        }
+
+		if($type=="package"){
+			$parcel = M("Parcel")->where("id=".$oid)->find();
+			if($parcel) {
+				$total = $parcel['money'];
+				// 验证价格
+				if($total > $credit) {
+					$this->_error('balance not enough');
+				} else {
+					// 未支付
+					if($parcel['status'] == 6) {
+						// 交易流水
+						$data['no'] = $this->creatno();
+						$data['uid'] = $uid;
+						$data['oid'] = $oid;
+						$data['method'] = 'Balance';
+						$data['money']  = $total;
+						$data['fees']  = 0;
+						$data['ctype']  = 3;
+						$data['status'] = 1; // 已支付
+						$data['ctime']  = time();
+						$rs = M('PayOrder')->add($data);
+						 
+						if($rs){
+							// 最终支付
+							$this->dopaypackage($parcel, $data['method']);
+						}else{
+							$this->_error('Create order failure !');
+						}
+					}
+				}
+			}
+		}else{
+			$order = M("Order")->where("id=".$oid)->select();
+			if($order) {
+				$order = $order[0];
+				$total = $order['total'];
+				// 验证价格
+				if($total > $credit) {
+					$this->_error('balance not enough');
+				} else {
+					// 未支付
+					if($order['status'] == 0) {
+						// 交易流水
+						$data['no'] = $this->creatno();
+						$data['uid'] = $uid;
+						$data['oid'] = $oid;
+						$data['method'] = 'Balance';
+						$data['money']  = $total;
+						$data['fees']  = 0;
+						$data['ctype']  = 0;
+						$data['status'] = 1; // 已支付
+						$data['ctime']  = time();
+						$rs = M('PayOrder')->add($data);
+						 
+						if($rs){
+							// 最终支付
+							$this->dopay($order, $data['method']);
+						}else{
+							$this->_error('Create order failure !');
+						}
+					}
+				}
+			}
+		}
     }
     /**
      * 最终支付
@@ -516,6 +551,43 @@ class AccountAction extends UserAction {
         }
     }
 
+
+/**
+     * 最终支付包裹
+     * @param unknown $order
+     * @param unknown $payMethod
+     */
+    public function dopaypackage($package, $payMethod) {
+        // 更改包裹状态
+        $id = $package['id'];
+        $uid = $package['uid'];
+        $data['status'] = 7; // 已支付
+        $rs = M('Parcel')->where("id=".$id)->save($data);
+        
+		$pe = M('ParcelEntry')->where("parcelid=".$id)->select();
+		if($pe){
+			foreach($pe as $k=>$v){
+				// 订单状态
+				$data['status'] = 7; // 已支付
+				M('Order')->where("id=".$v["oid"])->save($data);
+			}
+		}
+
+        if($rs) {
+            if($payMethod != 'CreditCard') {
+                // 减少用户信息Credit
+                $credit = getCredit($uid,'coin');
+                $credit = $credit - $package['money'];
+                $obj['coin'] = $credit;
+                M('UserCredit')->where("uid=".$uid)->save($obj);
+            }
+            
+            // 跳转到我的订单
+            redirect(U('user/order/parcels'));
+        } else {
+        	$this->_error('Change order status failed !');
+        }
+    }
 
     /**
      * 信用卡支付接口
