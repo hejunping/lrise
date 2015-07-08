@@ -229,7 +229,7 @@ class OrderAction extends UserAction {
     // 打包裹
     public function makeparcel() {
     	$orders = $_POST['CkbFa'];
-    	
+    	//print_r($orders);exit;
     	foreach ($orders as $order){
     		$map["oid"]=$order;
     		$count = M('ParcelEntry')->where($map)->count();
@@ -259,11 +259,9 @@ class OrderAction extends UserAction {
     			// 修改订单状态
     			$tmp['status'] = 6;
     			$res = M('Order')->where("id=".$order);
-    			$res->save($tmp);
-    			
-    			redirect(U('user/order/fare?p='. $rs));
+    			$res->save($tmp);    			
     		}
-    		
+    		redirect(U('user/order/fare?p='. $rs));
     		$this->display();
     	} else {
     		$this->error('Operation failure ！');
