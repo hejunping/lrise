@@ -28,6 +28,9 @@
 					<th class="line_l">金额</th>
 					<th class="line_l">状态</th>
 					<th class="line_l">包裹时间</th>
+					<th class="line_l">重量(KG)</th>
+					<th class="line_l">快运公司</th>
+					<th class="line_l">地址</th>
 					<th class="line_l">操作</th>
 				</tr>
 				<foreach name="list" item="item">
@@ -51,6 +54,17 @@
 							 </switch>
 					</td>
 					<td>{$item.ctime|date='Y-m-d H:i:s',###}</td>
+					<td>{$item.weight}</td>
+					<td>{$item.delivery}</td>
+					<td>
+					<if condition="($item['address'] neq '')">
+						Province:{$item['address']['prov']}<br>
+						City:{$item['address']['city']}<br>
+						Area:{$item['address']['area']}<br>
+						Address{$item['address']['address']}
+						
+					</if>
+					</td>
 						<if condition="$item.status eq 6">
 							<td><a href="{:U("order/updatepackage",array("id"=>$item['id']))}">设为已支付</a></td>
 						<else/>

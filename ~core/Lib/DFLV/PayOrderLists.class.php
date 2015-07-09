@@ -16,7 +16,7 @@ class PayOrderLists extends Lists
 	public function initPay($data,$page='')
 	{
 		$opts = array(
-			'fields' => array('_s'=>'选择','no'=>'订单号','uid'=>'用户','money'=>'交易金额','fees'=>'手续费','status'=>'订单状态','method'=>'支付方式','ctime'=>'交易时间'),
+			'fields' => array('_s'=>'选择','no'=>'订单号','uid'=>'用户','money'=>'交易金额','fees'=>'手续费','status'=>'订单状态','ctype'=>'支付类型','method'=>'支付方式','ctime'=>'交易时间'),
 			'deal'   => array(
 				'_s'   => array(
 					'type'=>'html_tag',
@@ -29,7 +29,8 @@ class PayOrderLists extends Lists
 				'uid'  => array('type'=>'callback','data'=>'getUserName'),
 				'method'=> array('type'=>'switch','data'=>array('CreditCard'=>'信用卡','WesternUnion'=>'WesternUnion','WebMoney'=>'WebMoney'),'default'=>'未知'),
 				'status'=> array('type'=>'switch','data'=>array('<span class="cRed">未支付</span>','<span class="cGreen">已支付</span>','<span class="cGray">已取消</span>'),'default'=>'未知'),
-				'ctime' => array('type'=>'function','data'=>'date','para'=>array('Y-m-d H:i','###'),'pos'=>1),
+				'ctype'=> array('type'=>'switch','data'=>array('订单','提现','线下','包裹'),'default'=>'未知'),
+				'ctime'=> array('type'=>'function','data'=>'date','para'=>array('Y-m-d H:i','###'),'pos'=>1),
 				'money'=> array('type'=>'function','data'=>'_price'),
 				'fees' => array('type'=>'function','data'=>'_price'),
 				'io'   => array(

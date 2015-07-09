@@ -192,23 +192,8 @@ class OrderAction extends UserAction {
     //我的包裹
     public function parcels() {
         import("ORG.Util.Page");
-//         if(isset($_GET['WMDateOfPayment'])){
-//             $stime=strtotime($_GET['WMDateOfPayment']);
-//             $stime2=strtotime($_GET['crEndDateTimeT']);
-//             if($stime>$stime2){
-//                 $this->_error('input the wrong time');
-//             }elseif($stime==$stime2){
-//              $stime2=$stime+24*3600;
-//              $map['ctime']=array(array('gt',$stime),array('lt',$stime2));               
-//             }else{
-//              $map['ctime']=array(array('gt',$stime),array('lt',$stime2));
-//             }
-//         }else{
-// 			$map['ctime']=array('gt',time()-30*24*3600);   
-//         }
-        $map['status']=array('gt',5);
-        $map['buyer']=getUserInfo('id');
-        $mapcount = M('Order')->where($map)->count();
+        $map['uid']=getUserInfo('id');
+        $mapcount = M('Parcel')->where($map)->count();
         $Page = new Page($mapcount, 10);
         $Page->setConfig('first', 'first');
         $Page->setConfig('prev', 'previous');
@@ -216,10 +201,11 @@ class OrderAction extends UserAction {
         $Page->setConfig('last', 'last');
         $Page->setConfig('theme', '%first% %upPage%  %linkPage% %downPage% %end%');
         
-        $res=M('Order')->order("id desc")->limit($Page->firstRow . ',' . $Page->listRows)->where($map)->select();
+        $res=M('Parcel')->order("id desc")->limit($Page->firstRow . ',' . $Page->listRows)->where($map)->select();
         foreach ($res as $k=>$v) {
-            $res[$k]["wl"]=unserialize($res[$k]["wl"])  ;
+            $res[$k]["address"]=unserialize($res[$k]["address"])  ;
         }
+		//print_r($res);exit;
         $show = $Page->show();
         $this->assign('page', $show);
         $this->assign("res",$res);
@@ -361,8 +347,10 @@ class OrderAction extends UserAction {
 		$money = $_GET['money'];
 		$pid = $_GET['pid'];
 		$fare = $_GET['fare'];
+		$weight = $_GET['weight'];
 		$data['money']=$money;
 		$data['delivery']=$fare;
+		$data['weight']=$weight;
         $res=M('Parcel')->where('id='.$pid)->save($data);
 		redirect(U('user/order/choosepay',array('type'=>"package",'p'=>$pid)));
     }

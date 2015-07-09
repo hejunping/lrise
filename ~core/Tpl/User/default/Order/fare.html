@@ -22,7 +22,8 @@ width: 178px;
 	var goToPay = function(){
 		var money = $("#Dazhehou").html();
 		var fare = $("#peisong").html();
-		var url = "{:U('user/order/farepay',array('pid'=>$pid))}"+"&money="+money+"&fare="+fare;
+		var weight = {$weight};
+		var url = "{:U('user/order/farepay',array('pid'=>$pid))}"+"&money="+money+"&fare="+fare+"&weight="+weight;
 		window.location.href=url; 
 	}
 </script>

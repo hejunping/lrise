@@ -8,7 +8,7 @@
 <include file='Public:left' />
 <div class="a_rside sbr">
     <div class="rtit">
-        My Delivery Cart</div>
+        My Parcels</div>
     <div class="delivery"   >
         <div class="history_T">
             Search by Date:
@@ -48,34 +48,34 @@
                         </li>
                     </ul>
                 </div>
-                <div class="delivery_b_a_f">
-                    <ul>
-                        <li>
-                            Tracking No.</li>
-                    </ul>
-                </div>
-                <div class="delivery_b_a_c">
-                    <ul>
-                        <li>
-                            Recipient</li>
-                    </ul>
-                </div>
                 <div class="delivery_b_a_d">
                     <ul>
                         <li>
                             WT(Kg)</li>
                     </ul>
                 </div>
+				<div class="delivery_b_a_d">
+                    <ul>
+                        <li>
+                            Amount</li>
+                    </ul>
+                </div>
+				<div class="delivery_b_a_e">
+                    <ul>
+                        <li>
+                            Shopping</li>
+                    </ul>
+                </div>
+				<div class="delivery_b_a_e">
+                    <ul>
+                        <li>
+                            Address</li>
+                    </ul>
+                </div>
                 <div class="delivery_b_a_e">
                     <ul>
                         <li>
                             Status</li>
-                    </ul>
-                </div>
-                <div class="delivery_b_a_g">
-                    <ul>
-                        <li>
-                            Options</li>
                     </ul>
                 </div>
             </div>
@@ -90,14 +90,17 @@
                 <div class="delivery_b_a_b">
                     <ul><li>{$vo.utime||date="y/m/d H:i:s",###}</li> </ul>
                 </div>
-                <div class="delivery_b_a_f">
-                    <ul><li> {$vo.wl.trackingno}</li></ul>
-                </div>
-                <div class="delivery_b_a_c">
-                    <ul><li>{$vo.wl.Recipient}</li></ul>
-                </div>
                 <div class="delivery_b_a_d">
-                    <ul><li> {$vo.wl.weight}</li></ul>
+                    <ul><li> {$vo.weight}</li></ul>
+                </div>
+				<div class="delivery_b_a_d">
+                    <ul><li> {$vo.money}</li></ul>
+                </div>
+				<div class="delivery_b_a_e">
+                    <ul><li> {$vo.delivery}</li></ul>
+                </div>
+				<div class="delivery_b_a_e">
+                    <ul><li> {$vo.address.address}</li></ul>
                 </div>
                 <div class="delivery_b_a_e">
                     <ul>  <li id="status{$vo.id}"> 
@@ -122,22 +125,6 @@
                           </switch>
 
                     </li> </ul>
-                </div>
-                <div class="delivery_b_a_g">
-                    <ul>  <li> <span id="statuepay{$vo.id}">
-                         <switch name="vo.status">
-                          <case value="6"><a href="javascript:payPostage({$vo.id});">Pay postage</a>|</case>
-                          <case value="8"><a href="javascript:isReceipt({$vo.id});">Confirmation of receipt </a>|</case>
-                          <case value="9"><a href="javascript:evaluation({$vo.id});">Evaluation </a> |</case>
-                         
-                          </switch>
-                          </span> 
-                         
-                          <a href="javascript:Refund({$vo.id})">Refund </a>
-                          
-                   </li> </ul>
-                   <input type="hidden" id="wkf{$vo.id}" name="wk" value="{$vo.wl.price|_usaprice}" />
-                   <input type="hidden" id="wkfs{$vo.id}" name="wk" value="{$vo.wl.price}" />
                 </div>
             </div>
         </div>

@@ -545,8 +545,7 @@ public function passOffline()
 		if(isset($_GET['method']) && $_GET['method']) $map['method'] = $_GET['method'];
 		if(isset($_GET['start']) && $_GET['start']) $map['ctime'][] = array('egt',strtotime($_GET['start']));
 		if(isset($_GET['end']) && $_GET['end']) $map['ctime'][] = array('elt',strtotime($_GET['end'].' 23:59:59'));
-		$arr[]=0;
-		$arr[]=2;
+		$arr=array(0,1,2,3);
 		$map['ctype'] = array('in',$arr);
 		$num   =  $model->where($map)->count();
 		$page  = new Page($num,15);
@@ -590,8 +589,14 @@ public function passOffline()
 		$page  = new Page($num,15);
 		$sql   = "select a.*,b.account from iorder_parcel a left join iorder_user b on a.uid=b.id".$where." order by a.id desc limit ".$page->firstRow.",".$page->listRows;
 		$list  = $model->query($sql);
-		//print_r($list);exit;
-		$this->assign('list',$list);
+		$nlist = array();
+		foreach($list as $k=>$v){
+			$tp = $v;
+			$tp['address'] = unserialize($v["address"]);
+			$nlist[$k] = $tp;
+		}
+		//print_r($nlist);exit;
+		$this->assign('list',$nlist);
 		$this->assign('page',$page->show());
 
 		$this->display('package');
