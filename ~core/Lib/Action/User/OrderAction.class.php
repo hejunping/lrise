@@ -160,7 +160,7 @@ class OrderAction extends UserAction {
         $this->assign('res',$res);
         $this->assign('type',$type);
         
-        if($type == 5) {
+        if($type == 6) {
         	$address=M("UserAddress")->order('is_def DESC,ctime DESC ')->where("uid=".getUserInfo('id'))->select();
         	$this->assign('address',$address);
         }
