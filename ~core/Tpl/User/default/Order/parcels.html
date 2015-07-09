@@ -10,29 +10,6 @@
     <div class="rtit">
         My Parcels</div>
     <div class="delivery"   >
-        <div class="history_T">
-            Search by Date:
-        </div>
-<!--        <div class="search">-->
-<!--          <form action="/en/myparcels" id="crForm" name="crForm"-->
-<!--                method="get">-->
-<!--            <div class="search_a">-->
-<!--                <span>Start</span> -->
-<!--                <input type="text" class="s_a" name="crStartDateTimeT" id="crStartDateTimeT" value="" />-->
-<!--            </div>-->
-<!--            <div class="search_a">-->
-<!--                <span>End</span> -->
-<!--                <input type="text" class="s_a" name="crEndDateTimeT" id="crEndDateTimeT" value="" />-->
-<!--            </div>-->
-<!--          -->
-<!--            <input type="hidden" name="tab" id="tab" value="cr" />-->
-<!--            <div class="s_d">-->
-<!--               -->
-<!--                <a href="javascript:void('submit');" onclick="crsobmit();">-->
-<!--                    <img height="22" border="0" width="53" src="web/images/user/h_search_03.gif"></a>-->
-<!--            </div>-->
-<!--            </form>-->
-<!--        </div>-->
         <div class="delivery_b">
             <div class="delivery_b_a">
                 <div class="delivery_b_a_a">
@@ -105,22 +82,13 @@
                 <div class="delivery_b_a_e">
                     <ul>  <li id="status{$vo.id}"> 
                          <switch name="vo.status">
-                          <case value="0">Await Payment</case>
-                          <case value="1">Already pay</case>
-                          <case value="2">In process </case>
-                          <case value="3">Already delivery </case>
-                          <case value="4">Arrived </case>
-                          <case value="5">Storage </case>
-                          <case value="6">Wait pay postage</case>
-                          <case value="7">Await Payment</case>
+                          <case value="6">waiting pay postage</case>
+                          <case value="7">Already paid</case>
                           <case value="8">Package sent </case>
                           <case value="9">Confirm harvest  </case>
                           <case value="10">Evaluation  </case>
                           <case value="11">Complete  </case>
-                          <case value="12">Give up  </case>
-                          <case value="13">Refund</case>
-                          <case value="14">Refund successful </case>
-                          <case value="15">Trading closed </case>
+                          
                           <default />State error 
                           </switch>
 
