@@ -605,9 +605,10 @@ public function passOffline()
 	public function updatepackage(){
 		@import('ORG.Util.Page');
 		$id = $_GET["id"];
+		$status = $_GET["status"];
 		$model = M("Parcel");
 		// 修改包裹状态
-		M('Parcel')->where('id='.$id)->save(array('status'=>7,'utime'=>time()));
+		M('Parcel')->where('id='.$id)->save(array('status'=>$status,'utime'=>time()));
 		// 修改订单状态
 		$pe = M('ParcelEntry')->where("parcelid=".$id)->find();
 		M('Order')->where("id=".$pe['oid'])->save(array('status'=>7,'utime'=>time()));
