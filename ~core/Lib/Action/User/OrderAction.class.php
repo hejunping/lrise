@@ -156,14 +156,22 @@ class OrderAction extends UserAction {
            $res[$k]['utime']=M('OrderProd')->where('oid='.$res[$k]['id'])->select();
         }
         $show = $Page->show();
-        $this->assign('page', $show);
-        $this->assign('res',$res);
-        $this->assign('type',$type);
-        
-        if($type == 6) {
+
+
+		if($type == 6) {
+			foreach ($res as $k=>$v) {
+				$rs = M('ParcelEntry')->where('oid='.$res[$k]['id'])->count();
+				if($rs){
+					unset($res[$k]); 
+				}
+			}
         	$address=M("UserAddress")->order('is_def DESC,ctime DESC ')->where("uid=".getUserInfo('id'))->select();
         	$this->assign('address',$address);
         }
+
+        $this->assign('page', $show);
+        $this->assign('res',$res);
+        $this->assign('type',$type);
         
         $this->display();
     }
