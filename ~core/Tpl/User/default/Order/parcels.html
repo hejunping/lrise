@@ -12,7 +12,7 @@
     <div class="delivery"   >
         <div class="delivery_b">
             <div class="delivery_b_a">
-                <div class="delivery_b_a_a">
+                <div class="delivery_b_a_e">
                     <ul>
                         <li>
                             Parcel No.</li>
@@ -25,7 +25,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="delivery_b_a_e">
+                <div class="delivery_b_a_c">
                     <ul>
                         <li>
                             WT(Kg)</li>
@@ -55,19 +55,25 @@
                             Status</li>
                     </ul>
                 </div>
+				<div class="delivery_b_a_c">
+                    <ul>
+                        <li>
+                            Option</li>
+                    </ul>
+                </div>
             </div>
         </div>
      
   <volist name="res" id="vo">   
        <div class="delivery_d">
             <div class="delivery_b_a">
-                <div class="delivery_b_a_a">
+                <div class="delivery_b_a_e">
                     <ul><li> {$vo.id}</li></ul>
                 </div>
                 <div class="delivery_b_a_e">
                     <ul><li>{$vo.utime||date="Y/m/d H:i:s",###}</li> </ul>
                 </div>
-                <div class="delivery_b_a_e">
+                <div class="delivery_b_a_c">
                     <ul><li> {$vo.weight}</li></ul>
                 </div>
 				<div class="delivery_b_a_e">
@@ -93,6 +99,10 @@
                           </switch>
 
                     </li> </ul>
+                </div>
+				<div class="delivery_b_a_c">
+                    <ul><li>
+					<eq name="vo.status" value="6" ><a href="{:U('user/order/choosepay?type=package&p='.$vo['id'])}">pay </a></eq>					</li></ul>
                 </div>
             </div>
         </div>
