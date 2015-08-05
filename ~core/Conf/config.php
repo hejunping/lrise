@@ -17,7 +17,7 @@ $array = array(
 	
 	'ENCRYPT_CODE'		=> '1w1h0o1k1n9o61wt0h1e01e4n1cr5y8p2t1c0o0d8e2', //加密串
 	
-	'URL_MODEL'			=> 0,
+	'URL_MODEL'			=> 2,
 	'URL_PATHINFO_DEPR'	=> '-',
 	'URL_HTML_SUFFIX'	=> '.html',
 	
