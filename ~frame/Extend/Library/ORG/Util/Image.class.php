@@ -505,6 +505,8 @@ class Image {
     }
 
     static function output($im, $type='png', $filename='') {
+//     	ini_set("display_errors", "On");
+//     	error_reporting(E_ALL | E_STRICT);
         header("Content-type: image/" . $type);
         $ImageFun = 'image' . $type;
         if (empty($filename)) {
