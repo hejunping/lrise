@@ -1,11 +1,11 @@
 <?php
 /**
- * TOP API: taobao.taobaoke.items.get request
+ * TOP API: taobao.tbk.items.get request
  * 
  * @author auto create
- * @since 1.0, 2012-08-29 12:41:40
+ * @since 1.0, 2015.07.20
  */
-class TaobaokeItemsGetRequest
+class TbkItemsGetRequest
 {
 	/** 
 	 * 商品所在地
@@ -58,8 +58,7 @@ class TaobaokeItemsGetRequest
 	private $endTotalnum;
 	
 	/** 
-	 * 需返回的字段列表.可选值:num_iid,title,nick,pic_url,price,click_url,commission,commission_rate,commission_num,commission_volume,shop_click_url,seller_credit_score,item_location,volume
-;字段之间用","分隔
+	 * 需返回的字段列表.可选值:num_iid,seller_id,nick,title,volume,pic_url,item_url,shop_url;字段之间用","分隔
 	 **/
 	private $fields;
 	
@@ -69,7 +68,7 @@ class TaobaokeItemsGetRequest
 	private $guarantee;
 	
 	/** 
-	 * 标识一个应用是否来在无线或者手机应用,如果是true则会使用其他规则加密点击串.如果不穿值,则默认是false.
+	 * 标识一个应用是否来在无线或者手机应用,如果是true则会使用其他规则加密点击串.如果不传值,则默认是false.
 	 **/
 	private $isMobile;
 	
@@ -84,20 +83,9 @@ class TaobaokeItemsGetRequest
 	private $mallItem;
 	
 	/** 
-	 * 淘宝用户昵称，注：指的是淘宝的会员登录名.如果昵称错误,那么客户就收不到佣金.每个淘宝昵称都对应于一个pid，在这里输入要结算佣金的淘宝昵称，当推广的商品成功后，佣金会打入此输入的淘宝昵称的账户。具体的信息可以登入阿里妈妈的网站查看.
-<font color="red">注意nick和pid至少需要传递一个,如果2个都传了,将以pid为准</font>
-	 **/
-	private $nick;
-	
-	/** 
 	 * 是否30天维修，设置为true表示该商品是支持30天维修，设置为false或不设置表示不判断这个属性
 	 **/
 	private $onemonthRepair;
-	
-	/** 
-	 * 自定义输入串.格式:英文和数字组成;长度不能大于12个字符,区分不同的推广渠道,如:bbs,表示bbs为推广渠道;blog,表示blog为推广渠道.
-	 **/
-	private $outerCode;
 	
 	/** 
 	 * 是否海外商品，设置为true表示该商品是属于海外商品，默认为false
@@ -110,15 +98,9 @@ class TaobaokeItemsGetRequest
 	private $pageNo;
 	
 	/** 
-	 * 每页返回结果数.最大每页20
+	 * 每页返回结果数.最大每页40
 	 **/
 	private $pageSize;
-	
-	/** 
-	 * 用户的pid,必须是mm_xxxx_0_0这种格式中间的"xxxx".
-<font color="red">注意nick和pid至少需要传递一个,如果2个都传了,将以pid为准,且pid的最大长度是20</font>
-	 **/
-	private $pid;
 	
 	/** 
 	 * 是否如实描述(即:先行赔付)商品，设置为true表示该商品是如实描述的商品，设置为false或不设置表示不判断这个属性
@@ -365,17 +347,6 @@ delistTime_asc(商品下架时间从低到高)
 		return $this->mallItem;
 	}
 
-	public function setNick($nick)
-	{
-		$this->nick = $nick;
-		$this->apiParas["nick"] = $nick;
-	}
-
-	public function getNick()
-	{
-		return $this->nick;
-	}
-
 	public function setOnemonthRepair($onemonthRepair)
 	{
 		$this->onemonthRepair = $onemonthRepair;
@@ -385,17 +356,6 @@ delistTime_asc(商品下架时间从低到高)
 	public function getOnemonthRepair()
 	{
 		return $this->onemonthRepair;
-	}
-
-	public function setOuterCode($outerCode)
-	{
-		$this->outerCode = $outerCode;
-		$this->apiParas["outer_code"] = $outerCode;
-	}
-
-	public function getOuterCode()
-	{
-		return $this->outerCode;
 	}
 
 	public function setOverseasItem($overseasItem)
@@ -429,17 +389,6 @@ delistTime_asc(商品下架时间从低到高)
 	public function getPageSize()
 	{
 		return $this->pageSize;
-	}
-
-	public function setPid($pid)
-	{
-		$this->pid = $pid;
-		$this->apiParas["pid"] = $pid;
-	}
-
-	public function getPid()
-	{
-		return $this->pid;
 	}
 
 	public function setRealDescribe($realDescribe)
@@ -543,9 +492,7 @@ delistTime_asc(商品下架时间从低到高)
 
 	public function getApiMethodName()
 	{
-		//测试
-		//return "taobao.taobaoke.items.get";//原api接口
-		return "taobao.tbk.items.get";//新api接口
+		return "taobao.tbk.items.get";
 	}
 	
 	public function getApiParas()
@@ -558,7 +505,7 @@ delistTime_asc(商品下架时间从低到高)
 		
 		RequestCheckUtil::checkMaxValue($this->cid,2147483647,"cid");
 		RequestCheckUtil::checkNotNull($this->fields,"fields");
-		RequestCheckUtil::checkMaxValue($this->pageNo,1000000,"pageNo");
+		RequestCheckUtil::checkMaxValue($this->pageNo,10,"pageNo");
 		RequestCheckUtil::checkMaxValue($this->pageSize,400,"pageSize");
 	}
 	

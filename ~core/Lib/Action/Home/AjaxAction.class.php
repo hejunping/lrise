@@ -1,8 +1,14 @@
 <?php
-@import('@.ORG.Taoapi.TopClient');
-@import('@.ORG.Taoapi.RequestCheckUtil');
-@import('@.ORG.Taoapi.ItemGetRequest');
-@import('@.ORG.Taoapi.ItemcatsGetRequest');
+@import('@.ORG.Taoapi.top.TopClient');
+@import('@.ORG.Taoapi.top.RequestCheckUtil');
+@import('@.ORG.Taoapi.top.ResultSet');
+@import('@.ORG.Taoapi.top.request.TbkItemGetRequest');
+@import('@.ORG.Taoapi.top.request.TbkItemInfoGetRequest');
+// @import('@.ORG.Taoapi.TopClient');
+// @import('@.ORG.Taoapi.RequestCheckUtil');
+// @import('@.ORG.Taoapi.ItemGetRequest');
+// @import('@.ORG.Taoapi.ItemcatsGetRequest');
+// @import('@.ORG.Taoapi.TaobaokeItemsDetailGetRequest');
 class AjaxAction extends FrontAction{
     
     public function getlogin()
@@ -311,12 +317,34 @@ class AjaxAction extends FrontAction{
 		
 		$tao=getOption('tao');
 		$c = new TopClient;
+		
 		$c->appkey = $tao['AppKey'];
 		$c->secretKey =$tao['AppSecret'];
-		$req = new ItemGetRequest;
-		$req->setFields("detail_url,num_iid,title,nick,type,cid,seller_cids,props,input_pids,input_str,desc,pic_url,num,valid_thru,list_time,delist_time,stuff_status,location,price,post_fee,express_fee,ems_fee,has_discount,freight_payer,has_invoice,has_warranty,has_showcase,modified,increment,approve_status,postage_id,product_id,auction_point,property_alias,item_img,prop_img,sku,video,outer_id,is_virtual");
-		$req->setNumIid($id);
-		$resp = $c->execute($req, $sessionKey);
+		
+// 		$req = new TbkItemGetRequest;
+// 		$req->setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,user_type,provcity,item_url");
+// 		$req->setNumIids($id);
+// 		$resp = $c->execute($req);
+		
+		$req = new TbkItemInfoGetRequest;
+		$req->setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,user_type,provcity,item_url");
+// 		$req->setNumIids($id);
+		$req->setNumIids("44933459369");
+		$req->setPlatform(1);
+		$resp = $c->execute($req);
+		print_r($resp);
+		
+		// -------------------------------------------
+// 		$req = new ItemGetRequest;
+// 		$req->setField("detail_url,num_iid,title,nick,type,cid,seller_cids,props,input_pids,input_str,desc,pic_url,num,valid_thru,list_time,delist_time,stuff_status,location,price,post_fee,express_fee,ems_fee,has_discount,freight_payer,has_invoice,has_warranty,has_showcase,modified,increment,approve_status,postage_id,product_id,auction_point,property_alias,item_img,prop_img,sku,video,outer_id,is_virtual");
+// 		$req->setNumIid($id);
+// 		$resp = $c->execute($req, $sessionKey);
+		
+// 		$req = new TaobaokeItemsDetailGetRequest;
+// 		$req->setFields("detail_url,num_iid,title,nick,type,cid,seller_cids,props,input_pids,input_str,desc,pic_url,num,valid_thru,list_time,delist_time,stuff_status,location,price,post_fee,express_fee,ems_fee,has_discount,freight_payer,has_invoice,has_warranty,has_showcase,modified,increment,approve_status,postage_id,product_id,auction_point,property_alias,item_img,prop_img,sku,video,outer_id,is_virtual");
+// 		$req->setNumIids($id);
+// 		$resp = $c->execute($req);
+
 	    $res=(array)$resp->item;
 	    return $res;
 	}

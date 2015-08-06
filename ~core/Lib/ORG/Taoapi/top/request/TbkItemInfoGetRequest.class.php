@@ -1,26 +1,26 @@
 <?php
 /**
- * TOP API: taobao.items.list.get request
+ * TOP API: taobao.tbk.item.info.get request
  * 
  * @author auto create
- * @since 1.0, 2014-07-15 12:49:20
+ * @since 1.0, 2015.07.20
  */
-class ItemsListGetRequest
+class TbkItemInfoGetRequest
 {
 	/** 
-	 * 需要返回的商品对象字段。可选值：Item商品结构体中字段均可返回(除item_weight,item_size)；多个字段用“,”分隔。如果想返回整个子对象，那字段为itemimg，如果是想返回子对象里面的字段，那字段为itemimg.url。
+	 * 需返回的字段列表
 	 **/
 	private $fields;
 	
 	/** 
-	 * 商品数字id列表，多个num_iid用逗号隔开，一次不超过20个。
+	 * 商品ID串，用,分割，从taobao.tbk.item.get接口获取num_iid字段，最大40个
 	 **/
 	private $numIids;
 	
 	/** 
-	 * 商品数字id列表，多个track_iid用逗号隔开，一次不超过20个。
+	 * 链接形式：1：PC，2：无线，默认：１
 	 **/
-	private $trackIids;
+	private $platform;
 	
 	private $apiParas = array();
 	
@@ -46,20 +46,20 @@ class ItemsListGetRequest
 		return $this->numIids;
 	}
 
-	public function setTrackIids($trackIids)
+	public function setPlatform($platform)
 	{
-		$this->trackIids = $trackIids;
-		$this->apiParas["track_iids"] = $trackIids;
+		$this->platform = $platform;
+		$this->apiParas["platform"] = $platform;
 	}
 
-	public function getTrackIids()
+	public function getPlatform()
 	{
-		return $this->trackIids;
+		return $this->platform;
 	}
 
 	public function getApiMethodName()
 	{
-		return "taobao.items.list.get";
+		return "taobao.tbk.item.info.get";
 	}
 	
 	public function getApiParas()
@@ -71,6 +71,7 @@ class ItemsListGetRequest
 	{
 		
 		RequestCheckUtil::checkNotNull($this->fields,"fields");
+		RequestCheckUtil::checkNotNull($this->numIids,"numIids");
 	}
 	
 	public function putOtherTextParam($key, $value) {

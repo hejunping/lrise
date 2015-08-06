@@ -2,7 +2,7 @@
 /**
  * TOP SDK 入口文件
  * 请不要修改这个文件，除非你知道怎样修改以及怎样恢复
- * @author wuxiao
+ * @author xuteng.xt
  */
 
 /**
@@ -26,18 +26,9 @@ if (!defined("TOP_SDK_DEV_MODE"))
 {
 	define("TOP_SDK_DEV_MODE", true);
 }
-/**
- * 定义常量结束
- */
 
 /**
- * 找到lotusphp入口文件，并初始化lotusphp
- * lotusphp是一个第三方php框架，其主页在：lotusphp.googlecode.com
- */
-$lotusHome = dirname(__FILE__) . DIRECTORY_SEPARATOR . "lotusphp_runtime" . DIRECTORY_SEPARATOR;
-include($lotusHome . "Lotus.php");
-$lotus = new Lotus;
-$lotus->option["autoload_dir"] = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'top';
-$lotus->devMode = TOP_SDK_DEV_MODE;
-$lotus->defaultStoreDir = TOP_SDK_WORK_DIR;
-$lotus->init();
+* 注册autoLoader,此注册autoLoader只加载top文件
+* 不要删除，除非你自己加载文件。
+**/
+require("Autoloader.php");

@@ -1,22 +1,14 @@
 <?php
 /**
- * TOP API: taobao.itemcats.authorize.get request
+ * TOP API: taobao.shopcats.list.get request
  * 
  * @author auto create
- * @since 1.0, 2014-07-15 12:49:20
+ * @since 1.0, 2015.07.20
  */
-class ItemcatsAuthorizeGetRequest
+class ShopcatsListGetRequest
 {
 	/** 
-	 * 需要返回的字段。目前支持有：
-brand.vid, brand.name, 
-item_cat.cid, item_cat.name, item_cat.status,item_cat.sort_order,item_cat.parent_cid,item_cat.is_parent,
-xinpin_item_cat.cid, 
-xinpin_item_cat.name, 
-xinpin_item_cat.status,
-xinpin_item_cat.sort_order,
-xinpin_item_cat.parent_cid,
-xinpin_item_cat.is_parent
+	 * 需要返回的字段列表，见ShopCat，默认返回：cid,parent_cid,name,is_parent
 	 **/
 	private $fields;
 	
@@ -35,7 +27,7 @@ xinpin_item_cat.is_parent
 
 	public function getApiMethodName()
 	{
-		return "taobao.itemcats.authorize.get";
+		return "taobao.shopcats.list.get";
 	}
 	
 	public function getApiParas()
@@ -46,7 +38,6 @@ xinpin_item_cat.is_parent
 	public function check()
 	{
 		
-		RequestCheckUtil::checkNotNull($this->fields,"fields");
 	}
 	
 	public function putOtherTextParam($key, $value) {

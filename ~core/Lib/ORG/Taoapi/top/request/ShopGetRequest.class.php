@@ -1,24 +1,21 @@
 <?php
 /**
- * TOP API: taobao.itemcats.authorize.get request
+ * TOP API: taobao.shop.get request
  * 
  * @author auto create
- * @since 1.0, 2012-08-30 12:35:06
+ * @since 1.0, 2015.07.20
  */
-class ItemcatsAuthorizeGetRequest
+class ShopGetRequest
 {
 	/** 
-	 * 需要返回的字段。目前支持有：
-brand.vid, brand.name, 
-item_cat.cid, item_cat.name, item_cat.status,item_cat.sort_order,item_cat.parent_cid,item_cat.is_parent,
-xinpin_item_cat.cid, 
-xinpin_item_cat.name, 
-xinpin_item_cat.status,
-xinpin_item_cat.sort_order,
-xinpin_item_cat.parent_cid,
-xinpin_item_cat.is_parent
+	 * 需返回的字段列表。可选值：Shop 结构中的所有字段；多个字段之间用逗号(,)分隔
 	 **/
 	private $fields;
+	
+	/** 
+	 * 卖家昵称
+	 **/
+	private $nick;
 	
 	private $apiParas = array();
 	
@@ -33,9 +30,20 @@ xinpin_item_cat.is_parent
 		return $this->fields;
 	}
 
+	public function setNick($nick)
+	{
+		$this->nick = $nick;
+		$this->apiParas["nick"] = $nick;
+	}
+
+	public function getNick()
+	{
+		return $this->nick;
+	}
+
 	public function getApiMethodName()
 	{
-		return "taobao.itemcats.authorize.get";
+		return "taobao.shop.get";
 	}
 	
 	public function getApiParas()
@@ -47,6 +55,7 @@ xinpin_item_cat.is_parent
 	{
 		
 		RequestCheckUtil::checkNotNull($this->fields,"fields");
+		RequestCheckUtil::checkNotNull($this->nick,"nick");
 	}
 	
 	public function putOtherTextParam($key, $value) {
